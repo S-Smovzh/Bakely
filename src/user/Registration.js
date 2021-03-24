@@ -189,7 +189,7 @@ export default function Registration() {
         <ConfirmButton onClick={() => handleRegistration()}
                        disabled={!firstName || !lastName || !email || !telNum || !password || !passwordVerification}
                        error={animate} className='button-small-x-wide'
-                       type='button' ariaLabel={t('signUp.button.signUp')} text={t('signUp.button.signUp')}/>
+                       type='button' text={t('signUp.button.signUp')}/>
       );
     }
     return null;

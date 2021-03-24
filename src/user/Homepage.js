@@ -15,6 +15,10 @@ import {Select} from "../UI-components/select/Select";
 import AuthContext from "../context/auth/AuthContext";
 import CloseButton from "../UI-components/button/close/CloseButton";
 import {Helmet} from "react-helmet";
+import {publicLinks, userLinks} from "../utils/restLinks";
+import {logError} from "../error/errorHandler";
+import {timer} from "rxjs";
+import {userConfig} from "../utils/restApiConfigs";
 
 export default function Homepage() {
   const [t] = useTranslation();
@@ -64,78 +68,67 @@ export default function Homepage() {
   const [streetError, setStreetError] = useState('');
   const [houseNumError, setHouseNumError] = useState('');
   const [flatNumError, setFlatNumError] = useState('');
-  let lang = i18n.language;
+  let language = i18n.language;
 
   useEffect(() => {
     if (stateChange) {
-      getOrders(lang);
+      getOrders();
     }
   }, [stateChange]);
 
   useEffect(() => {
-    getOrders(lang);
+    getOrders();
     authContext.checkState();
     if (!localStorage.getItem('addresses') || !JSON.parse(localStorage.getItem('addresses'))) {
       getDeliveryAddresses();
     } else {
-      authContext.loadDeliveryAddresses();
+      timer(100).subscribe(() => authContext.loadDeliveryAddresses());
     }
   }, []);
+
+  // useEffect(()=>{
+  //   getDeliveryAddresses();
+  // }, [t]);
 
   useEffect(() => {
     _getAvailableCities();
   }, [t]);
 
   function _getAvailableCities() {
-    axios.get('http://localhost:5000/api/' + lang + '/available-cities/all')
+    axios.get(publicLinks.availableCities(language))
       .then((response) => {
         const {success, data, errors} = response.data;
         if (success && !errors) {
           setAvailableCities(data);
         }
-      }).catch((e) => console.log(e.stack));
+      }).catch((e) => logError(e));
   }
 
   function _activateAnimation(type) {
     switch (type) {
       case 'address':
         setAnimateAddressChange(true);
-        setTimeout(() => {
-          setAnimateAddressChange(false);
-        }, 400)
+        timer(600).subscribe(() => setAnimateAddressChange(false));
         break;
       case 'email':
         setAnimateEmailChange(true);
-        setTimeout(() => {
-          setAnimateEmailChange(false);
-        }, 400)
+        timer(600).subscribe(() => setAnimateEmailChange(false));
         break;
       case 'pass':
         setAnimatePasswordChange(true);
-        setTimeout(() => {
-          setAnimatePasswordChange(false);
-        }, 400)
+        timer(600).subscribe(() => setAnimatePasswordChange(false));
         break;
       case 'tel':
         setAnimateTelNumChange(true);
-        setTimeout(() => {
-          setAnimateTelNumChange(false);
-        }, 400)
+        timer(600).subscribe(() => setAnimateTelNumChange(false));
         break;
       default:
         break;
     }
   }
 
-  function getOrders(lang) {
-    axios.get('http://127.0.0.1:5000/api/protected/user/auth/' + lang + '/order/all',
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
-        }
-      })
+  function getOrders() {
+    axios.get(userLinks.orders(language), userConfig)
       .then(response => {
         const {success, errors, data} = response.data;
         if (success) {
@@ -151,7 +144,7 @@ export default function Homepage() {
             errorCode: errors.code
           });
         }
-      }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
   }
 
   function addAddress() {
@@ -161,87 +154,73 @@ export default function Homepage() {
       houseNum: Number.parseInt(houseNum),
       flatNum: Number.parseInt(flatNum)
     };
-    axios.post(
-      'http://localhost:5000/api/protected/user/auth/addresses/add',
-      address,
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
-        }
-      }
-    ).then((response) => {
-      const {success, errors} = response.data;
-      if (!success && errors) {
-        _activateAnimation('address');
-        if (errors.code === 500 || errors.code === 600) {
-          setModal({
-            ...modal,
-            internalError: true,
-            errorCode: errors.code
-          });
-        } else if (errors.code === 10) {
-          setCityError(errorHandler(errors.code));
-          setStreetError(errorHandler(errors.code));
-          setHouseNumError(errorHandler(errors.code));
-          setFlatNumError(errorHandler(errors.code));
+    axios.post(userLinks.addAddress, address, userConfig)
+      .then((response) => {
+        console.log(response)
+        const {success, errors} = response.data;
+        if (!success && errors) {
+          _activateAnimation('address');
+          if (errors.code === 500 || errors.code === 600) {
+            setModal({
+              ...modal,
+              internalError: true,
+              errorCode: errors.code
+            });
+          } else if (errors.code === 10) {
+            setCityError(errorHandler(errors.code));
+            setStreetError(errorHandler(errors.code));
+            setHouseNumError(errorHandler(errors.code));
+            setFlatNumError(errorHandler(errors.code));
+          } else {
+            if (errors.city) {
+              setCityError(errorHandler(errors.city));
+            } else {
+              setCityError(null);
+            }
+            if (errors.street) {
+              setStreetError(errorHandler(errors.street));
+            } else {
+              setStreetError(null);
+            }
+            if (errors.houseNum) {
+              setHouseNumError(errorHandler(errors.houseNum));
+            } else {
+              setHouseNumError(null);
+            }
+            if (errors.flatNum) {
+              setFlatNumError(errorHandler(errors.flatNum));
+            } else {
+              setFlatNumError(null);
+            }
+          }
         } else {
-          if (errors.city) {
-            setCityError(errorHandler(errors.city));
-          } else {
-            setCityError(null);
-          }
-          if (errors.street) {
-            setStreetError(errorHandler(errors.street));
-          } else {
-            setStreetError(null);
-          }
-          if (errors.houseNum) {
-            setHouseNumError(errorHandler(errors.houseNum));
-          } else {
-            setHouseNumError(null);
-          }
-          if (errors.flatNum) {
-            setFlatNumError(errorHandler(errors.flatNum));
-          } else {
-            setFlatNumError(null);
-          }
+          authContext.addDeliveryAddress(address);
+          setAddressSuccess(true);
+          setTimeout(() => {
+            setAddressSuccess(false);
+          }, 800)
+          setStateChange(true);
+          setTimeout(() => {
+            setStateChange(false);
+          }, 200);
+          setCity('');
+          setStreet('');
+          setHouseNum('');
+          setFlatNum('');
+          setCityError(null);
+          setStreetError(null);
+          setHouseNumError(null);
+          setFlatNumError(null);
         }
-      } else {
-        authContext.addDeliveryAddress(address);
-        setAddressSuccess(true);
-        setTimeout(() => {
-          setAddressSuccess(false);
-        }, 800)
-        setStateChange(true);
-        setTimeout(() => {
-          setStateChange(false);
-        }, 200);
-        setCity('');
-        setStreet('');
-        setHouseNum('');
-        setFlatNum('');
-        setCityError(null);
-        setStreetError(null);
-        setHouseNumError(null);
-        setFlatNumError(null);
-      }
-    }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
   }
 
   function getDeliveryAddresses() {
-    axios.get('http://localhost:5000/api/protected/user/auth/addresses/all', {
-      headers: {
-        Token: localStorage.getItem('token'),
-        'Refresh-Token': localStorage.getItem('refreshToken'),
-        withCredentials: true
-      }
-    }).then(response => {
+    axios.get(userLinks.deliveryAddresses, userConfig).then(response => {
       const {success, data, errors} = response.data;
+      console.log(response.data)
       if (success && !errors) {
         localStorage.setItem('addresses', JSON.stringify(data));
-        // setAddresses(loadDeliveryAddresses());
         authContext.loadDeliveryAddresses();
       } else {
         setModal({
@@ -250,18 +229,11 @@ export default function Homepage() {
           errorCode: errors.code
         })
       }
-    }).catch((error) => console.log(error));
+    }).catch((error) => logError(error));
   }
 
   function deleteDeliveryAddress(id) {
-    axios.delete('http://localhost:5000/api/protected/user/auth/addresses/delete/' + id,
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
-        }
-      })
+    axios.delete(userLinks.deleteDeliveryAddress(id), userConfig)
       .then(response => {
         const {success, errors} = response.data;
         if (success && !errors) {
@@ -277,7 +249,7 @@ export default function Homepage() {
             errorCode: errors.code
           })
         }
-      }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
     // axios.delete('http://localhost:5000/api/protected/user/auth/addresses/delete/' + id,
     //   {
     //     headers: {
@@ -309,19 +281,11 @@ export default function Homepage() {
   }
 
   function passwordChange() {
-    axios.post(
-      'http://localhost:5000/api/protected/user/auth/change-password',
+    axios.post(userLinks.changePassword,
       {
         oldPassword: oldPassword,
         newPassword: newPassword
-      },
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
-        }
-      }
+      }, userConfig
     ).then(async (response) => {
       const {success, errors} = response.data;
       if (!success && errors) {
@@ -357,24 +321,16 @@ export default function Homepage() {
         setOldPasswordError(null);
         setNewPasswordError(null);
       }
-    }).catch((error) => console.log(error));
+    }).catch((error) => logError(error));
   }
 
   function emailChange() {
-    axios.post(
-      'http://localhost:5000/api/protected/user/auth/change-email',
+    axios.post(userLinks.changeEmail,
       {
         oldEmail: oldEmail,
         newEmail: newEmail
-      },
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
-        }
-      }
-    ).then(async (response) => {
+      }, userConfig
+    ).then((response) => {
       const {success, errors} = response.data;
       if (!success && errors) {
         _activateAnimation('email');
@@ -409,24 +365,16 @@ export default function Homepage() {
         setOldEmailError(null);
         setNewEmailError(null);
       }
-    }).catch((error) => console.log(error));
+    }).catch((error) => logError(error));
   }
 
   function telNumChange() {
-    axios.post(
-      'http://localhost:5000/api/protected/user/auth/change-tel-num',
+    axios.post(userLinks.changeTelNum,
       {
         oldTelNum: oldTelNumPrefix + oldTelNum,
         newTelNum: newTelNumPrefix + newTelNum
-      },
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
-        }
-      }
-    ).then(async (response) => {
+      }, userConfig
+    ).then((response) => {
       const {success, errors} = response.data;
       if (!success && errors) {
         _activateAnimation('tel');
@@ -461,36 +409,28 @@ export default function Homepage() {
         setOldTelNumError(null);
         setNewTelNumError(null);
       }
-    }).catch((error) => console.log(error));
+    }).catch((error) => logError(error));
   }
 
   function searchOrder() {
-    axios.get(
-      'http://localhost:5000/api/protected/user/auth/order/keyword/' + keyword,
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
+    axios.get(userLinks.searchOrder(keyword), userConfig)
+      .then((response) => {
+        const {success, data, errors} = response.data;
+        if (!success && errors) {
+          const errors = data.errors;
+          if (errors.code === 500 || errors.code === 600) {
+            setModal({
+              ...modal,
+              internalError: true,
+              errorCode: errors.code
+            })
+          } else if (errors.code === 10) {
+            setSearchError(errorHandler(errors.code));
+          }
+        } else {
+          setOrders(data);
         }
-      }
-    ).then((response) => {
-      const {success, data, errors} = response.data;
-      if (!success && errors) {
-        const errors = data.errors;
-        if (errors.code === 500 || errors.code === 600) {
-          setModal({
-            ...modal,
-            internalError: true,
-            errorCode: errors.code
-          })
-        } else if (errors.code === 10) {
-          setSearchError(errorHandler(errors.code));
-        }
-      } else {
-        setOrders(data);
-      }
-    }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
   }
 
   const handleSearch = (event) => {
@@ -503,23 +443,21 @@ export default function Homepage() {
   };
 
   return (
-    <div className='Homepage'>
+    <div className='Homepage Nunito'>
       <Helmet>
         <title>
           Homepage
         </title>
-        <meta name="description" content="Your homepage"/>
+        <meta name="description" content="Register an account or log in if you have one to access all features."/>
       </Helmet>
       <section id='orders' className='TopBlock'>
         <section className='LeftCol'>
-          <header className='Form-Header'>
+          <header className='Form-Header Playfair'>
             <h3>{t('homepage.orders.header')}</h3>
           </header>
-          <form className='Form' method='POST'>
-            <Input tooltipId='search' inputType='search' inputName='search' autoComplete='off'
-                   inputOnBlur={(event) => handleSearch(event)} inputOnChange={(event) => handleSearch(event)}
-                   value={keyword} buttonOnClick={() => searchOrder()}/>
-          </form>
+          <Input tooltipId='search' inputType='search' inputName='search' autoComplete='off'
+                 inputOnBlur={(event) => handleSearch(event)} inputOnChange={(event) => handleSearch(event)}
+                 value={keyword} buttonOnClick={() => searchOrder()}/>
           <ul className={'Orders-List ' + (orders.size % 2 ? 'Even' : 'Odd')}>
             <li className='Orders-Header fill-width'>
               <span>Date</span>

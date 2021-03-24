@@ -61,5 +61,12 @@ export const userLinks = {
   validate: 'http://localhost:5000/api/protected/user/auth/validate',
   login: 'http://localhost:5000/api/protected/user/auth/login',
   register: 'http://localhost:5000/api/protected/user/auth/register',
-
+  orders: (language) => `http://localhost:5000/api/protected/user/auth/${language}/order/all`,
+  addAddress: 'http://localhost:5000/api/protected/user/auth/addresses/add',
+  deliveryAddresses: 'http://localhost:5000/api/protected/user/auth/addresses/all',
+  deleteDeliveryAddress: (id) => `http://localhost:5000/api/protected/user/auth/addresses/delete/${id}`,
+  changePassword: 'http://localhost:5000/api/protected/user/auth/change-password',
+  changeEmail: 'http://localhost:5000/api/protected/user/auth/change-email',
+  changeTelNum: 'http://localhost:5000/api/protected/user/auth/change-tel-num',
+  searchOrder: (keyword) => `http://localhost:5000/api/protected/user/auth/order/${keyword}`
 };

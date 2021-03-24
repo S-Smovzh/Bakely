@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {Animation} from "../../animation/Animation";
 
-export default function ConfirmButton({error, ariaLabel, className, disabled, onClick, text}) {
+export default function ConfirmButton({ariaLabel, className, disabled, error, onClick, text}) {
 
   ConfirmButton.propTypes = {
     ariaLabel: PropTypes.string.isRequired,

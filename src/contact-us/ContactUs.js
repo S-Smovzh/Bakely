@@ -225,8 +225,7 @@ export default function ContactUs() {
             if (firstNameError || lastNameError || emailError || subjectError || messageError) {
               _activateAnimation();
             }
-          }} disabled={!firstName || !lastName || !email || !subject || !message}
-                         ariaLabel={t('contactUs.button')} text={t('contactUs.button')} error={animate}/>
+          }} disabled={!firstName || !lastName || !email || !subject || !message} text={t('contactUs.button')} error={animate}/>
         </section>
       </section>
 

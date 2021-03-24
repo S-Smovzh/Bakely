@@ -133,8 +133,7 @@ export default function Login() {
             </div>
 
             <div className='Form-Button'>
-              <ConfirmButton onClick={() => handleLogin()} disabled={!email || !password} animate={animate}
-                             ariaLabel={t('ariaLabel.login')} text={t('login.button')}/>
+              <ConfirmButton onClick={() => handleLogin()} disabled={!email || !password} animate={animate} text={t('login.button')}/>
             </div>
 
             <input name='LoginCSRF' type='text' disabled={true} style={{display: 'none', visibility: 'hidden'}}/>
