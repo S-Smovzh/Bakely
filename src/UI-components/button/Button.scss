@@ -1,0 +1,267 @@
+@import "../../css/base/Extensions";
+
+button:focus-within, button:focus, button:active {
+  outline: none;
+}
+
+.button {
+  &-primary, &-secondary, &-tertiary,
+  &-success, &-warning, &-error {
+    @extend %flex;
+    @extend %flex__center;
+    @include transition(0.6);
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  &-primary {
+    color: $text-inverted;
+    background: $primary-700;
+
+    &:hover {
+      color: $text;
+      background: $primary-200;
+    }
+
+    &:active {
+      color: $text;
+      background: $primary-100;
+    }
+
+    &:focus {
+      background: $primary-500;
+    }
+
+    &:focus-visible {
+      background: $primary-500;
+    }
+
+    &:-moz-focusring {
+      background: $primary-500;
+    }
+
+    &:disabled {
+      background: $primary-700;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+
+  &-secondary {
+    color: $text;
+    background: $layout-100;
+    border: 1px solid $secondary-1000;
+
+    &:hover {
+      color: $text;
+      background: $secondary-100;
+    }
+
+    &:active {
+      color: $text;
+      background: $secondary-200;
+    }
+
+    &:focus {
+      background: $secondary-500;
+    }
+
+    &:focus-visible {
+      background: $secondary-500;
+    }
+
+    &:-moz-focusring {
+      background: $secondary-500;
+    }
+
+    &:disabled {
+      background: $layout-100;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+
+  &-tertiary {
+    color: $text-inverted;
+    background: $tertiary-700;
+
+    &:hover {
+      color: $text;
+      background: $tertiary-300;
+    }
+
+    &:active {
+      color: $text;
+      background: $tertiary-200;
+    }
+
+    &:focus {
+      background: $tertiary-400;
+    }
+
+    &:focus-visible {
+      background: $tertiary-400;
+    }
+
+    &:-moz-focusring {
+      background: $tertiary-400;
+    }
+
+    &:disabled {
+      background: $tertiary-700;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+
+  &-success {
+    color: $text;
+    background: $success-300;
+
+    &:hover {
+      background: $success-200;
+    }
+
+    &:active {
+      background: $success-100;
+    }
+
+    &:focus {
+      background: $success-400;
+    }
+
+    &:focus-visible {
+      background: $success-400;
+    }
+
+    &:-moz-focusring {
+      background: $success-400;
+    }
+
+    &:disabled {
+      background: $success-300;
+      opacity: 0.5;
+    }
+  }
+
+  &-warning {
+    color: $text;
+    background: $warning-300;
+
+    &:hover {
+      color: $text;
+      background: $warning-200;
+    }
+
+    &:active {
+      color: $text;
+      background: $warning-100;
+    }
+
+    &:focus {
+      background: $warning-400;
+    }
+
+    &:focus-visible {
+      background: $warning-400;
+    }
+
+    &:-moz-focusring {
+      background: $warning-400;
+    }
+
+    &:disabled {
+      background: $warning-300;
+      opacity: 0.5;
+    }
+  }
+
+  &-error {
+    color: $text-inverted;
+    background: $error-300;
+
+    &:hover {
+      color: $text;
+      background: $error-200;
+    }
+
+    &:active {
+      color: $text;
+      background: $error-100;
+    }
+
+    &:focus {
+      background: $error-400;
+      box-shadow: 0 0 4px 8px $secondary-800;
+    }
+
+    &:focus-visible {
+      background: $error-400;
+      box-shadow: 0 0 4px 8px $secondary-800;
+    }
+
+    &:-moz-focusring {
+      background: $error-400;
+      box-shadow: 0 0 4px 8px $secondary-800;
+    }
+
+    &:disabled {
+      background: $error-300;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+
+  &-icon {
+    width: 60px;
+    height: 60px;
+
+    &-footer {
+      width: 40px;
+      height: 40px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &-dropdown {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  &-small {
+    width: 120px;
+    height: 60px;
+
+    &-x-wide {
+      width: 200px;
+      height: 60px;
+    }
+
+    &-auto-wide {
+      height: 60px;
+      padding: 10px;
+      @include flex-flow(column nowrap);
+      @include justify-content(space-around);
+    }
+  }
+
+  &-large {
+    width: 180px;
+    height: 80px;
+
+    &-x-wide {
+      width: 260px;
+      height: 80px;
+    }
+  }
+
+  &-xl {
+    width: 260px;
+    height: 90px;
+  }
+}

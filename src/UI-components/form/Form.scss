@@ -1,0 +1,142 @@
+@import "../../css/base/Extensions";
+
+%inputCell {
+  @extend %grid;
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: 30px 46px 30px;
+}
+
+.Form {
+  position: relative;
+  @extend %grid;
+  grid-row-gap: calc(#{$standard} * 2);
+  padding: 10px;
+
+  .Form-Button {
+    @extend %flex;
+    @extend %flex__center;
+  }
+
+  .Form-Row {
+    @extend %inputCell;
+
+    &-Double {
+      @extend %grid;
+      grid-template-columns: repeat(2, minmax(10px, 1fr));
+      grid-template-rows: minmax(10px, 1fr);
+      grid-column-gap: 30px;
+
+      .Cell-First {
+        grid-area: 1/1/2/2;
+        @extend %inputCell;
+      }
+
+      .Cell-Second {
+        grid-area: 1/2/2/3;
+        @extend %inputCell;
+      }
+    }
+  }
+
+  .Form-TextareaRow {
+    @extend %grid;
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: 30px 200px 30px;
+  }
+
+  .Form-Label {
+    grid-area: 1/1/2/2;
+    @extend %flex;
+    @include align-self(flex-start);
+
+    &-Error {
+      grid-area: 3/1/4/2;
+      @include align-self(flex-start);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .Form-Input {
+    @extend %flex;
+    @include align-self(flex-start);
+  }
+}
+
+@keyframes success {
+  0% {
+    opacity: 0;
+    -moz-opacity: 1;
+    z-index: 0;
+  }
+  50% {
+    opacity: 1;
+    -moz-opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+    -moz-opacity: 1;
+    z-index: 0;
+  }
+}
+
+@keyframes container__success {
+  0% {
+    background: none;
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background: none;
+  }
+}
+
+.SVG__Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @extend %flex;
+  @extend %flex__center;
+  @include transition(1);
+  animation: 800ms container__success forwards;
+}
+
+.Success-Tick {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
+  & > * {
+    animation: 800ms success forwards;
+  }
+}
+
+.Success-Tick__Circle {
+  opacity: 0;
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  @include transition(1);
+  fill: none;
+  stroke: $success-200;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.Success-Tick__Check {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
+  -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
+  -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
+  -o-transition: stroke-dashoffset 1s 0.5s ease-out;
+  transition: stroke-dashoffset 1s 0.5s ease-out;
+  fill: none;
+  stroke: $success-200;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}

@@ -1,0 +1,52 @@
+.Checkbox-Container .Styled-Checkbox {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Checkbox-Container .Styled-Checkbox {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Checkbox-Container {
+  display: inline-block;
+  vertical-align: middle;
+}
+.Checkbox-Container .Icon {
+  fill: none;
+  stroke: white;
+  stroke-width: 3px;
+}
+.Checkbox-Container .Hidden-Checkbox {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clippath: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.Checkbox-Container .Styled-Checkbox {
+  border: 1px inset #000000;
+  background: #ffffff;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: all 150ms;
+}
+
+/*# sourceMappingURL=Checkbox.css.map */

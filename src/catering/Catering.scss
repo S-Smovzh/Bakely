@@ -1,0 +1,55 @@
+@import "../css/base/Extensions";
+
+.CateringPage {
+  @extend %grid;
+  grid-template-rows: $mainPadding 40px 1000px $mainPadding;
+  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+  & > .TopBlock {
+    grid-area: 2/2/3/3;
+    @extend %flex;
+    @extend %flex__center;
+  }
+
+  & > .MiddleBlock {
+    grid-area: 3/2/4/3;
+    @extend %flex;
+    @include align-items(center);
+    @include justify-content(space-around);
+    @include flex-flow(column nowrap);
+
+    & > .CateringOptions {
+      @extend %flex;
+      @include align-items(flex-start);
+      @include justify-content(space-around);
+
+      & > li > .Card {
+        @extend %grid;
+        grid-template-columns: 400px;
+        grid-template-rows: 250px 40px 300px;
+        grid-row-gap: 14px;
+
+        h2 {
+          @extend %textCenter;
+        }
+
+        .Overlay-Container {
+          grid-area: 1/1/2/2;
+        }
+
+        .Catering-Title {
+          grid-area: 2/1/3/2;
+          @extend %flex;
+          @extend %flex__center;
+        }
+
+        .Catering-Description {
+          grid-area: 3/1/4/2;
+          @extend %flex;
+          @extend %textJustify;
+          padding-inline: 14px;
+        }
+      }
+    }
+  }
+}

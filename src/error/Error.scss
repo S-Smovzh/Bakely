@@ -1,0 +1,22 @@
+@import "../css/base/Extensions";
+
+.ErrorPage {
+  @extend %grid;
+  grid-template-rows: $mainPadding 40px 700px $mainPadding;
+  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+  .TopBlock {
+    grid-area: 2/2/3/3;
+    @extend %flex;
+    @extend %flex__center;
+    @include flex-flow(column nowrap);
+  }
+
+  & > .MiddleBlock {
+    grid-area: 3/2/4/3;
+    @extend %flex;
+    @include align-items(center);
+    @include justify-content(space-around);
+    @include flex-flow(column nowrap);
+  }
+}

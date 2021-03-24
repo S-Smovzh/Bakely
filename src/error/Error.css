@@ -1,0 +1,49 @@
+.ErrorPage > .MiddleBlock, .ErrorPage .TopBlock {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.ErrorPage .TopBlock {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.ErrorPage {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+.ErrorPage {
+  grid-template-rows: calc(7px * 10) 40px 700px calc(7px * 10);
+  grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
+}
+.ErrorPage .TopBlock {
+  grid-area: 2/2/3/3;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+}
+.ErrorPage > .MiddleBlock {
+  grid-area: 3/2/4/3;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+}
+
+/*# sourceMappingURL=Error.css.map */

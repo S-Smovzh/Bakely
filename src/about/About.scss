@@ -1,0 +1,100 @@
+@import "../css/base/Extensions";
+
+.AboutPage {
+  @extend %grid;
+  grid-template-rows: 600px 500px 600px $mainPadding;
+  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  row-gap: $mainPadding;
+
+  .TitleWrapper {
+    @extend %flex;
+    @extend %flex__center;
+  }
+
+  .TopBlock {
+    grid-area: 1/2/2/3;
+    @extend %grid;
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: $mainPadding 40px minmax(10px, 1fr);
+
+    .TitleWrapper {
+      grid-area: 2/1/3/4;
+    }
+
+    .ImageList {
+      grid-area: 3/1/4/4;
+      @extend %flex;
+      @include flex-flow(row nowrap);
+      @include justify-content(space-between);
+      @include align-items(center);
+    }
+  }
+
+  .MiddleBlock {
+    grid-area: 2/2/3/3;
+    @extend %flex;
+    @extend %flex__center;
+
+    .Appeal {
+      @extend %flex;
+      @extend %flex__center;
+      @include flex-flow(column nowrap);
+      row-gap: 20px;
+
+      p {
+        @extend %flex;
+        @include align-self(flex-start);
+        @extend %textJustify;
+        text-indent: 40px;
+      }
+    }
+  }
+
+  .BottomBlock {
+    grid-area: 3/2/4/3;
+    @extend %flex;
+    @extend %flex__center;
+    @include flex-flow(column nowrap);
+    row-gap: 30px;
+
+    .TitleWrapper {
+      grid-area: 1/1/2/4;
+    }
+  }
+}
+
+
+/* Large desktops and laptops */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* Landscape tablets and medium desktops */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .AboutPage {
+    @extend %grid;
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+    grid-template-rows: 600px 500px 600px $mainPadding;
+    //row-gap: $mainPadding;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* Portrait phones and smaller */
+@media only screen and (max-width: 480px) {
+
+}
+
+/* Iphone 5 */
+@media only screen and (max-width: 320px) {
+
+}

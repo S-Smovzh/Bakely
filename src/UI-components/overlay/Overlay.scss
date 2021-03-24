@@ -1,0 +1,36 @@
+@import "../../css/base/Extensions";
+
+.opacity-1 {
+  opacity: 1 !important;
+}
+
+.Overlay-Container {
+  position: relative;
+  height: 100%;
+
+  &:hover .Overlay {
+    opacity: 1;
+  }
+
+  & > .Overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    @extend %flex;
+    @extend %flex__center;
+    @include flex-flow(column nowrap);
+    padding: 1rem;
+    @extend %avaWidth;
+    @extend %avaHeight;
+    @include transition(1);
+
+    & > p, span, h1, h2, h3, h4, h5, h6 {
+      color: $text-inverted !important;
+      @extend %textCenter;
+      margin: 1rem;
+    }
+  }
+}

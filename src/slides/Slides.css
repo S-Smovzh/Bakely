@@ -1,0 +1,70 @@
+.Slide .Slide-Content, .Slide .Button-Container {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Slide .Button-Container {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Slide {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+.Slide .Slide-Description, .Slide .Slide-Button, .Slide .Slide-Title, .Slide .Slide-Content {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  text-align: -ms-center;
+  text-align: -o-center;
+}
+
+.Slide {
+  grid-template-rows: repeat(5, 160px);
+  grid-template-columns: repeat(10, 140px);
+  background-color: #f0f0f0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
+}
+.Slide img {
+  z-index: 0;
+}
+.Slide .Slide-Description, .Slide .Slide-Button, .Slide .Slide-Title, .Slide .Slide-Content {
+  z-index: 1;
+}
+.Slide .Button-Container {
+  grid-area: 4/2/5/4;
+}
+.Slide .Slide-Content {
+  grid-area: 1/6/4/10;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  row-gap: calc(7px * 6);
+  padding-top: calc(7px * 16);
+}
+.Slide .Slide-Description {
+  padding-inline: calc(7px * 4);
+}
+
+/*# sourceMappingURL=Slides.css.map */

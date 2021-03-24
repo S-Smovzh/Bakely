@@ -1,0 +1,62 @@
+@import "../css/base/Extensions";
+
+.InfoPage {
+  @extend %grid;
+  grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) 140px $mainPadding;
+  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  row-gap: calc(#{$standard * 6});
+
+  .TopBlock {
+    grid-area: 2/2/3/3;
+    @extend %flex;
+    @extend %flex__center;
+  }
+
+  .MiddleBlock {
+    grid-area: 3/2/4/3;
+    @extend %flex;
+    @include flex-flow(column nowrap);
+    @include justify-content(space-between);
+    @include align-items(flex-start);
+    row-gap: 50px;
+
+    p {
+      @extend %textJustify;
+      padding: 0;
+    }
+
+    .Policy-List li {
+      box-shadow: none;
+      background: none;
+      border-radius: 0;
+      list-style-type: circle;
+      padding: 0;
+    }
+
+    ul {
+      @extend %flex;
+      @include flex-flow(column nowrap);
+      @include justify-content(space-between);
+      @include align-items(flex-start);
+      row-gap: 45px;
+
+      li {
+        @extend %flex;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-between);
+        @include align-items(flex-start);
+        row-gap: 21px;
+        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+        background: $tertiary-100;
+        color: $text;
+        padding: 18px 36px;
+        border-radius: 8px;
+
+        h2 {
+          background: linear-gradient(180deg, $primary-100 50%, $tertiary-100 50%);
+          background-position-y: 50px;
+        }
+      }
+    }
+  }
+}

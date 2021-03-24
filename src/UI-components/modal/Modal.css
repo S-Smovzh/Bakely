@@ -1,0 +1,97 @@
+.Error-Modal .modal-content .modal-body, .Error-Modal .modal-dialog .modal-body, .Error-Modal .modal-content, .Error-Modal .modal-dialog, .Modal {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Error-Modal .modal-content, .Error-Modal .modal-dialog, .Modal {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Modal {
+  width: stretch;
+  width: -webkit-fill-available;
+  height: -moz-available;
+}
+
+.Modal {
+  height: 100%;
+}
+
+.Error-Modal .modal-content .modal-body > p, .Error-Modal .modal-dialog .modal-body > p {
+  text-align: left;
+  text-align: -moz-left;
+  text-align: -webkit-left;
+}
+
+.Error-Modal .Error-Text {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  text-align: -ms-center;
+  text-align: -o-center;
+}
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out !important;
+  -moz-transition: all 0.4s ease-in-out !important;
+  -ms-transition: all 0.4s ease-in-out !important;
+  -o-transition: all 0.4s ease-in-out !important;
+}
+.Modal .modal-content {
+  border-radius: 30px;
+}
+.Modal .modal-content > * {
+  padding: 30px;
+}
+
+.Error-Modal .SVG-Image {
+  height: 500px;
+  width: auto;
+}
+.Error-Modal .SVG-Image-Pop-Up {
+  width: 260px;
+  height: auto;
+}
+.Error-Modal .Error {
+  color: #c11c24;
+}
+.Error-Modal .Error-Image {
+  width: 380px;
+}
+.Error-Modal .modal-content, .Error-Modal .modal-dialog {
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  width: 600px;
+  height: 660px;
+}
+.Error-Modal .modal-content > *, .Error-Modal .modal-dialog > * {
+  border: none;
+}
+.Error-Modal .modal-content .modal-body, .Error-Modal .modal-dialog .modal-body {
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  padding: 30px;
+}
+
+/*# sourceMappingURL=Modal.css.map */

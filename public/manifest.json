@@ -1,0 +1,29 @@
+{
+  "short_name": "Bakely App",
+  "name": "Bakely LLC E-Commerce Web App",
+  "categories": ["food", "shopping"],
+  "developer": {
+    "name": "Sergey Smovzh"
+  },
+  "homepage_url": "http://localhost:3000",
+  "icons": [
+    {
+      "src": "/img/manifest-icons/",
+      "16": "logo16.svg",
+      "24": "logo24.svg",
+      "32": "logo32.svg",
+      "48": "logo48.svg",
+      "96": "logo96.svg",
+      "144": "logo144.svg"
+    }
+  ],
+  "omnibox": {
+    "keyword": "bak"
+  },
+  "incognito": "spanning",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#711604",
+  "background_color": "#FFFCF9",
+  "version": "0.1"
+}

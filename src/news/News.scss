@@ -1,0 +1,78 @@
+@import "../css/base/Extensions";
+
+.PressRelease {
+  @extend %grid;
+  grid-template-rows: calc(#{$standard} * 4) $mainPadding minmax(10px, 1fr) $mainPadding;
+  grid-template-columns: 70px minmax(10px, 1fr) 70px;
+  row-gap: calc(#{$standard} * 6);
+
+  & > .TopBlock {
+    grid-area: 2/2/3/3;
+    @extend %flex;
+    @extend %flex__center;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:-moz-focusring {
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      text-decoration: none;
+    }
+  }
+
+  & > .MiddleBlock {
+    grid-area: 3/2/4/3;
+    @extend %flex;
+    @include justify-content(space-around);
+    @include flex-flow(row wrap);
+    row-gap: calc(#{$standard} * 6);
+    column-gap: calc(#{$standard} * 4);
+
+    .Card {
+      @extend %grid;
+      grid-template-rows: 70px 210px 140px;
+      grid-template-columns: 300px 260px;
+      box-shadow: 0 0 8px rgba(42, 8, 0, 1);
+      padding: calc(#{$standard} * 2);
+      color: $text;
+
+      &:focus {
+        box-shadow: 0 0 20px rgba(203, 134, 87, 1);
+      }
+
+      &:focus-visible {
+        box-shadow: 0 0 20px rgba(203, 134, 87, 1);
+      }
+
+      &:-moz-focusring {
+        box-shadow: 0 0 20px rgba(203, 134, 87, 1);
+      }
+
+      .Image {
+        grid-area: 1/1/4/2;
+      }
+
+      .Title {
+        grid-area: 1/2/2/3;
+      }
+
+      .Description {
+        grid-area: 2/2/4/3;
+        @extend %flex;
+        @include justify-content(flex-start);
+        @include flex-flow(column nowrap);
+        row-gap: calc(#{$standard} * 4);
+      }
+    }
+  }
+}

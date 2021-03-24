@@ -1,0 +1,717 @@
+@import "Extensions";
+
+.base {
+  position: relative;
+  @extend %grid;
+  grid-template-columns: minmax(10px, 1fr) 1400px minmax(10px, 1fr);
+  grid-template-rows: minmax(10px, 1fr);
+  gap: 0 0;
+
+  .Page-Wrapper {
+    grid-area: 1/2/2/3;
+    @extend %grid;
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: 130px 1fr 390px;
+    transition: transform 600ms ease-out;
+    transform-origin: 0 0;
+  }
+}
+
+*:disabled{
+  cursor: not-allowed;
+}
+
+main, .Cart-Page {
+  background: $layout-200;
+  @include pageMainPartShadow;
+}
+
+.Active {
+  color: $text;
+  background: $primary-100 !important;
+}
+
+.Hidden {
+  visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  width: 12px;
+  background: $primary-700;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $tertiary-300;
+  border-left: 1px solid $tertiary-600;
+}
+
+img {
+  vertical-align: unset;
+  @include user-select(none);
+}
+
+.MainBlock {
+  grid-area: 2/1/3/2;
+}
+
+.font-weight {
+  &_100 {
+    font-weight: 100 !important;
+  }
+
+  &_200 {
+    font-weight: 200 !important;
+  }
+
+  &_300 {
+    font-weight: 300 !important;
+  }
+
+  &_400 {
+    font-weight: 400 !important;
+  }
+
+  &_500 {
+    font-weight: 500 !important;
+  }
+
+  &_600 {
+    font-weight: 600 !important;
+  }
+
+  &_700 {
+    font-weight: 700 !important;
+  }
+
+  &_800 {
+    font-weight: 800 !important;
+  }
+
+  &_900 {
+    font-weight: 900 !important;
+  }
+}
+
+body {
+  background: $layout-100;
+  margin: 0;
+  padding: 0;
+  //font-family: 'Playfair Display', serif !important;
+  font-family: 'Nunito', sans-serif !important;
+  //font-family: 'Raleway', sans-serif !important;
+  overflow-x: -moz-hidden-unscrollable;
+  overflow-x: hidden;
+  -ms-overflow-x: hidden;
+  font-size: 20px;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.crossed {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: $tertiary-700;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.Playfair {
+  font-family: 'Playfair Display', serif !important;
+
+  p, a, label, button, input, blockquote {
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+.Nunito {
+  font-family: 'Nunito', sans-serif !important;
+
+  p, a, label, button, input, blockquote {
+    font-size: 20px;
+    margin: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, .h1-size {
+  font-size: 2em !important;
+  font-weight: 900;
+}
+
+h2, .h2-size {
+  font-size: 1.6em !important;
+  font-weight: 800;
+}
+
+h3, .h3-size {
+  font-size: 1.4em !important;
+  font-weight: 700;
+}
+
+h4, .h4-size {
+  font-size: 1.2em !important;
+  font-weight: 600;
+}
+
+h5, .h5-size {
+  font-size: 1.1em !important;
+  font-weight: 500;
+}
+
+h6, .h6-size {
+  font-size: 0.9em !important;
+  font-weight: 400;
+}
+
+.copyright {
+  font-size: 0.7em !important;
+  font-weight: 400;
+}
+
+.helper {
+  font-size: 0.8em !important;
+  font-weight: 400;
+}
+
+a, button {
+  transition: all 400ms ease-in-out;
+  border: none;
+  padding: 0;
+  @extend %textCenter;
+}
+
+*, *:focus, *:active {
+  outline: none;
+}
+
+.flex {
+  @extend %flex;
+}
+
+.none {
+  display: none !important;
+}
+
+.fill-height {
+  @extend %avaHeight;
+}
+
+.fill-width {
+  @extend %avaWidth;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+header > div > ul {
+  @extend %grid;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  .no-back {
+    background: none !important;
+  }
+
+  & > li {
+    @extend %flex;
+    @extend %flex__center;
+    padding: 10px;
+
+    .dropdown {
+      width: 100%;
+      height: 100%;
+      @extend %flex;
+      @extend %flex__center;
+      transition: all 400ms ease-in-out;
+    }
+
+    .dropdown > button {
+      border: none;
+      box-shadow: none;
+      outline: none;
+      border-radius: 0;
+      color: black;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .dropdown-menu {
+      border: none;
+      border-radius: 0;
+      margin: 0;
+      @extend %avaWidth;
+    }
+
+    .dropdown-item {
+      @extend %flex;
+      @extend %flex__center;
+      min-height: 60px;
+      font-size: 18px;
+    }
+
+    & > a, & > .dropdown > button {
+      text-decoration: none;
+      cursor: pointer;
+      @extend %avaWidth;
+      @extend %avaHeight;
+      @extend %flex;
+      @extend %flex__center;
+    }
+  }
+}
+
+video {
+  object-fit: fill;
+}
+
+.Navbar, h1, h2, h3, h4, h5, h6, .Footer {
+  @include user-select(none);
+}
+
+/* Large desktops and laptops */
+@media only screen and (min-width: 1200px) {
+  .Quote {
+    font-style: italic;
+    color: #555555;
+    padding: 10px 30px 10px 75px;
+    border-left: 8px solid $primary-700;
+    position: relative;
+    background: $tertiary-100;
+
+    &::before {
+      content: "\201C";
+      color: $primary-700;
+      font-size: 4em;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
+
+    &::after {
+      content: '';
+    }
+
+    cite {
+      display: block;
+      color: #333333;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 0.5em;
+      @include textRight;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-flag {
+    width: 30px;
+    border: 1px solid $tertiary-800;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+
+  .Cart-Item-Image {
+    width: 80px !important;
+    height: 80px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: $text-inverted;
+    border: 1px solid $text;
+  }
+
+  .logo-icon {
+    width: 70px;
+    height: 50px;
+  }
+
+  .categoryImage {
+    width: 650px !important;
+    height: 650px !important;
+  }
+
+  .categoryImageContainer {
+    width: 650px !important;
+    height: auto !important;
+  }
+
+  .listImage {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .Image_200_300 {
+    width: 300px !important;
+    height: 380px !important;
+  }
+
+  .listImageContainer {
+    width: 350px !important;
+    height: auto !important;
+  }
+
+  .productImage {
+    width: 400px !important;
+    height: 400px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: $text-inverted;
+    border: 1px solid $text;
+    @include transition(0.4);
+
+    &:hover {
+      filter: drop-shadow(0 0 6px $primary-700);
+    }
+  }
+
+  .productImageContainer {
+    width: 700px !important;
+    height: auto;
+  }
+
+  .similarProductImage {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .similarProductImageContainer {
+    width: 250px !important;
+    height: auto;
+  }
+
+  .Image-Width300-Height400 {
+    width: 300px !important;
+    height: 400px !important;
+  }
+
+  .Image-400-400 {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .SVG-Image {
+    height: 500px !important;
+    width: auto;
+
+    &-Pop-Up {
+      width: 260px !important;
+      height: auto;
+    }
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .base {
+    grid-template-columns: minmax(10px, 1fr) 860px minmax(10px, 1fr);
+  }
+
+  .Quote {
+    font-style: italic;
+    color: #555555;
+    padding: 10px 30px 10px 75px;
+    border-left: 8px solid $primary-700;
+    position: relative;
+    background: $tertiary-100;
+
+    &::before {
+      content: "\201C";
+      color: $primary-700;
+      font-size: 4em;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
+
+    &::after {
+      content: '';
+    }
+
+    cite {
+      display: block;
+      color: #333333;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 0.5em;
+      @include textRight;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-flag {
+    width: 30px;
+    border: 1px solid $tertiary-800;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+  .logo-icon {
+    width: 70px;
+    height: 50px;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .base {
+    grid-template-columns: minmax(10px, 1fr) minmax(700px, 800px) minmax(10px, 1fr);
+  }
+
+  .Quote {
+    font-style: italic;
+    color: #555555;
+    padding: 10px 30px 10px 75px;
+    border-left: 8px solid $primary-700;
+    position: relative;
+    background: $tertiary-100;
+
+    &::before {
+      content: "\201C";
+      color: $primary-700;
+      font-size: 4em;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
+
+    &::after {
+      content: '';
+    }
+
+    cite {
+      display: block;
+      color: #333333;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 0.5em;
+      @include textRight;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-flag {
+    width: 30px;
+    border: 1px solid $tertiary-800;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+  .logo-icon {
+    width: 70px;
+    height: 50px;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media only screen and (max-width: 768px) {
+  .base {
+    grid-template-columns: minmax(481px, 768px);
+  }
+
+  .Quote {
+    font-style: italic;
+    color: #555555;
+    padding: 10px 30px 10px 75px;
+    border-left: 8px solid $primary-700;
+    position: relative;
+    background: $tertiary-100;
+
+    &::before {
+      content: "\201C";
+      color: $primary-700;
+      font-size: 4em;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
+
+    &::after {
+      content: '';
+    }
+
+    cite {
+      display: block;
+      color: #333333;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 0.5em;
+      @include textRight;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-flag {
+    width: 30px;
+    border: 1px solid $tertiary-800;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+  .logo-icon {
+    width: 70px;
+    height: 50px;
+  }
+}
+
+/* Portrait phones and smaller */
+@media only screen and (max-width: 480px) {
+  .base {
+    grid-template-columns: minmax(321px, 480px);
+  }
+
+  .Quote {
+    font-style: italic;
+    color: #555555;
+    padding: 10px 30px 10px 75px;
+    border-left: 8px solid $primary-700;
+    position: relative;
+    background: $tertiary-100;
+
+    &::before {
+      content: "\201C";
+      color: $primary-700;
+      font-size: 4em;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
+
+    &::after {
+      content: '';
+    }
+
+    cite {
+      display: block;
+      color: #333333;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 0.5em;
+      @include textRight;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-flag {
+    width: 30px;
+    border: 1px solid $tertiary-800;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+  .logo-icon {
+    width: 70px;
+    height: 50px;
+  }
+}
+
+/* Iphone 5 */
+@media only screen and (max-width: 320px) {
+  .base {
+    grid-template-columns: minmax(10px, 320px);
+  }
+
+  .Quote {
+    font-style: italic;
+    color: #555555;
+    padding: 10px 30px 10px 75px;
+    border-left: 8px solid $primary-700;
+    position: relative;
+    background: $tertiary-100;
+
+    &::before {
+      content: "\201C";
+      color: $primary-700;
+      font-size: 4em;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
+
+    &::after {
+      content: '';
+    }
+
+    cite {
+      display: block;
+      color: $tertiary-900;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 0.5em;
+      @include textRight;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-flag {
+    width: 30px;
+    border: 1px solid $tertiary-800;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+  .logo-icon {
+    width: 70px;
+    height: 50px;
+  }
+}

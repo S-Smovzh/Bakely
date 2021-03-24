@@ -1,0 +1,60 @@
+.GalleryPage > .MiddleBlock > .Event_List > .Event > .Card .Event-Details, .GalleryPage > .MiddleBlock > .Event_List > .Event, .GalleryPage > .MiddleBlock > .Event_List, .GalleryPage > .MiddleBlock, .GalleryPage > .TopBlock {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.GalleryPage > .MiddleBlock > .Event_List > .Event > .Card .Event-Details, .GalleryPage > .MiddleBlock > .Event_List > .Event, .GalleryPage > .MiddleBlock, .GalleryPage > .TopBlock {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.GalleryPage {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+.GalleryPage {
+  grid-area: 2/2/3/3;
+  grid-template-rows: 7px 40px minmax(10px, 1fr) 7px;
+  grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
+  row-gap: calc(63px);
+}
+.GalleryPage > .TopBlock {
+  grid-area: 2/2/3/3;
+}
+.GalleryPage > .MiddleBlock {
+  grid-area: 3/2/4/3;
+}
+.GalleryPage > .MiddleBlock > .Event_List {
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  row-gap: 56px;
+}
+.GalleryPage > .MiddleBlock > .Event_List > .Event > .Card {
+  row-gap: calc(7px * 2);
+}
+.GalleryPage > .MiddleBlock > .Event_List > .Event > .Card .Event-Details {
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  row-gap: calc(7px * 2);
+}
+
+/*# sourceMappingURL=CateringGallery.css.map */

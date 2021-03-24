@@ -1,0 +1,39 @@
+.Dropdown-Menu .Dropdown-Item {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Dropdown-Menu .Dropdown-Item, .Dropdown-Menu {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Dropdown-Menu {
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  width: 60px;
+  padding-block: 8px;
+  background: #DBDDDC;
+  border-radius: 4px;
+}
+.Dropdown-Menu .Dropdown-Item {
+  margin-block: 4px;
+}
+
+/*# sourceMappingURL=LanguageButton.css.map */

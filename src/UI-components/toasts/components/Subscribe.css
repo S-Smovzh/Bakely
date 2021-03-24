@@ -1,0 +1,21 @@
+.Form-Checkbox {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Form-Checkbox {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+.Button-X-Small-Wide {
+  width: 160px;
+  height: 30px;
+}
+
+/*# sourceMappingURL=Subscribe.css.map */

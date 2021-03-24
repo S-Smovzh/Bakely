@@ -1,0 +1,95 @@
+.Careers-Page .MiddleBlock .Card > header div, .Careers-Page .MiddleBlock, .Careers-Page .TopBlock .Location-Select, .Careers-Page .TopBlock .Header {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Careers-Page .MiddleBlock .Card > header div, .Careers-Page .TopBlock .Location-Select, .Careers-Page .TopBlock .Header {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Careers-Page .MiddleBlock .Card > header, .Careers-Page .TopBlock, .Careers-Page {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+.Careers-Page .TopBlock .Header {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  text-align: -ms-center;
+  text-align: -o-center;
+}
+
+.Careers-Page {
+  grid-template-columns: 70px minmax(10px, 1fr) 70px;
+  grid-template-rows: 200px minmax(500px, 1fr) 200px;
+}
+.Careers-Page .TopBlock {
+  grid-area: 1/2/2/3;
+  grid-template-columns: 260px minmax(10px, 1fr) 260px;
+  grid-template-rows: minmax(10px, 1fr);
+}
+.Careers-Page .TopBlock .Header {
+  grid-area: 1/2/2/3;
+}
+.Careers-Page .TopBlock .Location-Select {
+  grid-area: 1/3/2/4;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+}
+.Careers-Page .MiddleBlock {
+  grid-area: 2/2/3/3;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  row-gap: 60px;
+}
+.Careers-Page .MiddleBlock .Card {
+  padding: 20px;
+  flex-basis: 380px;
+  row-gap: 30px;
+  border-radius: 10px;
+}
+.Careers-Page .MiddleBlock .Card > header {
+  grid-template-columns: minmax(10px, 1fr) 40px;
+  grid-template-rows: minmax(10px, 1fr);
+}
+.Careers-Page .MiddleBlock .Card > header h2, .Careers-Page .MiddleBlock .Card > header p {
+  max-width: 280px;
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
+  white-space: nowrap;
+  text-overflow: clip;
+}
+.Careers-Page .MiddleBlock .Card > header h2:hover, .Careers-Page .MiddleBlock .Card > header p:hover {
+  overflow-x: auto;
+}
+.Careers-Page .MiddleBlock .Card > header ::-webkit-scrollbar-thumb {
+  height: 4px;
+}
+.Careers-Page .MiddleBlock .Card > header ::-webkit-scrollbar {
+  height: 4px;
+}
+.Careers-Page .MiddleBlock .Card > header div {
+  grid-area: 1/2/2/3;
+}
+
+/*# sourceMappingURL=Careers.css.map */

@@ -1,0 +1,81 @@
+.Navbar .Navbar-Bottom .Navbar-RightRow li button, .Navbar .Navbar-Bottom .Navbar-RightRow li a, .Navbar .Navbar-Bottom .Navbar-RightRow ul, .Navbar .Navbar-Bottom .Navbar-RightRow, .Navbar .Navbar-Bottom .Navbar-LeftRow ul li a, .Navbar .Navbar-Bottom .Navbar-LeftRow ul, .Navbar .Navbar-Top > * {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Navbar .Navbar-Bottom .Navbar-RightRow li button, .Navbar .Navbar-Bottom .Navbar-RightRow li a, .Navbar .Navbar-Bottom .Navbar-LeftRow ul li a, .Navbar .Navbar-Top > * {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Navbar .Navbar-Bottom, .Navbar .Navbar-Top, .Navbar {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+.Navbar {
+  grid-area: 1/1/2/2;
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: 40px 90px;
+  z-index: 5;
+  top: 0;
+  position: sticky;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.Navbar > * {
+  padding: 0 70px;
+}
+.Navbar .Navbar-Top {
+  grid-area: 1/1/2/2;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: minmax(10px, 1fr);
+  grid-gap: 30px;
+  background: #2a0800;
+}
+.Navbar .Navbar-Bottom {
+  grid-area: 2/1/3/2;
+  grid-template-columns: 560px minmax(10px, 1fr) 285px;
+  grid-template-rows: minmax(10px, 1fr);
+  background: #FFE1C2;
+}
+.Navbar .Navbar-Bottom .Navbar-LeftRow {
+  grid-area: 1/1/2/2;
+}
+.Navbar .Navbar-Bottom .Navbar-LeftRow ul {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.Navbar .Navbar-Bottom .Navbar-RightRow {
+  grid-area: 1/3/2/4;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.Navbar .Navbar-Bottom .Navbar-RightRow ul {
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  column-gap: 15px;
+}
+.Navbar .Navbar-Bottom .Navbar-RightRow li button, .Navbar .Navbar-Bottom .Navbar-RightRow li a {
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=Navbar.css.map */

@@ -1,0 +1,188 @@
+@import "../css/base/Extensions";
+
+.Cart-Page {
+  top: 0;
+  right: 0;
+  position: fixed;
+  @extend %grid;
+  grid-template-rows: 130px minmax(10px, calc(100vh - 260px)) 70px;
+  grid-template-columns: 400px;
+  row-gap: 30px;
+  padding-inline: 20px;
+  overflow-x: hidden;
+  overflow-x: -moz-hidden-unscrollable;
+  -ms-overflow-x: hidden;
+  z-index: 999;
+  transition: transform 200ms ease-out;
+  transform-origin: 0 0;
+
+  .TopBlock {
+    grid-area: 1/1/2/2;
+    @extend %flex;
+    @extend %flex__center;
+    @extend %textCenter;
+    background: $secondary-1000;
+    color: $text-inverted;
+    margin-inline: -20px;
+  }
+
+  .MiddleBlock {
+    grid-area: 2/1/3/2;
+    @extend %flex;
+    @include align-items(center);
+    @include justify-content(space-between);
+    @include flex-flow(column nowrap);
+    row-gap: 70px;
+
+    .Cart-Products {
+      @extend %flex;
+      @include align-items(flex-start);
+      @include justify-content(space-between);
+      @include flex-flow(column nowrap);
+      row-gap: 14px;
+      overflow-y: auto;
+      -ms-overflow-y: auto;
+      overflow-x: hidden;
+      overflow-x: -moz-hidden-unscrollable;
+      -ms-overflow-x: hidden;
+
+      .Cart-Product {
+        @extend %grid;
+        grid-template-rows: 110px 4px;
+        grid-template-columns: 80px 270px 30px;
+        column-gap: 10px;
+        padding: 4px 10px;
+
+        .Product-Data-Wrapper {
+          grid-area: 1/2/2/3;
+          @extend %grid;
+          grid-template-rows: minmax(10px, 1fr);
+          grid-template-columns: 140px 75px 50px;
+
+          .Product-Data {
+            grid-area: 1/1/2/2;
+            @extend %flex;
+            @include justify-content(flex-start);
+            @include flex-flow(column nowrap);
+
+            & > ::-webkit-scrollbar {
+              width: 6px !important;
+            }
+
+            span:nth-child(1) {
+              overflow-y: auto;
+              overflow-x: hidden;
+              max-height: 52px;
+            }
+          }
+
+          .Remove-Button {
+            grid-area: 1/3/2/4;
+            justify-self: flex-end;
+          }
+
+          .Product-Image {
+            grid-area: 1/1/2/2;
+          }
+
+          .Product_Quantity {
+            grid-area: 1/2/2/3;
+            @extend %flex;
+            @include align-items(center);
+            @include justify-content(flex-start);
+            @include flex-flow(column nowrap);
+
+            & > #quantity {
+              @extend %flex;
+              @extend %flex__center;
+              height: 30px;
+              width: 30px;
+              background: $text-inverted;
+              border: 1px inset $text;
+              @extend %textCenter;
+            }
+
+            & > button {
+              height: 30px;
+              width: 30px;
+              box-shadow: none;
+
+              &:nth-child(1) {
+                border-radius: 8px 8px 0 0;
+
+                img {
+                  transform: rotateX(180deg);
+                }
+              }
+
+              &:nth-child(3) {
+                border-radius: 0 0 8px 8px;
+              }
+            }
+          }
+        }
+
+        .H-Ruler {
+          grid-area: 2/1/3/3;
+          background: $primary-700;
+          opacity: 0.8;
+          border-radius: 30px;
+          padding-right: 100px;
+        }
+      }
+    }
+
+    .Empty {
+      @extend %flex;
+      @include align-items(center);
+      @include justify-content(space-between);
+      @include flex-flow(column nowrap);
+    }
+  }
+}
+
+.Remove {
+  @include animation(remove, 400ms, ease-in, forwards);
+}
+
+@include keyframes(remove) {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  15% {
+    opacity: 0.8;
+    transform: translateX(100px);
+  }
+
+  30% {
+    opacity: 0.6;
+    transform: translateX(150px);
+  }
+
+  45% {
+    opacity: 0.5;
+    transform: translateX(200px);
+  }
+
+  60% {
+    opacity: 0.4;
+    transform: translateX(250px);
+  }
+
+  75% {
+    opacity: 0.3;
+    transform: translateX(300px);
+  }
+
+  90% {
+    opacity: 0.2;
+    transform: translateX(350px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+}

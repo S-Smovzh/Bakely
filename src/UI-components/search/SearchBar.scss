@@ -1,0 +1,31 @@
+@import "../../css/base/Extensions";
+
+.Search {
+  @extend %flex;
+  @extend %flex__center;
+  flex-flow: row nowrap;
+  width: fit-content;
+  width: -moz-fit-content;
+  height: fit-content;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+  &-Button, &-Input {
+    padding: 1rem;
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+  }
+
+  &-Button {
+    background: #6495ed;
+    transition: all .4s;
+
+    &:hover{
+      background: #3a68bc;
+    }
+
+    &:active{
+      background: #2256b5;
+    }
+  }
+}

@@ -1,0 +1,249 @@
+.Loading-Overlay-Container .Spinner p, .Loading-Overlay-Container .Spinner span, .Loading-Overlay-Container .Spinner h1, .Loading-Overlay-Container .Spinner h2, .Loading-Overlay-Container .Spinner h3, .Loading-Overlay-Container .Spinner h4, .Loading-Overlay-Container .Spinner h5, .Loading-Overlay-Container .Spinner h6, .Loading-Overlay-Container .Spinner {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  text-align: -ms-center;
+  text-align: -o-center;
+}
+
+.showOverlay {
+  transition: all 1s ease-in-out !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -ms-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+  animation: 300ms fadeIn forwards;
+}
+
+.hideOverlay {
+  transition: all 0.8s ease-in-out !important;
+  -webkit-transition: all 0.8s ease-in-out !important;
+  -moz-transition: all 0.8s ease-in-out !important;
+  -ms-transition: all 0.8s ease-in-out !important;
+  -o-transition: all 0.8s ease-in-out !important;
+  animation: 800ms fadeOut forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  10% {
+    opacity: 0.1;
+    visibility: visible;
+  }
+  20% {
+    opacity: 0.2;
+    visibility: visible;
+  }
+  30% {
+    opacity: 0.3;
+    visibility: visible;
+  }
+  40% {
+    opacity: 0.4;
+    visibility: visible;
+  }
+  50% {
+    opacity: 0.5;
+    visibility: visible;
+  }
+  60% {
+    opacity: 0.6;
+    visibility: visible;
+  }
+  70% {
+    opacity: 0.7;
+    visibility: visible;
+  }
+  80% {
+    opacity: 0.8;
+    visibility: visible;
+  }
+  90% {
+    opacity: 0.9;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  10% {
+    opacity: 0.9;
+    visibility: visible;
+  }
+  20% {
+    opacity: 0.8;
+    visibility: visible;
+  }
+  30% {
+    opacity: 0.7;
+    visibility: visible;
+  }
+  40% {
+    opacity: 0.6;
+    visibility: visible;
+  }
+  50% {
+    opacity: 0.5;
+    visibility: visible;
+  }
+  60% {
+    opacity: 0.4;
+    visibility: visible;
+  }
+  70% {
+    opacity: 0.3;
+    visibility: visible;
+  }
+  80% {
+    opacity: 0.2;
+    visibility: visible;
+  }
+  90% {
+    opacity: 0.1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+.Loading-Overlay-Container {
+  position: relative;
+}
+.Loading-Overlay-Container .Spinner {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-size: 1.2em;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 4;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+}
+.Loading-Overlay-Container .Spinner p, .Loading-Overlay-Container .Spinner span, .Loading-Overlay-Container .Spinner h1, .Loading-Overlay-Container .Spinner h2, .Loading-Overlay-Container .Spinner h3, .Loading-Overlay-Container .Spinner h4, .Loading-Overlay-Container .Spinner h5, .Loading-Overlay-Container .Spinner h6 {
+  color: #ffffff !important;
+  margin: 1rem;
+}
+.Loading-Overlay-Container .Spinner svg.spinner {
+  width: 86px;
+  height: 86px;
+  x: 0px;
+  y: 0px;
+  viewBox: 0 0 86 86;
+}
+.Loading-Overlay-Container .Spinner svg.spinner circle {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 270.04;
+  -webkit-transform-origin: 43px 43px 0;
+  -moz-transform-origin: 43px 43px 0;
+  -ms-transform-origin: 43px 43px 0;
+  -o-transform-origin: 43px 43px 0;
+  transform-origin: 43px 43px 0;
+  -webkit-animation: spinner 2s linear infinite;
+  -moz-animation: spinner 2s linear infinite;
+  -ms-animation: spinner 2s linear infinite;
+  -o-animation: spinner 2s linear infinite;
+  animation: spinner 2s linear infinite;
+}
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    stroke-dashoffset: 56.76;
+  }
+  50% {
+    -webkit-transform: rotate(720deg);
+    stroke-dashoffset: 270.04;
+  }
+  100% {
+    -webkit-transform: rotate(1080deg);
+    stroke-dashoffset: 56.76;
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    stroke-dashoffset: 56.76;
+  }
+  50% {
+    -moz-transform: rotate(720deg);
+    stroke-dashoffset: 270.04;
+  }
+  100% {
+    -moz-transform: rotate(1080deg);
+    stroke-dashoffset: 56.76;
+  }
+}
+@-ms-keyframes spinner {
+  0% {
+    -ms-transform: rotate(0deg);
+    stroke-dashoffset: 56.76;
+  }
+  50% {
+    -ms-transform: rotate(720deg);
+    stroke-dashoffset: 270.04;
+  }
+  100% {
+    -ms-transform: rotate(1080deg);
+    stroke-dashoffset: 56.76;
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -o-transform: rotate(0deg);
+    stroke-dashoffset: 56.76;
+  }
+  50% {
+    -o-transform: rotate(720deg);
+    stroke-dashoffset: 270.04;
+  }
+  100% {
+    -o-transform: rotate(1080deg);
+    stroke-dashoffset: 56.76;
+  }
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+    stroke-dashoffset: 56.76;
+  }
+  50% {
+    transform: rotate(720deg);
+    stroke-dashoffset: 270.04;
+  }
+  100% {
+    transform: rotate(1080deg);
+    stroke-dashoffset: 56.76;
+  }
+}
+
+/*# sourceMappingURL=LoadingOverlay.css.map */

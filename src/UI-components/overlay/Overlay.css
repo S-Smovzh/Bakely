@@ -1,0 +1,72 @@
+.Overlay-Container > .Overlay {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Overlay-Container > .Overlay {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Overlay-Container > .Overlay {
+  width: stretch;
+  width: -webkit-fill-available;
+  height: -moz-available;
+}
+
+.Overlay-Container > .Overlay {
+  height: 100%;
+}
+
+.Overlay-Container > .Overlay > p, .Overlay-Container > .Overlay span, .Overlay-Container > .Overlay h1, .Overlay-Container > .Overlay h2, .Overlay-Container > .Overlay h3, .Overlay-Container > .Overlay h4, .Overlay-Container > .Overlay h5, .Overlay-Container > .Overlay h6 {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  text-align: -ms-center;
+  text-align: -o-center;
+}
+
+.opacity-1 {
+  opacity: 1 !important;
+}
+
+.Overlay-Container {
+  position: relative;
+  height: 100%;
+}
+.Overlay-Container:hover .Overlay {
+  opacity: 1;
+}
+.Overlay-Container > .Overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  padding: 1rem;
+  transition: all 1s ease-in-out !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -ms-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+}
+.Overlay-Container > .Overlay > p, .Overlay-Container > .Overlay span, .Overlay-Container > .Overlay h1, .Overlay-Container > .Overlay h2, .Overlay-Container > .Overlay h3, .Overlay-Container > .Overlay h4, .Overlay-Container > .Overlay h5, .Overlay-Container > .Overlay h6 {
+  color: #ffffff !important;
+  margin: 1rem;
+}
+
+/*# sourceMappingURL=Overlay.css.map */

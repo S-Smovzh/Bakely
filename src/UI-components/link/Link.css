@@ -1,0 +1,131 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+a:focus {
+  text-decoration: underline;
+}
+a:focus-visible {
+  text-decoration: underline;
+}
+a:-moz-focusring {
+  text-decoration: underline;
+}
+a:focus-within {
+  text-decoration: underline;
+}
+a:disabled {
+  text-decoration: none;
+}
+
+.Link {
+  color: #ffffff;
+}
+.Link:hover {
+  color: #FFE1C2;
+}
+.Link:active {
+  color: #FFEDDB;
+}
+.Link:focus {
+  color: #FA5B3D;
+}
+.Link:focus-visible {
+  color: #FA5B3D;
+}
+.Link:-moz-focusring {
+  color: #FA5B3D;
+}
+.Link:focus-within {
+  outline: none;
+}
+
+.Primary-Link {
+  color: #5e1304;
+}
+.Primary-Link:hover {
+  color: #D43819;
+}
+.Primary-Link:active {
+  color: #E74A2B;
+}
+.Primary-Link:focus {
+  color: #BD2608;
+}
+.Primary-Link:focus-visible {
+  color: #BD2608;
+}
+.Primary-Link:-moz-focusring {
+  color: #BD2608;
+}
+.Primary-Link:disabled {
+  opacity: 0.5;
+}
+
+.Secondary-Link {
+  color: #ffffff;
+}
+.Secondary-Link:hover {
+  color: #723b20;
+}
+.Secondary-Link:active {
+  color: #965430;
+}
+.Secondary-Link:focus {
+  color: #4e2210;
+}
+.Secondary-Link:focus-visible {
+  color: #4e2210;
+}
+.Secondary-Link:-moz-focusring {
+  color: #4e2210;
+}
+.Secondary-Link:disabled {
+  opacity: 0.5;
+}
+
+.Footer-Link {
+  color: #000000;
+}
+.Footer-Link:hover {
+  color: #FA5B3D;
+}
+.Footer-Link:active {
+  color: #ff8771;
+}
+.Footer-Link:focus {
+  color: #BD2608;
+}
+.Footer-Link:focus-visible {
+  color: #BD2608;
+}
+.Footer-Link:-moz-focusring {
+  color: #BD2608;
+}
+.Footer-Link:disabled {
+  opacity: 0.5;
+}
+
+.SkipLink {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.SkipLink:focus {
+  transform: translateY(0);
+  opacity: 1;
+}
+.SkipLink:focus-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.SkipLink:-moz-focusring {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/*# sourceMappingURL=Link.css.map */

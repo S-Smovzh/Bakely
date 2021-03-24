@@ -1,0 +1,33 @@
+@import "../css/base/Extensions";
+
+.ArticlePage {
+  @extend %grid;
+  grid-template-rows: calc(#{$standard} * 4) calc(#{$standard} * 16) minmax(200px, 1fr) $mainPadding;
+  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  row-gap: calc(#{$standard} * 4);
+
+  & > .Title {
+    grid-area: 2/2/3/3;
+    @extend %flex;
+    @extend %flex__center;
+    @include flex-flow(column nowrap);
+    row-gap: calc(#{$standard} * 3);
+  }
+
+  & > .Description {
+    grid-area: 3/2/4/3;
+    @extend %flex;
+    @include justify-content(flex-start);
+    @include flex-flow(column nowrap);
+    row-gap: calc(#{$standard} * 3);
+
+    & > .Image * {
+      @extend %avaWidth;
+      height: 400px !important;
+    }
+
+    * {
+      @extend %textJustify;
+    }
+  }
+}

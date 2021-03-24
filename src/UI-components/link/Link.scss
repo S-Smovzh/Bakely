@@ -1,0 +1,165 @@
+@import "../../css/base/Extensions";
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    text-decoration: underline;
+  }
+
+  &:-moz-focusring {
+    text-decoration: underline;
+  }
+
+  &:focus-within {
+    text-decoration: underline;
+  }
+
+  &:disabled {
+    text-decoration: none;
+  }
+}
+
+.Link {
+  color: $text-inverted;
+
+  &:hover {
+    color: $layout-600;
+  }
+
+  &:active {
+    color: $layout-400;
+  }
+
+  &:focus {
+    color: $primary-200;
+  }
+
+  &:focus-visible {
+    color: $primary-200;
+  }
+
+  &:-moz-focusring {
+    color: $primary-200;
+  }
+
+  &:focus-within {
+    outline: none;
+  }
+}
+
+.Primary-Link {
+  color: $primary-800;
+
+  &:hover {
+    color: $primary-400;
+  }
+
+  &:active {
+    color: $primary-300;
+  }
+
+  &:focus {
+    color: $primary-500;
+  }
+
+  &:focus-visible {
+    color: $primary-500;
+  }
+
+  &:-moz-focusring {
+    color: $primary-500;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.Secondary-Link {
+  color: $text-inverted;
+
+  &:hover {
+    color: $secondary-700;
+  }
+
+  &:active {
+    color: $secondary-600;
+  }
+
+  &:focus {
+    color: $secondary-800;
+  }
+
+  &:focus-visible {
+    color: $secondary-800;
+  }
+
+  &:-moz-focusring {
+    color: $secondary-800;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.Footer-Link {
+  color: $text;
+
+  &:hover {
+    color: $primary-200;
+  }
+
+  &:active {
+    color: $primary-100;
+  }
+
+  &:focus {
+    color: $primary-500;
+  }
+
+  &:focus-visible {
+    color: $primary-500;
+  }
+
+  &:-moz-focusring {
+    color: $primary-500;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.SkipLink {
+  transform: translateY(-100%);
+  opacity: 0;
+
+  &:focus {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &:-moz-focusring {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,226 @@
+@import "../css/base/Extensions";
+
+%cell {
+  @extend %flex;
+  @include align-items(flex-start);
+  @include justify-content(space-around);
+  @include flex-flow(column nowrap);
+  row-gap: calc(#{$standard} * 3);
+}
+
+.Product_Page {
+  @extend %grid;
+  grid-template-rows: $mainPadding 560px minmax(10px, 1fr) $mainPadding;
+  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+  .MiddleBlock {
+    grid-area: 2/2/3/3;
+    @extend %grid;
+    grid-template-rows: minmax(10px, 1fr);
+    grid-template-columns: 400px minmax(10px, 1fr);
+    grid-column-gap: $mainPadding;
+
+    .Col_First {
+      grid-area: 1/1/2/2;
+      @extend %flex;
+      @include align-items(flex-start);
+      @include flex-flow(column nowrap);
+      row-gap: calc(#{$standard} * 2);
+    }
+
+    .Col_Second {
+      grid-area: 1/2/2/3;
+      @extend %grid;
+      grid-template-columns: minmax(10px, 1fr);
+      grid-template-rows: 200px 220px 100px;
+      row-gap: calc(#{$standard} * 2);
+
+      .Product_Info, .Product_Ingredients, .Product_Quantity, .Product_Details {
+        @extend %cell;
+      }
+
+      & > .Product_Info {
+        grid-area: 1/1/2/2;
+      }
+
+      & > .Product_Ingredients {
+        grid-area: 2/1/3/2;
+        @extend %grid;
+        grid-template-columns: minmax(10px, 1fr);
+        grid-template-rows: 40px 100px 80px;
+
+        h3 {
+          grid-area: 1/1/2/2;
+        }
+
+        .Ingredients_List {
+          grid-area: 2/1/3/2;
+          height: 100px;
+          @extend %flex;
+          @include align-items(flex-start);
+          @include justify-content(flex-start);
+          @include flex-flow(column wrap);
+          row-gap: calc(#{$standard} * 3);
+
+          & > li {
+            list-style: initial;
+          }
+        }
+      }
+
+      & > .Product_Details {
+        grid-area: 3/1/4/2;
+        @extend %grid;
+        grid-template-columns: 320px minmax(10px, 1fr);
+        grid-template-rows: minmax(10px, 1fr);
+
+        .Product_Options {
+          grid-area: 1/1/2/2;
+          @extend %grid;
+          grid-template-rows: 50px 50px;
+          grid-template-columns: minmax(10px, 1fr);
+
+          & > * {
+            @extend %flex;
+            @extend %flex__center;
+            @include flex-flow(column nowrap);
+          }
+
+          .Product_Total {
+            grid-area: 1/1/2/2;
+            @include align-self(center);
+          }
+
+          .Wrapper {
+            grid-area: 2/1/3/2;
+            @extend %flex;
+            @include align-items(flex-end);
+            @include justify-content(space-between);
+            @include flex-flow(row nowrap);
+
+            select {
+              height: 40px;
+              min-width: calc(#{$mainPadding} * 2);
+            }
+
+            .Quantity_Change {
+              @extend %flex;
+              @include align-items(center);
+              @include justify-content(center);
+              @include flex-flow(row nowrap);
+
+              h5 {
+                line-height: 1.5;
+              }
+
+              & > #quantity {
+                @extend %flex;
+                @extend %flex__center;
+                height: 40px;
+                width: 40px;
+                background: $text-inverted;
+                border: 1px inset $text;
+                @extend %textCenter;
+              }
+
+              & > button {
+                height: 40px;
+                width: 40px;
+                box-shadow: none;
+
+                &:nth-child(1) {
+                  border-radius: 8px 0 0 8px;
+                }
+
+                &:nth-child(3) {
+                  border-radius: 0 8px 8px 0;
+                }
+              }
+            }
+          }
+        }
+
+        .Add_To_Cart_Button {
+          @extend %flex;
+          @include align-items(flex-end);
+          @include justify-content(center);
+        }
+
+        .hint {
+          @extend %flex;
+          @include align-items(flex-start);
+          @include justify-content(space-between);
+          @include flex-flow(column nowrap);
+        }
+      }
+    }
+  }
+
+  .BottomBlock {
+    grid-area: 3/2/4/3;
+    @extend %grid;
+    grid-template-rows: 140px minmax(10px, 1fr);
+    grid-template-columns: minmax(10px, 1fr);
+    grid-gap: .4rem;
+    width: 100%;
+
+    & > .Products_Similar {
+      grid-area: 2/1/3/2;
+      @extend %grid;
+      grid-template-rows: 100px minmax(10px, 1fr);
+      grid-template-columns: minmax(10px, 1fr);
+      @extend %textCenter;
+
+      & > .Products_List {
+        grid-area: 2/1/3/2;
+        @extend %flex;
+        @include justify-content(space-around);
+
+        a[href] {
+          text-decoration: none;
+        }
+
+        .Card {
+          @extend %grid;
+          grid-template-rows: minmax(10px, 1fr) 110px;
+          grid-template-columns: minmax(10px, 1fr);
+          row-gap: 14px;
+          color: $text;
+
+          .Overlay-Container {
+            grid-area: 1/1/2/2;
+          }
+
+          .Product-Info {
+            grid-area: 2/1/3/2;
+            @extend %grid;
+            grid-template-rows: 50px 60px;
+            grid-template-columns: minmax(10px, 1fr);
+
+            & > * {
+              @extend %flex;
+              @include flex-flow(column nowrap);
+              @extend %textCenter;
+            }
+
+            .flex {
+              @extend %flex__center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.HR-Container {
+  @extend %flex;
+  @extend %flex__center;
+
+  & > hr {
+    width: 100%;
+    border-color: $text;
+    border-width: 3px;
+    border-radius: 50%;
+  }
+}

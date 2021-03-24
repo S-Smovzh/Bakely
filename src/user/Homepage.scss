@@ -1,0 +1,410 @@
+@import "../css/base/Extensions";
+
+%odd {
+  background: $layout-600;
+
+  &:hover {
+    color: $text-inverted;
+    background: $secondary-800;
+  }
+
+  &:active {
+    color: $text;
+    background: $secondary-300;
+  }
+
+  &:focus {
+    background: $secondary-600;
+  }
+
+  &:focus-visible {
+    background: $secondary-600;
+  }
+
+  &:-moz-focusring {
+    background: $secondary-600;
+  }
+
+  &:disabled {
+    color: $text;
+    opacity: 0.5;
+  }
+}
+
+%even {
+  background: $tertiary-100;
+
+  &:hover {
+    color: $text-inverted;
+    background: $primary-700;
+  }
+
+  &:active {
+    color: $text-inverted;
+    background: $primary-300;
+  }
+
+  &:focus {
+    color: $text-inverted;
+    background: $primary-500;
+  }
+
+  &:focus-visible {
+    color: $text-inverted;
+    background: $primary-500;
+  }
+
+  &:-moz-focusring {
+    color: $text-inverted;
+    background: $primary-500;
+  }
+
+  &:disabled {
+    color: $text;
+    opacity: 0.5;
+  }
+}
+
+.Homepage {
+  @extend %grid;
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: 880px 780px 600px 200px;
+  background: $layout-100;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+
+  .TopBlock {
+    grid-area: 1/1/2/2;
+    @extend %grid;
+    grid-template-columns: 70px repeat(3, minmax(10px, 1fr)) 70px;
+    grid-template-rows: minmax(10px, 1fr);
+    background: $layout-100;
+
+    .LeftCol {
+      grid-area: 1/2/2/3;
+      @extend %grid;
+      grid-template-columns: 15px minmax(10px, 1fr) 15px;
+      grid-template-rows: repeat(3, 100px) 420px minmax(10px, 1fr);
+      background: $primary-700;
+
+      .Form-Header {
+        grid-area: 2/2/3/3;
+        @extend %flex;
+        @extend %flex__center;
+        @extend %textCenter;
+        color: $text-inverted;
+      }
+
+      .Form {
+        grid-area: 3/2/4/3;
+        @extend %flex;
+        @extend %flex__center;
+
+        &-Input {
+          padding: 10px;
+          border-radius: 8px 0 0 8px;
+          border: none !important;
+
+          &::-webkit-search-cancel-button {
+            position: relative;
+            right: 20px;
+
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 10px;
+            background: red;
+          }
+        }
+
+        .Input-SearchButton {
+          border-radius: 0 8px 8px 0;
+        }
+      }
+
+      .Orders {
+        &-List {
+          grid-area: 4/2/5/3;
+          @extend %flex;
+          @include align-items(center);
+          @include justify-content(flex-start);
+          @include flex-flow(column nowrap);
+          border: 6px inset $text-inverted;
+          background: $layout-100;
+          overflow-y: scroll;
+          -ms-overflow-y: scroll;
+
+          .Order {
+            @extend %flex;
+            @extend %flex__center;
+          }
+
+          .Orders-Cell, .Orders-Header {
+            @extend %grid;
+            grid-template-columns: 100px 180px minmax(10px, 1fr);
+            grid-template-rows: minmax(10px, 1fr);
+
+            & > * {
+              border: 1px solid $text;
+              padding: 10px 4px;
+            }
+
+            & > .Products {
+              grid-area: 1/2/2/3;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+
+          .Orders-Header span {
+            @extend %flex;
+            @extend %flex__center;
+            background: $tertiary-1000;
+            color: $text-inverted;
+          }
+
+          &.Even > .Order {
+            &:nth-of-type(odd) > .Orders-Cell {
+              @extend %odd;
+            }
+
+            &:nth-of-type(even) > .Orders-Cell {
+              @extend %even;
+            }
+          }
+
+          &.Odd > .Order {
+            &:nth-of-type(odd) > .Orders-Cell {
+              @extend %even;
+            }
+
+            &:nth-of-type(even) > .Orders-Cell {
+              @extend %odd;
+            }
+          }
+        }
+      }
+    }
+
+    .RightCol {
+      grid-area: 1/3/2/5;
+      @extend %flex;
+      @extend %flex__center;
+
+      & > .Loading-Overlay-Container {
+        @extend %flex;
+        @extend %flex__center;
+      }
+
+      .Order-Data-Table {
+        @extend %grid;
+        grid-template-columns: 200px 460px;
+        grid-template-rows: 60px 430px;
+        padding: 30px;
+        border: 4px solid $tertiary-500;
+
+        & > * {
+          padding: 12px;
+        }
+
+        & > .OrderDate-Row {
+          grid-area: 1/1/2/3;
+          @extend %flex;
+          @include justify-content(flex-start);
+          @include align-items(center);
+          border-bottom: 1px solid $tertiary-500;
+        }
+
+        & > .Products-Column {
+          grid-area: 2/1/3/2;
+          @extend %grid;
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows: 60px minmax(10px, 1fr);
+          border-right: 1px solid $tertiary-500;
+          overflow-y: scroll;
+
+          & > .Products-List {
+            grid-area: 2/1/3/2;
+            @extend %flex;
+            @include align-items(flex-start);
+            @include flex-flow(column nowrap);
+          }
+        }
+
+        & > .Comment-Column {
+          grid-area: 2/2/3/3;
+          @extend %grid;
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows:minmax(10px, 1fr) 40px;
+          padding-bottom: 0;
+
+          .Order-Comment {
+            grid-area: 1/1/2/2;
+            @extend %flex;
+            @include justify-content(flex-start);
+            @include align-items(center);
+            @include flex-flow(column nowrap);
+            overflow-y: scroll;
+          }
+
+          .Order-Total {
+            grid-area: 2/1/3/2;
+            background: $success-100;
+
+            & > * {
+              @extend %flex;
+              @include justify-content(space-between);
+              @include align-items(center);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .MiddleBlock {
+    grid-area: 2/1/3/2;
+    @extend %grid;
+    grid-template-columns: 70px repeat(2, minmax(10px, 1fr)) 70px minmax(10px, 1fr) 70px;
+    grid-template-rows: 100px minmax(10px, 1fr);
+    background: $tertiary-100;
+    z-index: 2;
+
+    .LeftCol {
+      grid-area: 1/2/3/4;
+      @extend %flex;
+      @extend %flex__center;
+      @include flex-flow(column nowrap);
+
+      .Form-Header {
+        @extend %flex;
+        @include justify-content(flex-start);
+        @include align-items(center);
+        @extend %textLeft;
+      }
+
+      .Form {
+        @extend %grid;
+        grid-template-columns: repeat(2, minmax(10px, 1fr));
+        grid-template-rows: minmax(10px, 1fr) 100px;
+        grid-column-gap: 80px;
+
+        &-Col {
+          @extend %grid;
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows: repeat(2, minmax(10px, 1fr));
+
+          &.Col-First {
+            grid-area: 1/1/2/2;
+          }
+
+          &.Col-Second {
+            grid-area: 1/2/2/3;
+          }
+        }
+
+        &-Button {
+          @include justify-content(flex-start);
+          @include align-items(flex-start);
+        }
+      }
+    }
+
+    .RightCol {
+      grid-area: 1/5/3/6;
+      @extend %grid;
+      grid-template-columns: 15px minmax(10px, 1fr) 15px;
+      grid-template-rows: minmax(10px, 1fr) 100px 420px minmax(10px, 1fr);
+      background: $primary-700;
+
+      .Form-Header {
+        grid-area: 2/2/3/3;
+        @extend %flex;
+        @extend %flex__center;
+        @extend %textCenter;
+        color: $text-inverted;
+      }
+
+      .Addresses {
+        &-Table {
+          grid-area: 3/2/4/3;
+          @extend %grid;
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows: repeat(3, minmax(10px, 1fr));
+          border: 6px inset $text-inverted;
+          background: $layout-100;
+
+          &.Even {
+            .Addresses-Cell:nth-of-type(odd) {
+              background: $layout-600;
+            }
+
+            .Addresses-Cell:nth-of-type(even) {
+              background: $layout-100;
+            }
+          }
+
+          &.Odd {
+            .Addresses-Cell:nth-of-type(odd) {
+              background: $layout-100;
+            }
+
+            .Addresses-Cell:nth-of-type(even) {
+              background: $layout-600;
+            }
+          }
+        }
+
+        &-Cell {
+          @extend %grid;
+          grid-template-columns: minmax(10px, 1fr) 40px;
+          grid-template-rows: minmax(10px, 1fr);
+          padding: 10px;
+
+          .Remove-Button {
+            grid-area: 1/2/2/3;
+            justify-self: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  .BottomBlock {
+    grid-area: 3/1/4/2;
+    @extend %flex;
+    @include align-items(center);
+    @include justify-content(space-between);
+    padding-inline: 70px;
+
+    .Block-Wrapper {
+      @extend %grid;
+      grid-template-columns: repeat(3, minmax(10px, 1fr));
+      grid-template-rows: minmax(10px, 560px);
+      grid-column-gap: 80px;
+
+      .Col {
+        @extend %flex;
+        @include align-items(center);
+        @include justify-content(space-around);
+        @include flex-flow(column nowrap);
+
+        &-First {
+          grid-area: 1/1/2/2;
+        }
+
+        &-Second {
+          grid-area: 1/2/2/3;
+        }
+
+        &-Third {
+          grid-area: 1/3/2/4;
+        }
+      }
+
+      .Form-Button {
+        @include justify-content(flex-start);
+      }
+    }
+  }
+}

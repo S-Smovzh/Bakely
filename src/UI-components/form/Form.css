@@ -1,0 +1,153 @@
+.SVG__Container, .Form .Form-Input, .Form .Form-Label, .Form .Form-Button {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.SVG__Container, .Form .Form-Button {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Form .Form-TextareaRow, .Form .Form-Row-Double, .Form, .Form .Form-Row-Double .Cell-Second, .Form .Form-Row-Double .Cell-First, .Form .Form-Row {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+.Form .Form-Row-Double .Cell-Second, .Form .Form-Row-Double .Cell-First, .Form .Form-Row {
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: 30px 46px 30px;
+}
+
+.Form {
+  position: relative;
+  grid-row-gap: calc(7px * 2);
+  padding: 10px;
+}
+.Form .Form-Row-Double {
+  grid-template-columns: repeat(2, minmax(10px, 1fr));
+  grid-template-rows: minmax(10px, 1fr);
+  grid-column-gap: 30px;
+}
+.Form .Form-Row-Double .Cell-First {
+  grid-area: 1/1/2/2;
+}
+.Form .Form-Row-Double .Cell-Second {
+  grid-area: 1/2/2/3;
+}
+.Form .Form-TextareaRow {
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: 30px 200px 30px;
+}
+.Form .Form-Label {
+  grid-area: 1/1/2/2;
+  align-self: flex-start;
+  -webkit-align-self: flex-start;
+}
+.Form .Form-Label-Error {
+  grid-area: 3/1/4/2;
+  align-self: flex-start;
+  -webkit-align-self: flex-start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Form .Form-Input {
+  align-self: flex-start;
+  -webkit-align-self: flex-start;
+}
+
+@keyframes success {
+  0% {
+    opacity: 0;
+    -moz-opacity: 1;
+    z-index: 0;
+  }
+  50% {
+    opacity: 1;
+    -moz-opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+    -moz-opacity: 1;
+    z-index: 0;
+  }
+}
+@keyframes container__success {
+  0% {
+    background: none;
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background: none;
+  }
+}
+.SVG__Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 1s ease-in-out !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -ms-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+  animation: 800ms container__success forwards;
+}
+
+.Success-Tick {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.Success-Tick > * {
+  animation: 800ms success forwards;
+}
+
+.Success-Tick__Circle {
+  opacity: 0;
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  transition: all 1s ease-in-out !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -ms-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+  fill: none;
+  stroke: #5dd07c;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.Success-Tick__Check {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
+  -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
+  -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
+  -o-transition: stroke-dashoffset 1s 0.5s ease-out;
+  transition: stroke-dashoffset 1s 0.5s ease-out;
+  fill: none;
+  stroke: #5dd07c;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+/*# sourceMappingURL=Form.css.map */

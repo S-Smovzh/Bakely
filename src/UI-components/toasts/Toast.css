@@ -1,0 +1,116 @@
+.Toast-Wrapper .toast-body {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Toast-Wrapper .toast-body {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.Toast-Wrapper .toast-body .Form-Row .Form-InputRow, .Toast-Wrapper .toast-body .Form-Row {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+.Toast-Wrapper .toast-body > * {
+  text-align: left;
+  text-align: -moz-left;
+  text-align: -webkit-left;
+}
+
+.Toasts-Stack {
+  grid-area: 1/1/2/2;
+  bottom: 0;
+  left: 0;
+  position: sticky;
+  max-height: 100vh;
+  top: 0;
+  display: block;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-x: -moz-hidden-unscrollable;
+  -ms-overflow-x: hidden;
+  overflow-y: hidden;
+  overflow-y: -moz-hidden-unscrollable;
+  -ms-overflow-y: hidden;
+  z-index: 999;
+  transition: transform 200ms ease-out;
+  transform-origin: 0 0;
+}
+
+.Toast-Wrapper {
+  margin-bottom: 20px;
+}
+.Toast-Wrapper .toast {
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+  border: 1px inset #000000;
+  background: #fffcf9;
+}
+.Toast-Wrapper .toast-header {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  padding: 10px 5px;
+  background: #EEC71C;
+  color: #000000;
+}
+.Toast-Wrapper .toast-body {
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+}
+.Toast-Wrapper .toast-body > * {
+  font-size: 16px !important;
+}
+.Toast-Wrapper .toast-body .Form {
+  row-gap: 10px;
+}
+.Toast-Wrapper .toast-body .Form-Row {
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: 44px 42px 40px;
+}
+.Toast-Wrapper .toast-body .Form-Row .Form-InputRow {
+  grid-template-columns: minmax(10px, 1fr) 42px;
+  grid-template-rows: minmax(10px, 42px);
+}
+.Toast-Wrapper .toast-body .Form-Row .Form-InputRow .Icon-Tooltip {
+  width: 42px !important;
+  height: 42px !important;
+}
+.Toast-Wrapper .toast-body .Form-Row .Form-InputRow .Icon-Tooltip .icon {
+  width: 24px !important;
+  height: 24px !important;
+}
+.Toast-Wrapper .toast-body .Form-Row .Form-InputRow .Form-Input {
+  grid-area: 1/1/2/2;
+  height: 42px;
+  border: 2px inset #000000;
+  padding: 10px;
+  box-shadow: none;
+  color: #000000;
+  background: #ffffff;
+  font-size: 18px;
+}
+.Toast-Wrapper .toast-body .Form-Row .Form-InputRow .Form-Input:disabled {
+  opacity: 0.5;
+}
+.Toast-Wrapper .Cookie {
+  z-index: 100;
+  opacity: 1;
+}
+
+/*# sourceMappingURL=Toast.css.map */

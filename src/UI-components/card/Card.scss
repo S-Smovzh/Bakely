@@ -1,0 +1,13 @@
+@import "../../css/base/Extensions";
+
+.Card {
+  @extend %flex;
+  @extend %flex__center;
+  @include flex-flow(column nowrap);
+  box-shadow: 0 2px 8px rgba(42, 8, 0, 1);
+  @include user-select(none);
+
+  &.Gray{
+    background: $tertiary-100;
+  }
+}

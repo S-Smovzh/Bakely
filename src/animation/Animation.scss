@@ -1,0 +1,252 @@
+@import "../css/base/Extensions";
+
+$transition: 0.6;
+$animation-time: 600ms;
+
+.Bounce {
+  @include transition($transition);
+  @include animation(bounce, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(bounce, $animation-time, ease-in-out, infinite);
+  }
+}
+
+.Error-Shake {
+  @include transition($transition);
+  @include animation(error-shake, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(error-shake, $animation-time, ease-in-out, infinite);
+  }
+}
+
+.Pop {
+  @include transition($transition);
+  @include animation(pop, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(pop, $animation-time, ease-in-out, infinite);
+  }
+}
+
+.Pop-On-The-Top {
+  @include transition($transition);
+  @include animation(pop-on-the-top, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(pop-on-the-top, $animation-time, ease-in-out, infinite);
+  }
+}
+
+.Pulsate {
+  @include transition($transition);
+  @include animation(pulsate, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(pulsate, $animation-time, ease-in-out, infinite);
+  }
+}
+
+.Rotate-360 {
+  @include transition($transition);
+  @include animation(rotate-360, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(rotate-360, $animation-time, ease-in-out, infinite);
+  }
+}
+.Rubber {
+  @include transition($transition);
+  @include animation(rubber, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(rubber, $animation-time, ease-in-out, infinite);
+  }
+}
+
+.Skew {
+  @include transition($transition);
+  @include animation(skew, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(skew, $animation-time, ease-in-out, infinite);
+  }
+}
+
+.Wiggle {
+  @include transition($transition);
+  @include animation(wiggle, $animation-time, ease-in-out, forwards);
+
+  &.Infinite {
+    @include animation(wiggle, $animation-time, ease-in-out, infinite);
+  }
+}
+
+@include keyframes(bounce) {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@include keyframes(error-shake) {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+    background: $error-300;
+  }
+  16% {
+    transform: translate3d(-15px, 0px, 0px);
+    background: $error-300;
+  }
+  33% {
+    transform: translate3d(0px, 0px, 0px);
+    background: $error-300;
+  }
+  50% {
+    transform: translate3d(15px, 0px, 0px);
+    background: $error-300;
+  }
+  67% {
+    transform: translate3d(0px, 0px, 0px);
+    background: $error-300;
+  }
+  83% {
+    transform: translate3d(-15px, 0px, 0px);
+    background: $error-300;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@include keyframes(pop) {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1, 0.15);
+  }
+  50% {
+    transform: scale(1.85, 0.15);
+  }
+  75% {
+    transform: scale(1, 0.15);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@include keyframes(pop-on-the-top) {
+  from {
+    transform: translateY(300%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@include keyframes(pulsate) {
+  0% {
+    -webkit-transform: scale(0.8, 0.8);
+    opacity: 0.3;
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+    opacity: 1.0;
+  }
+  100% {
+    -webkit-transform: scale(0.8, 0.8);
+    opacity: 0.3;
+  }
+}
+
+@include keyframes(rotate-360) {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(90deg);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  75% {
+    transform: rotateZ(270deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@include keyframes(rubber) {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@include keyframes(skew) {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  25% {
+    transform: skew(10deg, 10deg);
+  }
+  50% {
+    transform: skew(0deg, 0deg);
+  }
+  75% {
+    transform: skew(-10deg, -10deg);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+}
+
+@include keyframes(wiggle) {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(50deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(-40deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}

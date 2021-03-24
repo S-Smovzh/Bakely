@@ -1,0 +1,29 @@
+.loading-spinner {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.loading-spinner {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+.loading-spinner {
+  grid-area: 1/2/2/3;
+  background: #f8f7de;
+  margin: 0 260px;
+  height: 100vh;
+}
+
+/*# sourceMappingURL=Loader.css.map */

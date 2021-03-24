@@ -1,0 +1,291 @@
+$text: #000000;
+$text-inverted: #ffffff;
+
+$success-100: #95E8AB;
+$success-200: #5dd07c;
+$success-300: #25B84C;
+$success-400: #168734;
+
+$warning-100: #F0D458;
+$warning-200: #EEC71C;
+$warning-300: #DDB814;
+$warning-400: #C8A919;
+
+$error-100: #FA6E75;
+$error-200: #FA6E75;
+$error-300: #D0343C;
+$error-400: #c11c24;
+
+$layout-100: #fffcf9;
+$layout-200: #fff9f3;
+$layout-300: #FFF3E7;
+$layout-400: #FFEDDB;
+$layout-500: #ffe7ce;
+$layout-600: #FFE1C2;
+
+$primary-100: #ff8771;
+$primary-200: #FA5B3D;
+$primary-300: #E74A2B;
+$primary-400: #D43819;
+$primary-500: #BD2608;
+$primary-600: #961D05;
+$primary-700: #711604;
+$primary-800: #5e1304;
+
+$secondary-100: #ffcf9c;
+$secondary-200: #eeb785;
+$secondary-300: #DC9E6E;
+$secondary-400: #cb8657;
+$secondary-500: #b96d40;
+$secondary-600: #965430;
+$secondary-700: #723b20;
+$secondary-800: #4e2210;
+$secondary-900: #3C1508;
+$secondary-1000: #2a0800;
+
+$tertiary-100: #f0f0f0;
+$tertiary-200: #DBDDDC;
+$tertiary-300: #C6C9C7;
+$tertiary-400: #a7aca9;
+$tertiary-500: #979d9a;
+$tertiary-600: #878e8a;
+$tertiary-700: #757C78;
+$tertiary-800: #626A66;
+$tertiary-900: #565d59;
+$tertiary-1000: #49504C;
+
+
+$standard: 7px;
+$mainPadding: calc(#{$standard} * 10);
+
+
+%flex {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+%flex__center {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+@mixin flex {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+@mixin flex__center {
+  align-items: center;
+  align-items: -moz-center;
+  align-items: -webkit-center;
+  align-items: -ms-center;
+  align-items: -o-center;
+  justify-content: center;
+  justify-content: -moz-center;
+  justify-content: -webkit-center;
+  justify-content: -ms-center;
+  justify-content: -o-center;
+}
+
+@mixin box-shadow($shadows...) {
+  box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow: $shadows;
+  -o-box-shadow: $shadows;
+}
+
+@mixin pageMainPartShadow {
+  @include box-shadow(0 1px 8px rgba(0, 0, 0, 0.4));
+}
+
+%grid {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
+%par_link {
+  color: #000000;
+  margin: 0;
+}
+
+%avaWidth {
+  width: stretch;
+  width: -webkit-fill-available;
+  height: -moz-available;
+}
+
+%avaHeight {
+  height: 100%;
+  //height: stretch;
+  //height: -webkit-fill-available;
+  //height: -moz-available;
+}
+
+%textLeft {
+  text-align: left;
+  text-align: -moz-left;
+  text-align: -webkit-left;
+  //text-align: -ms-left;
+  //text-align: -o-left;
+}
+
+%textRight {
+  text-align: right;
+  text-align: -moz-right;
+  text-align: -webkit-right;
+  //text-align: -ms-right;
+  //text-align: -o-right;
+}
+
+%textCenter {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  text-align: -ms-center;
+  text-align: -o-center;
+}
+
+%textJustify {
+  text-align: justify;
+  text-align: -moz-justify;
+  text-align: -webkit-justify;
+  text-align: -ms-justify;
+  text-align: -o-justify;
+}
+
+%user-select-none {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+@mixin avaWidth {
+  width: stretch;
+  width: -webkit-fill-available;
+  height: -moz-available;
+}
+
+@mixin avaHeight {
+  height: stretch;
+  height: -webkit-fill-available;
+  height: -moz-available;
+}
+
+@mixin textLeft {
+  text-align: left;
+  text-align: -moz-left;
+  text-align: -webkit-left;
+  //text-align: -ms-left;
+  //text-align: -o-left;
+}
+
+@mixin textRight {
+  text-align: right;
+  text-align: -moz-right;
+  text-align: -webkit-right;
+  //text-align: -ms-right;
+  //text-align: -o-right;
+}
+
+@mixin textCenter {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  text-align: -ms-center;
+  text-align: -o-center;
+}
+
+@mixin textJustify {
+  text-align: justify;
+  text-align: -moz-justify;
+  text-align: -webkit-justify;
+  text-align: -ms-justify;
+  text-align: -o-justify;
+}
+
+@mixin columnGap($val){
+  column-gap: $val;
+  -webkit-column-gap: $val;
+  -moz-column-gap: $val;
+}
+
+@mixin transition($val) {
+  transition: all $val + s ease-in-out !important;
+  -webkit-transition: all $val + s ease-in-out !important;
+  -moz-transition: all $val + s ease-in-out !important;
+  -ms-transition: all $val + s ease-in-out !important;
+  -o-transition: all $val + s ease-in-out !important;
+}
+
+@mixin animation($animation-name, $animation-duration, $animation-type, $animation-frequency) {
+  animation: $animation-name $animation-duration $animation-type $animation-frequency;
+  -webkit-animation: $animation-name $animation-duration $animation-type $animation-frequency;
+  -moz-animation: $animation-name $animation-duration $animation-type $animation-frequency;
+  -o-animation: $animation-name $animation-duration $animation-type $animation-frequency;
+}
+
+@mixin keyframes($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-khtml-keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin align-items($val) {
+  align-items: $val;
+  -webkit-align-items: $val;
+}
+
+@mixin align-self($val) {
+  align-self: $val;
+  -webkit-align-self: $val;
+}
+
+@mixin justify-content($val) {
+  justify-content: $val;
+  -webkit-justify-content: $val;
+}
+
+@mixin flex-flow($val) {
+  flex-flow: $val;
+  -webkit-flex-flow: $val;
+}
+
+@mixin user-select($val) {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

@@ -1,0 +1,340 @@
+{
+  "about.header": "About Bakely",
+  "about.appeal.firstPart": "To Our Beloved Customers,",
+  "about.appeal.secondPart": "Thank You so much for fourteen years of love and support. We truly cherish our neighborhoods and it’s hard to believe we’ve already been here fourteen years! It means everything to us that You’ve embraced Bakely and made us a part of the local fabric.",
+  "about.appeal.thirdPart": "As many of You know, we met in school about 25 years ago (but who’s counting) with a pretty simple idea—to provide delicious moments and treats from Your local neighborhood bakery.",
+  "about.appeal.fourthPart": "Each day at Bakely, everything is still made from scratch. From our (pretty well known) Icebox Cake to our (pretty darn well known) Red Velvet Cupcakes—it’s as real as our grandmothers used to make. For us, that smell when You walk into a real local bakery is almost as important as the taste. And we’re never going to lose that. For Bakely, it's all about real ingredients, authentic recipes, and real people making it happen.",
+  "about.appeal.fifthPart": "Stop by our shops in Poshtova, Levoberezhna or Polytechnick — and let us take care of You. Join us, as we Celebrate Homemade.",
+  "about.appeal.sixthPart": "Sincerely, Co-Founders Vladimir & Anna.",
+  "about.feedbacks.header": "Customer Testimonials",
+  "about.feedbacks.first.author": "Kelly E.",
+  "about.feedbacks.first": "Dude, I love Bakely. I know there's a ton of other bakeries nearby, but how can You resist the overwhelmingly cute seating area, amazingly perfect cupcakes, AND their delicious and NOT overly sweet cookies? I think Bakely has some of the best cupcakes in Chelsea, plus I like that it's a small business with bakers that seem to really care about the quality of their desserts.",
+  "about.feedbacks.second.author": "Dove C.",
+  "about.feedbacks.second": "Every time I come to Bakely I find something new to love! The staff is friendly and accommodating, and it always feels cozy in this shop. I especially love the apple pie, although it's only seasonal. I also love the lemon cupcakes, and the butterscotch ginger cookies. All thumbs up!",
+  "about.feedbacks.third.author": "Sherry S.",
+  "about.feedbacks.third": "I stumbled across this cute bakery one day and was so pleasantly surprised by the wide selection of baked goods this little shop carries! They have a large variety of cupcakes and cakes as well as pies. I tried the banana pudding which I thought was very creamy, but not the type of creamy that makes You feel sick after.",
+
+  "careers.header": "Bakely Vacancies",
+  "careers.label.select": "Select address:",
+  "careers.select.all": "All",
+
+  "cart.header.empty": "Your cart is empty",
+  "cart.header.filled": "Your cart",
+  "cart.button.order": "Proceed Order",
+  "cart.link.shop": "Let`s shop!",
+
+  "catering.header": "Catering Options",
+  "catering.wedding.header": "Wedding Cakes",
+  "catering.wedding.description": "Let Bakely make Your wedding day extra sweet. From traditional tiered wedding cakes to wedding-appropriate cupcakes, Bakely is a delicious and elegant addition to Your wedding. Let our designers create the perfect dessert package for Your big day.",
+  "catering.birthday.header": "Celebrations",
+  "catering.birthday.description": "Whatever the celebration, we have the perfect treat for Your gathering, from apple pie to adorable pastel-frosted cupcakes. Let us customize a sweets package for Your next celebration.",
+  "catering.corporate.header": "Catering",
+  "catering.corporate.description": "Whether it’s an annual holiday party or a simple business meeting, make Your next event a little sweeter with Bakely! Our treats are perfect for any kind of gathering, from breakfast meetings through after-dinner soirees, and can be scaled to accommodate any number of guests.",
+  "catering.contactUs": "Contact us",
+  "catering.gallery.all": "Gallery",
+  "catering.gallery.wedding": "Wedding Gallery",
+  "catering.gallery.celebration": "Celebration Gallery",
+  "catering.gallery.corporate": "Corporate Gallery",
+  "catering.gallery.button.details": "Details",
+  "catering.gallery.modal.date": "Date:",
+  "catering.gallery.modal.guests": "Guests quantity:",
+
+  "contactUs.header": "Contact from",
+  "contactUs.option.choose": "Choose subject",
+  "contactUs.option.catering": "Catering",
+  "contactUs.option.careers": "Career",
+  "contactUs.option.productInfo": "Products information",
+  "contactUs.option.support": "Support",
+  "contactUs.option.marketingAndPR": "Marketing & PR",
+  "contactUs.characters": "Remaining characters:",
+  "contactUs.button": "Send",
+  "contactUs.header.addresses": "Get in touch",
+  "contactUs.label.Europe": "Europe",
+  "contactUs.label.America": "America",
+  "contactUs.label.Asia": "Asia",
+  "contactUs.label.AsiaPacific": "Asia Pacific",
+  "contactUs.header.locations": "Our locations",
+  "contactUs.location.Kyiv.city": "Kiyv",
+  "contactUs.location.Kyiv": "Kiyv, 4th Floor, Leonardo business centre, 17/52а Bohdan Khmelnytsky street, Kiyv 01030",
+  "contactUs.location.Kharkov": "Kharkov, 7th Floor, Capitalist business centre, 27b Nauky avenue, Kharkov 61000",
+  "contactUs.location.Kharkov.city": "Kharkov",
+
+  "error.header": "The page you were looking for doesn't exist.",
+  "error.button": "To the main page",
+
+  "infoPages.cookies.header": "Cookie Policy",
+  "infoPages.privacy.header": "Privacy Policy for Bakely LLC",
+  "infoPages.terms.header": "Terms and Conditions",
+
+  "infoPages.delivery.header": "Delivery information",
+  "infoPages.faq.header": "Frequently asked questions Information",
+  "infoPages.orders.header": "Orders information",
+
+  "infoPages.delivery" : [
+    {
+      "question": "Do you offer same-day deliveries?",
+      "answer": "Yes, we deliver in the next 2 hours after the order being received."
+    },
+    {
+      "question": "Can I pay for my order upon delivery?",
+      "answer": "Yes, You can pay both upon placement of order or delivery."
+    },
+    {
+      "question": "Do you charge for deliveries?",
+      "answer": "Deliveries are available from 10AM-7PM daily, they are free for orders with minimum of 15$. We apologize however we cannot guarantee an EXACT time of delivery, only windows specified in the checkout process. Deliveries outside of specific zones and times are subject to additional charges for courier service."
+    },
+    {
+      "question": "What if I am not available to receive my delivery?",
+      "answer": "All of our deliveries must be signed for, so someone must be present to receive the delivery. If You have a doorman, please verify that they will accept your delivery if You are not there. If no one is available to receive the delivery, Your order will be brought back to the bakery and a re-delivery fee may apply."
+    }],
+
+  "infoPages.faq" : [
+    {
+      "question": "Do you use nuts in your products?",
+      "answer": "Some of our products, like our carrot cake, pumpkin bars do contain nuts. Additionally, all of our baked goods are made in the same kitchen, so they may not be suitable for those with nut allergies."
+    },
+    {
+      "question": "Do you offer Gluten-Free items?",
+      "answer": "We offer a few 'gluten-friendly' items on our menu, however all of our foods are prepared in a common kitchen so we cannot guarantee that cross contact with other gluten-containing products will not occur. As a result, we do not recommend our 'gluten-friendly' items for persons with Celiac Disease. Our 'gluten-friendly' offerings are designed for those with minor gluten sensitivities or those who prefer to avoid gluten for nutritional reasons. Our management team and service staff are not trained on the intricacies of celiac disease or gluten intolerance and cannot be expected to provide recommendations or other advice."
+    },
+    {
+      "question": "Should I refrigerate my cupcakes?",
+      "answer": "Try to eat your cupcakes as soon as possible — they’ll taste freshest that way. In the event You can’t eat them all in one day, they keep best in an airtight container at room temperature. Of course, cheesecakes, icebox cakes, and cold pies should be refrigerated!"
+    },
+    {
+      "question": "Are you hiring?",
+      "answer": "We’re always looking for friendly, hardworking people to join our team. If You’re interested, please contact us through a contac form that You can find on our website"
+    },
+    {
+      "question": "Do you accept credit cards?",
+      "answer": "Yes! We accept Visa, MasterCard, American Express, and Discover."
+    },
+    {
+      "question": "Do you have a mailing list?",
+      "answer": "We do. To sign up for our e-newsletters, fill in e-mail address in our subscription pop-up."
+    },
+    {
+      "question": "What is your return policy?",
+      "answer": "We take pride in our desserts. If You are unhappy with Your order and/or purchase, immediately notify us (when accepting delivery or purchasing in one of our bakeries) of Your concern and return your dessert to us. We will give you credit for the amount returned upon receipt of the merchandise. You must bring the original receipt of purchase with you."
+    },
+    {
+      "question": "What do you use in your products?",
+      "answer": "We use only the freshest, highest-quality ingredients in our baked goods, including real butter, whole eggs, and fresh fruit and nuts. We don’t use preservatives in any of our products."
+    }
+  ],
+
+  "infoPages.orders" : [
+    {
+      "question": "How do I place an order?",
+      "answer": "Call any of our locations to place an order with one of our friendly, knowledgeable staff members or order online."
+    },
+    {
+      "question": "What is your cancellation policy?",
+      "answer": "Orders changed or canceled prior to 72 hours of event date are refunded in full via the original method of payment. Orders changed or canceled within less than 72 hours of event date are non-refundable. If You are unable to use/accept Your non-refunded order, consider donating to charity, we'll deliver it for free!"
+    },
+    {
+      "question": "Do you deliver?",
+      "answer": "Yes, we deliver throughout areas mentioned in online order process ($15 purchase minimum). Limited deliveries outside of those areas are available; rates vary by time/date/distance."
+    },
+    {
+      "question": "What sort of decorations can I get on my cake?",
+      "answer": "Our cake decorators can create several common designs: polka dots, flowers, and stripes are our standard choices. If You’d like something specific, call us or use contact form, we may ask You to provide us with a picture of what You’d like to make sure we create a cake that will meet Your expectations. Unfortunately, we don’t do photo cakes or color matching."
+    },
+    {
+      "question": "Will my cake look exactly like the one in the picture on your website?",
+      "answer": "Since all of our cakes are frosted and decorated by hand, each one is an individual creation and may not appear exactly as it does in our example photos."
+    },
+    {
+      "question": "Can I create my own cake that’s not currently on your menu?",
+      "answer": "Bakely offers signature baked goods, which are listed on our menu. If You have a specific request, please contact the bakery. Please note that we do not alter our recipes."
+    },
+    {
+      "question": "Do you have a minimum requirement for cupcake orders?",
+      "answer": "Certain specialty cupcakes, we require a one-dozen minimum. For most other cupcakes, we have no minimum. At least two dozen cupcakes are generally available on a walk-in basis without an order, but if You’d like to guarantee a specific kind of cupcake or frosting color, or if You plan on stopping in during one of our busiest times (weekends, particularly weekend evenings), it is always best to place an order."
+    },
+    {
+      "question": "Do you offer special packages for businesses, parties, or events?",
+      "answer": "Yes! Please see our Catering page."
+    },
+    {
+      "question": "Do you make wedding cakes?",
+      "answer": "We offer traditional tiered wedding cakes, sheet cakes for grooms, as well as wedding-appropriate cupcakes! For further information or a wedding consultation, please contact us through contact form."
+    }],
+
+  "locations.header": "Bakely Locations",
+
+  "main.slide.first.alt": "Bakely`s special cream-chocolate cake.",
+  "main.slide.first.title": "Chocolate pleasure",
+  "main.slide.first.description": "For the last decade Bakely has been the home of all local sweet tooths. Try one of our the most well-known specialities.",
+  "main.slide.first.link": "Our cakes",
+  "main.slide.second.alt": "Catering example",
+  "main.slide.second.title": "Bakely catering",
+  "main.slide.second.description": "If You like our pastry, You’ll definitely love our catering. Make your event memorable with our delicious specialities.",
+  "main.slide.second.link": "Catering gallery",
+  "main.slide.third.alt": "Cupcake gift box",
+  "main.slide.third.title": "Gift Boxes",
+  "main.slide.third.description": "Try our gift boxes. Order cupcakes, cookies or bars and we will wrap it in a gift package.",
+  "main.slide.third.link": "Shop now",
+
+  "main.ourStory.text": "It all began in 2007 with two friends from business school who shared a sweet tooth and a dream of baking. 14 years later, we bake all of our products on-site, filling our 1940s-style stores with the delicious smells of fresh cakes and pies to bring back that delightful, warm feeling of Grandma’s kitchen.",
+  "main.ourStory.button": "Read our story",
+  "main.catering.text": "Our catering is not just all about delicious food. It’s about excellent service as well.",
+  "main.catering.button": "Catering",
+  "main.joinTeam.text": "Engage. Produce. Grow. Join our Team!",
+  "main.joinTeam.button": "Join team",
+  "main.shopAll.text": "Satisfy Your sweet tooth! Order online for pickup or delivery.",
+  "main.shopAll.button": "Shop all",
+  "main.locations.text": "Come celebrate homemade at one of our bakeries!",
+  "main.locations.button": "Locations",
+
+  "news.header": "Press Releases",
+
+  "orderForm.introduction.header": "We need Your contact data.",
+  "orderForm.introduction.delivery": "If you also want us to deliver your bakery, you need to provide your delivery address.",
+  "orderForm.contact.header": "Add Your contact data.",
+  "orderForm.contact.or": "OR",
+  "orderForm.delivery.client.header": "Add your delivery info.",
+  "orderForm.selfPickUp.header": "Choose a bakery for sef-pick-up.",
+  "orderForm.success.header": "Success!",
+  "orderForm.success.message.delivery": "Dear {{name}}, Your order will be prepared in next hour. We are waiting for you from 8am to 9pm until {{date}} at {{bakery}}! Have a nice day)",
+  "orderForm.success.message.selfPickUp": "Dear {{name}}, Your order will be delivered in next 2 hours. Have a nice day)",
+  "orderForm.success.comment.characters": "Remaining characters:",
+
+  "shopAll.header": "Choose Category",
+  "shopAll.bars": "Bars",
+  "shopAll.cakes": "Cakes",
+  "shopAll.cheesecakes": "Cheesecakes",
+  "shopAll.cookies": "Cookies",
+  "shopAll.cupcakes": "Cupcakes",
+  "shopAll.pies": "Pies",
+  "shopAll.giftBoxes": "Gift boxes",
+
+  "productsList.price": "For only {{price}}$",
+  "productsList.priceDiscounted": "NOW for only {{price}}$",
+  "productsList.oldPrice": "Was {{price}}$",
+
+  "productPage.orders": "Orders require up to 12 hours",
+  "productPage.deliveryInfo": "Delivery Information",
+  "productPage.contactUs": "Need more? Contact us!",
+  "productPage.ingredients": "Ingredients:",
+  "productPage.total": "Total:",
+  "productPage.similar": "Similar products:",
+
+  "productPage.addToCart": "Add To Cart",
+  "productPage.header": "Choose Category",
+
+  "signUp.header": "Sign Up",
+  "signUp.success.message": "Congrats, now You have an account! All You need ",
+  "signUp.link": "Already have an account? Log in!",
+
+  "login.header": "Login",
+  "login.button": "Log in",
+  "login.link": "Don`t have an account yet? Create one!",
+
+  "homepage.orders.header": "Your Orders List",
+  "homepage.orders.orderData.time": "Ordered",
+  "homepage.orders.orderData.products": "Products",
+  "homepage.orders.orderData.comment": "Your Comment",
+  "homepage.orders.orderData.total": "Total:",
+  "homepage.forms.addAddress.header": "Add Delivery Address",
+  "homepage.forms.addAddress.label.city": "City:",
+  "homepage.forms.addAddress.label.street": "Street:",
+  "homepage.forms.addAddress.label.houseNum": "House Number:",
+  "homepage.forms.addAddress.label.flatNum": "Flat Number:",
+  "homepage.forms.changePassword.label.oldPassword": "Old Password:",
+  "homepage.forms.changePassword.label.newPassword": "New Password:",
+  "homepage.forms.changeEmail.label.oldEmail": "Old Email:",
+  "homepage.forms.changeEmail.label.newEmail": "New Email:",
+  "homepage.forms.changeTelNum.label.oldTelNum": "Old Tel.Num.:",
+  "homepage.forms.changeTelNum.label.newTelNum": "New Tel. Num.:",
+  "homepage.forms.button.submit": "Submit",
+
+
+
+
+
+
+
+  "label.firstName": "First name:",
+  "label.lastName": "Last name:",
+  "label.email": "Email:",
+  "label.oldEmail": "Old email:",
+  "label.newEmail": "New email:",
+  "label.password": "Password:",
+  "label.passwordVerification": "Password verification:",
+  "label.oldPassword": "Old password:",
+  "label.newPassword": "New password:",
+  "label.tel": "Telephone number:",
+  "label.oldTelNum": "Old telephone number:",
+  "label.newTelNum": "New telephone number:",
+  "label.city": "City:",
+  "label.street": "Street:",
+  "label.houseNum": "House number:",
+  "label.flatNum": "Flat number:",
+  "label.subject": "What would You like to talk about?",
+  "label.message": "Message:",
+  "label.comment": "Comment:",
+
+  "tooltip.header.firstName": "First name tooltip.",
+  "tooltip.header.lastName": "Last name tooltip.",
+  "tooltip.header.email": "Email tooltip.",
+  "tooltip.header.tel": "Telephone number tooltip.",
+  "tooltip.header.password": "Password tooltip.",
+  "tooltip.header.passwordVerification": "Password verification tooltip.",
+  "tooltip.header.telNum": "Telephone number tooltip.",
+  "tooltip.header.city": "City tooltip.",
+  "tooltip.header.street": "Street tooltip.",
+  "tooltip.header.houseNum": "House number tooltip.",
+  "tooltip.header.flatNum": "Flat number tooltip.",
+  "tooltip.header.message": "Message tooltip.",
+  "tooltip.header.comment": "Comment tooltip.",
+  "tooltip.name": "Use only latin or cyrillic alphabet, hyphens and spaces.",
+  "tooltip.email": "Use any valid email. Local part mustn't be longer than 63 characters, domain mustn't be longer than 190 characters.",
+  "tooltip.password": "Use at least 1 uppercase and 1 lowercase letter, 1 digit and 1 special symbol (%@?№$^). Minimum length - 8 characters, maximum - 30 characters.",
+  "tooltip.passwordVerification": "Repeat Your password.",
+  "tooltip.telNumOrHouseOrFlatNum": "Use only digits.",
+  "tooltip.city": "Choose one from the list of served cities.",
+  "tooltip.street": "Use only latin or cyrillic alphabet, hyphens and spaces.",
+  "tooltip.message": "Type Your message to us.",
+  "tooltip.comment": "Type any information that we should know.",
+
+  "overlay.getting": "Loading content...",
+  "overlay.sending": "Sending Your data...",
+
+  "ariaLabel.close": "Close",
+  "ariaLabel.showProductImage": "Show product image",
+  "ariaLabel.prev": "Previous page",
+  "ariaLabel.next": "Next page",
+  "ariaLabel.login": "Log in button",
+  "ariaLabel.orderForm.delivery": "Delivery option.",
+  "ariaLabel.orderForm.selfPickUp": "Self-pick-up option.",
+
+  "button.close": "Close",
+  "button.prev": "Previous",
+  "button.next": "Next",
+  "button.submit": "Submit",
+  "button.subscribe": "Subscribe",
+  "button.orderForm.delivery": "Delivery",
+  "button.orderForm.selfPickUp": "Self-pick-up",
+  "button.orderForm.selectAddress": "Select address",
+  "button.orderForm.addAddress": "Add address",
+
+  "navbar.order": "Order Online",
+  "navbar.catering": "Catering",
+  "navbar.locations": "Locations",
+
+  "navbar.ariaLabel.main": "Link to the main page.",
+  "navbar.ariaLabel.logOut": "Log out.",
+  "navbar.ariaLabel.login": "Link to login page.",
+  "navbar.ariaLabel.homepage": "Link to the homepage.",
+  "navbar.ariaLabel.cart": "Show cart.",
+  "navbar.ariaLabel.langButton": "Select your preferred language.",
+  "navbar.ariaLabel.langButton.en": "English language.",
+  "navbar.ariaLabel.langButton.ru": "Russian language.",
+  "navbar.ariaLabel.langButton.ua": "Ukrainian language.",
+  "city": "City",
+  "street": "street",
+  "flat": "flat"
+
+}
+

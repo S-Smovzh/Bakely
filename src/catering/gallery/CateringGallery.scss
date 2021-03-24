@@ -1,0 +1,45 @@
+@import "../../css/base/Extensions";
+
+.GalleryPage {
+  grid-area: 2/2/3/3;
+  @extend %grid;
+  grid-template-rows: $standard 40px minmax(10px, 1fr) $standard;
+  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  row-gap: calc(#{$standard * 9});
+
+  & > .TopBlock {
+    grid-area: 2/2/3/3;
+    @extend %flex;
+    @extend %flex__center;
+  }
+
+  & > .MiddleBlock {
+    grid-area: 3/2/4/3;
+    @extend %flex;
+    @extend %flex__center;
+
+    & > .Event_List {
+      @extend %flex;
+      @include align-items(flex-start);
+      @include justify-content(space-around);
+      @include flex-flow(row wrap);
+      row-gap: 56px;
+
+      & > .Event {
+        @extend %flex;
+        @extend %flex__center;
+
+        & > .Card {
+          row-gap: calc(#{$standard} * 2);
+
+          .Event-Details {
+            @extend %flex;
+            @extend %flex__center;
+            @include flex-flow(column nowrap);
+            row-gap: calc(#{$standard} * 2);
+          }
+        }
+      }
+    }
+  }
+}

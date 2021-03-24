@@ -1,0 +1,47 @@
+.Modal.Catering .modal-content .modal-body .Feedbacks, .Modal.Catering .modal-dialog .modal-body .Feedbacks, .Modal.Catering .modal-content .modal-body > p, .Modal.Catering .modal-dialog .modal-body > p, .Modal.Catering .modal-content .modal-body header, .Modal.Catering .modal-dialog .modal-body header, .Modal.Catering .modal-content .modal-body, .Modal.Catering .modal-dialog .modal-body {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+
+.Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+  width: 600px;
+  height: 660px;
+}
+.Modal.Catering .modal-content .modal-body, .Modal.Catering .modal-dialog .modal-body {
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+}
+.Modal.Catering .modal-content .modal-body header, .Modal.Catering .modal-dialog .modal-body header {
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+}
+.Modal.Catering .modal-content .modal-body > p, .Modal.Catering .modal-dialog .modal-body > p {
+  align-items: center;
+  -webkit-align-items: center;
+  flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  column-gap: calc(7px * 6);
+  -webkit-column-gap: calc(7px * 6);
+  -moz-column-gap: calc(7px * 6);
+}
+.Modal.Catering .modal-content .modal-body .Feedbacks, .Modal.Catering .modal-dialog .modal-body .Feedbacks {
+  flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+  row-gap: 20px;
+}
+.Modal.Catering .modal-content > *, .Modal.Catering .modal-dialog > * {
+  border: none;
+}
+
+/*# sourceMappingURL=CateringModal.css.map */
