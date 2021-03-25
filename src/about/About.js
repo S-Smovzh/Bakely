@@ -2,6 +2,9 @@ import React from 'react';
 import './About.css';
 import {Picture} from '../UI-components/picture/Picture';
 import {useTranslation} from 'react-i18next';
+import about_1 from '../images/about/about_1.jpg';
+import about_2 from '../images/about/about_2.jpg';
+import about_3 from '../images/about/about_3.jpg';
 
 export const About = () => {
   const [t] = useTranslation();
@@ -16,15 +19,15 @@ export const About = () => {
         </header>
         <ul className='ImageList'>
           <li>
-            <Picture src='http://localhost:3000/img/about/about_1.jpg' alt=''
+            <Picture src={about_1} alt=''
                      imgClassName='Image_200_300'/>
           </li>
           <li>
-            <Picture src='http://localhost:3000/img/about/about_2.jpg' alt=''
+            <Picture src={about_2} alt=''
                      imgClassName='Image_200_300'/>
           </li>
           <li>
-            <Picture src='http://localhost:3000/img/about/about_3.jpg' alt=''
+            <Picture src={about_3} alt=''
                      imgClassName='Image_200_300'/>
           </li>
         </ul>

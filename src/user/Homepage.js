@@ -19,6 +19,7 @@ import {publicLinks, userLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
 import {timer} from "rxjs";
 import {userConfig} from "../utils/restApiConfigs";
+import Head from "../head/Head";
 
 export default function Homepage() {
   const [t] = useTranslation();
@@ -444,12 +445,7 @@ export default function Homepage() {
 
   return (
     <div className='Homepage Nunito'>
-      <Helmet>
-        <title>
-          Homepage
-        </title>
-        <meta name="description" content="Register an account or log in if you have one to access all features."/>
-      </Helmet>
+      <Head description={t('seo.homepage.description')} title={t('seo.homepage.title')}/>
       <section id='orders' className='TopBlock'>
         <section className='LeftCol'>
           <header className='Form-Header Playfair'>
@@ -458,18 +454,18 @@ export default function Homepage() {
           <Input tooltipId='search' inputType='search' inputName='search' autoComplete='off'
                  inputOnBlur={(event) => handleSearch(event)} inputOnChange={(event) => handleSearch(event)}
                  value={keyword} buttonOnClick={() => searchOrder()}/>
-          <ul className={'Orders-List ' + (orders.size % 2 ? 'Even' : 'Odd')}>
+          <ul className={'Orders-List helper ' + (orders.size % 2 ? 'Even' : 'Odd')}>
             <li className='Orders-Header fill-width'>
-              <span>Date</span>
-              <span>Products</span>
-              <span>Price</span>
+              <span>{t('date')}</span>
+              <span>{t('products')}</span>
+              <span>{t('price')}</span>
             </li>
             {orders ? Array.from(orders.values()).map((order) => {
               return (
                 <li key={order.date} className='Order fill-width'>
                   <button onClick={() => setOrderId(order.id)} type='button'
                           className='button Orders-Cell fill-width '>
-                    <span className='Date'>{timeConverter(Number.parseInt(order.date), i18n.language, true)}</span>
+                    <span className='Date'>{new Date(Number.parseInt(order.date)).toLocaleDateString('ru-RU')}</span>
                     <span className='Products'>
                       {order.products.map((product) => {
                         return product + ', ';
@@ -488,7 +484,7 @@ export default function Homepage() {
             {orderId ?
               <div className='Order-Data-Table'>
                 <div className='OrderDate-Row h5-size font-weight_300'>
-                  {t('homepage.orders.orderData.time')} {timeConverter(Number.parseInt(orders.get(orderId).date), i18n.language, false)}
+                  {t('homepage.orders.orderData.time')} {new Date(Number.parseInt(orders.get(orderId).date)).toLocaleDateString('ru-RU')}
                 </div>
                 <div className='Products-Column'>
                   <header>
@@ -525,7 +521,7 @@ export default function Homepage() {
       <section className='MiddleBlock'>
         <section className='LeftCol'>
           <header className='Form-Header fill-width'>
-            <h3>{t('homepage.forms.addAddress.header')}</h3>
+            <h3>{t('homepage.addAddress.header')}</h3>
           </header>
           <Form id='addresses' success={addressSuccess}>
             <div className='Form-Col Col-First'>
@@ -535,7 +531,7 @@ export default function Homepage() {
                         errorIdentifier={cityError} errorLabelText={cityError} labelText={t('label.city')}
                         selectId='city'>
                   <option value={0}>
-                    -- Select city
+                    {t('homepage.selectCity')}
                   </option>
                   {availableCities && availableCities.map((item) => {
                     return (
@@ -547,46 +543,45 @@ export default function Homepage() {
                 </Select>
               </div>
               <div className='Form-Row'>
-                <Input errorIdentifier={streetError} labelText={t('homepage.forms.addAddress.label.street')}
+                <Input errorIdentifier={streetError} labelText={t('label.street')}
                        errorLabelText={streetError}
                        inputId='street' inputType='text' inputName='street'
                        inputOnBlur={(event) => setStreet(event.target.value)}
                        inputOnChange={(event) => setStreet(event.target.value)} inputRequired='required'
                        autoComplete='on'
-                       value={street} tooltipId='street' tooltipText='asdsad'/>
+                       value={street} tooltipId={t('tooltip.header.street')} tooltipText={t('tooltip.street')}/>
               </div>
             </div>
             <div className='Form-Col Col-Second'>
               <div className='Form-Row'>
-                <Input errorIdentifier={houseNumError} labelText={t('homepage.forms.addAddress.label.houseNum')}
+                <Input errorIdentifier={houseNumError} labelText={t('label.houseNum')}
                        errorLabelText={houseNumError}
                        inputId='houseNum' inputType='number' inputName='houseNum'
                        inputOnBlur={(event) => setHouseNum(event.target.value)} min={1}
                        inputOnChange={(event) => setHouseNum(event.target.value)}
-                       inputRequired='required' autoComplete='off' value={houseNum} tooltipId='houseNum'
-                       tooltipText='asdsad'/>
+                       inputRequired='required' autoComplete='off' value={houseNum}
+                       tooltipId={t('tooltip.header.houseNum')}
+                       tooltipText={t('tooltip.telNumOrHouseOrFlatNum')}/>
               </div>
               <div className='Form-Row'>
-                <Input errorIdentifier={flatNumError} labelText={t('homepage.forms.addAddress.label.flatNum')}
+                <Input errorIdentifier={flatNumError} labelText={t('label.flatNum')}
                        errorLabelText={flatNumError}
                        inputId='flatNum' inputType='number' inputName='flatNum'
                        inputOnBlur={(event) => setFlatNum(event.target.value)} min={1}
                        inputOnChange={(event) => setFlatNum(event.target.value)} inputRequired='required'
-                       autoComplete='off' tooltipId='flatNum' tooltipText='asdsad' value={flatNum}/>
+                       autoComplete='off' tooltipId={t('tooltip.header.flatNum')}
+                       tooltipText={t('tooltip.telNumOrHouseOrFlatNum')} value={flatNum}/>
               </div>
             </div>
             <div className='Form-Button'>
               <ConfirmButton onClick={() => addAddress()} disabled={!city || !street || !houseNum || !flatNum}
-                             animate={animateAddressChange} className='button-small-x-wide'
-                             type='button' ariaLabel={t('homepage.forms.button.submit')}
-                             text={t('homepage.forms.button.submit')}>
-              </ConfirmButton>
+                             animate={animateAddressChange} className='button-small-x-wide' text={t('button.submit')}/>
             </div>
           </Form>
         </section>
         <section className='RightCol'>
           <header className='Form-Header'>
-            <h3>Your Delivery Addresses</h3>
+            <h3>{t('homepage.deliveryAddresses.header')}</h3>
           </header>
           <ul
             className={'Addresses-Table ' + (authContext.addresses && authContext.addresses.length % 2 ? 'Even' : 'Odd')}>
@@ -612,110 +607,97 @@ export default function Homepage() {
         </section>
       </section>
       <section id='forms' className='BottomBlock'>
-        <div className='Block-Wrapper fill-width'>
-          <section className='Col Col-First'>
-            <header className='fill-width'>
-              <h3>Email Change</h3>
-            </header>
-            <Form success={emailChangeSuccess}>
-              <div className='Form-Row'>
-                <Input errorIdentifier={oldEmailError} labelText={t('homepage.forms.changeEmail.label.oldEmail')}
-                       errorLabelText={oldEmailError} value={oldEmail}
-                       inputId='oldEmail' inputType='email' inputName='oldEmail'
-                       inputOnBlur={(event) => setOldEmail(event.target.value)}
-                       inputOnChange={(event) => setOldEmail(event.target.value)} inputRequired='required'
-                       autoComplete='off' tooltipId='oldEmail' tooltipText='oldEmail'/>
-              </div>
-              <div className='Form-Row'>
-                <Input errorIdentifier={newEmailError} labelText={t('homepage.forms.changeEmail.label.newEmail')}
-                       errorLabelText={newEmailError} value={newEmail}
-                       inputId='newEmail' inputType='email' inputName='newEmail'
-                       inputOnBlur={(event) => setNewEmail(event.target.value)}
-                       inputOnChange={(event) => setNewEmail(event.target.value)}
-                       inputRequired='required' autoComplete='off' tooltipId='newEmail' tooltipText='newEmail'/>
-              </div>
-              <div className='Form-Button'>
-                <ConfirmButton onClick={() => emailChange()} disabled={!oldEmail || !newEmail}
-                               animate={animateEmailChange} className='button-small-x-wide'
-                               type='button' ariaLabel={t('homepage.forms.button.submit')}
-                               text={t('homepage.forms.button.submit')}>
-                </ConfirmButton>
-              </div>
-            </Form>
-          </section>
-          <section className='Col Col-Second'>
-            <header className='fill-width'>
-              <h3>Password Change</h3>
-            </header>
-            <Form success={passwordChangeSuccess}>
-              <div className='Form-Row'>
-                <Input errorIdentifier={oldPasswordError}
-                       labelText={t('homepage.forms.changePassword.label.oldPassword')}
-                       errorLabelText={oldPasswordError} value={oldPassword}
-                       inputId='oldPassword' inputType='password' inputName='oldPassword'
-                       inputOnBlur={(event) => setOldPassword(event.target.value)}
-                       inputOnChange={(event) => setOldPassword(event.target.value)} inputRequired='required'
-                       autoComplete='off'
-                       tooltipId='oldPassword' tooltipText='oldPassword'/>
-              </div>
-              <div className='Form-Row'>
-                <Input errorIdentifier={newPasswordError}
-                       labelText={t('homepage.forms.changePassword.label.newPassword')}
-                       errorLabelText={newPasswordError} value={newPassword}
-                       inputId='newPassword' inputType='password' inputName='newPassword'
-                       inputOnBlur={(event) => setNewPassword(event.target.value)}
-                       inputOnChange={(event) => setNewPassword(event.target.value)}
-                       inputRequired='required' autoComplete='off'
-                       tooltipId='newPassword' tooltipText='newPassword'/>
-              </div>
-              <div className='Form-Button'>
-                <ConfirmButton onClick={() => passwordChange()} disabled={!oldPassword || !newPassword}
-                               animate={animatePasswordChange} className='button-small-x-wide'
-                               type='button' ariaLabel={t('homepage.forms.button.submit')}
-                               text={t('homepage.forms.button.submit')}>
-                </ConfirmButton>
-              </div>
-            </Form>
-          </section>
-          <section className='Col Col-Third'>
-            <header className='fill-width'>
-              <h3>Telephone Number Change</h3>
-            </header>
-            <Form success={telNumChangeSuccess}>
-              <div className='Form-Row'>
-                <Input errorIdentifier={oldTelNumError} labelText={t('homepage.forms.changeTelNum.label.oldTelNum')}
-                       errorLabelText={oldTelNumError} value={oldTelNum}
-                       inputId='oldTelNum' inputType='tel' inputName='oldTelNum'
-                       inputOnBlur={(event) => setOldTelNum(event.target.value)}
-                       inputOnChange={(event) => setOldTelNum(event.target.value)} inputRequired='required'
-                       autoComplete='off'
-                       selectOnChange={(event) => setOldTelNumPrefix(event.target.value)} selectValue={oldTelNumPrefix}
-                       tooltipId='oldTelNum' tooltipText='oldTelNum'
-                       mask={masks.tel}/>
-              </div>
-              <div className='Form-Row'>
-                <Input errorIdentifier={newTelNumError} labelText={t('homepage.forms.changeTelNum.label.newTelNum')}
-                       errorLabelText={newTelNumError} value={newTelNum}
-                       inputId='newTelNum' inputType='tel' inputName='newTelNum'
-                       inputOnBlur={(event) => setNewTelNum(event.target.value)}
-                       inputOnChange={(event) => {
-                         setNewTelNum(event.target.value)
-                       }}
-                       selectOnChange={(event) => setNewTelNumPrefix(event.target.value)} selectValue={newTelNumPrefix}
-                       inputRequired='required' autoComplete='off'
-                       tooltipId='newTelNum' tooltipText='newTelNum'
-                       mask={masks.tel}/>
-              </div>
-              <div className='Form-Button'>
-                <ConfirmButton onClick={() => telNumChange()} disabled={!oldTelNum || !newTelNum}
-                               animate={animateTelNumChange} className='button-small-x-wide'
-                               type='button' ariaLabel={t('homepage.forms.button.submit')}
-                               text={t('homepage.forms.button.submit')}>
-                </ConfirmButton>
-              </div>
-            </Form>
-          </section>
-        </div>
+        <section className='Col Col-First'>
+          <header className='fill-width'>
+            <h3>{t('homepage.emailChange.header')}</h3>
+          </header>
+          <Form success={emailChangeSuccess}>
+            <div className='Form-Row'>
+              <Input errorIdentifier={oldEmailError} labelText={t('label.oldEmail')}
+                     errorLabelText={oldEmailError} value={oldEmail}
+                     inputId='oldEmail' inputType='email' inputName='oldEmail'
+                     inputOnBlur={(event) => setOldEmail(event.target.value)}
+                     inputOnChange={(event) => setOldEmail(event.target.value)} inputRequired='required'
+                     autoComplete='off' tooltipId={t('tooltip.header.oldEmail')} tooltipText={t('tooltip.oldEmail')}/>
+            </div>
+            <div className='Form-Row'>
+              <Input errorIdentifier={newEmailError} labelText={t('label.newEmail')}
+                     errorLabelText={newEmailError} value={newEmail}
+                     inputId='newEmail' inputType='email' inputName='newEmail'
+                     inputOnBlur={(event) => setNewEmail(event.target.value)}
+                     inputOnChange={(event) => setNewEmail(event.target.value)}
+                     inputRequired='required' autoComplete='off' tooltipId={t('tooltip.header.email')}
+                     tooltipText={t('tooltip.email')}/>
+            </div>
+            <div className='Form-Button'>
+              <ConfirmButton onClick={() => emailChange()} disabled={!oldEmail || !newEmail}
+                             animate={animateEmailChange} className='button-small-x-wide' text={t('button.submit')}/>
+            </div>
+          </Form>
+        </section>
+        <section className='Col Col-Second'>
+          <header className='fill-width'>
+            <h3>{t('homepage.passwordChange.header')}</h3>
+          </header>
+          <Form success={passwordChangeSuccess}>
+            <div className='Form-Row'>
+              <Input errorIdentifier={oldPasswordError}
+                     labelText={t('label.oldPassword')}
+                     errorLabelText={oldPasswordError} value={oldPassword}
+                     inputId='oldPassword' inputType='password' inputName='oldPassword'
+                     inputOnBlur={(event) => setOldPassword(event.target.value)}
+                     inputOnChange={(event) => setOldPassword(event.target.value)} inputRequired='required'
+                     autoComplete='off' tooltipId={t('tooltip.header.oldPassword')} tooltipText={t('tooltip.oldPassword')}/>
+            </div>
+            <div className='Form-Row'>
+              <Input errorIdentifier={newPasswordError}
+                     labelText={t('label.newPassword')}
+                     errorLabelText={newPasswordError} value={newPassword}
+                     inputId='newPassword' inputType='password' inputName='newPassword'
+                     inputOnBlur={(event) => setNewPassword(event.target.value)}
+                     inputOnChange={(event) => setNewPassword(event.target.value)}
+                     inputRequired='required' autoComplete='off' tooltipId={t('tooltip.header.password')}
+                     tooltipText={t('tooltip.password')}/>
+            </div>
+            <div className='Form-Button'>
+              <ConfirmButton onClick={() => passwordChange()} disabled={!oldPassword || !newPassword}
+                             animate={animatePasswordChange} className='button-small-x-wide' text={t('button.submit')}/>
+            </div>
+          </Form>
+        </section>
+        <section className='Col Col-Third'>
+          <header className='fill-width'>
+            <h3>{t('homepage.telNumChange.header')}</h3>
+          </header>
+          <Form success={telNumChangeSuccess}>
+            <div className='Form-Row'>
+              <Input errorIdentifier={oldTelNumError} labelText={t('label.oldTelNum')}
+                     errorLabelText={oldTelNumError} value={oldTelNum}
+                     inputId='oldTelNum' inputType='tel' inputName='oldTelNum'
+                     inputOnBlur={(event) => setOldTelNum(event.target.value)}
+                     inputOnChange={(event) => setOldTelNum(event.target.value)} inputRequired='required'
+                     autoComplete='off' selectOnChange={(event) => setOldTelNumPrefix(event.target.value)}
+                     selectValue={oldTelNumPrefix}
+                     tooltipId={t('tooltip.header.oldTel')} tooltipText={t('tooltip.oldTel')}
+                     mask={masks.tel}/>
+            </div>
+            <div className='Form-Row'>
+              <Input errorIdentifier={newTelNumError} labelText={t('label.newTelNum')}
+                     errorLabelText={newTelNumError} value={newTelNum}
+                     inputId='newTelNum' inputType='tel' inputName='newTelNum'
+                     inputOnBlur={(event) => setNewTelNum(event.target.value)}
+                     inputOnChange={(event) => {
+                       setNewTelNum(event.target.value)
+                     }} selectOnChange={(event) => setNewTelNumPrefix(event.target.value)} selectValue={newTelNumPrefix}
+                     inputRequired='required' autoComplete='off' tooltipId={t('tooltip.header.tel')}
+                     tooltipText={t('tooltip.telNumOrHouseOrFlatNum')} mask={masks.tel}/>
+            </div>
+            <div className='Form-Button'>
+              <ConfirmButton onClick={() => telNumChange()} disabled={!oldTelNum || !newTelNum}
+                             animate={animateTelNumChange} className='button-small-x-wide' text={t('button.submit')}/>
+            </div>
+          </Form>
+        </section>
       </section>
     </div>
   );

@@ -12,15 +12,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 
   & > * {
-    padding: 0 70px;
+    padding-inline: calc(#{$standard} * 5);
   }
 
   .Navbar-Top {
     grid-area: 1/1/2/2;
     @extend %grid;
     grid-template-columns: repeat(2, 150px);
-    grid-template-rows: minmax(10px, 1fr);
-    grid-gap: 30px;
+    grid-gap: calc(#{$standard} * 4);
     background: $secondary-1000;
 
     & > * {
@@ -32,7 +31,6 @@
   .Navbar-Bottom {
     grid-area: 2/1/3/2;
     @extend %grid;
-    grid-template-columns: 560px minmax(10px, 1fr) 285px;
     grid-template-rows: minmax(10px, 1fr);
     background: $layout-600;
 
@@ -41,10 +39,8 @@
 
       ul {
         @extend %flex;
-        justify-content: space-between;
-        -webkit-justify-content: space-between;
-        align-items: center;
-        -webkit-align-items: center;
+        @include justify-content(space-between);
+        @include align-items(center);
 
         li a {
           @extend %flex;
@@ -55,17 +51,12 @@
 
     .Navbar-RightRow {
       grid-area: 1/3/2/4;
-      @extend %flex;
-      align-items: center;
-      -webkit-align-items: center;
 
       ul {
         @extend %flex;
-        justify-content: center;
-        -webkit-justify-content: center;
-        align-items: center;
-        -webkit-align-items: center;
-        column-gap: 15px;
+        @include justify-content(space-between);
+        @include align-items(center);
+        column-gap: calc(#{$standard} * 2);
       }
 
       li button, li a {
@@ -74,5 +65,61 @@
         color: $text-inverted;
       }
     }
+  }
+}
+
+/* Large desktops and laptops */
+@media only screen and (min-width: 1400px) {
+  .Navbar > * {
+      padding-inline: $mainPadding;
+    }
+
+    .Navbar-Bottom {
+      grid-template-columns: 620px minmax(10px, 1fr) 240px;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .Navbar > * {
+    padding-inline: $mainPadding;
+  }
+
+  .Navbar-Bottom {
+    grid-template-columns: 580px minmax(10px, 1fr) 220px;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Navbar-Bottom {
+    grid-template-columns: 500px minmax(10px, 1fr) 200px;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Navbar-Bottom {
+    grid-template-columns: 420px minmax(10px, 1fr) 160px;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Navbar-Bottom {
+    grid-template-columns: 60px minmax(10px, 1fr) 60px;
+  }
+}
+
+/* Portrait phones and smaller */
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Navbar-Bottom {
+    grid-template-columns: 40px minmax(10px, 1fr) 40px;
+  }
+}
+
+/* Iphone 5 */
+@media only screen and (max-width: 320px) {
+  .Navbar-Bottom {
+    grid-template-columns: 30px minmax(10px, 1fr) 30px;
   }
 }

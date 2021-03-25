@@ -231,29 +231,23 @@
   "login.button": "Log in",
   "login.link": "Don`t have an account yet? Create one!",
 
-  "homepage.orders.header": "Your Orders List",
+  "seo.homepage.title": "Homepage",
+  "seo.homepage.description": "Register an account or log in if you have one to access all features.",
+
+  "homepage.orders.header": "Your orders",
+
   "homepage.orders.orderData.time": "Ordered",
   "homepage.orders.orderData.products": "Products",
-  "homepage.orders.orderData.comment": "Your Comment",
+  "homepage.orders.orderData.comment": "Your comment",
   "homepage.orders.orderData.total": "Total:",
-  "homepage.forms.addAddress.header": "Add Delivery Address",
-  "homepage.forms.addAddress.label.city": "City:",
-  "homepage.forms.addAddress.label.street": "Street:",
-  "homepage.forms.addAddress.label.houseNum": "House Number:",
-  "homepage.forms.addAddress.label.flatNum": "Flat Number:",
-  "homepage.forms.changePassword.label.oldPassword": "Old Password:",
-  "homepage.forms.changePassword.label.newPassword": "New Password:",
-  "homepage.forms.changeEmail.label.oldEmail": "Old Email:",
-  "homepage.forms.changeEmail.label.newEmail": "New Email:",
-  "homepage.forms.changeTelNum.label.oldTelNum": "Old Tel.Num.:",
-  "homepage.forms.changeTelNum.label.newTelNum": "New Tel. Num.:",
-  "homepage.forms.button.submit": "Submit",
+  "homepage.addAddress.header": "Add delivery address",
+  "homepage.deliveryAddresses.header": "Your delivery addresses",
+  "homepage.emailChange.header": "Email change",
+  "homepage.passwordChange.header": "Password change",
+  "homepage.telNumChange.header": "Tel. num. change",
 
 
-
-
-
-
+  "homepage.selectCity": "-- Select city",
 
   "label.firstName": "First name:",
   "label.lastName": "Last name:",
@@ -278,8 +272,11 @@
   "tooltip.header.firstName": "First name tooltip.",
   "tooltip.header.lastName": "Last name tooltip.",
   "tooltip.header.email": "Email tooltip.",
+  "tooltip.header.oldEmail": "Old email tooltip.",
   "tooltip.header.tel": "Telephone number tooltip.",
+  "tooltip.header.oldTel": "Old telephone number tooltip.",
   "tooltip.header.password": "Password tooltip.",
+  "tooltip.header.oldPassword": "Old password tooltip.",
   "tooltip.header.passwordVerification": "Password verification tooltip.",
   "tooltip.header.telNum": "Telephone number tooltip.",
   "tooltip.header.city": "City tooltip.",
@@ -290,9 +287,12 @@
   "tooltip.header.comment": "Comment tooltip.",
   "tooltip.name": "Use only latin or cyrillic alphabet, hyphens and spaces.",
   "tooltip.email": "Use any valid email. Local part mustn't be longer than 63 characters, domain mustn't be longer than 190 characters.",
+  "tooltip.oldEmail": "Enter your previous email.",
   "tooltip.password": "Use at least 1 uppercase and 1 lowercase letter, 1 digit and 1 special symbol (%@?№$^). Minimum length - 8 characters, maximum - 30 characters.",
   "tooltip.passwordVerification": "Repeat Your password.",
+  "tooltip.oldPassword": "Enter your previous password.",
   "tooltip.telNumOrHouseOrFlatNum": "Use only digits.",
+  "tooltip.oldTel": "Enter your previous telephone number.",
   "tooltip.city": "Choose one from the list of served cities.",
   "tooltip.street": "Use only latin or cyrillic alphabet, hyphens and spaces.",
   "tooltip.message": "Type Your message to us.",
@@ -334,7 +334,9 @@
   "navbar.ariaLabel.langButton.ua": "Ukrainian language.",
   "city": "City",
   "street": "street",
-  "flat": "flat"
-
+  "flat": "flat",
+  "date": "Date",
+  "products": "Products",
+  "price": "Price"
 }
 

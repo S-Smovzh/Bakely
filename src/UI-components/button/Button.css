@@ -189,49 +189,264 @@ button:focus-within, button:focus, button:active {
   color: #000000;
   opacity: 0.5;
 }
-.button-icon {
-  width: 60px;
-  height: 60px;
+
+/* Large desktops and laptops */
+@media only screen and (min-width: 1200px) {
+  .button-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .button-icon-footer {
+    width: 40px;
+    height: 40px;
+  }
+  .button-icon-footer img {
+    width: 30px;
+    height: 30px;
+  }
+  .button-icon-dropdown {
+    width: 52px;
+    height: 52px;
+  }
+  .button-small {
+    width: 120px;
+    height: 60px;
+  }
+  .button-small-x-wide {
+    width: 200px;
+    height: 60px;
+  }
+  .button-small-auto-wide {
+    height: 60px;
+    padding: 10px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 180px;
+    height: 80px;
+  }
+  .button-large-x-wide {
+    width: 260px;
+    height: 80px;
+  }
 }
-.button-icon-footer {
-  width: 40px;
-  height: 40px;
+/* Landscape tablets and medium desktops */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .button-icon {
+    width: 54px;
+    height: 54px;
+  }
+  .button-icon-footer {
+    width: 36px;
+    height: 36px;
+  }
+  .button-icon-footer img {
+    width: 27px;
+    height: 27px;
+  }
+  .button-icon-dropdown {
+    width: 47px;
+    height: 47px;
+  }
+  .button-small {
+    width: 108px;
+    height: 54px;
+  }
+  .button-small-x-wide {
+    width: 162px;
+    height: 54px;
+  }
+  .button-small-auto-wide {
+    height: 54px;
+    padding: 9px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 162px;
+    height: 72px;
+  }
+  .button-large-x-wide {
+    width: 234px;
+    height: 72px;
+  }
 }
-.button-icon-footer img {
-  width: 24px;
-  height: 24px;
+/* Portrait tablets and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .button-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .button-icon-footer {
+    width: 32px;
+    height: 32px;
+  }
+  .button-icon-footer img {
+    width: 24px;
+    height: 24px;
+  }
+  .button-icon-dropdown {
+    width: 52px;
+    height: 52px;
+  }
+  .button-small {
+    width: 96px;
+    height: 48px;
+  }
+  .button-small-x-wide {
+    width: 128px;
+    height: 48px;
+  }
+  .button-small-auto-wide {
+    height: 48px;
+    padding: 8px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 128px;
+    height: 64px;
+  }
+  .button-large-x-wide {
+    width: 208px;
+    height: 64px;
+  }
 }
-.button-icon-dropdown {
-  width: 52px;
-  height: 52px;
+/* Landscape phones and portrait tablets */
+@media only screen and (max-width: 768px) {
+  .button-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .button-icon-footer {
+    width: 28px;
+    height: 28px;
+  }
+  .button-icon-footer img {
+    width: 21px;
+    height: 21px;
+  }
+  .button-icon-dropdown {
+    width: 36px;
+    height: 36px;
+  }
+  .button-small {
+    width: 84px;
+    height: 42px;
+  }
+  .button-small-x-wide {
+    width: 140px;
+    height: 42px;
+  }
+  .button-small-auto-wide {
+    height: 42px;
+    padding: 7px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 126px;
+    height: 56px;
+  }
+  .button-large-x-wide {
+    width: 182px;
+    height: 56px;
+  }
 }
-.button-small {
-  width: 120px;
-  height: 60px;
+/* Portrait phones and smaller */
+@media only screen and (max-width: 480px) {
+  .button-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .button-icon-footer {
+    width: 40px;
+    height: 40px;
+  }
+  .button-icon-footer img {
+    width: 30px;
+    height: 30px;
+  }
+  .button-icon-dropdown {
+    width: 52px;
+    height: 52px;
+  }
+  .button-small {
+    width: 120px;
+    height: 60px;
+  }
+  .button-small-x-wide {
+    width: 200px;
+    height: 60px;
+  }
+  .button-small-auto-wide {
+    height: 60px;
+    padding: 10px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 180px;
+    height: 80px;
+  }
+  .button-large-x-wide {
+    width: 260px;
+    height: 80px;
+  }
 }
-.button-small-x-wide {
-  width: 200px;
-  height: 60px;
-}
-.button-small-auto-wide {
-  height: 60px;
-  padding: 10px;
-  flex-flow: column nowrap;
-  -webkit-flex-flow: column nowrap;
-  justify-content: space-around;
-  -webkit-justify-content: space-around;
-}
-.button-large {
-  width: 180px;
-  height: 80px;
-}
-.button-large-x-wide {
-  width: 260px;
-  height: 80px;
-}
-.button-xl {
-  width: 260px;
-  height: 90px;
+/* Iphone 5 */
+@media only screen and (max-width: 320px) {
+  .button-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .button-icon-footer {
+    width: 40px;
+    height: 40px;
+  }
+  .button-icon-footer img {
+    width: 30px;
+    height: 30px;
+  }
+  .button-icon-dropdown {
+    width: 52px;
+    height: 52px;
+  }
+  .button-small {
+    width: 120px;
+    height: 60px;
+  }
+  .button-small-x-wide {
+    width: 200px;
+    height: 60px;
+  }
+  .button-small-auto-wide {
+    height: 60px;
+    padding: 10px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 180px;
+    height: 80px;
+  }
+  .button-large-x-wide {
+    width: 260px;
+    height: 80px;
+  }
 }
 
 /*# sourceMappingURL=Button.css.map */

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './News.css';
 import axios from 'axios';
-import i18n from 'i18next';
 import {Link, useLocation} from 'react-router-dom';
 import {Picture} from '../UI-components/picture/Picture';
 import {useTranslation} from "react-i18next";
@@ -9,20 +8,20 @@ import {LoadingOverlay} from "../UI-components/overlay/loading/LoadingOverlay";
 import {Card} from "../UI-components/card/Card";
 import {publicLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
+import i18n from "i18next";
 
 export default function News() {
   const [articles, setArticles] = useState([]);
   const [paragraphs, setParagraphs] = useState(new Map());
   const [t] = useTranslation();
-  let language = i18n.language;
   const location = useLocation();
 
   useEffect(() => {
-    getArticles().then();
-  }, [i18n.language]);
+    getArticles();
+  }, [t]);
 
   async function getArticles() {
-    axios.get(publicLinks.articles(language))
+    axios.get(publicLinks.articles(i18n.language))
       .then(async (response) => {
         const {success, data} = response.data;
         if (success) {

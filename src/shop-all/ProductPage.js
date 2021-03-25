@@ -6,7 +6,6 @@ import {faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import {Overlay} from '../UI-components/overlay/Overlay';
 import {Link, useLocation} from 'react-router-dom';
-import i18n from 'i18next';
 import {ModalContext} from '../context/modal/ModalContext';
 import {Card} from '../UI-components/card/Card';
 import CartContext from '../context/cart/CartContext';
@@ -15,6 +14,7 @@ import {useTranslation} from "react-i18next";
 import {Animation} from "../animation/Animation";
 import {publicLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
+import i18n from "i18next";
 
 export default function ProductPage(props) {
   const [ingredients, setIngredients] = useState([]);
@@ -28,7 +28,6 @@ export default function ProductPage(props) {
   const location = useLocation();
   const [t] = useTranslation();
 
-  const language = i18n.language;
   const id = props.match.params.id;
   const type = props.match.params.type;
 
@@ -54,7 +53,7 @@ export default function ProductPage(props) {
   }, [selectValue]);
 
   async function getProduct() {
-    await axios.get(publicLinks.productsById(language, id))
+    await axios.get(publicLinks.productsById(i18n.language, id))
       .then(response => {
         const {success, data} = response.data;
         if (success) {
@@ -80,7 +79,7 @@ export default function ProductPage(props) {
   }
 
   async function getIngredients() {
-    await axios.get(publicLinks.ingredientsByproductId(language, id))
+    await axios.get(publicLinks.ingredientsByproductId(i18n.language, id))
       .then(response => {
         const {success, data} = response.data;
         if (success) {
@@ -96,7 +95,7 @@ export default function ProductPage(props) {
   }
 
   async function getSimilar() {
-    await axios.get(publicLinks.similarProducts(language, type, id))
+    await axios.get(publicLinks.similarProducts(i18n.language, type, id))
       .then(response => {
         const {success, data} = response.data;
         if (success) {

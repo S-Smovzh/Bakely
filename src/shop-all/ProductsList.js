@@ -6,11 +6,11 @@ import {Card} from '../UI-components/card/Card';
 import {LoadingOverlay} from "../UI-components/overlay/loading/LoadingOverlay";
 import axios from "axios";
 import {publicLinks} from "../utils/restLinks";
-import i18n from "i18next";
 import {logError} from "../error/errorHandler";
 import {ModalContext} from "../context/modal/ModalContext";
 import {useTranslation} from "react-i18next";
 import useOnScreen from "../utils/scrollHandler";
+import i18n from "i18next";
 
 export default function ProductsList() {
   const {modal, setModal} = useContext(ModalContext);

@@ -3,12 +3,12 @@ import {Modal} from 'react-bootstrap';
 import './CateringModal.css';
 import axios from 'axios';
 import {ModalContext} from '../../context/modal/ModalContext';
-import i18n from 'i18next';
 import {useLocation} from 'react-router-dom';
 import {publicLinks} from "../../utils/restLinks";
 import {logError} from "../../error/errorHandler";
 import {useTranslation} from "react-i18next";
 import CloseButton from "../../UI-components/button/close/CloseButton";
+import i18n from "i18next";
 
 export const CateringModal = () => {
   const {modal, setModal} = useContext(ModalContext);

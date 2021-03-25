@@ -120,6 +120,14 @@ $mainPadding: calc(#{$standard} * 10);
   display: -o-grid;
 }
 
+@mixin grid {
+  display: grid;
+  display: -webkit-grid;
+  display: -moz-grid;
+  display: -ms-grid;
+  display: -o-grid;
+}
+
 %par_link {
   color: #000000;
   margin: 0;

@@ -31,6 +31,7 @@ import {HoverTooltip} from "./UI-components/tooltip/HoverTooltip";
 import {Cookie} from "./UI-components/toasts/components/Cookie";
 import {Verification} from "./UI-components/toasts/components/Verification";
 import {logError} from "./error/errorHandler";
+import './css/index.css';
 
 function App() {
   const [modal, setModal] = useState({

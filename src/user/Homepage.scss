@@ -67,7 +67,7 @@
 
 .Homepage {
   @extend %grid;
-  grid-template-rows: 880px 780px 600px $mainPadding;
+  grid-template-rows: 880px 780px 500px $mainPadding;
   grid-template-columns: minmax(10px, 1fr);
 
   .TopBlock {
@@ -369,39 +369,42 @@
 
   .BottomBlock {
     grid-area: 3/1/4/2;
-    @extend %flex;
-    @include align-items(center);
-    @include justify-content(space-between);
-    padding-inline: 70px;
+    @extend %grid;
+    grid-template-rows: minmax(10px, 560px);
+    grid-template-columns: $mainPadding repeat(3, minmax(10px, 1fr)) $mainPadding;
+    grid-column-gap: $mainPadding;
 
-    .Block-Wrapper {
-      @extend %grid;
-      grid-template-columns: repeat(3, minmax(10px, 1fr));
-      grid-template-rows: minmax(10px, 560px);
-      grid-column-gap: 80px;
+    .Col {
+      @extend %flex;
+      @include align-items(center);
+      @include justify-content(flex-end);
+      @include flex-flow(column nowrap);
+      row-gap: $mainPadding;
+      grid-row: 1/2;
+      -ms-grid-row: 1/2;
 
-      .Col {
-        @extend %flex;
-        @include align-items(center);
-        @include justify-content(space-around);
-        @include flex-flow(column nowrap);
-
-        &-First {
-          grid-area: 1/1/2/2;
-        }
-
-        &-Second {
-          grid-area: 1/2/2/3;
-        }
-
-        &-Third {
-          grid-area: 1/3/2/4;
-        }
+      &-First {
+        grid-column: 2/3;
+        -ms-grid-column: 2/3;
       }
 
-      .Form-Button {
-        @include justify-content(flex-start);
+      &-Second {
+        grid-column: 3/4;
+        -ms-grid-column: 3/4;
       }
+
+      &-Third {
+        grid-column: 4/5;
+        -ms-grid-column: 4/5;
+      }
+
+      form{
+        @include align-self(flex-end);
+      }
+    }
+
+    .Form-Button {
+      @include justify-content(flex-start);
     }
   }
 }

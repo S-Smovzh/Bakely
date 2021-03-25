@@ -34,14 +34,9 @@
 }
 
 .Toasts-Stack {
-  grid-area: 1/1/2/2;
-  bottom: 0;
-  left: 0;
-  position: sticky;
-  max-height: 100vh;
   top: 0;
+  left: 0;
   display: block;
-  padding: 10px;
   overflow-x: hidden;
   overflow-x: -moz-hidden-unscrollable;
   -ms-overflow-x: hidden;
@@ -108,9 +103,29 @@
 .Toast-Wrapper .toast-body .Form-Row .Form-InputRow .Form-Input:disabled {
   opacity: 0.5;
 }
-.Toast-Wrapper .Cookie {
-  z-index: 100;
-  opacity: 1;
+
+/* Large desktops and laptops */
+@media only screen and (min-width: 1400px) {
+  .Toasts-Stack {
+    grid-area: 1/1/2/2;
+    position: sticky;
+    height: 100vh;
+    padding: 10px;
+  }
 }
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .Toasts-Stack {
+    width: 250px;
+    position: absolute;
+    min-height: 0;
+    max-height: 100vh;
+    padding: 10px;
+  }
+}
+/* Landscape tablets and medium desktops */
+/* Portrait tablets and small desktops */
+/* Landscape phones and portrait tablets */
+/* Portrait phones and smaller */
+/* Iphone 5 */
 
 /*# sourceMappingURL=Toast.css.map */

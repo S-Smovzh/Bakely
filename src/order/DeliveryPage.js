@@ -9,12 +9,12 @@ import errorHandler from '../utils/errorHandler';
 import {OrderFormContext} from "../context/orderForm/OrderFormContext";
 import AuthContext from "../context/auth/AuthContext";
 import {NavigationButtons} from "./OrderForm";
-import i18n from "i18next";
 import {Select} from "../UI-components/select/Select";
 import {clientLinks, publicLinks, userLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
 import {clientConfig, userConfig} from "../utils/restApiConfigs";
 import CloseButton from "../UI-components/button/close/CloseButton";
+import i18n from "i18next";
 
 export const DeliveryPage = ({closeModal, next, page, prev, type}) => {
   const {modal, setModal} = useContext(ModalContext);

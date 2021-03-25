@@ -17,21 +17,20 @@ export default function CateringController() {
 
   useEffect(() => {
     const path = '/catering/gallery/';
-    const lang = i18n.language;
 
     if (location.pathname === path + 'wedding') {
-      getWeddings(lang);
+      getWeddings();
     } else if (location.pathname === path + 'celebration') {
-      getCelebrations(lang);
+      getCelebrations();
     } else if (location.pathname === path + 'corporate') {
-      getCorporates(lang);
+      getCorporates();
     } else if (location.pathname === '/gallery') {
-      getAll(lang);
+      getAll();
     }
   }, [t]);
 
-  const getAll = async (language) => {
-    await axios.get(publicLinks.cateringGallery(language))
+  const getAll = async () => {
+    await axios.get(publicLinks.cateringGallery(i18n.language))
       .then(response => {
         const {success, data} = response.data;
         if (success) {
@@ -46,8 +45,8 @@ export default function CateringController() {
       }).catch((error) => console.log(error));
   };
 
-  const getWeddings = async (language) => {
-    await axios.get(publicLinks.weddings(language))
+  const getWeddings = async () => {
+    await axios.get(publicLinks.weddings(i18n.language))
       .then(response => {
         const {success, data} = response.data;
         if (success) {
@@ -62,8 +61,8 @@ export default function CateringController() {
       }).catch((error) => console.log(error));
   };
 
-  const getCelebrations = async (language) => {
-    await axios.get(publicLinks.celebrations(language))
+  const getCelebrations = async () => {
+    await axios.get(publicLinks.celebrations(i18n.language))
       .then(response => {
         const {success, data} = response.data;
         if (success) {
@@ -78,8 +77,8 @@ export default function CateringController() {
       }).catch((error) => console.log(error));
   };
 
-  const getCorporates = async (language) => {
-    await axios.get(publicLinks.corporates(language))
+  const getCorporates = async () => {
+    await axios.get(publicLinks.corporates(i18n.language))
       .then(response => {
         const {success, data} = response.data;
         if (success) {

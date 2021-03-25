@@ -3,13 +3,13 @@ import './ShopAll.css';
 import axios from 'axios';
 import {Overlay} from '../UI-components/overlay/Overlay';
 import {ModalContext} from '../context/modal/ModalContext';
-import i18n from 'i18next';
 import {Card} from "../UI-components/card/Card";
 import {useTranslation} from "react-i18next";
 import {LoadingOverlay} from "../UI-components/overlay/loading/LoadingOverlay";
 import {logError} from "../error/errorHandler";
 import {publicLinks} from "../utils/restLinks";
 import useOnScreen from "../utils/scrollHandler";
+import i18n from "i18next";
 
 export default function ShopAll() {
   const [categories, setCategories] = useState([]);

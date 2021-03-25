@@ -212,56 +212,321 @@ button:focus-within, button:focus, button:active {
       opacity: 0.5;
     }
   }
+}
 
-  &-icon {
-    width: 60px;
-    height: 60px;
+/* Large desktops and laptops */
+@media only screen and (min-width: 1200px) {
+  .button {
+    &-icon {
+      width: 60px;
+      height: 60px;
 
-    &-footer {
-      width: 40px;
-      height: 40px;
+      &-footer {
+        width: 40px;
+        height: 40px;
 
-      img {
-        width: 24px;
-        height: 24px;
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      &-dropdown {
+        width: 52px;
+        height: 52px;
       }
     }
 
-    &-dropdown {
-      width: 52px;
-      height: 52px;
-    }
-  }
-
-  &-small {
-    width: 120px;
-    height: 60px;
-
-    &-x-wide {
-      width: 200px;
+    &-small {
+      width: 120px;
       height: 60px;
+
+      &-x-wide {
+        width: 200px;
+        height: 60px;
+      }
+
+      &-auto-wide {
+        height: 60px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
     }
 
-    &-auto-wide {
-      height: 60px;
-      padding: 10px;
-      @include flex-flow(column nowrap);
-      @include justify-content(space-around);
-    }
-  }
-
-  &-large {
-    width: 180px;
-    height: 80px;
-
-    &-x-wide {
-      width: 260px;
+    &-large {
+      width: 180px;
       height: 80px;
+
+      &-x-wide {
+        width: 260px;
+        height: 80px;
+      }
+    }
+
+    //&-xl {
+    //  width: 260px;
+    //  height: 90px;
+    //}
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .button {
+    &-icon {
+      width: 54px;
+      height: 54px;
+
+      &-footer {
+        width: 36px;
+        height: 36px;
+
+        img {
+          width: 27px;
+          height: 27px;
+        }
+      }
+
+      &-dropdown {
+        width: 47px;
+        height: 47px;
+      }
+    }
+
+    &-small {
+      width: 108px;
+      height: 54px;
+
+      &-x-wide {
+        width: 162px;
+        height: 54px;
+      }
+
+      &-auto-wide {
+        height: 54px;
+        padding: 9px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-large {
+      width: 162px;
+      height: 72px;
+
+      &-x-wide {
+        width: 234px;
+        height: 72px;
+      }
     }
   }
+}
 
-  &-xl {
-    width: 260px;
-    height: 90px;
+/* Portrait tablets and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .button {
+    &-icon {
+      width: 48px;
+      height: 48px;
+
+      &-footer {
+        width: 32px;
+        height: 32px;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      &-dropdown {
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    &-small {
+      width: 96px;
+      height: 48px;
+
+      &-x-wide {
+        width: 128px;
+        height: 48px;
+      }
+
+      &-auto-wide {
+        height: 48px;
+        padding: 8px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-large {
+      width: 128px;
+      height: 64px;
+
+      &-x-wide {
+        width: 208px;
+        height: 64px;
+      }
+    }
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media only screen and (max-width: 768px) {
+  .button {
+    &-icon {
+      width: 42px;
+      height: 42px;
+
+      &-footer {
+        width: 28px;
+        height: 28px;
+
+        img {
+          width: 21px;
+          height: 21px;
+        }
+      }
+
+      &-dropdown {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    &-small {
+      width: 84px;
+      height: 42px;
+
+      &-x-wide {
+        width: 140px;
+        height: 42px;
+      }
+
+      &-auto-wide {
+        height: 42px;
+        padding: 7px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-large {
+      width: 126px;
+      height: 56px;
+
+      &-x-wide {
+        width: 182px;
+        height: 56px;
+      }
+    }
+  }
+}
+
+/* Portrait phones and smaller */
+@media only screen and (max-width: 480px) {
+  .button {
+    &-icon {
+      width: 60px;
+      height: 60px;
+
+      &-footer {
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      &-dropdown {
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    &-small {
+      width: 120px;
+      height: 60px;
+
+      &-x-wide {
+        width: 200px;
+        height: 60px;
+      }
+
+      &-auto-wide {
+        height: 60px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-large {
+      width: 180px;
+      height: 80px;
+
+      &-x-wide {
+        width: 260px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+/* Iphone 5 */
+@media only screen and (max-width: 320px) {
+  .button {
+    &-icon {
+      width: 60px;
+      height: 60px;
+
+      &-footer {
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      &-dropdown {
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    &-small {
+      width: 120px;
+      height: 60px;
+
+      &-x-wide {
+        width: 200px;
+        height: 60px;
+      }
+
+      &-auto-wide {
+        height: 60px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-large {
+      width: 180px;
+      height: 80px;
+
+      &-x-wide {
+        width: 260px;
+        height: 80px;
+      }
+    }
   }
 }

@@ -1,29 +1,77 @@
 {
   "short_name": "Bakely App",
   "name": "Bakely LLC E-Commerce Web App",
-  "categories": ["food", "shopping"],
+  "theme_color": "#711604",
+  "background_color": "#FFFCF9",
+  "display": "standalone",
+  "orientation": "any",
+  "scope": "/",
+  "start_url": ".",
+  "incognito": "spanning",
+  "version": "0.1",
+  "omnibox": {
+    "keyword": "bak"
+  },
+  "categories": [
+    "food",
+    "shopping"
+  ],
   "developer": {
     "name": "Sergey Smovzh"
   },
   "homepage_url": "http://localhost:3000",
   "icons": [
     {
-      "src": "/img/manifest-icons/",
-      "16": "logo16.svg",
-      "24": "logo24.svg",
-      "32": "logo32.svg",
-      "48": "logo48.svg",
-      "96": "logo96.svg",
-      "144": "logo144.svg"
+      "src": "img/manifest-icons/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "img/manifest-icons/icons/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/manifest-icons/icons/maskable-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ],
-  "omnibox": {
-    "keyword": "bak"
-  },
-  "incognito": "spanning",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#711604",
-  "background_color": "#FFFCF9",
-  "version": "0.1"
+  ]
 }

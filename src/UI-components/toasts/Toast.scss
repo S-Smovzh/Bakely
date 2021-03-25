@@ -1,14 +1,9 @@
 @import '../../css/base/Extensions';
 
 .Toasts-Stack {
-  grid-area: 1/1/2/2;
-  bottom: 0;
-  left: 0;
-  position: sticky;
-  max-height: 100vh;
   top: 0;
+  left: 0;
   display: block;
-  padding: 10px;
   overflow-x: hidden;
   overflow-x: -moz-hidden-unscrollable;
   -ms-overflow-x: hidden;
@@ -96,9 +91,49 @@
       }
     }
   }
+}
 
-  .Cookie {
-    z-index: 100;
-    opacity: 1;
+/* Large desktops and laptops */
+@media only screen and (min-width: 1400px) {
+  .Toasts-Stack {
+    grid-area: 1/1/2/2;
+    position: sticky;
+    height: 100vh;
+    padding: 10px;
   }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .Toasts-Stack {
+    width: 250px;
+    position: absolute;
+    min-height: 0;
+    max-height: 100vh;
+    padding: 10px;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* Portrait phones and smaller */
+@media only screen and (max-width: 480px) {
+
+}
+
+/* Iphone 5 */
+@media only screen and (max-width: 320px) {
+
 }

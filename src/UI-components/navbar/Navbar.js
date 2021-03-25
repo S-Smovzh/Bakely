@@ -1,21 +1,29 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import LanguageButton from '../button/language/LanguageButton';
 import CartContext from '../../context/cart/CartContext';
 import AuthContext from "../../context/auth/AuthContext";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import useWindowDimensions, {isTouchDevice} from "../../utils/isTouchDevice";
 
 export const Navbar = () => {
   const [t] = useTranslation();
   const cartContext = useContext(CartContext);
   const authContext = useContext(AuthContext);
+const [isTouch, setIsTouch] = useState(false);
+  const { height, width } = useWindowDimensions();
+
+useEffect(()=>{
+    setIsTouch(isTouchDevice);
+  }, [height, width])
 
   return (
     <header className='Navbar'>
+      {!isTouch ?
       <nav role='navigation' className='Navbar-Top'>
         <a className='Link helper SkipLink' href='#main' tabIndex='1000'>Skip to main section</a>
         <a className='Link helper SkipLink' href='#footer' tabIndex='1000'>Skip to footer section</a>
-      </nav>
+      </nav> : null}
       <nav role='navigation' className='Navbar-Bottom'>
         <div className='Navbar-LeftRow'>
           <ul className='fill-width fill-height'>
@@ -41,7 +49,7 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
-        <nav role='navigation' className='Navbar-RightRow'>
+        <div className='Navbar-RightRow'>
           <ul className='fill-width fill-height'>
             <li>
               {authContext.logged
@@ -81,7 +89,7 @@ export const Navbar = () => {
               <LanguageButton/>
             </li>
           </ul>
-        </nav>
+        </div>
       </nav>
     </header>
   );

@@ -2,22 +2,16 @@
 
 .base {
   position: relative;
-  @extend %grid;
-  grid-template-columns: minmax(10px, 1fr) 1400px minmax(10px, 1fr);
-  grid-template-rows: minmax(10px, 1fr);
   gap: 0 0;
 
   .Page-Wrapper {
-    grid-area: 1/2/2/3;
     @extend %grid;
-    grid-template-columns: minmax(10px, 1fr);
-    grid-template-rows: 130px 1fr 390px;
     transition: transform 600ms ease-out;
     transform-origin: 0 0;
   }
 }
 
-*:disabled{
+*:disabled {
   cursor: not-allowed;
 }
 
@@ -295,7 +289,170 @@ video {
 }
 
 /* Large desktops and laptops */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1400px) {
+  .base {
+    @include grid;
+    grid-template-columns: minmax(10px, 1fr) 1400px minmax(10px, 1fr);
+    grid-template-rows: minmax(10px, 1fr);
+
+    .Page-Wrapper {
+      grid-area: 1/2/2/3;
+      grid-template-columns: minmax(10px, 1fr);
+      grid-template-rows: 130px minmax(10px, 1fr) 390px;
+    }
+  }
+
+  .Quote {
+    font-style: italic;
+    color: #555555;
+    padding: 10px 30px 10px 75px;
+    border-left: 8px solid $primary-700;
+    position: relative;
+    background: $tertiary-100;
+
+    &::before {
+      content: "\201C";
+      color: $primary-700;
+      font-size: 4em;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+    }
+
+    &::after {
+      content: '';
+    }
+
+    cite {
+      display: block;
+      color: #333333;
+      font-style: normal;
+      font-weight: bold;
+      margin-top: 0.5em;
+      @include textRight;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-flag {
+    width: 30px;
+    border: 1px solid $tertiary-800;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+
+  .Cart-Item-Image {
+    width: 80px !important;
+    height: 80px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: $text-inverted;
+    border: 1px solid $text;
+  }
+
+  .logo-icon {
+    width: 70px;
+    height: 50px;
+  }
+
+  .categoryImage {
+    width: 650px !important;
+    height: 650px !important;
+  }
+
+  .categoryImageContainer {
+    width: 650px !important;
+    height: auto !important;
+  }
+
+  .listImage {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .Image_200_300 {
+    width: 300px !important;
+    height: 380px !important;
+  }
+
+  .listImageContainer {
+    width: 350px !important;
+    height: auto !important;
+  }
+
+  .productImage {
+    width: 400px !important;
+    height: 400px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: $text-inverted;
+    border: 1px solid $text;
+    @include transition(0.4);
+
+    &:hover {
+      filter: drop-shadow(0 0 6px $primary-700);
+    }
+  }
+
+  .productImageContainer {
+    width: 700px !important;
+    height: auto;
+  }
+
+  .similarProductImage {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .similarProductImageContainer {
+    width: 250px !important;
+    height: auto;
+  }
+
+  .Image-Width300-Height400 {
+    width: 300px !important;
+    height: 400px !important;
+  }
+
+  .Image-400-400 {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .SVG-Image {
+    height: 500px !important;
+    width: auto;
+
+    &-Pop-Up {
+      width: 260px !important;
+      height: auto;
+    }
+  }
+}
+
+/* Large desktops and laptops */
+@media only screen and (min-width: 1199px) and (max-width: 1399px) {
+  .base {
+    @include flex;
+    @include flex__center;
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-flow(column nowrap);
+
+    .Page-Wrapper {
+      grid-area: 1/1/2/2;
+      grid-template-columns: minmax(10px, 1399px);
+      grid-template-rows: 130px minmax(10px, 1fr) 390px;
+    }
+  }
+
   .Quote {
     font-style: italic;
     color: #555555;
@@ -434,8 +591,21 @@ video {
 /* Landscape tablets and medium desktops */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .base {
-    grid-template-columns: minmax(10px, 1fr) 860px minmax(10px, 1fr);
+    @include flex;
+    @include flex__center;
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-flow(initial);
+
+    .Page-Wrapper {
+      grid-template-columns: minmax(10px, 1fr);
+      grid-template-rows: 130px minmax(10px, 1fr) 390px;
+    }
   }
+
+  //.base {
+  //  grid-template-columns: minmax(10px, 1fr) 860px minmax(10px, 1fr);
+  //}
 
   .Quote {
     font-style: italic;
