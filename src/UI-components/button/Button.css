@@ -31,7 +31,7 @@ button:focus-within, button:focus, button:active {
   -o-transition: all 0.6s ease-in-out !important;
   border-radius: 8px;
   outline: none;
-  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
 }
 .button-primary {
   color: #ffffff;
@@ -242,10 +242,6 @@ button:focus-within, button:focus, button:active {
   .button-icon-footer {
     width: 36px;
     height: 36px;
-  }
-  .button-icon-footer img {
-    width: 27px;
-    height: 27px;
   }
   .button-icon-dropdown {
     width: 47px;

@@ -288,6 +288,31 @@ video {
   @include user-select(none);
 }
 
+.Quote {
+  font-style: italic;
+  color: #555555;
+  position: relative;
+  background: $tertiary-100;
+
+  &::before {
+    content: "\201C";
+    color: $primary-700;
+    position: absolute;
+  }
+
+  &::after {
+    content: '';
+  }
+
+  cite {
+    display: block;
+    color: #333333;
+    font-style: normal;
+    font-weight: bold;
+    @include textRight;
+  }
+}
+
 /* Large desktops and laptops */
 @media only screen and (min-width: 1400px) {
   .base {
@@ -303,33 +328,17 @@ video {
   }
 
   .Quote {
-    font-style: italic;
-    color: #555555;
     padding: 10px 30px 10px 75px;
     border-left: 8px solid $primary-700;
-    position: relative;
-    background: $tertiary-100;
 
     &::before {
-      content: "\201C";
-      color: $primary-700;
       font-size: 4em;
-      position: absolute;
       left: 10px;
       top: -10px;
     }
 
-    &::after {
-      content: '';
-    }
-
     cite {
-      display: block;
-      color: #333333;
-      font-style: normal;
-      font-weight: bold;
       margin-top: 0.5em;
-      @include textRight;
     }
   }
 
@@ -454,54 +463,38 @@ video {
   }
 
   .Quote {
-    font-style: italic;
-    color: #555555;
     padding: 10px 30px 10px 75px;
     border-left: 8px solid $primary-700;
-    position: relative;
-    background: $tertiary-100;
 
     &::before {
-      content: "\201C";
-      color: $primary-700;
       font-size: 4em;
-      position: absolute;
       left: 10px;
       top: -10px;
     }
 
-    &::after {
-      content: '';
-    }
-
     cite {
-      display: block;
-      color: #333333;
-      font-style: normal;
-      font-weight: bold;
       margin-top: 0.5em;
-      @include textRight;
     }
   }
 
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
   }
 
   .icon-flag {
-    width: 30px;
+    width: 27px;
     border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
-    width: 46px;
-    height: 46px;
+    width: 41px;
+    height: 41px;
   }
 
   .Cart-Item-Image {
-    width: 80px !important;
-    height: 80px !important;
+    width: 76px !important;
+    height: 76px !important;
     padding: 4px;
     border-radius: 8px;
     background: $text-inverted;
@@ -509,8 +502,8 @@ video {
   }
 
   .logo-icon {
-    width: 70px;
-    height: 50px;
+    width: 63px;
+    height: 45px;
   }
 
   .categoryImage {
@@ -558,12 +551,12 @@ video {
   }
 
   .similarProductImage {
-    width: 250px !important;
-    height: 250px !important;
+    width: 200px !important;
+    height: 200px !important;
   }
 
   .similarProductImageContainer {
-    width: 250px !important;
+    width: 200px !important;
     height: auto;
   }
 
@@ -608,53 +601,120 @@ video {
   //}
 
   .Quote {
-    font-style: italic;
-    color: #555555;
     padding: 10px 30px 10px 75px;
     border-left: 8px solid $primary-700;
-    position: relative;
-    background: $tertiary-100;
 
     &::before {
-      content: "\201C";
-      color: $primary-700;
       font-size: 4em;
-      position: absolute;
       left: 10px;
       top: -10px;
     }
 
-    &::after {
-      content: '';
-    }
-
     cite {
-      display: block;
-      color: #333333;
-      font-style: normal;
-      font-weight: bold;
       margin-top: 0.5em;
-      @include textRight;
     }
   }
 
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
   }
 
   .icon-flag {
-    width: 30px;
+    width: 24px;
     border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
-    width: 46px;
-    height: 46px;
+    width: 36px;
+    height: 36px;
   }
   .logo-icon {
-    width: 70px;
-    height: 50px;
+    width: 56px;
+    height: 40px;
+  }
+
+  .Cart-Item-Image {
+    width: 72px !important;
+    height: 72px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: $text-inverted;
+    border: 1px solid $text;
+  }
+
+  .categoryImage {
+    width: 650px !important;
+    height: 650px !important;
+  }
+
+  .categoryImageContainer {
+    width: 650px !important;
+    height: auto !important;
+  }
+
+  .listImage {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .Image_200_300 {
+    width: 300px !important;
+    height: 380px !important;
+  }
+
+  .listImageContainer {
+    width: 350px !important;
+    height: auto !important;
+  }
+
+  .productImage {
+    width: 400px !important;
+    height: 400px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: $text-inverted;
+    border: 1px solid $text;
+    @include transition(0.4);
+
+    &:hover {
+      filter: drop-shadow(0 0 6px $primary-700);
+    }
+  }
+
+  .productImageContainer {
+    width: 700px !important;
+    height: auto;
+  }
+
+  .similarProductImage {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .similarProductImageContainer {
+    width: 200px !important;
+    height: auto;
+  }
+
+  .Image-Width300-Height400 {
+    width: 300px !important;
+    height: 400px !important;
+  }
+
+  .Image-400-400 {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .SVG-Image {
+    height: 500px !important;
+    width: auto;
+
+    &-Pop-Up {
+      width: 260px !important;
+      height: auto;
+    }
   }
 }
 

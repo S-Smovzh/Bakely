@@ -1,11 +1,14 @@
 @import "../../../css/base/Extensions";
 
+.Dropdown-Toggle {
+  position: relative;
+}
+
 .Dropdown-Menu {
   @extend %flex__center;
   @include flex-flow(column nowrap);
   @include pageMainPartShadow;
   position: absolute;
-  width: 60px;
   padding-block: 8px;
   background: $tertiary-200;
   border-radius: 4px;
@@ -14,5 +17,61 @@
     @extend %flex;
     @extend %flex__center;
     margin-block: 4px;
+  }
+}
+
+/* Large desktops and laptops */
+@media only screen and (min-width: 1400px) {
+  .Dropdown-Menu {
+    width: 60px;
+    top: 116px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .Dropdown-Menu {
+    width: 60px;
+    top: 115px;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Dropdown-Menu {
+    width: 54px;
+    top: 112px;
+    padding-block: 8px;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Dropdown-Menu {
+    width: 48px;
+    top: 109px;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Dropdown-Menu {
+    width: 42px;
+    top: 106px;
+  }
+}
+
+/* Portrait phones and smaller */
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Dropdown-Menu {
+    width: 60px;
+    top: 103px;
+  }
+}
+
+/* Iphone 5 */
+@media only screen and (max-width: 320px) {
+  .Dropdown-Menu {
+    width: 60px;
+    top: 100px;
   }
 }

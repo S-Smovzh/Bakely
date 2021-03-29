@@ -295,6 +295,30 @@ video {
   -ms-user-select: none;
 }
 
+.Quote {
+  font-style: italic;
+  color: #555555;
+  position: relative;
+  background: #f0f0f0;
+}
+.Quote::before {
+  content: "“";
+  color: #711604;
+  position: absolute;
+}
+.Quote::after {
+  content: "";
+}
+.Quote cite {
+  display: block;
+  color: #333333;
+  font-style: normal;
+  font-weight: bold;
+  text-align: right;
+  text-align: -moz-right;
+  text-align: -webkit-right;
+}
+
 /* Large desktops and laptops */
 @media only screen and (min-width: 1400px) {
   .base {
@@ -313,33 +337,16 @@ video {
   }
 
   .Quote {
-    font-style: italic;
-    color: #555555;
     padding: 10px 30px 10px 75px;
     border-left: 8px solid #711604;
-    position: relative;
-    background: #f0f0f0;
   }
   .Quote::before {
-    content: "“";
-    color: #711604;
     font-size: 4em;
-    position: absolute;
     left: 10px;
     top: -10px;
   }
-  .Quote::after {
-    content: "";
-  }
   .Quote cite {
-    display: block;
-    color: #333333;
-    font-style: normal;
-    font-weight: bold;
     margin-top: 0.5em;
-    text-align: right;
-    text-align: -moz-right;
-    text-align: -webkit-right;
   }
 
   .icon {
@@ -479,53 +486,36 @@ video {
   }
 
   .Quote {
-    font-style: italic;
-    color: #555555;
     padding: 10px 30px 10px 75px;
     border-left: 8px solid #711604;
-    position: relative;
-    background: #f0f0f0;
   }
   .Quote::before {
-    content: "“";
-    color: #711604;
     font-size: 4em;
-    position: absolute;
     left: 10px;
     top: -10px;
   }
-  .Quote::after {
-    content: "";
-  }
   .Quote cite {
-    display: block;
-    color: #333333;
-    font-style: normal;
-    font-weight: bold;
     margin-top: 0.5em;
-    text-align: right;
-    text-align: -moz-right;
-    text-align: -webkit-right;
   }
 
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
   }
 
   .icon-flag {
-    width: 30px;
+    width: 27px;
     border: 1px solid #626A66;
   }
 
   .Icon-Tooltip {
-    width: 46px;
-    height: 46px;
+    width: 41px;
+    height: 41px;
   }
 
   .Cart-Item-Image {
-    width: 80px !important;
-    height: 80px !important;
+    width: 76px !important;
+    height: 76px !important;
     padding: 4px;
     border-radius: 8px;
     background: #ffffff;
@@ -533,8 +523,8 @@ video {
   }
 
   .logo-icon {
-    width: 70px;
-    height: 50px;
+    width: 63px;
+    height: 45px;
   }
 
   .categoryImage {
@@ -585,12 +575,12 @@ video {
   }
 
   .similarProductImage {
-    width: 250px !important;
-    height: 250px !important;
+    width: 200px !important;
+    height: 200px !important;
   }
 
   .similarProductImageContainer {
-    width: 250px !important;
+    width: 200px !important;
     height: auto;
   }
 
@@ -644,53 +634,121 @@ video {
   }
 
   .Quote {
-    font-style: italic;
-    color: #555555;
     padding: 10px 30px 10px 75px;
     border-left: 8px solid #711604;
-    position: relative;
-    background: #f0f0f0;
   }
   .Quote::before {
-    content: "“";
-    color: #711604;
     font-size: 4em;
-    position: absolute;
     left: 10px;
     top: -10px;
   }
-  .Quote::after {
-    content: "";
-  }
   .Quote cite {
-    display: block;
-    color: #333333;
-    font-style: normal;
-    font-weight: bold;
     margin-top: 0.5em;
-    text-align: right;
-    text-align: -moz-right;
-    text-align: -webkit-right;
   }
 
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
   }
 
   .icon-flag {
-    width: 30px;
+    width: 24px;
     border: 1px solid #626A66;
   }
 
   .Icon-Tooltip {
-    width: 46px;
-    height: 46px;
+    width: 36px;
+    height: 36px;
   }
 
   .logo-icon {
-    width: 70px;
-    height: 50px;
+    width: 56px;
+    height: 40px;
+  }
+
+  .Cart-Item-Image {
+    width: 72px !important;
+    height: 72px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #000000;
+  }
+
+  .categoryImage {
+    width: 650px !important;
+    height: 650px !important;
+  }
+
+  .categoryImageContainer {
+    width: 650px !important;
+    height: auto !important;
+  }
+
+  .listImage {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .Image_200_300 {
+    width: 300px !important;
+    height: 380px !important;
+  }
+
+  .listImageContainer {
+    width: 350px !important;
+    height: auto !important;
+  }
+
+  .productImage {
+    width: 400px !important;
+    height: 400px !important;
+    padding: 4px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    transition: all 0.4s ease-in-out !important;
+    -webkit-transition: all 0.4s ease-in-out !important;
+    -moz-transition: all 0.4s ease-in-out !important;
+    -ms-transition: all 0.4s ease-in-out !important;
+    -o-transition: all 0.4s ease-in-out !important;
+  }
+  .productImage:hover {
+    filter: drop-shadow(0 0 6px #711604);
+  }
+
+  .productImageContainer {
+    width: 700px !important;
+    height: auto;
+  }
+
+  .similarProductImage {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .similarProductImageContainer {
+    width: 200px !important;
+    height: auto;
+  }
+
+  .Image-Width300-Height400 {
+    width: 300px !important;
+    height: 400px !important;
+  }
+
+  .Image-400-400 {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .SVG-Image {
+    height: 500px !important;
+    width: auto;
+  }
+  .SVG-Image-Pop-Up {
+    width: 260px !important;
+    height: auto;
   }
 }
 /* Portrait tablets and small desktops */

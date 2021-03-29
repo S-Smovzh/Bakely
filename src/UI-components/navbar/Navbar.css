@@ -1,4 +1,4 @@
-.Navbar .Navbar-Bottom .Navbar-RightRow li button, .Navbar .Navbar-Bottom .Navbar-RightRow li a, .Navbar .Navbar-Bottom .Navbar-RightRow ul, .Navbar .Navbar-Bottom .Navbar-LeftRow ul li a, .Navbar .Navbar-Bottom .Navbar-LeftRow ul, .Navbar .Navbar-Top > * {
+.Navbar .Navbar-Bottom .Navbar-RightRow li button, .Navbar .Navbar-Bottom .Navbar-RightRow li a, .Navbar .Navbar-Bottom .Navbar-RightRow ul, .Navbar .Navbar-Bottom .Navbar-RightRow, .Navbar .Navbar-Bottom .Navbar-LeftRow ul li a, .Navbar .Navbar-Bottom .Navbar-LeftRow ul, .Navbar .Navbar-Bottom .Navbar-LeftRow, .Navbar .Navbar-Top > * {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -6,7 +6,7 @@
   display: -o-flex;
 }
 
-.Navbar .Navbar-Bottom .Navbar-RightRow li button, .Navbar .Navbar-Bottom .Navbar-RightRow li a, .Navbar .Navbar-Bottom .Navbar-LeftRow ul li a, .Navbar .Navbar-Top > * {
+.Navbar .Navbar-Bottom .Navbar-RightRow li button, .Navbar .Navbar-Bottom .Navbar-RightRow li a, .Navbar .Navbar-Bottom .Navbar-RightRow, .Navbar .Navbar-Bottom .Navbar-LeftRow ul li a, .Navbar .Navbar-Bottom .Navbar-LeftRow, .Navbar .Navbar-Top > * {
   align-items: center;
   align-items: -moz-center;
   align-items: -webkit-center;
@@ -108,19 +108,19 @@
 /* Landscape phones and portrait tablets */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .Navbar-Bottom {
-    grid-template-columns: 60px minmax(10px, 1fr) 60px;
+    grid-template-columns: 60px minmax(10px, 1fr) 120px;
   }
 }
 /* Portrait phones and smaller */
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .Navbar-Bottom {
-    grid-template-columns: 40px minmax(10px, 1fr) 40px;
+    grid-template-columns: 40px minmax(10px, 1fr) 120px;
   }
 }
 /* Iphone 5 */
 @media only screen and (max-width: 320px) {
   .Navbar-Bottom {
-    grid-template-columns: 30px minmax(10px, 1fr) 30px;
+    grid-template-columns: 30px minmax(10px, 1fr) 120px;
   }
 }
 

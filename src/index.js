@@ -32,6 +32,8 @@ import {Cookie} from "./UI-components/toasts/components/Cookie";
 import {Verification} from "./UI-components/toasts/components/Verification";
 import {logError} from "./error/errorHandler";
 import './css/index.css';
+import {NavbarMenuContext} from "./context/navbar-menu/NavbarMenuContext";
+import {Menu} from "./UI-components/navbar/Menu";
 
 function App() {
   const [modal, setModal] = useState({
@@ -52,6 +54,11 @@ function App() {
     verified: false
   });
   const toastValue = {toast, setToast};
+
+  const [navbar, setNavbar] = useState({
+    show: false
+  });
+  const navbarValue = {navbar, setNavbar};
 
   const [orderForm, setOrderForm] = useState({
     delivery: false,
@@ -79,7 +86,7 @@ function App() {
         if (success) {
           localStorage.setItem('clientsToken', JSON.stringify(body[0].token));
         }
-      }).catch((error)=> logError(error));
+      }).catch((error) => logError(error));
     }
   }
 
@@ -87,27 +94,30 @@ function App() {
     <BrowserRouter>
       <ModalContext.Provider value={modalValue}>
         <ToastContext.Provider value={toastValue}>
-          <OrderFormContext.Provider value={orderFormValue}>
-            <CartState>
-              <AuthState>
-                <div className={'Playfair base ' + (modal.modal ? 'blockScrolling ' : 'enableScrolling ')}>
-                  <Bakely/>
-                  <Cart/>
-                  <HoverTooltip/>
-                  <InternalError/>
-                  <CateringModal/>
-                  <div className='Toasts-Stack'>
-                    <Cookie/>
-                    {localStorage.getItem('cookies') && atob(localStorage.getItem('cookies')) === 'false'
-                      ?
-                      delay(6000) && <Subscribe/>
-                      : null}
-                    <Verification/>
+          <NavbarMenuContext.Provider value={navbarValue}>
+            <OrderFormContext.Provider value={orderFormValue}>
+              <CartState>
+                <AuthState>
+                  <div className={'Playfair base ' + (modal.modal ? 'blockScrolling ' : 'enableScrolling ')}>
+                    <Menu/>
+                    <Bakely/>
+                    <Cart/>
+                    <HoverTooltip/>
+                    <InternalError/>
+                    <CateringModal/>
+                    <div className='Toasts-Stack'>
+                      <Cookie/>
+                      {localStorage.getItem('cookies') && atob(localStorage.getItem('cookies')) === 'false'
+                        ?
+                        delay(6000) && <Subscribe/>
+                        : null}
+                      <Verification/>
+                    </div>
                   </div>
-                </div>
-              </AuthState>
-            </CartState>
-          </OrderFormContext.Provider>
+                </AuthState>
+              </CartState>
+            </OrderFormContext.Provider>
+          </NavbarMenuContext.Provider>
         </ToastContext.Provider>
       </ModalContext.Provider>
     </BrowserRouter>

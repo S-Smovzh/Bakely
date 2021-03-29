@@ -54,23 +54,23 @@ export default function LanguageButton() {
                   setToggle(true);
                 }
                 setClicksCount(clicksCount + 1);
-              }} ref={toggleRef} aria-label={t('navbar.ariaLabel.langButton')}>
+              }} ref={toggleRef} aria-label={t('navbar-menu.ariaLabel.langButton')}>
         <img src='http://localhost:3000/img/icons/world.svg' alt='' className='icon'/>
       </button>
 
       <div className={toggle ? 'Dropdown-Menu flex' : 'Dropdown-Menu none'} ref={menuRef}>
         <button className='Dropdown-Item button-secondary button-icon-dropdown' type='button' data-lang='en'
-                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar.ariaLabel.langButton.en')}>
+                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar-menu.ariaLabel.langButton.en')}>
           <img src='http://localhost:3000/img/icons/gb.svg'
                alt='' className='icon-flag'/>
         </button>
         <button className='Dropdown-Item button-secondary button-icon-dropdown' type='button' data-lang='ru'
-                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar.ariaLabel.langButton.ru')}>
+                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar-menu.ariaLabel.langButton.ru')}>
           <img src='http://localhost:3000/img/icons/ru.svg'
                alt='' className='icon-flag'/>
         </button>
         <button className='Dropdown-Item button-secondary button-icon-dropdown' type='button' data-lang='ua'
-                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar.ariaLabel.langButton.ua')}>
+                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar-menu.ariaLabel.langButton.ua')}>
           <img src='http://localhost:3000/img/icons/ua.svg'
                alt='' className='icon-flag'/>
         </button>

@@ -65,21 +65,16 @@ export const Cart = () => {
 
       switch (type) {
         case 'client':
-
+          url = clientLinks.cart;
+          config = clientConfig;
           break;
         case 'user':
-
+          url = userLinks.cart;
+          config = userConfig;
           break;
         default:
 
           break;
-      }
-      if (type === 'client') {
-        url = clientLinks.cart;
-        config = clientConfig;
-      } else if (type === 'user') {
-        url = userLinks.cart;
-        config = userConfig;
       }
 
       axios.post(url, data, config)
@@ -159,13 +154,13 @@ export const Cart = () => {
                           <button onClick={() => cartContext.increaseQuantity(product)} type='button'
                                   className='button button-primary button-icon-footer'
                                   aria-label={t('aria-label.increase')}>
-                            <img alt='' src='http://localhost:3000/img/icons/arrow-down.svg'/>
+                            <img className='icon' alt='' src='http://localhost:3000/img/icons/arrow-down.svg'/>
                           </button>
                           <div className='h6-size' id='quantity'>{product.quantity}</div>
                           <button onClick={() => cartContext.decreaseQuantity(product)} type='button'
                                   className='button button-primary button-icon-footer'
                                   aria-label={t('aria-label.decrease')}>
-                            <img alt='' src='http://localhost:3000/img/icons/arrow-down.svg'/>
+                            <img className='icon' alt='' src='http://localhost:3000/img/icons/arrow-down.svg'/>
                           </button>
                         </div>
 
