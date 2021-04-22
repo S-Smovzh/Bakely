@@ -5,7 +5,6 @@ import axios from 'axios';
 import errorHandler from '../utils/errorHandler';
 import './Homepage.css';
 import i18n from 'i18next';
-import timeConverter from '../utils/dateConverter';
 import {ModalContext} from "../context/modal/ModalContext";
 import {masks} from "../utils/inputMasks";
 import {LoadingOverlay} from "../UI-components/overlay/loading/LoadingOverlay";
@@ -86,10 +85,6 @@ export default function Homepage() {
       timer(100).subscribe(() => authContext.loadDeliveryAddresses());
     }
   }, []);
-
-  // useEffect(()=>{
-  //   getDeliveryAddresses();
-  // }, [t]);
 
   useEffect(() => {
     _getAvailableCities();

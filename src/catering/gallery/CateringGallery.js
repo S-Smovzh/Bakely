@@ -8,6 +8,7 @@ import {ModalContext} from '../../context/modal/ModalContext';
 import {Card} from '../../UI-components/card/Card';
 import {LoadingOverlay} from "../../UI-components/overlay/loading/LoadingOverlay";
 import {useTranslation} from "react-i18next";
+import {isTouchDevice} from "../../utils/isTouchDevice";
 
 export default function CateringGallery({type, data}) {
 
@@ -62,24 +63,24 @@ export default function CateringGallery({type, data}) {
       <LoadingOverlay
         active={events.length === 0}
         text={t('overlay.getting')}>
-        <div className='GalleryPage'>
-          <section className='TopBlock'>
-            <h1>{title}</h1>
+        <div className='GalleryPage Grid'>
+          <section className='TopBlock Flex A-I-C J-C-C'>
+            <h1 className='T-C'>{title}</h1>
           </section>
-          <section id='Overlays' className='MiddleBlock'>
-            <ul ref={elementRef} className='Event_List fill-width Nunito'>
+          <section id='Overlays' className='MiddleBlock Flex A-I-C J-C-C'>
+            <ul ref={isTouchDevice() ? null : elementRef} className='Event_List Flex A-I-F-S J-C-S-A F-F-R-W Nunito'>
               {events && events.map((event) => {
                 return (
-                  <li key={event.date} className='Event'>
-                    <Card>
+                  <li key={event.date} className='Event Flex A-I-C J-C-C'>
+                    <Card className='listImageContainer'>
                       <Overlay src={event.imgSrc} alt='' type='button'
                                onClick={() => openModal(event.id)}
                                buttonClassName='button modal-show button-secondary button-small-x-wide'
                                text={t('catering.gallery.button.details')} >
                       </Overlay>
-                      <div className='Event-Details'>
+                      <div className='Event-Details fill-width Flex A-I-C J-C-S-B F-F-C-N T-C'>
                         <h3 className='h5-size'>{event.name}</h3>
-                        <p className='h6-size'>{event.date}</p>
+                        <p className='h6-size t-'>{event.date}</p>
                       </div>
                     </Card>
                   </li>

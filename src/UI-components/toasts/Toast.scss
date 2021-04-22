@@ -3,7 +3,6 @@
 .Toasts-Stack {
   top: 0;
   left: 0;
-  display: block;
   overflow-x: hidden;
   overflow-x: -moz-hidden-unscrollable;
   -ms-overflow-x: hidden;
@@ -17,25 +16,22 @@
 
 .Toast-Wrapper {
   margin-bottom: 20px;
+  width: 100%;
 
   .toast {
     flex-basis: 100%;
+    max-width: 100%;
     -webkit-flex-basis: 100%;
     border: 1px inset $text;
     background: $layout-100;
 
     &-header {
-      @include justify-content(space-between);
       padding: 10px 5px;
       background: $warning-200;
       color: $text;
     }
 
     &-body {
-      @extend %flex;
-      @extend %flex__center;
-      @include flex-flow(column nowrap);
-
       & > * {
         font-size: 16px !important;
         @extend %textLeft;
@@ -46,7 +42,6 @@
       }
 
       .Form-Row {
-        @extend %grid;
         grid-template-columns: minmax(10px, 1fr);
         grid-template-rows: 44px 42px 40px;
 
@@ -70,7 +65,7 @@
             height: 42px;
             border: 2px inset $text;
             padding: 10px;
-            box-shadow: none;
+            @include box-shadow(none);
             color: $text;
             background: $text-inverted;
             font-size: 18px;
@@ -80,70 +75,25 @@
             }
           }
         }
-
-        //.Input-TooltipButton {
-        //  grid-area: 1/2/2/3;
-        //  @extend %flex;
-        //  @extend %flex__center;
-        //  border-radius: 0 8px 8px 0;
-        //  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
-        //}
       }
     }
   }
 }
 
-/* Large desktops and laptops */
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1851px) {
   .Toasts-Stack {
     grid-area: 1/1/2/2;
+    display: block;
     position: sticky;
     height: 100vh;
     padding: 10px;
   }
 }
 
-@media only screen and (max-width: 1399px) {
+@media only screen and (max-width: 1850px) {
   .Toasts-Stack {
-    width: 250px;
-    position: absolute;
-    min-height: 0;
-    max-height: 100vh;
-    padding: 10px;
+    @include flex;
+    @include flex__center;
+    @include flex-flow(column nowrap);
   }
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .Toasts-Stack {
-    width: 250px;
-    position: absolute;
-    min-height: 0;
-    max-height: 100vh;
-    padding: 10px;
-  }
-}
-
-/* Landscape tablets and medium desktops */
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-
-}
-
-/* Portrait tablets and small desktops */
-@media only screen and (min-width: 769px) and (max-width: 991px) {
-
-}
-
-/* Landscape phones and portrait tablets */
-@media only screen and (max-width: 768px) {
-
-}
-
-/* Portrait phones and smaller */
-@media only screen and (max-width: 480px) {
-
-}
-
-/* Iphone 5 */
-@media only screen and (max-width: 320px) {
-
 }

@@ -11,6 +11,9 @@ import {ToastMessage} from "../Toast";
 import Checkbox from "../../checkbox/Checkbox";
 import './Subscribe.css';
 import {Animation} from "../../../animation/Animation";
+import {clientLinks} from "../../../utils/restLinks";
+import {clientConfig} from "../../../utils/restApiConfigs";
+import {logError} from "../../../error/errorHandler";
 
 export const Subscribe = () => {
   const {toast, setToast} = useContext(ToastContext);
@@ -20,42 +23,35 @@ export const Subscribe = () => {
   const [emailError, setEmailError] = useState('');
   const [show, setShow] = useState(true);
 
-  function performSubscription() {
-    axios.post('http://localhost:5000/api/protected/client/auth/subscribe',
-      {email: email},
-      {
-        headers: {
-          'Client-Token': localStorage.getItem('clientsToken'),
-          withCredentials: true
-        }
-      }).then((response) => {
-      const {success, errors} = response.data;
-
-      if (!success && errors) {
-        if (errors.code === 500) {
-          setModal({
-            ...modal,
-            internalError: true,
-            errorCode: 500
-          });
-        } else if (errors.code === 10) {
-          setEmailError(errorHandler(errors.code));
-        } else {
-          if (errors.email) {
-            setEmailError(errorHandler(errors.oldEmail));
+  async function performSubscription() {
+    axios.post(clientLinks.subscribe, {email: email}, clientConfig)
+      .then((response) => {
+        const {success, errors} = response.data;
+        if (!success && errors) {
+          if (errors.code === 500) {
+            setModal({
+              ...modal,
+              internalError: true,
+              errorCode: 500
+            });
+          } else if (errors.code === 10) {
+            setEmailError(errorHandler(errors.code));
+          } else {
+            if (errors.email) {
+              setEmailError(errorHandler(errors.oldEmail));
+            }
           }
+        } else if (success) {
+          setToast({
+            ...toast,
+            showSubscription: false
+          });
+          localStorage.setItem('showSubscription', btoa('false'));
+          setEmail('');
+          setEmailError(null);
+          closeModal();
         }
-      } else if (success) {
-        setToast({
-          ...toast,
-          showSubscription: false
-        });
-        localStorage.setItem('showSubscription', btoa('false'));
-        setEmail('');
-        setEmailError(null);
-        closeModal();
-      }
-    }).catch()
+      }).catch((error) => logError(error));
   }
 
   function closeModal() {
@@ -76,7 +72,7 @@ export const Subscribe = () => {
                   toastText={
                     <React.Fragment>
                       <Form>
-                        <div className='Form-Row'>
+                        <div className='Form-Row Grid'>
                           <Input errorIdentifier={emailError} labelText={t('label.email')} errorLabelText={emailError}
                                  inputId='email' inputType='email' inputName='email' minLength={6} maxLength={254}
                                  inputMode='email'
@@ -85,7 +81,7 @@ export const Subscribe = () => {
                                  autoComplete='on'
                                  tooltipId={t('label.header.email')} tooltipText={t('tooltip.email')} value={email}/>
                         </div>
-                        <div className='Form-Checkbox fill-width '>
+                        <div className='Form-Checkbox Flex J-C-S-B A-I-C fill-width '>
                           <label htmlFor='doNotShow' className='h5-size'>
                             Do not show again:
                           </label>
@@ -103,6 +99,7 @@ export const Subscribe = () => {
                   }
                   onClose={
                     () => closeModal()
-                  }/>
+                  }
+    />
   );
 };

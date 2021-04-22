@@ -24,13 +24,11 @@
   }
 
   .Styled-Checkbox {
-    @extend %flex;
-    @extend %flex__center;
     border: 1px inset $text;
     background: $text-inverted;
     width: 24px;
     height: 24px;
     border-radius: 4px;
-    transition: all 150ms;
+    @include transition(0.15);
   }
 }

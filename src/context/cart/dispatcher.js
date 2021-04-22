@@ -2,6 +2,10 @@ export const showCart = (show, state) => {
   return {...state, show: show};
 };
 
+export const cartButtonInteraction = (cartButtonClick, state) => {
+  return {...state, cartButtonClick: cartButtonClick};
+};
+
 export const addProductToCart = (product, state) => {
 
   let tempMap = new Map([]);

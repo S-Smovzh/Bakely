@@ -1,10 +1,23 @@
 import React from 'react';
 import './Card.css';
 import {useSpring, animated} from 'react-spring';
+import PropTypes from "prop-types";
 
-export const Card = ({children, type, backType, className}) => {
-  let calc, trans;
+export const Card = ({backType, className, type, children}) => {
   const [props, set] = useSpring(() => ({xys: [0, 0, 1], config: {mass: 1, tension: 240, friction: 100}}));
+  let calc, trans;
+
+  Card.propTypes = {
+    backType: PropTypes.string,
+    className: PropTypes.string,
+    type: PropTypes.string
+  }
+
+  Card.defaultProps = {
+    backType: '',
+    className: '',
+    type: ''
+  }
 
   if (type === 'product') {
     calc = (x, y) => [-(y - window.innerHeight / 4) / 100, (x - window.innerWidth / 4) / 100, 1.15];
@@ -22,19 +35,21 @@ export const Card = ({children, type, backType, className}) => {
 
   if (type === 'no-animation') {
     return (
-      <div className={'Card ' + (backType === 'gray' ? 'Gray' : '') + (className ? className : '')}
-           onMouseMove={({clientX: x, clientY: y}) => set({xys: calc(x, y)})}
-           onMouseLeave={() => set({xys: [0, 0, 1]})}
-           style={{transform: props.xys.interpolate(trans)}}>
+      <div
+        className={`Card Flex J-C-C A-I-C F-F-C-N ${(backType === 'gray' ? 'Gray ' : '')} ${(className ? className : '')}`}
+        onMouseMove={({clientX: x, clientY: y}) => set({xys: calc(x, y)})}
+        onMouseLeave={() => set({xys: [0, 0, 1]})}
+        style={{transform: props.xys.interpolate(trans)}}>
         {children}
       </div>)
   }
 
   return (
-    <animated.div className={'Card ' + (backType === 'gray' ? 'Gray' : '') + (className ? className : '')}
-                  onMouseMove={({clientX: x, clientY: y}) => set({xys: calc(x, y)})}
-                  onMouseLeave={() => set({xys: [0, 0, 1]})}
-                  style={{transform: props.xys.interpolate(trans)}}>
+    <animated.div
+      className={`Card Flex J-C-C A-I-C F-F-C-N ${(backType === 'gray' ? 'Gray ' : '')} ${(className ? className : '')}`}
+      onMouseMove={({clientX: x, clientY: y}) => set({xys: calc(x, y)})}
+      onMouseLeave={() => set({xys: [0, 0, 1]})}
+      style={{transform: props.xys.interpolate(trans)}}>
       {children}
     </animated.div>
   );

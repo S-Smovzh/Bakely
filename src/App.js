@@ -34,6 +34,7 @@ import TermsAndConditions from "./info-pages/TermsAndConditions";
 import CookiePolicy from "./info-pages/CookiePolicy";
 import './UI-components/link/Link.css';
 import ProductsList from "./shop-all/ProductsList";
+import useWindowDimensions from "./utils/isTouchDevice";
 
 function Bakely() {
   const {modal, setModal} = useContext(ModalContext);
@@ -42,6 +43,8 @@ function Bakely() {
   const authContext = useContext(AuthContext);
   const cartContext = useContext(CartContext);
   const location = useLocation();
+  const {width} = useWindowDimensions();
+  const [translatePixels, setTranslatePixels] = useState(-220);
 
   useEffect(() => {
     changeLang(i18n, i18n.language);
@@ -79,7 +82,6 @@ function Bakely() {
   }, [authContext.logged])
 
   async function refreshSession() {
-
     const fp = await FingerprintJS.load();
     const result = await fp.get();
 
@@ -118,8 +120,18 @@ function Bakely() {
     }).catch((error) => console.log(error));
   }
 
+  useEffect(() => {
+    if (width > 1600) {
+      setTranslatePixels(-220);
+    } else if (768 < width <= 1600) {
+      setTranslatePixels(-400);
+    } else if (width <= 768) {
+      setTranslatePixels(0);
+    }
+  }, [width])
+
   return (
-    <animated.div style={{transform: cartContext.show ? `translateX(-220px)` : `translateX(0)`}}
+    <animated.div style={{transform: cartContext.show ? `translateX(${translatePixels}px)` : `translateX(0)`}}
                   className='Page-Wrapper'>
       <Navbar/>
       {!loading &&

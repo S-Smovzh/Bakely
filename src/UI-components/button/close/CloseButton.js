@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {Animation} from "../../../animation/Animation";
 import './CloseButton.css';
+import {Button} from "../Button";
 
 export default function CloseButton({animate, onClick, ariaLabel}) {
 
   CloseButton.propTypes = {
     animate: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired,
-    ariaLabel: PropTypes.string.isRequired
+    ariaLabel: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
   }
 
   CloseButton.defaultProps = {
@@ -19,10 +20,9 @@ export default function CloseButton({animate, onClick, ariaLabel}) {
 
   return (
     <Animation infinite={false} onHover={animate} onClick={animate} type='skew'>
-      <button onClick={onClick} type='button' className='button-error Button__Close'
-              aria-label={ariaLabel}>
+      <Button ariaLabel={ariaLabel} onClick={onClick} type='button' className='button-error Button__Close'>
         <img src='http://localhost:3000/img/icons/cross.svg' alt=''/>
-      </button>
+      </Button>
     </Animation>
   );
 }

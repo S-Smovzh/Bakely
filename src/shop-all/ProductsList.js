@@ -11,6 +11,7 @@ import {ModalContext} from "../context/modal/ModalContext";
 import {useTranslation} from "react-i18next";
 import useOnScreen from "../utils/scrollHandler";
 import i18n from "i18next";
+import {isTouchDevice} from "../utils/isTouchDevice";
 
 export default function ProductsList() {
   const {modal, setModal} = useContext(ModalContext);
@@ -92,30 +93,30 @@ export default function ProductsList() {
     <LoadingOverlay
       active={products.length === 0}
       text={t('overlay.getting')}>
-      <div className='Products_List-Page'>
-        <header className='TopBlock'>
+      <div className='Products_List-Page Grid'>
+        <header className='TopBlock Flex J-C-C A-I-C T-C'>
           <h1>{title}</h1>
         </header>
-        <section className='MiddleBlock'>
-          <ul className='Products Nunito' ref={elementRef}>
+        <section className='MiddleBlock Flex J-C-C A-I-C F-F-C-N'>
+          <ul className='Products Nunito Flex J-C-S-A A-I-F-S F-F-R-W' ref={isTouchDevice() ? null : elementRef}>
             {products && products.map((product) => {
               const isDiscounted = Number.parseInt(product.discount) > 0;
               return (
-                <li key={product.id}>
+                <li key={product.id} className='Flex J-C-C A-I-C F-F-C-N'>
                   <Link to={location.pathname + '/' + product.id}>
-                    <Card>
+                    <Card className='Grid listImageContainer'>
                       <Overlay src={product.imgSrc} alt={product.imgDescription} type='listImage'>
                         <h2>{product.name}</h2>
                       </Overlay>
-                      <div className='Product-Info fill-height'>
+                      <div className='Product-Info Flex A-I-C J-C-S-B F-F-C-N T-C fill-height'>
                         <p className='Product-Name font-weight_900 h5-size fill-width'>{product.name}</p>
-                        <div className='Product-Price fill-width'>
-                          <p className='Price-Discount font-weight_600 h4-size error-300 fill-width'>
+                        <div className='Product-Price Grid fill-width'>
+                          <p className='Flex A-I-C J-C-C font-weight_600 h4-size error-300 fill-width'>
                             {isDiscounted ? t('productsList.priceDiscounted', {price: product.price * (100 - product.discount) / 100}) : t('productsList.price', {price: product.price})}
-                          < /p>
+                          </p>
                           {isDiscounted ?
                             <p
-                              className='Price font-weight_200 helper crossed fill-width'>
+                              className='Flex A-I-C J-C-C font-weight_200 helper crossed fill-width'>
                               {isDiscounted ? t('productsList.oldPrice', {price: product.price}) : null}
                             </p>
                             : null}

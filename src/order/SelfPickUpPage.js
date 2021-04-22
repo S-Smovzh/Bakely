@@ -2,11 +2,11 @@ import React, {useContext, useEffect, useState} from "react";
 import {OrderFormContext} from "../context/orderForm/OrderFormContext";
 import i18n from "i18next";
 import axios from "axios";
-import './OrderFrom.css';
 import {NavigationButtons} from "./OrderForm";
 import {useTranslation} from "react-i18next";
 import {publicLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
+import CloseButton from "../UI-components/button/close/CloseButton";
 
 export const SelfPickUpPage = ({closeModal, next, page, prev}) => {
   const {orderForm, setOrderForm} = useContext(OrderFormContext);
@@ -37,18 +37,15 @@ export const SelfPickUpPage = ({closeModal, next, page, prev}) => {
   };
 
   return (
-    <section className={'Select-Page fill-height fill-width ' + ((orderForm.delivery || page !== 4) ? 'none' : '')}>
-      <header>
+    <section className={`Select-Page Flex J-C-S-B F-F-C-N fill-height fill-width ${((orderForm.delivery || page !== 4) ? 'none' : '')}`}>
+      <header className='Flex A-I-C F-F-R-N J-C-S-B T-L'>
         <h1 className='h3-size'>
           {t('orderForm.selfPickUp.header')}
         </h1>
-        <button onClick={() => closeModal()}
-                type='button' className='button-error button-icon-footer Close-Button' aria-label='Close'>
-          <img src='http://localhost:3000/img/icons/cross.svg' alt='Close icon'/>
-        </button>
+        <CloseButton onClick={closeModal} animate={true} ariaLabel={t('ariaLabel.close')}/>
       </header>
-      <form className='Form fill-width' method='POST'>
-        <div className='Select-Container'>
+      <div className='Flex A-S-C F-F-C-N J-C-S-B fill-width fill-height'>
+        <div className='Select-Container A-S-C fill-height Flex A-I-C J-C-C F-F-C-N'>
           <select onChange={(event) => {
             setOrderForm({
               ...orderForm,
@@ -71,7 +68,7 @@ export const SelfPickUpPage = ({closeModal, next, page, prev}) => {
                            displayNext={true} displayPrev={true}
                            nextButtonDisabled={!orderForm.bakery || orderForm.bakery === "0"}
                            nextOnClickAction={() => next()}/>
-      </form>
+      </div>
     </section>
   );
 }

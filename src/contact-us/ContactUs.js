@@ -4,7 +4,6 @@ import axios from 'axios';
 import {Input} from '../UI-components/input/Input';
 import {useTranslation} from 'react-i18next';
 import errorHandler from "../utils/errorHandler";
-import {Form} from "../UI-components/form/Form";
 import AuthContext from "../context/auth/AuthContext";
 import {ModalContext} from "../context/modal/ModalContext";
 import ConfirmButton from "../UI-components/button/ConfirmButton";
@@ -12,31 +11,54 @@ import {timer} from "rxjs";
 import {clientConfig, userConfig} from "../utils/restApiConfigs";
 import {clientLinks, userLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
+import useWindowDimensions from "../utils/isTouchDevice";
+import {Form} from "../UI-components/form/Form";
+import {Textarea} from "../UI-components/textarea/Textarea";
 
 export default function ContactUs() {
   const maxLength = 1200;
-  const [remainingCharacters, setRemainingCharacters] = useState(1200);
+  const [remainingCharacters, setRemainingCharacters] = useState(maxLength);
   const userContext = useContext(AuthContext);
 
-  const [subject, setSubject] = useState('');
-  const [subjectError, setSubjectError] = useState('');
-
-  const [firstName, setFirstName] = useState('');
-  const [firstNameError, setFirstNameError] = useState('');
-
-  const [lastName, setLastName] = useState('');
-  const [lastNameError, setLastNameError] = useState('');
-
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
-
-  const [message, setMessage] = useState('');
-  const [messageError, setMessageError] = useState('');
+  const [contactForm, setContactForm] = useState({
+    subject: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  });
+  const [contactFormError, setContactFormError] = useState({
+    subjectError: '',
+    firstNameError: '',
+    lastNameError: '',
+    emailError: '',
+    messageError: ''
+  });
 
   const [animate, setAnimate] = useState(false);
   const [success, setSuccess] = useState(false);
   const [t] = useTranslation();
   const {modal, setModal} = useContext(ModalContext);
+  const {width} = useWindowDimensions();
+
+  const phones = [
+    {
+      phone: '49 (045) 2478-9856',
+      header: 'contactUs.label.Europe'
+    },
+    {
+      phone: '1 (888) 234-4985',
+      header: 'contactUs.label.America'
+    },
+    {
+      phone: '852 (28) 349-810',
+      header: 'contactUs.label.Asia'
+    },
+    {
+      phone: '61 (491) 599-153',
+      header: 'contactUs.label.AsiaPacific'
+    }
+  ];
 
   function _activateAnimation() {
     setAnimate(true);
@@ -49,11 +71,11 @@ export default function ContactUs() {
 
     let data = {
       appealId: id,
-      subject: subject,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      message: message
+      subject: contactForm.subject,
+      firstName: contactForm.firstName,
+      lastName: contactForm.lastName,
+      email: contactForm.email,
+      message: contactForm.message
     };
 
     if (userContext.logged) {
@@ -65,7 +87,7 @@ export default function ContactUs() {
     }
 
     await axios.post(url, data, config)
-      .then(function (response) {
+      .then((response) => {
         const {success, errors} = response.data;
         if (!success && errors) {
           _activateAnimation();
@@ -77,73 +99,142 @@ export default function ContactUs() {
               errorCode: 500
             });
           } else if (errors.code === 10) {
-            setSubjectError(errorHandler(errors.code));
-            setFirstNameError(errorHandler(errors.code));
-            setLastNameError(errorHandler(errors.code));
-            setEmailError(errorHandler(errors.code));
-            setMessageError(errorHandler(errors.code));
+            setContactFormError({
+              ...contactFormError,
+              subjectError: errorHandler(errors.code),
+              firstNameError: errorHandler(errors.code),
+              lastNameError: errorHandler(errors.code),
+              emailError: errorHandler(errors.code),
+              messageError: errorHandler(errors.code)
+            });
           } else {
             if (errors.subject) {
-              setSubjectError(errorHandler(errors.subject));
+              setContactFormError({
+                ...contactFormError,
+                subjectError: errorHandler(errors.subject)
+              });
             } else {
-              setSubjectError(null);
+              setContactFormError({
+                ...contactFormError,
+                subjectError: ''
+              });
             }
             if (errors.firstName) {
-              setFirstNameError(errorHandler(errors.firstName));
+              setContactFormError({
+                ...contactFormError,
+                firstNameError: errorHandler(errors.firstName)
+              });
             } else {
-              setFirstNameError(null);
+              setContactFormError({
+                ...contactFormError,
+                firstNameError: ''
+              });
             }
             if (errors.lastName) {
-              setLastNameError(errorHandler(errors.lastName));
+              setContactFormError({
+                ...contactFormError,
+                lastNameError: errorHandler(errors.lastName)
+              });
             } else {
-              setLastNameError(null);
+              setContactFormError({
+                ...contactFormError,
+                lastNameError: ''
+              });
             }
             if (errors.email) {
-              setEmailError(errorHandler(errors.email));
+              setContactFormError({
+                ...contactFormError,
+                emailError: errorHandler(errors.email)
+              });
             } else {
-              setEmailError(null);
+              setContactFormError({
+                ...contactFormError,
+                emailError: ''
+              });
             }
             if (errors.message) {
-              setMessageError(errorHandler(errors.message));
+              setContactFormError({
+                ...contactFormError,
+                messageError: errorHandler(errors.message)
+              });
             } else {
-              setMessageError(null);
+              setContactFormError({
+                ...contactFormError,
+                messageError: ''
+              });
             }
           }
         } else {
           setSuccess(true);
-          setSubjectError(null);
-          setFirstNameError(null);
-          setLastNameError(null);
-          setEmailError(null);
-          setMessageError(null);
-          setSubject('');
-          setFirstName('');
-          setLastName('');
-          setEmail('');
-          setMessage('');
+          timer(400).subscribe(()=>setSuccess(false));
+          setContactFormError({
+            ...contactFormError,
+            subjectError: '',
+            firstNameError: '',
+            lastNameError: '',
+            emailError: '',
+            messageError: ''
+          });
+          setContactForm({
+            ...contactForm,
+            subject: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            message: ''
+          });
+          setRemainingCharacters(maxLength);
         }
       })
       .catch((error) => logError(error));
   }
 
+  const doubleRow =
+    <React.Fragment>
+      <div className='Form-Row Cell-First'>
+        <Input errorIdentifier={contactFormError.firstNameError} labelText={t('label.firstName')}
+               errorLabelText={contactFormError.firstNameError}
+               inputId='firstName' inputType='text' inputName='firstName'
+               inputOnBlur={(event) => setContactForm({...contactForm, firstName: event.target.value})}
+               inputOnChange={(event) => setContactForm({...contactForm, firstName: event.target.value})}
+               inputRequired='required'
+               autoComplete='given-name'
+               tooltipId={t('tooltip.header.firstName')}
+               tooltipText={t('tooltip.name')}
+               value={contactForm.firstName} overlayPlacement={width < 769 ? 'bottom' : 'right'}/>
+      </div>
+      <div className='Form-Row Cell-Second'>
+        <Input errorIdentifier={contactFormError.lastNameError} labelText={t('label.lastName')}
+               errorLabelText={contactFormError.lastNameError}
+               inputId='lastName' inputType='text' inputName='lastName'
+               inputOnBlur={(event) => setContactForm({...contactForm, lastName: event.target.value})}
+               inputOnChange={(event) => setContactForm({...contactForm, lastName: event.target.value})}
+               inputRequired='required'
+               autoComplete='family-name'
+               tooltipId={t('tooltip.header.lastName')}
+               tooltipText={t('tooltip.name')}
+               value={contactForm.lastName} overlayPlacement={width < 769 ? 'bottom' : 'right'}/>
+      </div>
+    </React.Fragment>;
+
   return (
-    <div className='ContactPage Nunito'>
-      <section className='LeftCol'>
-        <section className='TopBlock Playfair'>
-          <header className='fill-width fill-height'>
+    <div className='ContactPage Grid Nunito'>
+      <section className='LeftCol Grid'>
+        <section className={'TopBlock Flex J-C-C A-I-C Playfair T-C'}>
+          <header className='fill-width'>
             <h1>{t('contactUs.header')}</h1>
           </header>
         </section>
-        <section className='MiddleBlock'>
+        <section className='MiddleBlock Flex J-C-C A-I-C F-F-C-N'>
           <Form success={success}>
-            <div className='Form-Row'>
-              <label htmlFor='subject'>
+            <div className='Form-Row fill-width'>
+              <label htmlFor='subject' className='h6-size Form-Label Flex J-C-C A-I-F-S F-F-C-N'>
                 {t('label.subject')}
               </label>
               <select id='subject' name="subject"
-                      onBlur={(event) => setSubject(event.target.value)}
-                      onChange={(event) => setSubject(event.target.value)}
-                      required>
+                      onBlur={(event) => setContactForm({...contactForm, subject: event.target.value})}
+                      onChange={(event) => setContactForm({...contactForm, subject: event.target.value})}
+                      required className='fill-width Form-Select'>
                 <option value={t('contactUs.option.choose')}>
                   {t('contactUs.option.choose')}
                 </option>
@@ -164,57 +255,43 @@ export default function ContactUs() {
                 </option>
               </select>
               <p
-                className={subjectError ? 'Form-Label-Error fill-width flex' : 'none'}>{subjectError ? subjectError : null}</p>
+                className={contactFormError.subjectError ? 'Form-Label-Error fill-width Flex' : 'none'}>{contactFormError.subjectError ? contactFormError.subjectError : null}</p>
             </div>
-            <div className='Form-Row-Double'>
-              <div className='Form-Row Cell-First'>
-                <Input errorIdentifier={firstNameError} labelText={t('label.firstName')}
-                       errorLabelText={firstNameError}
-                       inputId='firstName' inputType='text' inputName='firstName'
-                       inputOnBlur={(event) => setFirstName(event.target.value)}
-                       inputOnChange={(event) => setFirstName(event.target.value)} inputRequired='required'
-                       autoComplete='off'
-                       tooltipId={t('tooltip.header.firstName')}
-                       tooltipText={t('tooltip.name')}
-                       value={firstName}/>
+            {width > 480 ?
+              <div className='Form-Row-Double'>
+                {doubleRow}
               </div>
-              <div className='Form-Row Cell-Second'>
-                <Input errorIdentifier={lastNameError} labelText={t('label.lastName')}
-                       errorLabelText={lastNameError}
-                       inputId='lastName' inputType='text' inputName='lastName'
-                       inputOnBlur={(event) => setLastName(event.target.value)}
-                       inputOnChange={(event) => setLastName(event.target.value)} inputRequired='required'
-                       autoComplete='on'
-                       tooltipId={t('tooltip.header.lastName')}
-                       tooltipText={t('tooltip.name')}
-                       value={lastName}/>
-              </div>
-            </div>
+              : <React.Fragment>
+                {doubleRow}
+              </React.Fragment>}
             <div className='Form-Row'>
-              <Input errorIdentifier={emailError} labelText={t('label.email')} errorLabelText={emailError}
+              <Input errorIdentifier={contactFormError.emailError} labelText={t('label.email')}
+                     errorLabelText={contactFormError.emailError}
                      inputId='email' inputType='email' inputName='email'
-                     inputOnBlur={(event) => setEmail(event.target.value)}
-                     inputOnChange={(event) => setEmail(event.target.value)} inputRequired='required'
-                     autoComplete='on'
+                     inputOnBlur={(event) => setContactForm({...contactForm, email: event.target.value})}
+                     inputOnChange={(event) => setContactForm({...contactForm, email: event.target.value})}
+                     inputRequired='required'
+                     autoComplete='email'
                      tooltipId={t('tooltip.header.email')}
                      tooltipText={t('tooltip.email')}
-                     value={email}/>
+                     value={contactForm.email} overlayPlacement={width < 769 ? 'bottom' : 'right'}/>
             </div>
             <div className='Form-TextareaRow'>
-              <Input errorIdentifier={messageError} labelText={t('label.message')}
-                     errorLabelText={messageError}
-                     inputId='message' inputType='textarea' inputName='message'
-                     inputOnBlur={(event) => {
-                       setMessage(event.target.value)
-                       setRemainingCharacters(maxLength - event.target.value.length);
-                     }}
-                     inputOnChange={(event) => {
-                       setMessage(event.target.value)
-                       setRemainingCharacters(maxLength - event.target.value.length);
-                     }} inputRequired='required' autoComplete='on'
-                     tooltipId={t('tooltip.header.message')}
-                     tooltipText={t('tooltip.message')}
-                     value={message} textareaLimit={maxLength}/>
+              <Textarea overlayPlacement='bottom' errorIdentifier={contactFormError.messageError}
+                        labelText={t('label.message')}
+                        errorLabelText={contactFormError.messageError}
+                        id='message' name='message'
+                        onBlur={(event) => {
+                          setContactForm({...contactForm, message: event.target.value})
+                          setRemainingCharacters(maxLength - event.target.value.length);
+                        }}
+                        onChange={(event) => {
+                          setContactForm({...contactForm, message: event.target.value});
+                          setRemainingCharacters(maxLength - event.target.value.length);
+                        }} inputRequired='required'
+                        tooltipId={t('tooltip.header.message')}
+                        tooltipText={t('tooltip.message')}
+                        value={contactForm.message} textareaLimit={maxLength}/>
               <p>
                 {t('contactUs.characters')} {remainingCharacters}
               </p>
@@ -222,72 +299,58 @@ export default function ContactUs() {
           </Form>
           <ConfirmButton onClick={() => {
             handleContact();
-            if (firstNameError || lastNameError || emailError || subjectError || messageError) {
+            if (contactFormError.firstNameError || contactFormError.lastNameError || contactFormError.emailError || contactFormError.subjectError || contactFormError.messageError) {
               _activateAnimation();
             }
-          }} disabled={!firstName || !lastName || !email || !subject || !message} text={t('contactUs.button')} error={animate}/>
+          }}
+                         disabled={!contactForm.firstName || !contactForm.lastName || !contactForm.email || !contactForm.subject || !contactForm.message}
+                         text={t('contactUs.button')}
+                         error={animate}/>
         </section>
       </section>
-
-      <div className='RightCol'>
-        <section className='TopBlock'>
-          <header className='fill-width fill-height'>
+      <section className='RightCol Grid'>
+        <section className='TopBlock Flex J-C-C A-I-F-S F-F-C-N'>
+          <header className='T-C Flex J-C-C A-I-F-S F-F-C-N fill-width fill-height'>
             <h2 className='h3-size'>{t('contactUs.header.addresses')}</h2>
             <a href='mailto:sales@bakely.com' className='h6-size Secondary-Link'>sales@bakely.com</a>
           </header>
         </section>
-        <section className='MiddleBlock'>
-          <section className='Phones'>
-            <div className='Cell'>
-              <h3 className='fill-width h5-size'>{t('contactUs.label.Europe')}</h3>
-              <a id='Europe' className='PhoneNum fill-width Secondary-Link' href={'tel:49 (045) 2478-9856'}>
-                +49 (045) 2478-9856
-              </a>
-            </div>
-            <div className='Cell'>
-              <h3 className='fill-width h5-size'>{t('contactUs.label.America')}</h3>
-              <a className='PhoneNum fill-width Secondary-Link' href='tel:1 (888) 234 4985'>
-                +1 (888) 234-4985
-              </a>
-            </div>
-            <div className='Cell'>
-              <h3 className='fill-width h5-size'>{t('contactUs.label.Asia')}</h3>
-              <a className='PhoneNum fill-width Secondary-Link' href='tel:852 (28) 349-810'>
-                +852 (28) 349-810
-              </a>
-            </div>
-            <div className='Cell'>
-              <h3 className='fill-width h5-size'>{t('contactUs.label.AsiaPacific')}</h3>
-              <a className='PhoneNum fill-width Secondary-Link' href='tel:61 (491) 599-153'>
-                +61 (491) 599-153
-              </a>
-            </div>
-          </section>
-          <section className='Locations'>
+        <section className='MiddleBlock Grid'>
+          <ul className='Phones Grid'>
+            {phones.map((item, index) =>
+              <li className='Cell Flex A-I-F-S J-C-F-S F-F-C-N' key={index}>
+                <h3 className='T-L fill-width h5-size'>{t(item.header)}</h3>
+                <a id='Europe' className='T-L PhoneNum fill-width Secondary-Link' href={`tel:${item.phone}`}>
+                  +{item.phone}
+                </a>
+              </li>
+            )}
+          </ul>
+          <section className='Locations Grid'>
             <header className='fill-width fill-height'>
               <h2 className='h3-size'>{t('contactUs.header.locations')}</h2>
             </header>
-            <div className='Addresses'>
-              <div className='Cell'>
-                <h3 className='fill-width h4-size'>
+            <div className='Addresses Grid'>
+              <div className='Cell Flex A-I-F-S J-C-F-S F-F-C-N'>
+                <h3 className='fill-width h4-size T-L'>
                   {t('contactUs.location.Kyiv.city')}
                 </h3>
-                <p className='fill-width'>
+                <p className='h6-size fill-width T-L'>
                   {t('contactUs.location.Kyiv')}.
                 </p>
               </div>
-              <div className='Cell'>
-                <h3 className='fill-width h4-size'>
+              <div className='Cell Flex A-I-F-S J-C-F-S F-F-C-N'>
+                <h3 className='fill-width h4-size T-L'>
                   {t('contactUs.location.Kharkov.city')}
                 </h3>
-                <p className='fill-width'>
+                <p className='h6-size fill-width T-L'>
                   {t('contactUs.location.Kharkov')}.
                 </p>
               </div>
             </div>
           </section>
         </section>
-      </div>
+      </section>
     </div>
   );
 }

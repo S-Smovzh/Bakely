@@ -1,0 +1,163 @@
+@import '../../../css/base/Extensions';
+
+.Button-Notification + .Overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: $layout-100;
+  z-index: 99;
+  bottom: 0;
+  @include transform(translate3d(100%, 100%, 0));
+  opacity: 0;
+}
+
+.Button-Notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  border-radius: 50%;
+  background: $tertiary-100;
+  border: 1px solid $tertiary-1000;
+
+  .Bell {
+    transform-origin: 50% 2px;
+  }
+
+  .Notification-Count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.8rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $error-400;
+    border: 1px inset $text;
+    color: $text-inverted;
+  }
+}
+
+.Toasts-Stack {
+  min-height: 0;
+  max-height: 100vh;
+  padding: 10px;
+}
+
+.Toast-Stack-Reveal {
+  @include transition(0.6);
+  @include animation(toast-stack-reveal, 600ms, ease-in-out, forwards);
+}
+
+.Toast-Stack-Disappear {
+  @include transition(0.6);
+  @include animation(toast-stack-disappear, 600ms, ease-in-out, forwards);
+}
+
+.BellRing {
+  @include transition(0.6);
+  @include animation(bellRing, 600ms, ease-in-out, forwards);
+}
+
+@include keyframes(toast-stack-reveal) {
+  0% {
+    @include transform(translate3d(100%, 100%, 0));
+    opacity: 0;
+  }
+  100% {
+    @include transform(translate3d(0, 0, 0));
+    opacity: 1;
+  }
+}
+
+@include keyframes(toast-stack-disappear) {
+  0% {
+    @include transform(translate3d(0, 0, 0));
+    opacity: 1;
+  }
+  100% {
+    @include transform(translate3d(100%, 100%, 0));
+    opacity: 0;
+  }
+}
+
+@include keyframes(bellRing) {
+  0% {
+    @include transform(rotateZ(0deg));
+  }
+  15% {
+    @include transform(rotateZ(12deg));
+  }
+  30% {
+    @include transform(rotateZ(-12deg));
+  }
+  45% {
+    @include transform(rotateZ(12deg));
+  }
+  60% {
+    @include transform(rotateZ(-12deg));
+  }
+  75% {
+    @include transform(rotateZ(12deg));
+  }
+  90% {
+    @include transform(rotateZ(-12deg));
+  }
+  100% {
+    @include transform(rotateZ(0deg));
+  }
+}
+
+@media only screen and (max-width: 1850px) {
+  .Toasts-Stack {
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 1701px) and (max-width: 1850px) {
+  .Toasts-Stack {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1700px) {
+  .Toasts-Stack {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1401px) and (max-width: 1600px) {
+  .Toasts-Stack {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .Toasts-Stack {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Toasts-Stack {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 991px) {
+  .Toasts-Stack {
+    width: 55%;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 700px) {
+  .Toasts-Stack {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .Toasts-Stack {
+    width: 100%;
+  }
+}

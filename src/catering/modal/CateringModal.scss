@@ -1,39 +1,95 @@
 @import '../../css/base/Extensions';
 
 .Modal.Catering {
-  .modal-content, .modal-dialog {
-    width: 600px;
-    height: 660px;
+  display: flex !important;
 
-    .modal-body {
-      @extend %flex;
-      @include align-items(flex-start);
-      @include justify-content(space-between);
-      @include flex-flow(column nowrap);
-
-      header {
-        @extend %flex;
-        @include align-items(center);
-        @include justify-content(space-between);
-        @include flex-flow(row nowrap);
-      }
-
-      & > p {
-        @extend %flex;
-        @include align-items(center);
-        @include flex-flow(row nowrap);
-        @include columnGap(calc(#{$standard} * 6));
-      }
-
-      .Feedbacks {
-        @extend %flex;
-        @include flex-flow(column nowrap);
-        row-gap: 20px;
-      }
+  .modal-body {
+    & > p {
+      @include columnGap(calc(#{$standard} * 6));
     }
 
-    & > * {
-      border: none;
+    .Feedbacks {
+      row-gap: calc(#{$standard} * 3);
+      overflow-y: auto;
+      -ms-overflow-y: auto;
+    }
+  }
+
+  & > * {
+    border: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Modal.Catering {
+    .modal-content, .modal-dialog {
+      width: 600px;
+      height: 660px;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Modal.Catering {
+    .modal-content, .modal-dialog {
+      width: 70vw;
+      height: 70vh;
+
+      .Feedbacks{
+        max-height: 300px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Modal.Catering {
+    .modal-content, .modal-dialog {
+      width: 70vw;
+      height: 70vh;
+
+      .Feedbacks{
+        max-height: 300px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Modal.Catering {
+    .modal-content, .modal-dialog {
+      width: 75vw;
+      height: 75vh;
+
+      .Feedbacks{
+        max-height: 230px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Modal.Catering {
+    .modal-content, .modal-dialog {
+      width: 90vw;
+      height: 70vh;
+
+      .Feedbacks{
+        max-height: 200px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Modal.Catering {
+    .modal-content, .modal-dialog {
+      width: 90vw;
+      height: 70vh;
+
+      .Feedbacks{
+        max-height: 120px;
+      }
     }
   }
 }

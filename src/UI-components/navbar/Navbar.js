@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import useWindowDimensions, {isTouchDevice} from "../../utils/isTouchDevice";
 import {NavbarMenuContext} from "../../context/navbar-menu/NavbarMenuContext";
+import {timer} from "rxjs";
 
 export const Navbar = () => {
   const [t] = useTranslation();
@@ -20,20 +21,20 @@ export const Navbar = () => {
   }, [height, width]);
 
   return (
-    <header className='Navbar'>
-      <nav role='navigation' className='Navbar-Top'>
+    <header className='Navbar Grid'>
+      <nav role='navigation' className='Navbar-Top Grid'>
         {!isTouch ?
           <React.Fragment>
-            <a className='Link helper SkipLink' href='#main' tabIndex='1000'>Skip to main section</a>
-            <a className='Link helper SkipLink' href='#footer' tabIndex='1000'>Skip to footer section</a>
+            <a className='Link helper SkipLink Flex J-C-C A-I-C' href='#main' tabIndex='1000'>Skip to main section</a>
+            <a className='Link helper SkipLink Flex J-C-C A-I-C' href='#footer' tabIndex='1000'>Skip to footer section</a>
           </React.Fragment>
           : null}
       </nav>
-      <nav role='navigation' className='Navbar-Bottom'>
+      <nav role='navigation' className='Navbar-Bottom Grid'>
         {width > 768 ?
           <React.Fragment>
-            <div className='Navbar-LeftRow'>
-              <ul className='fill-width fill-height'>
+            <div className='Navbar-LeftRow Flex J-C-C A-I-C'>
+              <ul className='fill-width fill-height Flex J-C-S-B A-I-C'>
                 <li className='button-small'>
                   <Link to='/' className='button-primary fill-height fill-width'
                         aria-label={t('navbar.ariaLabel.main')}>
@@ -57,8 +58,8 @@ export const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <div className='Navbar-RightRow'>
-              <ul className='fill-width fill-height'>
+            <div className='Navbar-RightRow Flex J-C-C A-I-C'>
+              <ul className='fill-width fill-height Flex J-C-S-B A-I-C'>
                 <li>
                   {authContext.logged
                     ?
@@ -83,11 +84,13 @@ export const Navbar = () => {
                   :
                   null}
                 <li>
-                  <button id='cart'
+                  <button id='cart-button'
                           className={'button button-primary button-icon ' + (cartContext.show ? 'Active' : '')}
                           onClick={() => {
+                            cartContext.cartButtonInteraction(true);
                             cartContext.showCart(!cartContext.show);
                             cartContext.loadProducts();
+                            timer(300).subscribe(() => cartContext.cartButtonInteraction(false));
                           }} aria-label={t('navbar.ariaLabel.cart')}>
                     <div>
                       {cartContext.cart && cartContext.cart.length}
@@ -103,22 +106,47 @@ export const Navbar = () => {
           </React.Fragment>
           :
           <React.Fragment>
-            <div className='Navbar-LeftRow'>
-              <button id='menu'
-                      className={'button button-primary button-small ' + (navbarMenuContext.show ? 'Active' : '')}
-                      onClick={() => navbarMenuContext.setNavbar({show: true})}
-                      aria-label={t('navbar.ariaLabel.openMenu')}>
-                MENU
-              </button>
-            </div>
-            <div className='Navbar-RightRow'>
-              <ul>
+            <div className='fill-width'>
+              <ul className='fill-width fill-height Flex J-C-S-A A-I-C'>
                 <li>
-                  <button id='cart'
+                  <button id='menu'
+                          className={'button button-primary button-icon ' + (navbarMenuContext.show ? 'Active' : '')}
+                          onClick={() => navbarMenuContext.setNavbar({show: true})}
+                          aria-label={t('navbar.ariaLabel.openMenu')}>
+                    <img src='http://localhost:3000/img/icons/list.svg' alt='' className='icon'/>
+                  </button>
+                </li>
+                <li>
+                  {authContext.logged
+                    ?
+                    <button className='button-primary button-icon' onClick={() => authContext.logout()}
+                            aria-label={t('navbar.ariaLabel.logOut')}>
+                      <img src='http://localhost:3000/img/icons/logout.svg' alt='' className='icon'/>
+                    </button>
+                    :
+                    <Link to='/user/login' className='button-primary button-icon'
+                          aria-label={t('navbar.ariaLabel.login')}>
+                      <img src='http://localhost:3000/img/icons/user.svg' alt='' className='icon'/>
+                    </Link>}
+                </li>
+                {authContext.logged
+                  ?
+                  <li>
+                    <Link to='/user/homepage' className='button-primary button-icon'
+                          aria-label={t('navbar.ariaLabel.homepage')}>
+                      <img src='http://localhost:3000/img/icons/homepage.svg' alt='\' className='icon'/>
+                    </Link>
+                  </li>
+                  :
+                  null}
+                <li>
+                  <button id='cart-button'
                           className={'button button-primary button-icon ' + (cartContext.show ? 'Active' : '')}
                           onClick={() => {
+                            cartContext.cartButtonInteraction(true);
                             cartContext.showCart(!cartContext.show);
                             cartContext.loadProducts();
+                            timer(300).subscribe(() => cartContext.cartButtonInteraction(false));
                           }} aria-label={t('navbar.ariaLabel.cart')}>
                     <div>
                       {cartContext.cart && cartContext.cart.length}
@@ -130,6 +158,32 @@ export const Navbar = () => {
                   <LanguageButton/>
                 </li>
               </ul>
+            {/*  <button id='menu'*/}
+            {/*          className={'button button-primary button-icon ' + (navbarMenuContext.show ? 'Active' : '')}*/}
+            {/*          onClick={() => navbarMenuContext.setNavbar({show: true})}*/}
+            {/*          aria-label={t('navbar.ariaLabel.openMenu')}>*/}
+            {/*    <img src='http://localhost:3000/img/icons/list.svg' alt='' className='icon'/>*/}
+            {/*  </button>*/}
+            {/*</div>*/}
+            {/*<div className='Navbar-RightRow'>*/}
+            {/*  <ul>*/}
+            {/*    <li>*/}
+            {/*      <button id='cart-button'*/}
+            {/*              className={'button button-primary button-icon ' + (cartContext.show ? 'Active' : '')}*/}
+            {/*              onClick={() => {*/}
+            {/*                cartContext.showCart(!cartContext.show);*/}
+            {/*                cartContext.loadProducts();*/}
+            {/*              }} aria-label={t('navbar.ariaLabel.cart')}>*/}
+            {/*        <div>*/}
+            {/*          {cartContext.cart && cartContext.cart.length}*/}
+            {/*        </div>*/}
+            {/*        <img src='http://localhost:3000/img/icons/shopping-cart.svg' alt='' className='icon'/>*/}
+            {/*      </button>*/}
+            {/*    </li>*/}
+            {/*    <li>*/}
+            {/*      <LanguageButton/>*/}
+            {/*    </li>*/}
+            {/*  </ul>*/}
             </div>
           </React.Fragment>}
       </nav>

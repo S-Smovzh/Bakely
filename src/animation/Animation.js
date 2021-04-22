@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 export const Animation = ({
                             active,
+                            className,
                             inactivityTiming,
                             infinite,
                             onClick,
@@ -16,6 +17,7 @@ export const Animation = ({
 
   Animation.propTypes = {
     active: PropTypes.bool,
+    className: PropTypes.string,
     inactivityTiming: PropTypes.number,
     infinite: PropTypes.bool,
     onClick: PropTypes.bool.isRequired,
@@ -26,6 +28,7 @@ export const Animation = ({
 
   Animation.defaultProps = {
     active: false,
+    className: '',
     inactivityTiming: 999999,
     infinite: false,
     onClick: false,
@@ -79,7 +82,7 @@ export const Animation = ({
   }, [type])
 
   return (
-    <div className={infinite ? `Infinite ${animationType}` : start ? animationType : ' '}
+    <div className={(infinite ? `Infinite ${animationType}` : start ? animationType : ' ') + ' ' + className}
          onClick={() => {
            if (onClick) {
              setStart(true);

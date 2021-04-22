@@ -34,17 +34,17 @@ export default function PressRelease(props) {
     <LoadingOverlay
       active={article.length === 0}
       text={t('overlay.getting')}>
-      <article className='ArticlePage'>
-        <header className='TopBlock Title'>
+      <article className='ArticlePage Grid'>
+        <header className='TopBlock Flex J-C-C A-I-C F-F-C-N T-C'>
           <h1>{article.title}</h1>
-          <p className='h6-size helper'>{article.date.toLocaleDateString()}</p>
+          <p className='h6-size helper'>{new Date(Number.parseInt(article.date)).toLocaleDateString()}</p>
         </header>
-        <section className='MiddleBlock Description Nunito'>
+        <section className='MiddleBlock Flex J-C-F-S A-I-C F-F-C-N Nunito'>
           {article.img !== '' ?
-            <Picture src={article.img} alt={article.imgDescription} className='Image'/>
+            <Picture src={article.img} alt={article.imgDescription} className='Image fill-width'/>
             : null}
           {paragraphs.map((paragraph, index) => {
-            return <p key={index} className='h6-size'>{paragraph}</p>;
+            return <p key={index} className='fill-width h5-size T-C'>{paragraph}</p>;
           })
           }
         </section>

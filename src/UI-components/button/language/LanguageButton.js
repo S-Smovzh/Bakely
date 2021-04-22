@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './LanguageButton.css';
 import i18n from '../../../utils/i18n';
 import {useTranslation} from "react-i18next";
+import {Button} from "../Button";
 
 export default function LanguageButton() {
   const [toggle, setToggle] = useState(false);
@@ -9,6 +10,8 @@ export default function LanguageButton() {
   const [t] = useTranslation();
   const toggleRef = useRef(null);
   const menuRef = useRef(null);
+
+  const languages = ['en', 'ru', 'ua'];
 
   const setLanguageCookie = (event) => {
     const target = event.target;
@@ -29,7 +32,7 @@ export default function LanguageButton() {
   function useToggleListener(refOfMenu, refOfToggle) {
     useEffect(() => {
       function handleClickOutside(event) {
-        if (refOfMenu.current && !(refOfMenu.current.contains(event.target) || refOfToggle.current.contains(event.target))) {
+        if (refOfMenu.current && !(refOfMenu.current.contains(event.target) || refOfToggle.current && refOfToggle.current.contains(event.target))) {
           setClicksCount(0);
           setToggle(false);
         }
@@ -46,7 +49,7 @@ export default function LanguageButton() {
 
   return (
     <React.Fragment>
-      <button className='button-primary button-icon Dropdown-Toggle' type='button'
+      <Button className='button-primary button-icon Dropdown-Toggle' type='button'
               onClick={() => {
                 if (clicksCount !== 0) {
                   setToggle(!(clicksCount % 2));
@@ -54,26 +57,19 @@ export default function LanguageButton() {
                   setToggle(true);
                 }
                 setClicksCount(clicksCount + 1);
-              }} ref={toggleRef} aria-label={t('navbar-menu.ariaLabel.langButton')}>
+              }} buttonRef={toggleRef} aria-label={t('navbar-menu.ariaLabel.langButton')}>
         <img src='http://localhost:3000/img/icons/world.svg' alt='' className='icon'/>
-      </button>
+      </Button>
 
-      <div className={toggle ? 'Dropdown-Menu flex' : 'Dropdown-Menu none'} ref={menuRef}>
-        <button className='Dropdown-Item button-secondary button-icon-dropdown' type='button' data-lang='en'
-                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar-menu.ariaLabel.langButton.en')}>
-          <img src='http://localhost:3000/img/icons/gb.svg'
-               alt='' className='icon-flag'/>
-        </button>
-        <button className='Dropdown-Item button-secondary button-icon-dropdown' type='button' data-lang='ru'
-                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar-menu.ariaLabel.langButton.ru')}>
-          <img src='http://localhost:3000/img/icons/ru.svg'
-               alt='' className='icon-flag'/>
-        </button>
-        <button className='Dropdown-Item button-secondary button-icon-dropdown' type='button' data-lang='ua'
-                onClick={(event) => setLanguageCookie(event)} aria-label={t('navbar-menu.ariaLabel.langButton.ua')}>
-          <img src='http://localhost:3000/img/icons/ua.svg'
-               alt='' className='icon-flag'/>
-        </button>
+      <div className={toggle ? 'Dropdown-Menu Flex J-C-C A-I-C F-F-C-N' : 'Dropdown-Menu none'} ref={menuRef}>
+        {languages.map((item, index) =>
+          <button key={index} className='Dropdown-Item Flex J-C-C A-I-C button-secondary button-icon-dropdown' type='button' data-lang={item}
+                  onClick={(event) => setLanguageCookie(event)}
+                  aria-label={t(`navbar-menu.ariaLabel.langButton.${item}`)}>
+            <img src={`http://localhost:3000/img/icons/${item}.svg`}
+                 alt='' className='icon-flag'/>
+          </button>
+        )}
       </div>
     </React.Fragment>);
 }

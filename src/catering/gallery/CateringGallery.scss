@@ -2,44 +2,98 @@
 
 .GalleryPage {
   grid-area: 2/2/3/3;
-  @extend %grid;
   grid-template-rows: $standard 40px minmax(10px, 1fr) $standard;
-  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
   row-gap: calc(#{$standard * 9});
 
   & > .TopBlock {
     grid-area: 2/2/3/3;
-    @extend %flex;
-    @extend %flex__center;
   }
 
   & > .MiddleBlock {
     grid-area: 3/2/4/3;
-    @extend %flex;
-    @extend %flex__center;
 
     & > .Event_List {
-      @extend %flex;
-      @include align-items(flex-start);
-      @include justify-content(space-around);
-      @include flex-flow(row wrap);
-      row-gap: 56px;
+      row-gap: calc(#{$standard * 8});
+      @include columnGap(calc(#{$standard * 4}));
 
-      & > .Event {
-        @extend %flex;
-        @extend %flex__center;
+      & > .Event .Card {
+        row-gap: calc(#{$standard} * 2);
 
-        & > .Card {
+        .Event-Details {
           row-gap: calc(#{$standard} * 2);
-
-          .Event-Details {
-            @extend %flex;
-            @extend %flex__center;
-            @include flex-flow(column nowrap);
-            row-gap: calc(#{$standard} * 2);
-          }
+          padding-block: calc(#{$standard} * 2);
         }
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .GalleryPage {
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+    .Event-Details {
+      height: 140px
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .GalleryPage {
+    grid-template-columns: calc(#{$standard} * 8) minmax(10px, 1fr) calc(#{$standard} * 8);
+
+    .Event-Details {
+      height: 140px
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .GalleryPage {
+    grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+
+    .Event-Details {
+      height: 140px
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .GalleryPage {
+    grid-template-columns: calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
+
+    .Event-Details {
+      height: 140px
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .GalleryPage {
+    grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+
+    .Event-Details {
+      height: 140px
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 599px) {
+  .GalleryPage {
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+    .Event-Details {
+      height: 140px
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .GalleryPage {
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+    .Event-Details {
+      height: 140px
     }
   }
 }

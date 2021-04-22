@@ -5,13 +5,13 @@ export default function TermsAndConditions() {
   const [t] = useTranslation();
 
   return (
-    <div className='InfoPage'>
-      <section className='TopBlock'>
+    <div className='InfoPage Grid'>
+      <section className='TopBlock Flex J-C-C A-I-C T-C'>
         <h1>
           {t('infoPages.terms.header')}
         </h1>
       </section>
-      <article className='MiddleBlock'>
+      <article className='MiddleBlock Nunito Flex J-C-S-B A-I-F-S F-F-C-N'>
         <p>
           These terms and conditions (&quot;Agreement&quot;) set forth the general terms and conditions of your use of
           the <a target="_blank" rel="nofollow" href="http://www.bakely.com">bakely.com</a> website

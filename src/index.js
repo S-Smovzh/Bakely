@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {render} from 'react-dom';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './utils/reportWebVitals';
@@ -18,7 +18,7 @@ import Bakely from './App';
 import './utils/i18n';
 import {ModalContext} from './context/modal/ModalContext';
 import {Subscribe} from './UI-components/toasts/components/Subscribe';
-import {InternalError} from './UI-components/modal/InternalError';
+import {ErrorModal} from './UI-components/modal/ErrorModal';
 import {CateringModal} from './catering/modal/CateringModal';
 import axios from 'axios';
 import CartState from './context/cart/CartState';
@@ -31,11 +31,17 @@ import {HoverTooltip} from "./UI-components/tooltip/HoverTooltip";
 import {Cookie} from "./UI-components/toasts/components/Cookie";
 import {Verification} from "./UI-components/toasts/components/Verification";
 import {logError} from "./error/errorHandler";
-import './css/index.css';
+import './css/index.scss';
 import {NavbarMenuContext} from "./context/navbar-menu/NavbarMenuContext";
 import {Menu} from "./UI-components/navbar/Menu";
+import NotificationButton from "./UI-components/button/notification/NotificationButton";
+import useWindowDimensions from "./utils/isTouchDevice";
+import {NotificationOverlayContext} from "./context/notification-overlay/NavbarMenuContext";
 
 function App() {
+  const toastRef = useRef(null);
+  const {width} = useWindowDimensions();
+
   const [modal, setModal] = useState({
     cateringModal: false,
     locationModal: false,
@@ -60,6 +66,11 @@ function App() {
   });
   const navbarValue = {navbar, setNavbar};
 
+  const [overlay, setOverlay] = useState({
+    show: 2
+  });
+  const overlayValue = {overlay, setOverlay};
+
   const [orderForm, setOrderForm] = useState({
     delivery: false,
     selfPickUp: false,
@@ -68,8 +79,6 @@ function App() {
     comment: ''
   });
   const orderFormValue = {orderForm, setOrderForm};
-
-  // const [elementRef] = useMonitor();
 
   useEffect(() => {
     createClientsSession();
@@ -90,36 +99,65 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    if (overlay.show !==2) {
+      if (overlay.show) {
+        document.getElementById('root').classList.add('BlockScroll');
+      } else {
+        document.getElementById('root').classList.remove('BlockScroll');
+      }
+    }
+  }, [overlay.show])
+
   return (
     <BrowserRouter>
-      <ModalContext.Provider value={modalValue}>
-        <ToastContext.Provider value={toastValue}>
-          <NavbarMenuContext.Provider value={navbarValue}>
-            <OrderFormContext.Provider value={orderFormValue}>
-              <CartState>
-                <AuthState>
-                  <div className={'Playfair base ' + (modal.modal ? 'blockScrolling ' : 'enableScrolling ')}>
-                    <Menu/>
-                    <Bakely/>
-                    <Cart/>
-                    <HoverTooltip/>
-                    <InternalError/>
-                    <CateringModal/>
-                    <div className='Toasts-Stack'>
-                      <Cookie/>
-                      {localStorage.getItem('cookies') && atob(localStorage.getItem('cookies')) === 'false'
-                        ?
-                        delay(6000) && <Subscribe/>
+      <NotificationOverlayContext.Provider value={overlayValue}>
+        <ModalContext.Provider value={modalValue}>
+          <ToastContext.Provider value={toastValue}>
+            <NavbarMenuContext.Provider value={navbarValue}>
+              <OrderFormContext.Provider value={orderFormValue}>
+                <CartState>
+                  <AuthState>
+                    <div className={'Playfair base ' + (modal.modal ? 'BlockScroll ' : '')}>
+                      <Menu/>
+                      {width < 1851 &&
+                      <NotificationButton>
+                        <div ref={toastRef} className='Toasts-Stack Small-Device'>
+                          {toast.showCookie ?
+                            <Cookie/>
+                            : null}
+                          {localStorage.getItem('cookies') && atob(localStorage.getItem('cookies')) === 'false'
+                            ?
+                            delay(6000) && <Subscribe/>
+                            : null}
+                          {toast.verified ?
+                          <Verification/>
+                          : null}
+                        </div>
+                      </NotificationButton>}
+                      <Bakely/>
+                      <Cart/>
+                      <HoverTooltip/>
+                      <ErrorModal/>
+                      <CateringModal/>
+                      {width > 1850 ?
+                        <div className='Toasts-Stack'>
+                          <Cookie/>
+                          {localStorage.getItem('cookies') && atob(localStorage.getItem('cookies')) === 'false'
+                            ?
+                            delay(6000) && <Subscribe/>
+                            : null}
+                          <Verification/>
+                        </div>
                         : null}
-                      <Verification/>
                     </div>
-                  </div>
-                </AuthState>
-              </CartState>
-            </OrderFormContext.Provider>
-          </NavbarMenuContext.Provider>
-        </ToastContext.Provider>
-      </ModalContext.Provider>
+                  </AuthState>
+                </CartState>
+              </OrderFormContext.Provider>
+            </NavbarMenuContext.Provider>
+          </ToastContext.Provider>
+        </ModalContext.Provider>
+      </NotificationOverlayContext.Provider>
     </BrowserRouter>
   );
 }
@@ -129,9 +167,9 @@ render(<App/>, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.register({ scope: "/"});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log());
+// reportWebVitals(console.log());

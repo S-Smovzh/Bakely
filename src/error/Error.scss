@@ -1,22 +1,56 @@
 @import "../css/base/Extensions";
 
 .ErrorPage {
-  @extend %grid;
-  grid-template-rows: $mainPadding 40px 700px $mainPadding;
-  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  row-gap: calc(#{$standard} * 6);
 
   .TopBlock {
     grid-area: 2/2/3/3;
-    @extend %flex;
-    @extend %flex__center;
-    @include flex-flow(column nowrap);
   }
 
   & > .MiddleBlock {
     grid-area: 3/2/4/3;
-    @extend %flex;
-    @include align-items(center);
-    @include justify-content(space-around);
-    @include flex-flow(column nowrap);
+    row-gap: calc(#{$standard} * 6);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ErrorPage {
+    grid-template-rows: calc(#{$standard} * 4) 50px 480px $mainPadding;
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ErrorPage {
+    grid-template-rows: calc(#{$standard} * 4) 50px 440px $mainPadding;
+    grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .ErrorPage {
+    grid-template-rows: calc(#{$standard} * 4) 100px 360px $mainPadding;
+    grid-template-columns: calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .ErrorPage {
+    grid-template-rows: calc(#{$standard} * 4) 100px 340px $mainPadding;
+    grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .ErrorPage {
+    grid-template-rows: calc(#{$standard} * 4) 130px 340px $mainPadding;
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .ErrorPage {
+    grid-template-rows: calc(#{$standard} * 4) 130px 340px $mainPadding;
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }
 }

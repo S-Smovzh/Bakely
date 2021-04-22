@@ -47,28 +47,28 @@ export const CateringModal = () => {
   }, [location.eventId, location.data, t]);
 
   return (
-    <Modal className='Modal Catering Nunito'
+    <Modal className='Modal Flex Catering Nunito'
            onHide={() => closeModal()}
            show={modal.cateringModal}
            centered>
-      <Modal.Body className='fill-width'>
-        <header className='fill-width'>
+      <Modal.Body className='fill-width Flex J-C-S-B A-I-F-S F-F-C-N'>
+        <header className='fill-width Flex J-C-S-B A-I-C F-F-R-N T-C'>
           <h1 className='h2-size Playfair'>{cateringEvent && cateringEvent.name}</h1>
           <CloseButton onClick={() => closeModal()} animate={true} ariaLabel={t('aria-label.close')}/>
         </header>
-        <p>
+        <p className='Flex J-C-C A-I-C F-F-R-N'>
           <span className='font-weight_600'>
             {t('catering.gallery.modal.date')}
           </span>
-          <p>{cateringEvent && cateringEvent.date}.</p>
+          <span>{cateringEvent && cateringEvent.date}.</span>
         </p>
-        <p>
+        <p className='Flex J-C-C A-I-C F-F-R-N'>
           <span className='font-weight_600'>
             {t('catering.gallery.modal.guests')}
           </span>
-          <p>{cateringEvent && cateringEvent.guests}.</p>
+          <span>{cateringEvent && cateringEvent.guestsQuantity}.</span>
         </p>
-        <ul className='Feedbacks'>
+        <ul className='Feedbacks Flex F-F-C-N'>
           {feedbacks && feedbacks.map((feedback) => {
             return (
               <li key={feedback.id}>

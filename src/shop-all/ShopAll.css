@@ -1,66 +1,47 @@
-.Shop-All > .MiddleBlock > .Categories > li, .Shop-All > .MiddleBlock > .Categories, .Shop-All > .MiddleBlock, .Shop-All > .TopBlock {
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-}
-
-.Shop-All > .MiddleBlock > .Categories > li, .Shop-All > .MiddleBlock, .Shop-All > .TopBlock {
-  align-items: center;
-  align-items: -moz-center;
-  align-items: -webkit-center;
-  align-items: -ms-center;
-  align-items: -o-center;
-  justify-content: center;
-  justify-content: -moz-center;
-  justify-content: -webkit-center;
-  justify-content: -ms-center;
-  justify-content: -o-center;
-}
-
 .Shop-All {
-  display: grid;
-  display: -webkit-grid;
-  display: -moz-grid;
-  display: -ms-grid;
-  display: -o-grid;
-}
-
-.Shop-All > .MiddleBlock > .Categories > li {
-  text-align: justify;
-  text-align: -moz-justify;
-  text-align: -webkit-justify;
-  text-align: -ms-justify;
-  text-align: -o-justify;
-}
-
-.Shop-All {
-  grid-template-rows: calc(7px * 3) 40px minmax(10px, 1fr) calc(7px * 10);
-  grid-template-columns: minmax(10px, 1fr);
-  row-gap: calc(7px * 7);
+  grid-template-rows: calc(7px * 3) 84px minmax(10px, 1fr) calc(7px * 10);
+  row-gap: calc(7px * 10);
 }
 .Shop-All > .TopBlock {
-  grid-area: 2/1/3/2;
+  grid-area: 2/2/3/3;
 }
 .Shop-All > .MiddleBlock {
-  grid-area: 3/1/4/2;
-  flex-flow: column nowrap;
-  -webkit-flex-flow: column nowrap;
+  grid-area: 3/2/4/3;
 }
 .Shop-All > .MiddleBlock > .Categories {
   width: 100%;
-  align-items: flex-start;
-  -webkit-align-items: flex-start;
-  justify-content: space-around;
-  -webkit-justify-content: space-around;
-  flex-flow: row wrap;
-  -webkit-flex-flow: row wrap;
+  gap: calc(7px * 3);
 }
-.Shop-All > .MiddleBlock > .Categories > li {
-  flex-flow: column nowrap;
-  -webkit-flex-flow: column nowrap;
-  margin-bottom: 3rem;
+
+@media only screen and (min-width: 1200px) {
+  .Shop-All {
+    grid-template-columns: calc(7px * 4) minmax(10px, 1fr) calc(7px * 4);
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Shop-All {
+    grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Shop-All {
+    grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Shop-All {
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Shop-All {
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+}
+@media only screen and (max-width: 320px) {
+  .Shop-All {
+    grid-template-columns: 7px minmax(10px, 1fr) 7px;
+  }
 }
 
 /*# sourceMappingURL=ShopAll.css.map */

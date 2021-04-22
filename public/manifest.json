@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "any",
   "scope": "/",
-  "start_url": ".",
+  "start_url": "/",
   "incognito": "spanning",
   "version": "0.1",
   "omnibox": {

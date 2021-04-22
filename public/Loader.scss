@@ -27,3 +27,8 @@
   margin: 0 260px;
   height: 100vh;
 }
+
+.BlockScroll {
+  overflow-y: hidden;
+  overflow-y: -moz-hidden-unscrollable;
+}

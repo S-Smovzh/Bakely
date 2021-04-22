@@ -1,15 +1,8 @@
 @import "../../css/base/Extensions";
 
-%inputCell {
-  @extend %grid;
-  grid-template-columns: minmax(10px, 1fr);
-  grid-template-rows: 30px 46px 30px;
-}
-
 .Form {
   position: relative;
-  @extend %grid;
-  grid-row-gap: calc(#{$standard} * 2);
+  row-gap: calc(#{$standard} * 2);
   padding: 10px;
 
   .Form-Button {
@@ -18,53 +11,44 @@
   }
 
   .Form-Row {
-    @extend %inputCell;
+    grid-template-columns: minmax(10px, 1fr);
 
     &-Double {
       @extend %grid;
       grid-template-columns: repeat(2, minmax(10px, 1fr));
       grid-template-rows: minmax(10px, 1fr);
-      grid-column-gap: 30px;
+      grid-column-gap: calc(#{$standard} * 4);
 
       .Cell-First {
         grid-area: 1/1/2/2;
-        @extend %inputCell;
+        grid-template-columns: minmax(10px, 1fr);
       }
 
       .Cell-Second {
         grid-area: 1/2/2/3;
-        @extend %inputCell;
+        grid-template-columns: minmax(10px, 1fr);
       }
     }
   }
 
   .Form-TextareaRow {
-    @extend %grid;
     grid-template-columns: minmax(10px, 1fr);
     grid-template-rows: 30px 200px 30px;
   }
 
   .Form-Label {
     grid-area: 1/1/2/2;
-    @extend %flex;
-    @include align-self(flex-start);
 
     &-Error {
       grid-area: 3/1/4/2;
-      @include align-self(flex-start);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
   }
-
-  .Form-Input {
-    @extend %flex;
-    @include align-self(flex-start);
-  }
 }
 
-@keyframes success {
+@include keyframes(success) {
   0% {
     opacity: 0;
     -moz-opacity: 1;
@@ -82,7 +66,7 @@
   }
 }
 
-@keyframes container__success {
+@include keyframes(container__success) {
   0% {
     background: none;
   }
@@ -98,10 +82,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  @extend %flex;
-  @extend %flex__center;
   @include transition(1);
-  animation: 800ms container__success forwards;
+  @include animation(800ms, container__success, ease-in-out, forwards);
 }
 
 .Success-Tick {
@@ -116,6 +98,7 @@
 
 .Success-Tick__Circle {
   opacity: 0;
+  -moz-opacity: 0;
   stroke-dasharray: 130;
   stroke-dashoffset: 130;
   @include transition(1);
@@ -139,4 +122,123 @@
   stroke-width: 3;
   stroke-linejoin: round;
   stroke-miterlimit: 10;
+}
+
+@media only screen and (min-width: 1400px) {
+  .Form-Row {
+    grid-template-rows: 30px 46px 30px;
+
+    &-Double {
+
+      .Cell-First {
+        grid-template-rows: 30px 46px 30px;
+      }
+
+      .Cell-Second {
+        grid-template-rows: 30px 46px 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .Form-Row {
+    grid-template-rows: 30px 42px 30px;
+
+    &-Double {
+
+      .Cell-First {
+        grid-template-rows: 30px 42px 30px;
+      }
+
+      .Cell-Second {
+        grid-template-rows: 30px 42px 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Form-Row {
+    grid-template-rows: 30px 40px 30px;
+
+    &-Double {
+
+      .Cell-First {
+        grid-template-rows: 30px 40px 30px;
+      }
+
+      .Cell-Second {
+        grid-template-rows: 30px 40px 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Form-Row {
+    grid-template-rows: 30px 38px 30px;
+
+    &-Double {
+
+      .Cell-First {
+        grid-template-rows: 30px 38px 30px;
+      }
+
+      .Cell-Second {
+        grid-template-rows: 30px 38px 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Form-Row {
+    grid-template-rows: 30px 36px 30px;
+
+    &-Double {
+
+      .Cell-First {
+        grid-template-rows: 30px 36px 30px;
+      }
+
+      .Cell-Second {
+        grid-template-rows: 30px 36px 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Form-Row {
+    grid-template-rows: 30px 34px 30px;
+
+    &-Double {
+
+      .Cell-First {
+        grid-template-rows: 30px 34px 30px;
+      }
+
+      .Cell-Second {
+        grid-template-rows: 30px 34px 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Form-Row {
+    grid-template-rows: 30px 32px 30px;
+
+    &-Double {
+
+      .Cell-First {
+        grid-template-rows: 30px 32px 30px;
+      }
+
+      .Cell-Second {
+        grid-template-rows: 30px 32px 30px;
+      }
+    }
+  }
 }

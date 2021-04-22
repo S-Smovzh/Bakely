@@ -1,4 +1,4 @@
-.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error {
+.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error, .Button-primary, .Button-secondary, .Button-tertiary, .Button-success, .Button-warning, .Button-error {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -6,7 +6,7 @@
   display: -o-flex;
 }
 
-.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error {
+.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error, .Button-primary, .Button-secondary, .Button-tertiary, .Button-success, .Button-warning, .Button-error {
   align-items: center;
   align-items: -moz-center;
   align-items: -webkit-center;
@@ -23,7 +23,7 @@ button:focus-within, button:focus, button:active {
   outline: none;
 }
 
-.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error {
+.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error, .Button-primary, .Button-secondary, .Button-tertiary, .Button-success, .Button-warning, .Button-error {
   transition: all 0.6s ease-in-out !important;
   -webkit-transition: all 0.6s ease-in-out !important;
   -moz-transition: all 0.6s ease-in-out !important;
@@ -32,165 +32,176 @@ button:focus-within, button:focus, button:active {
   border-radius: 8px;
   outline: none;
   box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
 }
-.button-primary {
+.button-primary, .Button-primary {
   color: #ffffff;
   background: #711604;
 }
-.button-primary:hover {
+.button-primary:hover, .Button-primary:hover {
   color: #000000;
   background: #FA5B3D;
 }
-.button-primary:active {
+.button-primary:active, .Button-primary:active {
   color: #000000;
   background: #ff8771;
 }
-.button-primary:focus {
+.button-primary:focus, .Button-primary:focus {
   background: #BD2608;
 }
-.button-primary:focus-visible {
+.button-primary:focus-visible, .Button-primary:focus-visible {
   background: #BD2608;
 }
-.button-primary:-moz-focusring {
+.button-primary:-moz-focusring, .Button-primary:-moz-focusring {
   background: #BD2608;
 }
-.button-primary:disabled {
+.button-primary:disabled, .Button-primary:disabled {
   background: #711604;
   color: #000000;
   opacity: 0.5;
 }
-.button-secondary {
+.button-secondary, .Button-secondary {
   color: #000000;
   background: #fffcf9;
   border: 1px solid #2a0800;
 }
-.button-secondary:hover {
+.button-secondary:hover, .Button-secondary:hover {
   color: #000000;
   background: #ffcf9c;
 }
-.button-secondary:active {
+.button-secondary:active, .Button-secondary:active {
   color: #000000;
   background: #eeb785;
 }
-.button-secondary:focus {
+.button-secondary:focus, .Button-secondary:focus {
   background: #b96d40;
 }
-.button-secondary:focus-visible {
+.button-secondary:focus-visible, .Button-secondary:focus-visible {
   background: #b96d40;
 }
-.button-secondary:-moz-focusring {
+.button-secondary:-moz-focusring, .Button-secondary:-moz-focusring {
   background: #b96d40;
 }
-.button-secondary:disabled {
+.button-secondary:disabled, .Button-secondary:disabled {
   background: #fffcf9;
   color: #000000;
   opacity: 0.5;
 }
-.button-tertiary {
+.button-tertiary, .Button-tertiary {
   color: #ffffff;
   background: #757C78;
 }
-.button-tertiary:hover {
+.button-tertiary:hover, .Button-tertiary:hover {
   color: #000000;
   background: #C6C9C7;
 }
-.button-tertiary:active {
+.button-tertiary:active, .Button-tertiary:active {
   color: #000000;
   background: #DBDDDC;
 }
-.button-tertiary:focus {
+.button-tertiary:focus, .Button-tertiary:focus {
   background: #a7aca9;
 }
-.button-tertiary:focus-visible {
+.button-tertiary:focus-visible, .Button-tertiary:focus-visible {
   background: #a7aca9;
 }
-.button-tertiary:-moz-focusring {
+.button-tertiary:-moz-focusring, .Button-tertiary:-moz-focusring {
   background: #a7aca9;
 }
-.button-tertiary:disabled {
+.button-tertiary:disabled, .Button-tertiary:disabled {
   background: #757C78;
   color: #000000;
   opacity: 0.5;
 }
-.button-success {
+.button-success, .Button-success {
   color: #000000;
   background: #25B84C;
 }
-.button-success:hover {
+.button-success:hover, .Button-success:hover {
   background: #5dd07c;
 }
-.button-success:active {
+.button-success:active, .Button-success:active {
   background: #95E8AB;
 }
-.button-success:focus {
+.button-success:focus, .Button-success:focus {
   background: #168734;
 }
-.button-success:focus-visible {
+.button-success:focus-visible, .Button-success:focus-visible {
   background: #168734;
 }
-.button-success:-moz-focusring {
+.button-success:-moz-focusring, .Button-success:-moz-focusring {
   background: #168734;
 }
-.button-success:disabled {
+.button-success:disabled, .Button-success:disabled {
   background: #25B84C;
   opacity: 0.5;
 }
-.button-warning {
+.button-warning, .Button-warning {
   color: #000000;
   background: #DDB814;
 }
-.button-warning:hover {
+.button-warning:hover, .Button-warning:hover {
   color: #000000;
   background: #EEC71C;
 }
-.button-warning:active {
+.button-warning:active, .Button-warning:active {
   color: #000000;
   background: #F0D458;
 }
-.button-warning:focus {
+.button-warning:focus, .Button-warning:focus {
   background: #C8A919;
 }
-.button-warning:focus-visible {
+.button-warning:focus-visible, .Button-warning:focus-visible {
   background: #C8A919;
 }
-.button-warning:-moz-focusring {
+.button-warning:-moz-focusring, .Button-warning:-moz-focusring {
   background: #C8A919;
 }
-.button-warning:disabled {
+.button-warning:disabled, .Button-warning:disabled {
   background: #DDB814;
   opacity: 0.5;
 }
-.button-error {
+.button-error, .Button-error {
   color: #ffffff;
   background: #D0343C;
 }
-.button-error:hover {
+.button-error:hover, .Button-error:hover {
   color: #000000;
   background: #FA6E75;
 }
-.button-error:active {
+.button-error:active, .Button-error:active {
   color: #000000;
   background: #FA6E75;
 }
-.button-error:focus {
+.button-error:focus, .Button-error:focus {
   background: #c11c24;
   box-shadow: 0 0 4px 8px #4e2210;
+  -webkit-box-shadow: 0 0 4px 8px #4e2210;
+  -moz-box-shadow: 0 0 4px 8px #4e2210;
+  -o-box-shadow: 0 0 4px 8px #4e2210;
 }
-.button-error:focus-visible {
+.button-error:focus-visible, .Button-error:focus-visible {
   background: #c11c24;
   box-shadow: 0 0 4px 8px #4e2210;
+  -webkit-box-shadow: 0 0 4px 8px #4e2210;
+  -moz-box-shadow: 0 0 4px 8px #4e2210;
+  -o-box-shadow: 0 0 4px 8px #4e2210;
 }
-.button-error:-moz-focusring {
+.button-error:-moz-focusring, .Button-error:-moz-focusring {
   background: #c11c24;
   box-shadow: 0 0 4px 8px #4e2210;
+  -webkit-box-shadow: 0 0 4px 8px #4e2210;
+  -moz-box-shadow: 0 0 4px 8px #4e2210;
+  -o-box-shadow: 0 0 4px 8px #4e2210;
 }
-.button-error:disabled {
+.button-error:disabled, .Button-error:disabled {
   background: #D0343C;
   color: #000000;
   opacity: 0.5;
 }
 
-/* Large desktops and laptops */
 @media only screen and (min-width: 1200px) {
   .button-icon {
     width: 60px;
@@ -200,10 +211,6 @@ button:focus-within, button:focus, button:active {
     width: 40px;
     height: 40px;
   }
-  .button-icon-footer img {
-    width: 30px;
-    height: 30px;
-  }
   .button-icon-dropdown {
     width: 52px;
     height: 52px;
@@ -211,6 +218,9 @@ button:focus-within, button:focus, button:active {
   .button-small {
     width: 120px;
     height: 60px;
+  }
+  .button-small-thin {
+    height: 40px;
   }
   .button-small-x-wide {
     width: 200px;
@@ -233,8 +243,48 @@ button:focus-within, button:focus, button:active {
     height: 80px;
   }
 }
-/* Landscape tablets and medium desktops */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .button-icon {
+    width: 57px;
+    height: 57px;
+  }
+  .button-icon-footer {
+    width: 38px;
+    height: 38px;
+  }
+  .button-icon-dropdown {
+    width: 49px;
+    height: 49px;
+  }
+  .button-small {
+    width: 114px;
+    height: 57px;
+  }
+  .button-small-thin {
+    height: 36px;
+  }
+  .button-small-x-wide {
+    width: 190px;
+    height: 57px;
+  }
+  .button-small-auto-wide {
+    height: 57px;
+    padding: 9px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 170px;
+    height: 76px;
+  }
+  .button-large-x-wide {
+    width: 245px;
+    height: 76px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
   .button-icon {
     width: 54px;
     height: 54px;
@@ -244,36 +294,79 @@ button:focus-within, button:focus, button:active {
     height: 36px;
   }
   .button-icon-dropdown {
-    width: 47px;
-    height: 47px;
+    width: 46px;
+    height: 46px;
   }
   .button-small {
     width: 108px;
     height: 54px;
   }
+  .button-small-thin {
+    height: 28px;
+  }
   .button-small-x-wide {
-    width: 162px;
+    width: 180px;
     height: 54px;
   }
   .button-small-auto-wide {
     height: 54px;
-    padding: 9px;
+    padding: 10px;
     flex-flow: column nowrap;
     -webkit-flex-flow: column nowrap;
     justify-content: space-around;
     -webkit-justify-content: space-around;
   }
   .button-large {
-    width: 162px;
+    width: 160px;
     height: 72px;
   }
   .button-large-x-wide {
-    width: 234px;
+    width: 230px;
     height: 72px;
   }
 }
-/* Portrait tablets and small desktops */
-@media only screen and (min-width: 769px) and (max-width: 991px) {
+@media only screen and (max-width: 768px) {
+  .button-icon {
+    width: 51px;
+    height: 51px;
+  }
+  .button-icon-footer {
+    width: 34px;
+    height: 34px;
+  }
+  .button-icon-dropdown {
+    width: 43px;
+    height: 43px;
+  }
+  .button-small {
+    width: 102px;
+    height: 51px;
+  }
+  .button-small-thin {
+    height: 22px;
+  }
+  .button-small-x-wide {
+    width: 170px;
+    height: 51px;
+  }
+  .button-small-auto-wide {
+    height: 51px;
+    padding: 7px;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+  .button-large {
+    width: 150px;
+    height: 68px;
+  }
+  .button-large-x-wide {
+    width: 215px;
+    height: 68px;
+  }
+}
+@media only screen and (max-width: 480px) {
   .button-icon {
     width: 48px;
     height: 48px;
@@ -282,110 +375,23 @@ button:focus-within, button:focus, button:active {
     width: 32px;
     height: 32px;
   }
-  .button-icon-footer img {
-    width: 24px;
-    height: 24px;
-  }
   .button-icon-dropdown {
-    width: 52px;
-    height: 52px;
+    width: 40px;
+    height: 40px;
   }
   .button-small {
     width: 96px;
     height: 48px;
   }
+  .button-small-thin {
+    height: 24px;
+  }
   .button-small-x-wide {
-    width: 128px;
+    width: 160px;
     height: 48px;
   }
   .button-small-auto-wide {
     height: 48px;
-    padding: 8px;
-    flex-flow: column nowrap;
-    -webkit-flex-flow: column nowrap;
-    justify-content: space-around;
-    -webkit-justify-content: space-around;
-  }
-  .button-large {
-    width: 128px;
-    height: 64px;
-  }
-  .button-large-x-wide {
-    width: 208px;
-    height: 64px;
-  }
-}
-/* Landscape phones and portrait tablets */
-@media only screen and (max-width: 768px) {
-  .button-icon {
-    width: 42px;
-    height: 42px;
-  }
-  .button-icon-footer {
-    width: 28px;
-    height: 28px;
-  }
-  .button-icon-footer img {
-    width: 21px;
-    height: 21px;
-  }
-  .button-icon-dropdown {
-    width: 36px;
-    height: 36px;
-  }
-  .button-small {
-    width: 84px;
-    height: 42px;
-  }
-  .button-small-x-wide {
-    width: 140px;
-    height: 42px;
-  }
-  .button-small-auto-wide {
-    height: 42px;
-    padding: 7px;
-    flex-flow: column nowrap;
-    -webkit-flex-flow: column nowrap;
-    justify-content: space-around;
-    -webkit-justify-content: space-around;
-  }
-  .button-large {
-    width: 126px;
-    height: 56px;
-  }
-  .button-large-x-wide {
-    width: 182px;
-    height: 56px;
-  }
-}
-/* Portrait phones and smaller */
-@media only screen and (max-width: 480px) {
-  .button-icon {
-    width: 60px;
-    height: 60px;
-  }
-  .button-icon-footer {
-    width: 40px;
-    height: 40px;
-  }
-  .button-icon-footer img {
-    width: 30px;
-    height: 30px;
-  }
-  .button-icon-dropdown {
-    width: 52px;
-    height: 52px;
-  }
-  .button-small {
-    width: 120px;
-    height: 60px;
-  }
-  .button-small-x-wide {
-    width: 200px;
-    height: 60px;
-  }
-  .button-small-auto-wide {
-    height: 60px;
     padding: 10px;
     flex-flow: column nowrap;
     -webkit-flex-flow: column nowrap;
@@ -393,42 +399,37 @@ button:focus-within, button:focus, button:active {
     -webkit-justify-content: space-around;
   }
   .button-large {
-    width: 180px;
-    height: 80px;
+    width: 146px;
+    height: 64px;
   }
   .button-large-x-wide {
-    width: 260px;
-    height: 80px;
+    width: 200px;
+    height: 64px;
   }
 }
-/* Iphone 5 */
 @media only screen and (max-width: 320px) {
   .button-icon {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
   }
   .button-icon-footer {
-    width: 40px;
-    height: 40px;
-  }
-  .button-icon-footer img {
     width: 30px;
     height: 30px;
   }
   .button-icon-dropdown {
-    width: 52px;
-    height: 52px;
+    width: 37px;
+    height: 37px;
   }
   .button-small {
-    width: 120px;
-    height: 60px;
+    width: 90px;
+    height: 45px;
   }
   .button-small-x-wide {
-    width: 200px;
-    height: 60px;
+    width: 150px;
+    height: 45px;
   }
   .button-small-auto-wide {
-    height: 60px;
+    height: 45px;
     padding: 10px;
     flex-flow: column nowrap;
     -webkit-flex-flow: column nowrap;
@@ -436,12 +437,12 @@ button:focus-within, button:focus, button:active {
     -webkit-justify-content: space-around;
   }
   .button-large {
-    width: 180px;
-    height: 80px;
+    width: 130px;
+    height: 60px;
   }
   .button-large-x-wide {
-    width: 260px;
-    height: 80px;
+    width: 185px;
+    height: 60px;
   }
 }
 

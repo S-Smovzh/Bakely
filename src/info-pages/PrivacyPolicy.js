@@ -5,13 +5,13 @@ export default function PrivacyPolicy() {
   const [t] = useTranslation();
 
   return (
-    <div className='InfoPage'>
-      <section className='TopBlock'>
+    <div className='InfoPage Grid'>
+      <section className='TopBlock Flex J-C-C A-I-C T-C'>
         <h1>
           {t('infoPages.privacy.header')}
         </h1>
       </section>
-      <article className='MiddleBlock'>
+      <article className='MiddleBlock Nunito Flex J-C-S-B A-I-F-S F-F-C-N'>
         <p>
           At Bakely, accessible from <a href='http://www.bakely.com'>http://www.bakely.com</a>, one of our main
           priorities is

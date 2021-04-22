@@ -8,7 +8,7 @@ export const Cookie = () => {
   const {toast, setToast} = useContext(ToastContext);
 
   return (
-    <ToastMessage show={toast.showCookie} toastType='eternal' toastHeader='Cookies'
+    <ToastMessage show={toast.showCookie} toastHeader='Cookies'
                   toastText={
                     <React.Fragment>
                       <p className='fill-width'>
@@ -31,6 +31,7 @@ export const Cookie = () => {
                     });
                     localStorage.setItem('cookies', btoa('false'));
                   }
-                  }/>
+                  }
+    />
   );
 };

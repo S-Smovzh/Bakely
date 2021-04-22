@@ -1,76 +1,30 @@
 @import "../css/base/Extensions";
 
-.Modal.Order-Form {
+.Order-Form {
   .modal-content, .modal-dialog {
     @extend %flex;
     @extend %flex__center;
     @include flex-flow(column nowrap);
-    width: 800px;
-    height: 660px;
-
-    & > * {
-      border: none;
-    }
-
-    .NavigationButtons {
-      @extend %flex;
-      @include align-items(center);
-
-      &.Two {
-        @include justify-content(space-between);
-      }
-
-      &.One {
-        @include justify-content(center);
-      }
-    }
+    padding: 12px;
   }
 }
 
-.Modal.Small {
-  .modal-content, .modal-dialog {
-    @extend %flex;
-    @extend %flex__center;
-    @include flex-flow(column nowrap);
-    width: 560px;
-    height: 360px;
-  }
-}
-
-.Modal.Medium {
-  .modal-content, .modal-dialog {
-    @extend %flex;
-    @extend %flex__center;
-    @include flex-flow(column nowrap);
-    width: 760px;
-    height: 500px;
-  }
+.modal-body {
+  overflow-y: auto;
+  -ms-overflow-y: auto;
 }
 
 .Introduction-Page, .Contact-Data-Page, .Options-Page, .Delivery-Page {
-  @extend %flex;
-  @include align-items(center);
-  @include justify-content(space-between);
-  @include flex-flow(column nowrap);
-
-  header {
-    @extend %flex;
-    @include align-items(center);
-    @include justify-content(space-between);
-    @include flex-flow(row nowrap);
-    @extend %textLeft;
-  }
-}
-
-.Introduction-Page {
-  p{
-    @extend %textCenter;
-  }
+  row-gap: calc(#{$standard} * 6);
 }
 
 .Contact-Data-Page {
+  .Form {
+    row-gap: calc(#{$standard} * 6);
+  }
+
   .Form-Row-Double.Optional {
-    grid-template-columns: minmax(10px, 1fr) 100px minmax(10px, 1fr);
+    grid-template-columns: minmax(10px, 1fr) 80px minmax(10px, 1fr);
 
     &.Without-Ruler {
       .Form-Row:first-child {
@@ -84,105 +38,56 @@
 
     .Ruler {
       height: 110px;
-      @extend %flex;
-      @extend %flex__center;
     }
   }
 }
 
+.Options-Page {
+  & > div.Flex {
+    overflow-y: auto;
+    -ms-overflow-y: auto;
+  }
+}
+
 .Tab-Container {
-  @extend %flex;
-  @include align-items(center);
-  @include justify-content(flex-start);
-  @include flex-flow(row nowrap);
-  column-gap: calc(#{$standard} * 3);
+  @include columnGap(calc(#{$standard} * 3));
 
   .Tab {
     flex-basis: 50%;
-    @extend %flex;
-    @extend %flex__center;
+    -webkit-flex-basis: 50%;
     border-radius: 18px 18px 0 0;
     border-bottom: none;
   }
 }
 
-.Radio-Row-Double {
-  @extend %grid;
-  grid-template-rows: 40px minmax(10px, 2fr);
-  grid-template-columns: repeat(2, minmax(10px, 1fr));
+.Radio-Row {
+  @include columnGap(20px);
 
-  .Radio-Legend {
-    grid-area: 1/1/2/3;
-    @extend %flex;
-    @include align-items(flex-start);
-    @include justify-content(space-between);
-    @extend %textCenter;
-  }
+  button {
+    @include box-shadow(-4px 6px 3px rgba(0, 0, 0, 0.25));
 
-  .Radio-Row {
-    grid-row: 2/3;
-    @extend %flex;
-    @extend %flex__center;
-    @include flex-flow(column nowrap);
-    column-gap: 20px;
+    [type=radio] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
 
-    button {
-      @extend %flex;
-      @extend %flex__center;
-      @include flex-flow(column nowrap);
-      box-shadow: -4px 6px 3px rgba(0, 0, 0, 0.4);
+    picture {
+      cursor: pointer;
+    }
 
-      [type=radio] {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      picture {
-        cursor: pointer;
-      }
-
-      [type=radio]:checked + picture {
-        outline: 2px solid $primary-300;
-      }
-
-      .Image-Option {
-        width: 260px;
-        height: 200px;
-      }
+    [type=radio]:checked + picture {
+      outline: 2px solid $primary-300;
     }
   }
 }
 
 .Select-Page {
-  @extend %grid;
-  grid-template-rows: $mainPadding minmax(10px, 1fr);
-  grid-template-columns: minmax(10px, 1fr);
+  row-gap: calc(#{$standard} * 3);
 
-  header {
-    @extend %flex;
-    @include align-items(center);
-    @include justify-content(space-between);
-    @include flex-flow(row nowrap);
-    @extend %textLeft;
-  }
-
-  & > .Form {
-    @extend %grid;
-    grid-template-rows: minmax(10px, 1fr) 64px;
-    grid-template-columns: minmax(10px, 1fr);
-
-    .Select-Container {
-      grid-area: 1/1/2/2;
-      @extend %flex;
-      @extend %flex__center;
-      @include flex-flow(column nowrap);
-
-      select {
-        padding: calc(#{$standard} * 2);
-      }
-    }
+  & > div.Flex {
+    row-gap: calc(#{$standard} * 5);
   }
 }
 
@@ -190,7 +95,7 @@
   @extend %grid;
   grid-template-rows: 60px 400px;
   grid-template-columns: repeat(2, minmax(10px, 1fr));
-  column-gap: 60px;
+  @include columnGap(60px);
 
   header {
     grid-area: 1/1/2/3;
@@ -225,6 +130,617 @@
 
       .Input-TooltipButton {
         grid-area: 1/2/2/3;
+      }
+    }
+  }
+}
+
+.NavigationButtons {
+  margin-bottom: 5px;
+}
+
+@media only screen and (min-width: 1601px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        width: 45vw;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        width: 70vw;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        width: 40vw;
+      }
+
+      .Options-Page > .Flex {
+        @include columnGap(calc(#{$standard} * 4));
+      }
+
+      .Radio-Row-Double .Image-Option {
+        width: 260px;
+        height: 200px;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        width: 40vw;
+
+        .Select-Page {
+          select {
+            padding: calc(#{$standard} * 2);
+            width: 300px;
+          }
+        }
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        width: 45vw;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        width: 70vw;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+
+      .Options-Page > .Flex {
+        @include columnGap(calc(#{$standard} * 4));
+      }
+
+      .Radio-Row-Double .Image-Option {
+        width: 260px;
+        height: 200px;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        width: 40vw;
+
+        .Select-Page {
+          select {
+            padding: calc(#{$standard} * 2);
+            width: 300px;
+          }
+        }
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        width: 70vw;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        width: 60vw;
+      }
+
+      .Options-Page > .Flex {
+        @include columnGap(calc(#{$standard} * 4));
+      }
+
+      .Radio-Row-Double .Image-Option {
+        width: 240px;
+        height: 200px;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+
+        .Select-Page {
+          select {
+            padding: calc(#{$standard} * 2);
+            width: 300px;
+          }
+        }
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        width: 60vw;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        width: 70vw;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        width: 75vw;
+      }
+
+      .Options-Page > .Flex {
+        @include columnGap(calc(#{$standard} * 4));
+      }
+
+      .Radio-Row-Double .Image-Option {
+        width: 220px;
+        height: 200px;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        width: 65vw;
+
+        .Select-Page {
+          select {
+            padding: calc(#{$standard} * 2);
+            width: 300px;
+          }
+        }
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Order-Form {
+    .carousel-item {
+      height: 300px;
+    }
+  }
+
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        width: 80vw;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        width: 80vw;
+
+        .carousel-control-prev, .carousel-control-next {
+          bottom: auto;
+          top: -30px;
+
+          & > .button-icon {
+            height: 40px;
+          }
+        }
+
+        .carousel-item {
+          .Form-Row {
+            padding-inline: 10px;
+          }
+
+          & > div {
+            padding-block: 30px;
+          }
+        }
+
+        .carousel-indicators {
+          display: none;
+        }
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        width: 70vw;
+      }
+
+      .Options-Page > .Flex {
+        row-gap: (calc(#{$standard} * 4));
+      }
+
+      .Radio-Row-Double .Image-Option {
+        width: 260px;
+        height: 200px;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        width: 80vw;
+
+        .Select-Page {
+          select {
+            padding: calc(#{$standard} * 2);
+            width: 300px;
+          }
+        }
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Order-Form {
+    .carousel-item {
+      height: 260px;
+    }
+  }
+
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        width: 90vw;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        width: 90vw;
+
+        .carousel-control-prev, .carousel-control-next {
+          bottom: auto;
+          top: -30px;
+
+          & > .button-icon {
+            height: 40px;
+          }
+        }
+
+        .carousel-item {
+          .Form-Row {
+            padding-inline: 10px;
+          }
+
+          & > div {
+            padding-block: 30px;
+          }
+        }
+
+        .carousel-indicators {
+          display: none;
+        }
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        width: 90vw;
+      }
+
+      .Options-Page > .Flex {
+        row-gap: (calc(#{$standard} * 4));
+      }
+
+      .Radio-Row-Double .Image-Option {
+        width: 260px;
+        height: 200px;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        width: 80vw;
+
+        .Select-Page {
+          select {
+            padding: calc(#{$standard} * 2);
+            width: 200px;
+          }
+        }
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Order-Form {
+    .carousel-item {
+      height: 220px;
+    }
+  }
+
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        width: 95vw;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        width: 90vw;
+
+        .carousel-control-prev, .carousel-control-next {
+          bottom: auto;
+          top: -30px;
+
+          & > .button-icon {
+            height: 40px;
+          }
+        }
+
+        .carousel-item {
+          .Form-Row {
+            padding-inline: 10px;
+          }
+
+          & > div {
+            padding-block: 30px;
+          }
+        }
+
+        .carousel-indicators {
+          display: none;
+        }
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        width: 90vw;
+      }
+
+      .Options-Page > .Flex {
+        row-gap: (calc(#{$standard} * 4));
+      }
+
+      .Radio-Row-Double .Image-Option {
+        width: 220px;
+        height: 200px;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        width: 90vw;
+
+        .Select-Page {
+          select {
+            padding: calc(#{$standard} * 2);
+            width: 200px;
+          }
+        }
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media only screen and (min-height: 951px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        height: 40vh;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        height: 55vh;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        height: 50vh;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        height: 30vh;
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        height: 60vh;
+      }
+    }
+  }
+}
+
+@media only screen and (min-height: 801px) and (max-height: 950px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        height: 50vh;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        height: 68vh;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        height: 60vh;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        height: 35vh;
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        height: 60vh;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        height: 50vh;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        height: 75vh;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        height: 65vh;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        height: 45vh;
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        height: 60vh;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 640px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        height: 75vh;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        height: 75vh;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        height: 75vh;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        height: 60vh;
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        height: 60vh;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .Modal {
+    &.Introduction {
+      .modal-content, .modal-dialog {
+        height: 90vh;
+      }
+    }
+
+    &.Contact {
+      .modal-content, .modal-dialog {
+        height: 85vh;
+      }
+    }
+
+    &.Option {
+      .modal-content, .modal-dialog {
+        height: 70vh;
+      }
+    }
+
+    &.Delivery {
+      .modal-content, .modal-dialog {
+        height: 80vh;
+      }
+    }
+
+    &.Success {
+      .modal-content, .modal-dialog {
+        height: 60vh;
       }
     }
   }

@@ -1,59 +1,16 @@
-.Login-Page .BottomBlock, .Login-Page .MiddleBlock .LeftRow .Login-Picture, .Login-Page .MiddleBlock .LeftRow {
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-}
-
-.Login-Page .BottomBlock, .Login-Page .MiddleBlock .LeftRow .Login-Picture, .Login-Page .MiddleBlock .LeftRow {
-  align-items: center;
-  align-items: -moz-center;
-  align-items: -webkit-center;
-  align-items: -ms-center;
-  align-items: -o-center;
-  justify-content: center;
-  justify-content: -moz-center;
-  justify-content: -webkit-center;
-  justify-content: -ms-center;
-  justify-content: -o-center;
-}
-
-.Login-Page .MiddleBlock .RightRow, .Login-Page .MiddleBlock, .Login-Page {
-  display: grid;
-  display: -webkit-grid;
-  display: -moz-grid;
-  display: -ms-grid;
-  display: -o-grid;
-}
-
-.Login-Page .MiddleBlock .RightRow .Login-Header {
-  text-align: center;
-  text-align: -moz-center;
-  text-align: -webkit-center;
-  text-align: -ms-center;
-  text-align: -o-center;
-}
-
 .Login-Page {
-  grid-template-columns: minmax(10px, 1fr);
-  grid-template-rows: calc(7px * 10) 600px 200px calc(7px * 10);
+  grid-template-rows: calc(7px * 10) 440px 120px calc(7px * 10);
 }
 .Login-Page .MiddleBlock {
-  grid-area: 2/1/3/2;
-  grid-template-columns: repeat(2, minmax(10px, 1fr));
+  grid-area: 2/2/3/3;
   grid-template-rows: minmax(10px, 1fr);
 }
 .Login-Page .MiddleBlock .LeftRow {
   grid-area: 1/1/2/2;
 }
-.Login-Page .MiddleBlock .LeftRow .Login-Picture {
-  grid-area: 1/1/2/2;
-}
 .Login-Page .MiddleBlock .RightRow {
   grid-area: 1/2/2/3;
-  grid-template-columns: 120px minmax(10px, 1fr) 120px;
-  grid-template-rows: 140px minmax(10px, 1fr);
+  grid-template-rows: 100px 340px;
 }
 .Login-Page .MiddleBlock .RightRow .Login-Header {
   grid-area: 1/2/2/3;
@@ -61,10 +18,80 @@
 .Login-Page .MiddleBlock .RightRow .Form {
   grid-area: 2/2/3/3;
   grid-template-columns: minmax(10px, 1fr);
-  grid-template-rows: repeat(3, 144px);
+  grid-template-rows: repeat(3, 100px);
 }
 .Login-Page .BottomBlock {
-  grid-area: 3/1/4/2;
+  grid-area: 3/2/4/3;
+}
+
+@media only screen and (min-width: 1200px) {
+  .Login-Page {
+    grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
+  }
+  .Login-Page .MiddleBlock {
+    grid-template-columns: 500px minmax(10px, 1fr);
+  }
+  .Login-Page .MiddleBlock .RightRow {
+    grid-template-columns: calc(7px * 12) minmax(10px, 1fr) calc(7px * 12);
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Login-Page {
+    grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
+  }
+  .Login-Page .MiddleBlock {
+    grid-template-columns: 400px minmax(10px, 1fr);
+  }
+  .Login-Page .MiddleBlock .RightRow {
+    grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Login-Page {
+    grid-template-columns: calc(7px * 4) minmax(10px, 1fr) calc(7px * 4);
+  }
+  .Login-Page .MiddleBlock {
+    grid-template-columns: 300px minmax(10px, 1fr);
+  }
+  .Login-Page .MiddleBlock .RightRow {
+    grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Login-Page {
+    grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
+  }
+  .Login-Page .MiddleBlock {
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .Login-Page .MiddleBlock .RightRow {
+    grid-area: 1/1/2/2;
+    grid-template-columns: 15% minmax(10px, 1fr) 15%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Login-Page {
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+  .Login-Page .MiddleBlock {
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .Login-Page .MiddleBlock .RightRow {
+    grid-area: 1/1/2/2;
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+}
+@media only screen and (max-width: 320px) {
+  .Login-Page {
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+  .Login-Page .MiddleBlock {
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .Login-Page .MiddleBlock .RightRow {
+    grid-area: 1/1/2/2;
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
 }
 
 /*# sourceMappingURL=Login.css.map */

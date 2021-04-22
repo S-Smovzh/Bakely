@@ -1,33 +1,56 @@
 @import "../css/base/Extensions";
 
 .ArticlePage {
-  @extend %grid;
-  grid-template-rows: calc(#{$standard} * 4) calc(#{$standard} * 16) minmax(200px, 1fr) $mainPadding;
-  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
-  row-gap: calc(#{$standard} * 4);
+  grid-template-rows: calc(#{$standard} * 4) calc(#{$standard} * 16) minmax(400px, 1fr) $mainPadding;
+  row-gap: $mainPadding;
 
-  & > .Title {
+  & > .TopBlock {
     grid-area: 2/2/3/3;
-    @extend %flex;
-    @extend %flex__center;
-    @include flex-flow(column nowrap);
     row-gap: calc(#{$standard} * 3);
   }
 
-  & > .Description {
+  & > .MiddleBlock {
     grid-area: 3/2/4/3;
-    @extend %flex;
-    @include justify-content(flex-start);
-    @include flex-flow(column nowrap);
     row-gap: calc(#{$standard} * 3);
 
     & > .Image * {
-      @extend %avaWidth;
       height: 400px !important;
     }
+  }
+}
 
-    * {
-      @extend %textJustify;
-    }
+@media only screen and (min-width: 1200px) {
+  .ArticlePage {
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ArticlePage {
+    grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .ArticlePage {
+    grid-template-columns: calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ArticlePage {
+    grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .ArticlePage {
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .ArticlePage {
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }
 }

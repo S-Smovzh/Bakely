@@ -1,40 +1,11 @@
-// export function isTouchDevice() {
-//   try {
-//     let prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
-//
-//     let mediaQuery = function (query) {
-//       return window.matchMedia(query).matches;
-//     };
-//
-//
-//     if (('ontouchstart' in window) || (typeof window.DocumentTouch !== "undefined" && document instanceof window.DocumentTouch)) {
-//       return true;
-//     }
-//
-//     // 'terminate' stops join()
-//     return mediaQuery(['(', prefixes.join('touch-enabled),('), 'terminate', ')'].join(''));
-//   } catch (e) {
-//     // console.error('(Touch detect failed)', e);
-//     return false;
-//   }
-// }
-
 import { useState, useEffect } from 'react';
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}
-
 export default function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState(_getWindowDimensions());
 
   useEffect(() => {
     function handleResize() {
-      setWindowDimensions(getWindowDimensions());
+      setWindowDimensions(_getWindowDimensions());
     }
 
     window.addEventListener('resize', handleResize);
@@ -44,8 +15,14 @@ export default function useWindowDimensions() {
   return windowDimensions;
 }
 
+function _getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
 export function isTouchDevice() {
-  return ('ontouchstart' in window) ||
-    (navigator.maxTouchPoints > 0) ||
-    (navigator.msMaxTouchPoints > 0);
+  return matchMedia('(hover: none), (pointer: coarse)').matches;
 }

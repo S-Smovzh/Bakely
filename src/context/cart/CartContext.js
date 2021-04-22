@@ -5,7 +5,10 @@ export default React.createContext({
     JSON.parse(localStorage.getItem('cartItems'))
     : [],
   show: false,
+  cartButtonClick: false,
   showCart: (show) => {
+  },
+  cartButtonInteraction: (cartButtonClick) => {
   },
   loadProducts: () => {
   },

@@ -79,12 +79,12 @@ export function Careers() {
     <LoadingOverlay
       active={vacancies.length === 0}
       text={t('overlay.getting')}>
-      <div className='Careers-Page Nunito'>
-        <header className='TopBlock'>
-          <div className='Header Playfair'>
+      <div className='Careers-Page Nunito Grid'>
+        <header className='TopBlock Grid'>
+          <div className='Header Flex J-C-C A-I-C T-C Playfair'>
             <h1>{t('careers.header')}</h1>
           </div>
-          <div className='Location-Select'>
+          <div className='Location-Select Flex'>
             <label htmlFor='select-location' className='fill-width'>
               {t('careers.label.select')}
             </label>
@@ -106,53 +106,58 @@ export function Careers() {
           </div>
         </header>
         <div className='MiddleBlock'>
-          {filteredVacancies ?
-            filteredVacancies.map((vacancy) => {
-              return (
-                <Card backType='gray' type='no-animation' key={vacancy.salary}>
-                  <header className='fill-width fill-height'>
-                    <h2>{vacancy.post}</h2>
-                    <p className='h6-size'>
-                      <span>{vacancy.post}</span> - <span>{vacancy.salary}</span>
-                    </p>
-                    <Link to='/contact-us' className='button-icon-footer button-success button'>
-                      <Picture src='http://localhost:3000/img/icons/comment.svg' alt='contact us' imgClassName='icon'
-                               className='icon'/>
-                    </Link>
-                  </header>
-                  <div className='Vacancy-Details'>
-                    <p>
-                      {vacancy.details}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })
-            : vacancies &&
-            vacancies.map((vacancy) => {
-              return (
-                <Card backType='gray' type='no-animation' key={vacancy.salary}>
-                  <header className='fill-width fill-height'>
-                    <h2>{vacancy.post}</h2>
-                    <p className='h6-size'>
-                      <span>{vacancy.post}</span> - <span>{vacancy.salary}</span>
-                    </p>
-                    <Animation type='skew' onHover={true} onClick={true}>
-                      <Link to='/contact-us' className='button-icon-footer button-success button'
-                            aria-label='contact us'>
-                        <Picture src='http://localhost:3000/img/icons/comment.svg' alt='' imgClassName='icon'
-                                 className='icon'/>
-                      </Link>
-                    </Animation>
-                  </header>
-                  <div className='Vacancy-Details'>
-                    <p>
-                      {vacancy.details}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
+          <ul className='fill-width Flex A-I-C F-F-R-W'>
+            {filteredVacancies ?
+              filteredVacancies.map((vacancy, index) => {
+                return (
+                  <li key={index}>
+                    <Card backType='gray' type='no-animation'>
+                      <header className='fill-width fill-height Grid'>
+                        <h2>{vacancy.post}</h2>
+                        <p className='h6-size'>
+                          <span>{vacancy.post}</span> - <span>{vacancy.salary}</span>
+                        </p>
+                        <Link to='/contact-us' className='button-icon-footer button-success button'>
+                          <Picture src='http://localhost:3000/img/icons/comment.svg' alt='contact us'
+                                   imgClassName='icon'
+                                   className='icon'/>
+                        </Link>
+                      </header>
+                      <div className='Flex J-C-C A-I-C'>
+                        <p>
+                          {vacancy.details}
+                        </p>
+                      </div>
+                    </Card>
+                  </li>
+                );
+              })
+              : vacancies &&
+              vacancies.map((vacancy) => {
+                return (
+                  <Card backType='gray' type='no-animation' key={vacancy.salary}>
+                    <header className='fill-width fill-height'>
+                      <h2>{vacancy.post}</h2>
+                      <p className='h6-size'>
+                        <span>{vacancy.post}</span> - <span>{vacancy.salary}</span>
+                      </p>
+                      <Animation type='skew' onHover={true} onClick={true}>
+                        <Link to='/contact-us' className='button-icon-footer button-success button'
+                              aria-label='contact us'>
+                          <Picture src='http://localhost:3000/img/icons/comment.svg' alt='' imgClassName='icon'
+                                   className='icon'/>
+                        </Link>
+                      </Animation>
+                    </header>
+                    <div className='Flex J-C-C A-I-C'>
+                      <p>
+                        {vacancy.details}
+                      </p>
+                    </div>
+                  </Card>
+                );
+              })}
+          </ul>
         </div>
       </div>
     </LoadingOverlay>

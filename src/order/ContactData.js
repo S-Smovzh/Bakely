@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react';
 import './../UI-components/form/Form.css';
-import './OrderFrom.css';
 import axios from 'axios';
 import {Input} from '../UI-components/input/Input';
 import {useTranslation} from 'react-i18next';
@@ -13,9 +12,11 @@ import {clientLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
 import CloseButton from "../UI-components/button/close/CloseButton";
 import {timer} from "rxjs";
+import useWindowDimensions from "../utils/isTouchDevice";
+import {Carousel} from "react-bootstrap";
+import {NextIcon, PrevIcon} from "../UI-components/icons/Icons";
 
 export const ContactDataPage = ({closeModal, next, page}) => {
-  const {modal, setModal} = useContext(ModalContext);
   const [t] = useTranslation();
   const [nextButtonAnimation, setNextButtonAnimation] = useState('');
 
@@ -30,6 +31,9 @@ export const ContactDataPage = ({closeModal, next, page}) => {
   const [emailError, setEmailError] = useState('');
   const [telNumError, setTelNumError] = useState('');
 
+  const {modal, setModal} = useContext(ModalContext);
+  const {width, height} = useWindowDimensions();
+
   function sendContactData() {
     const data = {
       firstName: firstName,
@@ -37,14 +41,13 @@ export const ContactDataPage = ({closeModal, next, page}) => {
       email: email,
       telNum: telNum
     };
-    console.log(clientConfig)
 
     axios.post(clientLinks.order, data, clientConfig)
-      .then(function (response) {
+      .then((response) => {
         const {success, errors} = response.data;
         if (!success && errors) {
           setNextButtonAnimation('error-shake');
-          timer(600).subscribe(() => setNextButtonAnimation(''));
+          timer(400).subscribe(() => setNextButtonAnimation(''));
           if (errors.code === 500) {
             setModal({
               ...modal,
@@ -68,7 +71,7 @@ export const ContactDataPage = ({closeModal, next, page}) => {
               setLastNameError('');
             }
             if (errors.email) {
-              setEmailError(errorHandler(errors.email));
+              setEmailError(() => errorHandler(errors.email));
             } else {
               setEmailError('');
             }
@@ -79,69 +82,103 @@ export const ContactDataPage = ({closeModal, next, page}) => {
             }
           }
         } else {
-          !localStorage.getItem('name') && localStorage.setItem('name', `${firstName} ${lastName}`);
           setFirstNameError('');
           setLastNameError('');
           setEmailError('');
           setTelNumError('');
-          setFirstNameError(null);
-          setLastNameError(null);
-          setEmailError(null);
-          setTelNumError(null);
+          setFirstNameError('');
+          setLastNameError('');
+          setEmailError('');
+          setTelNumError('');
           next();
         }
       })
       .catch((error) => logError(error));
   }
 
+  const firstNameCell =
+    <div className='Form-Row fill-width'>
+      <Input errorIdentifier={firstNameError} labelText={t('label.firstName')}
+             errorLabelText={firstNameError}
+             inputId='firstName' inputType='text' inputName='firstName'
+             inputOnBlur={(e) => setFirstName(e.target.value)}
+             inputOnChange={(e) => setFirstName(e.target.value)} inputRequired='required' autoComplete='off'
+             tooltipId={t('tooltip.header.firstName')} tooltipText={t('tooltip.name')} value={firstName}/>
+    </div>;
+
+  const lastNameCell =
+    <div className='Form-Row fill-width'>
+      <Input errorIdentifier={lastNameError} labelText={t('label.lastName')}
+             errorLabelText={lastNameError}
+             inputId='lastName' inputType='text' inputName='lastName'
+             inputOnBlur={(e) => setLastName(e.target.value)}
+             inputOnChange={(e) => setLastName(e.target.value)} inputRequired='required' autoComplete='off'
+             tooltipId={t('tooltip.header.lastName')} tooltipText={t('tooltip.name')} value={lastName}/>
+    </div>;
+
+  const emailCell =
+    <div className='Form-Row fill-width'>
+      <Input errorIdentifier={emailError} labelText={t('label.email')}
+             errorLabelText={emailError} inputId='email' inputType='email' inputName='email'
+             inputOnBlur={(e) => setEmail(e.target.value)}
+             inputOnChange={(e) => setEmail(e.target.value)}
+             inputRequired='required' autoComplete='off'
+             tooltipId={t('tooltip.header.email')} tooltipText={t('tooltip.email')} value={email}/>
+    </div>;
+
+  const telNumCell =
+    <div className='Form-Row fill-width'>
+      <Input errorIdentifier={telNumError} labelText={t('label.tel')}
+             errorLabelText={telNumError} mask={masks.tel}
+             selectOnChange={(event) => setTelNumPrefix(event.target.value)} selectValue={telNumPrefix}
+             inputId='telNum' inputType='tel' inputName='telNum'
+             inputOnBlur={(e) => setTelNum(e.target.value)}
+             inputOnChange={(e) => setTelNum(e.target.value)} inputRequired='required' autoComplete='off'
+             tooltipId={t('tooltip.header.telNum')} tooltipText={t('tooltip.telNumOrHouseOrFlatNum')}
+             value={telNum}/>
+    </div>;
+
   return (
-    <section className={'Contact-Data-Page fill-height fill-width ' + (page !== 2 && 'none')}>
-      <header className='Clients-Data-Header fill-width'>
-        <h1>{t('orderForm.contact.header')}</h1>
+    <section
+      className={`Contact-Data-Page Flex A-I-C J-C-S-B F-F-C-N fill-width ${height > 710 && 'fill-height'} ${(page !== 2 && 'none')}`}>
+      <header className='Flex A-I-C J-C-S-B F-F-R-N fill-width'>
+        <h1 className='h3-size T-C'>{t('orderForm.contact.header')}</h1>
         <CloseButton onClick={closeModal} ariaLabel={t('ariaLabel.close')} animate={true}/>
       </header>
-      <form className='Form fill-width'>
-        <fieldset className='Form-Row-Double Optional Without-Ruler'>
-          <div className='Form-Row'>
-            <Input errorIdentifier={firstNameError} labelText={t('label.firstName')}
-                   errorLabelText={firstNameError}
-                   inputId='firstName' inputType='text' inputName='firstName'
-                   inputOnBlur={(e) => setFirstName(e.target.value)}
-                   inputOnChange={(e) => setFirstName(e.target.value)} inputRequired='required' autoComplete='off'
-                   tooltipId={t('tooltip.header.firstName')} tooltipText={t('tooltip.name')} value={firstName}/>
-          </div>
-          <div className='Form-Row'>
-            <Input errorIdentifier={lastNameError} labelText={t('label.lastName')}
-                   errorLabelText={lastNameError}
-                   inputId='lastName' inputType='text' inputName='lastName'
-                   inputOnBlur={(e) => setLastName(e.target.value)}
-                   inputOnChange={(e) => setLastName(e.target.value)} inputRequired='required' autoComplete='off'
-                   tooltipId={t('tooltip.header.lastName')} tooltipText={t('tooltip.name')} value={lastName}/>
-          </div>
-        </fieldset>
-        <fieldset className='Form-Row-Double Optional'>
-          <div className='Form-Row'>
-            <Input errorIdentifier={emailError} labelText={t('label.email')}
-                   errorLabelText={emailError} inputId='email' inputType='email' inputName='email'
-                   inputOnBlur={(e) => setEmail(e.target.value)}
-                   inputOnChange={(e) => setEmail(e.target.value)}
-                   inputRequired='required' autoComplete='off'
-                   tooltipId={t('tooltip.header.email')} tooltipText={t('tooltip.email')} value={email}/>
-          </div>
-          <p className='font-weight_900 h1-size Ruler'>
-            {t('orderForm.contact.or')}
-          </p>
-          <div className='Form-Row'>
-            <Input errorIdentifier={telNumError} labelText={t('label.tel')}
-                   errorLabelText={telNumError} mask={masks.tel}
-                   selectOnChange={(event) => setTelNumPrefix(event.target.value)} selectValue={telNumPrefix}
-                   inputId='telNum' inputType='tel' inputName='telNum'
-                   inputOnBlur={(e) => setTelNum(e.target.value)}
-                   inputOnChange={(e) => setTelNum(e.target.value)} inputRequired='required' autoComplete='off'
-                   tooltipId={t('tooltip.header.telNum')} tooltipText={t('tooltip.telNumOrHouseOrFlatNum')}
-                   value={telNum}/>
-          </div>
-        </fieldset>
+      <form className='Form Flex F-F-C-N J-C-S-B A-I-C fill-width'>
+        {width > 768 ?
+          <React.Fragment>
+            <div className='Form-Row-Double Optional Without-Ruler fill-width'>
+              {firstNameCell}
+              {lastNameCell}
+            </div>
+            <div className='Form-Row-Double Optional fill-width'>
+              {emailCell}
+              <p className='font-weight_900 h1-size Ruler Flex J-C-C A-I-C'>
+                {t('orderForm.contact.or')}
+              </p>
+              {telNumCell}
+            </div>
+          </React.Fragment>
+          :
+          <React.Fragment>
+            <Carousel prevIcon={PrevIcon(t('button.prev'))} nextIcon={NextIcon(t('button.next'))} touch={true}
+                      interval={1000000000} className='fill-width'>
+              <Carousel.Item>
+                <div className='Flex J-C-S-A A-I-C F-F-C-N fill-height'>
+                  {firstNameCell}
+                  {lastNameCell}
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className='Flex J-C-S-A A-I-C F-F-C-N fill-height'>
+                  {emailCell}
+                  {telNumCell}
+                </div>
+              </Carousel.Item>
+            </Carousel>
+          </React.Fragment>
+        }
       </form>
       <NavigationButtons page={page} nextButtonText={t('button.submit')}
                          displayNext={true} displayPrev={false}

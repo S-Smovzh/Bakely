@@ -10,10 +10,11 @@ import {logError} from "../error/errorHandler";
 import {publicLinks} from "../utils/restLinks";
 import useOnScreen from "../utils/scrollHandler";
 import i18n from "i18next";
+import {isTouchDevice} from "../utils/isTouchDevice";
 
 export default function ShopAll() {
-  const [categories, setCategories] = useState([]);
   const {modal, setModal} = useContext(ModalContext);
+  const [categories, setCategories] = useState([]);
   const [t] = useTranslation();
 
   const [elementRef] = useOnScreen({
@@ -22,8 +23,12 @@ export default function ShopAll() {
     threshold: 0.1
   }, '30%');
 
+  useEffect(() => {
+    getCategories();
+  }, [t]);
+
   const getCategories = async () => {
-    await axios.get(publicLinks.productsCategories(i18n.language))
+    axios.get(publicLinks.productsCategories(i18n.language))
       .then(response => {
         const {success, data} = response.data;
         if (success) {
@@ -38,23 +43,19 @@ export default function ShopAll() {
       }).catch((error) => logError(error));
   };
 
-  useEffect(() => {
-    getCategories();
-  }, [t]);
-
   return (
     <LoadingOverlay
       active={categories.length === 0}
       text={t('overlay.getting')}>
-      <div className='Shop-All'>
-        <header className='TopBlock'>
+      <div className='Shop-All Grid'>
+        <header className='TopBlock Flex J-C-C A-I-C T-C'>
           <h1>{t('shopAll.header')}</h1>
         </header>
-        <div className='MiddleBlock Nunito'>
-          <ul className='Categories' ref={elementRef}>
+        <div className='MiddleBlock Flex J-C-C A-I-C F-F-C-N Nunito'>
+          <ul className='Categories Flex J-C-S-A A-I-F-S F-F-R-W' ref={isTouchDevice() ? null : elementRef}>
             {categories && categories.map((category) => {
               return (
-                <li key={category.name}>
+                <li key={category.name} className='Flex J-C-C A-I-C F-F-C-N T-J'>
                   <Card>
                     <Overlay src={category.imgSrc} alt={category.imgDescription} overlayClass='listImage'
                              imageType='listImage' type='link' link={'/shop/' + category.type.toLowerCase()}

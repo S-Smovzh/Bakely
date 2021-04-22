@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react';
 import CartContext from './CartContext';
 import {
-  ADD_PRODUCT,
+  ADD_PRODUCT, CART_BUTTON_CLICKED,
   CLEAR_CART,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
@@ -15,10 +15,14 @@ export default function CartState(props) {
     JSON.parse(localStorage.getItem('cartItems'))
     : [];
 
-  const [cartState, dispatch] = useReducer(cartReducer, {cart: cart, show: false});
+  const [cartState, dispatch] = useReducer(cartReducer, {cart: cart, show: false, cartButtonClick: false});
 
   const showCart = (show) => {
     dispatch({type: SHOW_CART, show: show});
+  };
+
+  const cartButtonInteraction = (cartButtonClick) => {
+    dispatch({type: CART_BUTTON_CLICKED, cartButtonClick: cartButtonClick});
   };
 
   const loadProducts = (loadedProducts) => {
@@ -50,7 +54,9 @@ export default function CartState(props) {
       value={{
         cart: cartState.cart,
         show: cartState.show,
+        cartButtonClick: cartState.cartButtonClick,
         showCart: showCart,
+        cartButtonInteraction: cartButtonInteraction,
         loadProducts: loadProducts,
         decreaseQuantity: decreaseQuantity,
         increaseQuantity: increaseQuantity,

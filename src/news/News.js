@@ -9,12 +9,14 @@ import {Card} from "../UI-components/card/Card";
 import {publicLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
 import i18n from "i18next";
+import useWindowDimensions from "../utils/isTouchDevice";
 
 export default function News() {
   const [articles, setArticles] = useState([]);
   const [paragraphs, setParagraphs] = useState(new Map());
   const [t] = useTranslation();
   const location = useLocation();
+  const {width} = useWindowDimensions();
 
   useEffect(() => {
     getArticles();
@@ -43,28 +45,30 @@ export default function News() {
     <LoadingOverlay
       active={articles.length === 0}
       text={t('overlay.getting')}>
-      <div className='PressRelease'>
-        <header className='TopBlock'>
-            <h1>
-              {t('news.header')}
-            </h1>
+      <div className='News Grid'>
+        <header className='TopBlock Flex J-C-C A-I-C T-C'>
+          <h1>
+            {t('news.header')}
+          </h1>
         </header>
-        <section className='MiddleBlock Nunito'>
+        <section className='MiddleBlock Nunito Flex J-C-S-A A-I-C F-F-R-W'>
           {articles ? articles.map((article) => {
             return (
-              <Link key={article.id} to={location.pathname + '/article/' + article.id} aria-label={`Article "${article.title}"`}>
-                <Card backType='gray'>
-                  {article.img !== '' ? <div className='Image SVG-Image-Pop-Up'>
-                    <Picture src={article.img} alt={article.imgDescription} imgClassName='SVG-Image-Pop-Up'/>
-                  </div> : null}
+              <Link key={article.id} to={location.pathname + '/article/' + article.id}
+                    aria-label={`${t('article')} ${article.title}`}>
+                <Card backType='gray' className={`Grid ${!article.img && 'No-Img'} ${width < 680 && 'Small-Screen'}`}>
+                  {article.img ?
+                    <div className='Image Flex J-C-C A-I-C'>
+                      <Picture src={article.img} alt={article.imgDescription} imgClassName='SVG-Image-Pop-Up'/>
+                    </div>
+                    : null}
                   <div className='Title'>
                     <h2 className='h3-size'>{article.title}</h2>
                   </div>
-                  <div className='Description fill-height'>
-                    {paragraphs.get(article.id) && paragraphs.get(article.id).map((paragraph, i = 0) => {
-                      return <p key={article.title + ++i} className='h6-size'>{paragraph}</p>;
-                    })
-                    }
+                  <div className='Description Flex J-C-F-S A-I-C F-F-C-N fill-height'>
+                    {paragraphs.get(article.id) && paragraphs.get(article.id).map((paragraph, i = 0) =>
+                      <p key={article.title + ++i} className='h5-size'>{paragraph}</p>
+                    )}
                   </div>
                 </Card>
               </Link>

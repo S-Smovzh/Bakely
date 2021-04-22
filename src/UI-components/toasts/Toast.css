@@ -1,25 +1,4 @@
-.Toast-Wrapper .toast-body {
-  display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-}
-
-.Toast-Wrapper .toast-body {
-  align-items: center;
-  align-items: -moz-center;
-  align-items: -webkit-center;
-  align-items: -ms-center;
-  align-items: -o-center;
-  justify-content: center;
-  justify-content: -moz-center;
-  justify-content: -webkit-center;
-  justify-content: -ms-center;
-  justify-content: -o-center;
-}
-
-.Toast-Wrapper .toast-body .Form-Row .Form-InputRow, .Toast-Wrapper .toast-body .Form-Row {
+.Toast-Wrapper .toast-body .Form-Row .Form-InputRow {
   display: grid;
   display: -webkit-grid;
   display: -moz-grid;
@@ -36,7 +15,6 @@
 .Toasts-Stack {
   top: 0;
   left: 0;
-  display: block;
   overflow-x: hidden;
   overflow-x: -moz-hidden-unscrollable;
   -ms-overflow-x: hidden;
@@ -50,23 +28,19 @@
 
 .Toast-Wrapper {
   margin-bottom: 20px;
+  width: 100%;
 }
 .Toast-Wrapper .toast {
   flex-basis: 100%;
+  max-width: 100%;
   -webkit-flex-basis: 100%;
   border: 1px inset #000000;
   background: #fffcf9;
 }
 .Toast-Wrapper .toast-header {
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
   padding: 10px 5px;
   background: #EEC71C;
   color: #000000;
-}
-.Toast-Wrapper .toast-body {
-  flex-flow: column nowrap;
-  -webkit-flex-flow: column nowrap;
 }
 .Toast-Wrapper .toast-body > * {
   font-size: 16px !important;
@@ -96,6 +70,9 @@
   border: 2px inset #000000;
   padding: 10px;
   box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
   color: #000000;
   background: #ffffff;
   font-size: 18px;
@@ -104,37 +81,35 @@
   opacity: 0.5;
 }
 
-/* Large desktops and laptops */
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1851px) {
   .Toasts-Stack {
     grid-area: 1/1/2/2;
+    display: block;
     position: sticky;
     height: 100vh;
     padding: 10px;
   }
 }
-@media only screen and (max-width: 1399px) {
+@media only screen and (max-width: 1850px) {
   .Toasts-Stack {
-    width: 250px;
-    position: absolute;
-    min-height: 0;
-    max-height: 100vh;
-    padding: 10px;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    align-items: center;
+    align-items: -moz-center;
+    align-items: -webkit-center;
+    align-items: -ms-center;
+    align-items: -o-center;
+    justify-content: center;
+    justify-content: -moz-center;
+    justify-content: -webkit-center;
+    justify-content: -ms-center;
+    justify-content: -o-center;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
   }
 }
-@media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .Toasts-Stack {
-    width: 250px;
-    position: absolute;
-    min-height: 0;
-    max-height: 100vh;
-    padding: 10px;
-  }
-}
-/* Landscape tablets and medium desktops */
-/* Portrait tablets and small desktops */
-/* Landscape phones and portrait tablets */
-/* Portrait phones and smaller */
-/* Iphone 5 */
 
 /*# sourceMappingURL=Toast.css.map */

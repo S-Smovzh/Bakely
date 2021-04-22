@@ -7,6 +7,7 @@ import {ModalContext} from '../context/modal/ModalContext';
 import {useTranslation} from "react-i18next";
 import {useLocation} from "react-router-dom";
 import {publicLinks} from "../utils/restLinks";
+import {logError} from "../error/errorHandler";
 
 export default function CateringController() {
 
@@ -42,7 +43,7 @@ export default function CateringController() {
             errorCode: 500
           });
         }
-      }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
   };
 
   const getWeddings = async () => {
@@ -58,7 +59,7 @@ export default function CateringController() {
             errorCode: 500
           });
         }
-      }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
   };
 
   const getCelebrations = async () => {
@@ -74,7 +75,7 @@ export default function CateringController() {
             errorCode: 500
           });
         }
-      }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
   };
 
   const getCorporates = async () => {
@@ -90,7 +91,7 @@ export default function CateringController() {
             errorCode: 500
           });
         }
-      }).catch((error) => console.log(error));
+      }).catch((error) => logError(error));
   };
 
   return (

@@ -12,12 +12,13 @@ import {IntroductionPage} from "./IntroductionPage";
 import {SuccessPage} from "./SuccessPage";
 import AuthContext from "../context/auth/AuthContext";
 import {Animation} from "../animation/Animation";
+import './OrderFrom.css';
 
 const OrderForm = () => {
   const authContext = useContext(AuthContext);
   const {modal, setModal} = useContext(ModalContext);
   const {orderForm, setOrderForm} = useContext(OrderFormContext);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(3);
 
   function closeModal() {
     setModal({
@@ -53,7 +54,7 @@ const OrderForm = () => {
 
   return (
     <Modal
-      className={'Modal Order-Form ' + (currentPage === 1 ? 'Small' : 'Medium')}
+      className={`Modal Order-Form Flex J-C-C A-I-C ${currentPage === 1 && 'Introduction'} ${currentPage === 2 && 'Contact'} ${currentPage === 3 && 'Option'} ${currentPage === 4 && 'Delivery'} ${currentPage === 5 && 'Success'}`}
       onHide={() => closeModal()}
       show={(authContext.logged && modal.usersOrder) || modal.clientsOrder}
       backdrop="static"
@@ -105,7 +106,8 @@ const NavigationButtons = ({
 
   const NextButton = () => {
     return (
-      <Animation onClick={!nextButtonDisabled} onHover={!nextButtonDisabled} type={nextButtonAnimation === 'error-shake' ? 'none' : 'rubber'}>
+      <Animation onClick={!nextButtonDisabled} onHover={!nextButtonDisabled}
+                 type={nextButtonAnimation === 'error-shake' ? 'none' : 'rubber'}>
         <button
           type='button'
           className={'button button-small ' + (page === 5 || 2 || 4 ? 'button-success ' : 'button-secondary ') + (nextButtonAnimation === 'error-shake' ? 'Error-Shake' : '')}
@@ -118,7 +120,7 @@ const NavigationButtons = ({
   }
 
   return (
-    <div className={'fill-width NavigationButtons ' + (page !== 4 ? 'One' : 'Two')}>
+    <div className={`fill-width NavigationButtons Flex A-I-C ${(page !== 4 ? 'J-C-C' : 'J-C-S-B')}`}>
       {displayPrev && <PreviousButton/>}
       {displayNext && <NextButton/>}
     </div>

@@ -1,9 +1,9 @@
 .DropShadowDarker {
-  filter: drop-shadow(-1px 3px 0px #2a0800);
+  filter: drop-shadow(-1px 2.5px 0px #2a0800);
 }
 
 .DropShadowLighter {
-  filter: drop-shadow(2px 2px 2px #fffcf9);
+  filter: drop-shadow(2px 2.5px 2px #fffcf9);
 }
 
 .LetterSpacing-1 {

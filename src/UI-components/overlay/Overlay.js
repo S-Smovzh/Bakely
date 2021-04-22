@@ -3,6 +3,7 @@ import './Overlay.css';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import {Animation} from "../../animation/Animation";
+import useWindowDimensions from "../../utils/isTouchDevice";
 
 export const Overlay = ({
                           id,
@@ -13,6 +14,7 @@ export const Overlay = ({
                           src768,
                           src991,
                           src1199,
+                          imgClassName,
                           imageType,
                           type,
                           text,
@@ -55,8 +57,9 @@ export const Overlay = ({
   };
 
   const [className, setClassName] = useState('listImage');
-  let component;
   const ref = useRef();
+  const {width} = useWindowDimensions();
+  let component;
 
   useEffect(() => {
     switch (imageType) {
@@ -116,9 +119,9 @@ export const Overlay = ({
 
   return (
     <picture ref={pictureRef && pictureRef} id={id}
-             className={'Overlay-Container ' + className}>
+             className={`Overlay-Container ${className} ${imgClassName} ${width < 769 ? 'N-P' : ' '}`}>
 
-      <div className={'Overlay ' + className} ref={ref}>
+      <div className={`Overlay Flex J-C-C A-I-C F-F-C-N fill-width fill-height ${className} ${imgClassName} ${width < 769 ? 'N-P' : ' '}`} ref={ref}>
         {component}
         {children ? children : null}
       </div>
@@ -130,20 +133,7 @@ export const Overlay = ({
       <source srcSet={src480} media="(max-width: 480px)"/>
       <source srcSet={src320} media="(max-width: 320px)"/>
 
-      <img src={src} alt={alt} className={className}/>
+      <img src={src} loading='lazy' alt={alt} className={`${className} ${imgClassName}`}/>
     </picture>
   );
 };
-
-export function childLinkFocus() {
-  document.querySelectorAll('picture.Overlay-Container div.Overlay a').forEach((item) => {
-    console.log(item)
-
-    item.addEventListener('focus', () => {
-      item.parentElement.classList.add('opacity-1');
-    });
-    item.addEventListener('focusout', () => {
-      item.parentElement.classList.remove('opacity-1');
-    });
-  });
-}

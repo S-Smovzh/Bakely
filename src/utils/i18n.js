@@ -26,11 +26,9 @@ i18n
     interpolation: {
       escapeValue: false
     }
-  }).then(r => null);
-
+  });
 
 export default i18n;
-
 
 export function changeLang(i18n, lng) {
   i18n.changeLanguage(lng).catch(error => console.log(error));

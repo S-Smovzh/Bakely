@@ -5,13 +5,13 @@ export default function CookiePolicy() {
   const [t] = useTranslation();
 
   return (
-    <div className='InfoPage'>
-      <section className='TopBlock'>
+    <div className='InfoPage Grid'>
+      <section className='TopBlock Flex J-C-C A-I-C T-C'>
         <h1>
           {t('infoPages.cookies.header')}
         </h1>
       </section>
-      <article className='MiddleBlock Nunito'>
+      <article className='MiddleBlock Nunito Flex J-C-S-B A-I-F-S F-F-C-N'>
         <p>
           This cookie policy (&quot;Policy&quot;) describes what cookies are and how and they&#039;re
           being used by the <a target="_blank" rel="nofollow" href="http://www.bakely.com">bakely.com</a> website

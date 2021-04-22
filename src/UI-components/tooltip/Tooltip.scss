@@ -2,9 +2,6 @@
 
 .Hover-Tooltip{
   grid-area: 3/2/4/3;
-  @extend %flex;
-  @extend %flex__center;
-  @include flex-flow(column nowrap);
   width: 100px;
   height: 100px;
   background: $primary-100;

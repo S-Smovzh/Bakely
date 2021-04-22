@@ -1,49 +1,19 @@
 export const publicLinks = {
-  careers: (language) => {
-    return `http://localhost:5000/api/${language}/vacancies/all`
-  },
-  bakeries: (language) => {
-    return `http://localhost:5000/api/${language}/bakeries/all`
-  },
-  cateringGallery: (language) => {
-    return `http://localhost:5000/api/${language}/catering/all`
-  },
-  weddings: (language) => {
-    return `http://localhost:5000/api/${language}/catering/type/wedding`
-  },
-  celebrations: (language) => {
-    return `http://localhost:5000/api/${language}/catering/type/celebration`
-  },
-  corporates: (language) => {
-    return `http://localhost:5000/api/${language}/catering/type/corporate`
-  },
-  cateringFeedbacks: (language, eventId) => {
-    return `http://localhost:5000/api/${language}/catering/feedback/${eventId}`
-  },
-  articles: (language) => {
-    return `http://localhost:5000/api/${language}/press/all`
-  },
-  pressRelease: (language, id) => {
-    return `http://localhost:5000/api/${language}/press/id/${id}`
-  },
-  availableCities: (language) => {
-    return `http://localhost:5000/api/${language}/available-cities/all`
-  },
-  productsCategories: (language) => {
-    return `http://localhost:5000/api/${language}/products/categories`
-  },
-  productsByCategory: (language, type) => {
-    return `http://localhost:5000/api/${language}/products/type/${type}/all`
-  },
-  productsById: (language, id) => {
-    return `http://localhost:5000/api/${language}/products/id/${id}`
-  },
-  ingredientsByproductId: (language, id) => {
-    return `http://localhost:5000/api/${language}/ingredients/id/${id}`
-  },
-  similarProducts: (language, type, id) => {
-    return `http://localhost:5000/api/${language}/products/similar/${type}/${id}`
-  },
+  careers: (language) => `http://localhost:5000/api/${language}/vacancies/all`,
+  bakeries: (language) => `http://localhost:5000/api/${language}/bakeries/all`,
+  cateringGallery: (language) => `http://localhost:5000/api/${language}/catering/all`,
+  weddings: (language) => `http://localhost:5000/api/${language}/catering/type/wedding`,
+  celebrations: (language) => `http://localhost:5000/api/${language}/catering/type/celebration`,
+  corporates: (language) => `http://localhost:5000/api/${language}/catering/type/corporate`,
+  cateringFeedbacks: (language, eventId) => `http://localhost:5000/api/${language}/catering/feedback/${eventId}`,
+  articles: (language) => `http://localhost:5000/api/${language}/press/all`,
+  pressRelease: (language, id) => `http://localhost:5000/api/${language}/press/id/${id}`,
+  availableCities: (language) => `http://localhost:5000/api/${language}/available-cities/all`,
+  productsCategories: (language) => `http://localhost:5000/api/${language}/products/categories`,
+  productsByCategory: (language, type) => `http://localhost:5000/api/${language}/products/type/${type}/all`,
+  productsById: (language, id) => `http://localhost:5000/api/${language}/products/id/${id}`,
+  ingredientsByproductId: (language, id) => `http://localhost:5000/api/${language}/ingredients/id/${id}`,
+  similarProducts: (language, type, id) => `http://localhost:5000/api/${language}/products/similar/${type}/${id}`
 };
 
 export const clientLinks = {
@@ -51,7 +21,7 @@ export const clientLinks = {
   contactUs: 'http://localhost:5000/api/protected/client/auth/contact',
   order: 'http://localhost:5000/api/protected/client/auth/add-contact-data',
   addDeliveryAddress: 'http://localhost:5000/api/protected/client/auth/add-delivery-address',
-
+  subscribe: 'http://localhost:5000/api/protected/client/auth/subscribe'
 };
 
 export const userLinks = {

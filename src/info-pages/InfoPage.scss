@@ -1,23 +1,14 @@
 @import "../css/base/Extensions";
 
 .InfoPage {
-  @extend %grid;
-  grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) 140px $mainPadding;
-  grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
   row-gap: calc(#{$standard * 6});
 
   .TopBlock {
     grid-area: 2/2/3/3;
-    @extend %flex;
-    @extend %flex__center;
   }
 
   .MiddleBlock {
     grid-area: 3/2/4/3;
-    @extend %flex;
-    @include flex-flow(column nowrap);
-    @include justify-content(space-between);
-    @include align-items(flex-start);
     row-gap: 50px;
 
     p {
@@ -26,7 +17,7 @@
     }
 
     .Policy-List li {
-      box-shadow: none;
+      @include box-shadow(none);
       background: none;
       border-radius: 0;
       list-style-type: circle;
@@ -34,28 +25,109 @@
     }
 
     ul {
-      @extend %flex;
-      @include flex-flow(column nowrap);
-      @include justify-content(space-between);
-      @include align-items(flex-start);
       row-gap: 45px;
 
       li {
-        @extend %flex;
-        @include flex-flow(column nowrap);
-        @include justify-content(space-between);
-        @include align-items(flex-start);
         row-gap: 21px;
-        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+        @include box-shadow(0 1px 12px rgba(0, 0, 0, 0.4));
         background: $tertiary-100;
         color: $text;
-        padding: 18px 36px;
         border-radius: 8px;
 
         h2 {
           background: linear-gradient(180deg, $primary-100 50%, $tertiary-100 50%);
-          background-position-y: 50px;
         }
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .InfoPage {
+    grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+    li {
+      padding: calc(#{$standard * 2}) calc(#{$standard * 5});
+
+      h2 {
+        background-position-y: 50px !important;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .InfoPage {
+    grid-template-rows: calc(#{$standard * 4}) 40px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard * 7}) minmax(10px, 1fr) calc(#{$standard * 7});
+
+    li {
+      padding: calc(#{$standard * 2}) calc(#{$standard * 4});
+
+      h2 {
+        background-position-y: 50px !important;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .InfoPage {
+    grid-template-rows: calc(#{$standard * 4}) 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard * 5}) minmax(10px, 1fr) calc(#{$standard * 5});
+
+    li {
+      padding: $standard calc(#{$standard * 3});
+
+      h2 {
+        background-position-y: 50px !important;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .InfoPage {
+    grid-template-rows: calc(#{$standard * 4}) 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard * 4}) minmax(10px, 1fr) calc(#{$standard * 4});
+
+    li {
+      padding: $standard calc(#{$standard * 2});
+
+      h2 {
+        background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .InfoPage {
+    grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard * 3}) minmax(10px, 1fr) calc(#{$standard * 3});
+
+    li {
+      padding: $standard;
+
+      h2 {
+        background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .InfoPage {
+    grid-template-rows: calc(#{$standard * 4}) 130px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard * 2}) minmax(10px, 1fr) calc(#{$standard * 2});
+
+    li {
+      padding: $standard;
+
+      h2 {
+        background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important
       }
     }
   }

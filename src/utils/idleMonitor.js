@@ -3,7 +3,7 @@ import {timer} from "rxjs";
 
 export default function useMonitor() {
   const elementRef = useRef(null);
-  const [eventTrigger, setEventTrigger] = useState(false);
+  const [eventTrigger, setEventTrigger] = useState(true);
   const events = [
     'load',
     'mousemove',
@@ -15,17 +15,17 @@ export default function useMonitor() {
 
   useEffect(() => {
     for (let i in events) {
-      elementRef.current && elementRef.current.addEventListener(events[i], (event) => {
+      elementRef.current && elementRef.current.addEventListener(events[i], () => {
         setEventTrigger(true);
-        timer(100).subscribe(() => setEventTrigger(false));
+        timer(300000).subscribe(() => setEventTrigger(false));
       });
     }
 
     return () => {
       for (let i in events) {
-        elementRef.current && elementRef.current.removeEventListener(events[i], (event) => {
+        elementRef.current && elementRef.current.removeEventListener(events[i], () => {
           setEventTrigger(true);
-          timer(100).subscribe(() => setEventTrigger(false));
+          timer(300000).subscribe(() => setEventTrigger(false));
         });
       }
     }

@@ -26,4 +26,9 @@
   height: 100vh;
 }
 
+.BlockScroll {
+  overflow-y: hidden;
+  overflow-y: -moz-hidden-unscrollable;
+}
+
 /*# sourceMappingURL=Loader.css.map */

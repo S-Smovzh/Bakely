@@ -10,9 +10,6 @@ const Checkbox = ({className, onClick}) => {
     useEffect(() => {
       function nativeWasChecked() {
         if (checkboxRef.current) {
-          console.log(checkboxRef.current)
-          console.log(checkboxRef.focused)
-
           if (checkboxRef.current.focused) {
             setNativeFocused(true);
           } else {
@@ -32,16 +29,21 @@ const Checkbox = ({className, onClick}) => {
 
   const styledBoxStyles = {
     background: checked ? '#711604' : '',
-    boxShadow: nativeFocused ? '0 0 0 3px pink' : ''
+    boxShadow: nativeFocused ? '0 0 0 3px pink' : '',
+    "-webkit-box-shadow": nativeFocused ? '0 0 0 3px pink' : '',
+    "-moz-box-shadow": nativeFocused ? '0 0 0 3px pink' : '',
+    "-o-box-shadow": nativeFocused ? '0 0 0 3px pink' : '',
   }
 
   return (
-    <div className={'Checkbox-Container ' + (className ? className : '')}>
-      <input type='checkbox' className='Hidden-Checkbox' ref={nativeCheckboxRef} checked={checked} onChange={() => {
-        setChecked(!checked);
-        onClick();
-      }}/>
-      <div className='Styled-Checkbox' style={styledBoxStyles} onClick={() => {
+    <div className={`Checkbox-Container ${(className ? className : '')}`}>
+      <input type='checkbox' className='Hidden-Checkbox' ref={nativeCheckboxRef} checked={checked}
+             onChange={() => {
+               setChecked(!checked);
+               onClick();
+             }}
+      />
+      <div className='Styled-Checkbox Flex J-C-C A-I-C' style={styledBoxStyles} onClick={() => {
         setChecked(!checked);
         onClick();
       }}>
@@ -53,4 +55,4 @@ const Checkbox = ({className, onClick}) => {
   );
 }
 
-export default Checkbox
+export default Checkbox;

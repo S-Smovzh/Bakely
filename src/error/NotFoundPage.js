@@ -14,14 +14,14 @@ export const PageNotFound = () => {
   }
 
   return (
-    <div className='ErrorPage'>
-      <header className='TopBlock'>
+    <div className='ErrorPage Grid'>
+      <header className='TopBlock T-C Flex J-C-C A-I-C F-F-C-N'>
         <h1>
           {t('error.header')}
         </h1>
       </header>
-      <div className='MiddleBlock Nunito'>
-        <Picture src='http://localhost:3000/img/error.svg' alt='Error 404' imgClassName='categoryImageContainer'/>
+      <div className='MiddleBlock Nunito Flex J-C-S-A A-I-C F-F-C-N'>
+        <Picture src='http://localhost:3000/img/error.svg' alt='' imgClassName='categoryImageContainer'/>
         <Animation type='rubber' onHover={true} onClick={true} infinite={false}>
           <button onClick={() => handleReturn()} type='button' className='button-success button-small-x-wide'>
             {t('error.button')}

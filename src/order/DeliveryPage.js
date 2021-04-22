@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './../UI-components/form/Form.css';
-import './OrderFrom.css';
 import axios from 'axios';
 import {Input} from '../UI-components/input/Input';
 import {useTranslation} from 'react-i18next';
@@ -33,6 +32,7 @@ export const DeliveryPage = ({closeModal, next, page, prev, type}) => {
   const [streetError, setStreetError] = useState('');
   const [houseNumError, setHouseNumError] = useState('');
   const [flatNumError, setFlatNumError] = useState('');
+
   const [availableCities, setAvailableCities] = useState([]);
 
   useEffect(() => {
@@ -121,17 +121,17 @@ export const DeliveryPage = ({closeModal, next, page, prev, type}) => {
 
   return (
     <section
-      className={'Delivery-Page fill-height fill-width ' + ((orderForm.selfPickUp || page !== 4) ? 'none' : '')}>
-      <header className='Clients-Data-Header fill-width'>
+      className={`Delivery-Page fill-height fill-width ${((orderForm.selfPickUp || page !== 4) ? 'none' : '')}`}>
+      <header className='Flex A-I-C F-F-R-N J-C-S-B T-L fill-width'>
         {authContext.logged ?
-          <div className='Tab-Container'>
+          <div className='Tab-Container Flex A-I-C J-C-F-S F-F-R-N'>
             <button onClick={() => setAddAddress(false)}
-                    className={'Tab helper button-small button-primary ' + (authContext.logged && !addAddress ? 'Active' : '')}
+                    className={`Tab helper Flex J-C-C A-I-C button-small button-primary ${(authContext.logged && !addAddress ? 'Active' : '')}`}
                     type='button' disabled={!(authContext.addresses && authContext.addresses.length > 0)}>
               {t('button.orderForm.selectAddress')}
             </button>
             <button onClick={() => setAddAddress(true)}
-                    className={'Tab helper button-small button-primary ' + (authContext.logged && addAddress ? 'Active' : '')}
+                    className={`Tab helper Flex J-C-C A-I-C button-small button-primary ${(authContext.logged && addAddress ? 'Active' : '')}`}
                     type='button'>
               {t('button.orderForm.addAddress')}
             </button>

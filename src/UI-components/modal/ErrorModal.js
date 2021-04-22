@@ -7,11 +7,12 @@ import './../form/Form.css';
 import './Modal.css';
 import {handleInternalServerError} from '../../utils/errorHandler';
 import AuthContext from "../../context/auth/AuthContext";
+import CloseButton from "../button/close/CloseButton";
 
-export const InternalError = () => {
+export const ErrorModal = () => {
   const {modal, setModal} = useContext(ModalContext);
   const authContext = useContext(AuthContext);
-  const [t] = useTranslation();
+  const [t] = useTranslation(); //TODO
 
   function closeModal() {
     if (modal.errorCode === 600) {
@@ -26,28 +27,25 @@ export const InternalError = () => {
   }
 
   return (
-    <Modal className='Modal' onHide={() => closeModal()} onExit={() => closeModal()}
+    <Modal className='Error-Modal Modal fill-width fill-height' onHide={() => closeModal()} onExit={() => closeModal()}
            show={modal.internalError} centered id='error'>
       <Modal.Header className='fill-width'>
-        <h3 className='fill-width Error'>
-          {modal.errorCode === 500 ? 'Internal Error!' : 'You need to login!'}
-        </h3>
-        <button onClick={() => closeModal()}
-                type='button' className='button-error button-icon-footer Close-Button' aria-label='Close'>
-          <img src='http://localhost:3000/img/icons/cross.svg' alt='Close icon'/>
-        </button>
+        <h1 className='T-L h3-size Error'>
+          {modal.errorCode === 500 ? t('error.internal.header') : t('error.login.header')}
+        </h1>
+        <CloseButton onClick={() => closeModal()} animate={true} ariaLabel={t('button.close')}/>
       </Modal.Header>
-      <Modal.Body className='fill-width'>
-        <Picture src='http://localhost:3000/img/svg/internal-error.svg' alt='Subscription SVG'
-                 imgClassName='SVG-Image-Pop-Up Error-Image'/>
-        <h4 className='Error-Text'>
+      <Modal.Body className='Flex J-C-S-B A-I-C F-F-C-N fill-width'>
+        <Picture src='http://localhost:3000/img/svg/internal-error.svg' alt=''
+                 imgClassName='SVG-Image'/>
+        <p className='T-C h5-size'>
           {modal.errorCode === 500 ? handleInternalServerError(500) : handleInternalServerError(600)}
-        </h4>
+        </p>
       </Modal.Body>
-      <Modal.Footer className='fill-width'>
+      <Modal.Footer className='Flex J-C-C A-I-C fill-width'>
         <button className='button button-warning button-small-x-wide' type='button'
                 onClick={() => closeModal()}>
-          Close
+          {t('close')}
         </button>
       </Modal.Footer>
     </Modal>
