@@ -1,3 +1,5 @@
+import {fromBinary, toBinary} from "../../utils/base64encoder";
+
 export const showCart = (show, state) => {
   return {...state, show: show};
 };
@@ -52,7 +54,7 @@ export const addProductToCart = (product, state) => {
     updatedCart.push({...productData});
   }
 
-  localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
 
   return {...state, cart: updatedCart};
 };
@@ -71,7 +73,7 @@ export const removeProductFromCart = (product, state) => {
 
   updatedCart.splice(updatedItemIndex, 1);
 
-  localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
 
   return {...state, cart: updatedCart};
 };
@@ -97,7 +99,7 @@ export const decreaseQuantity = (product, state) => {
 
   updatedCart[updatedItemIndex] = updatedItem;
 
-  localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
   return {...state, cart: updatedCart};
 };
 
@@ -114,8 +116,6 @@ export const increaseQuantity = (product, state) => {
     }
   });
 
-  console.log(updatedItem);
-
   const maximum = new Map(updatedItem.maxPerOrder).get(updatedItem.selectedOption);
 
   if (updatedItem.quantity < maximum) {
@@ -130,18 +130,18 @@ export const increaseQuantity = (product, state) => {
     updatedCart[updatedItemIndex] = updatedItem;
   }
 
-  localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
   return {...state, cart: updatedCart};
 };
 
 export const loadProducts = (state) => {
-  const loadedCart = localStorage.getItem('cartItems') ?
-    JSON.parse(localStorage.getItem('cartItems'))
+  const loadedCart = localStorage.getItem(btoa('cartItems')) ?
+    JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems'))))
     : [];
   return {...state, cart: loadedCart};
 };
 
 export const clearCart = (state) => {
-  localStorage.removeItem('cartItems');
+  localStorage.removeItem(btoa('cartItems'));
   return {...state, cart: []};
 };

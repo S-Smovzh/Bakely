@@ -60,7 +60,7 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 620px minmax(10px, 1fr) 240px;
+    grid-template-columns: 620px minmax(10px, 1fr) 290px;
   }
 }
 
@@ -74,7 +74,7 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 580px minmax(10px, 1fr) 220px;
+    grid-template-columns: 580px minmax(10px, 1fr) 284px;
   }
 }
 
@@ -84,7 +84,7 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 500px minmax(10px, 1fr) 200px;
+    grid-template-columns: 500px minmax(10px, 1fr) 270px;
   }
 }
 
@@ -94,7 +94,8 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 460px minmax(10px, 1fr) 190px;
+    grid-template-columns: 460px minmax(10px, 1fr) 260px;
+    padding-inline: calc(#{$standard} * 2);
   }
 }
 

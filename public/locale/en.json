@@ -187,6 +187,11 @@
   "main.locations.text": "Come celebrate homemade at one of our bakeries!",
   "main.locations.button": "Locations",
 
+  "modal.activation.notActive.header": "Your account is inactive",
+  "modal.activation.notActive.body": "You must activate your account to sign in. Check your email and follow the link which is sent to you.",
+  "modal.activation.activate.header": "Activate your account",
+  "modal.activation.activate.body": "We've sent you an email with an activation link. Follow it and then you'll be able to sign in.",
+
   "news.header": "Press Releases",
 
   "orderForm.introduction.header": "We need Your contact data.",

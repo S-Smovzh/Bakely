@@ -256,12 +256,7 @@ a, button, .T-C {
   background-clip: padding-box;
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  width: 12px;
   background: #711604;
-}
-
-::-webkit-scrollbar {
-  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -413,6 +408,61 @@ video {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  ::-webkit-scrollbar-thumb {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  ::-webkit-scrollbar-thumb {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  ::-webkit-scrollbar-thumb {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  ::-webkit-scrollbar-thumb {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  ::-webkit-scrollbar-thumb {
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  ::-webkit-scrollbar-thumb {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

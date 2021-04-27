@@ -6,21 +6,29 @@ import errorHandler from '../utils/errorHandler';
 import './Homepage.css';
 import i18n from 'i18next';
 import {ModalContext} from "../context/modal/ModalContext";
-import {masks} from "../utils/inputMasks";
 import {LoadingOverlay} from "../UI-components/overlay/loading/LoadingOverlay";
-import {Form} from "../UI-components/form/Form";
-import ConfirmButton from "../UI-components/button/ConfirmButton";
-import {Select} from "../UI-components/select/Select";
 import AuthContext from "../context/auth/AuthContext";
 import CloseButton from "../UI-components/button/close/CloseButton";
 import {Helmet} from "react-helmet";
-import {publicLinks, userLinks} from "../utils/restLinks";
+import {userLinks} from "../utils/restLinks";
 import {logError} from "../error/errorHandler";
 import {timer} from "rxjs";
 import {userConfig} from "../utils/restApiConfigs";
 import Head from "../head/Head";
+import useWindowDimensions from "../utils/isTouchDevice";
+import {AddressForm} from "./homepageForms/AddressForm";
+import {PasswordChangeForm} from "./homepageForms/PasswordChangeForm";
+import {EmailChangeForm} from "./homepageForms/EmailChangeForm";
+import {TelNumChangeForm} from "./homepageForms/TelNumChangeForm";
+import {Carousel} from "react-bootstrap";
+import {NextIcon, PrevIcon} from "../UI-components/icons/Icons";
+import {Search} from "../UI-components/input/search-input/Search";
+import {fromBinary, toBinary} from "../utils/base64encoder";
 
 export default function Homepage() {
+  let language = i18n.language;
+  const {width} = useWindowDimensions();
+
   const [t] = useTranslation();
   const {modal, setModal} = useContext(ModalContext);
   const authContext = useContext(AuthContext);
@@ -29,46 +37,9 @@ export default function Homepage() {
   const [orderId, setOrderId] = useState(null);
 
   const [stateChange, setStateChange] = useState(false);
-  // const [currentPage, setCurrentPage] = useState(1);
 
   const [keyword, setKeyword] = useState('');
   const [searchError, setSearchError] = useState('');
-
-  const [animatePasswordChange, setAnimatePasswordChange] = useState(false);
-  const [passwordChangeSuccess, setPasswordChangeSuccess] = useState(false);
-  const [oldPassword, setOldPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [oldPasswordError, setOldPasswordError] = useState('');
-  const [newPasswordError, setNewPasswordError] = useState('');
-
-  const [animateEmailChange, setAnimateEmailChange] = useState(false);
-  const [emailChangeSuccess, setEmailChangeSuccess] = useState(false);
-  const [oldEmail, setOldEmail] = useState('');
-  const [newEmail, setNewEmail] = useState('');
-  const [oldEmailError, setOldEmailError] = useState('');
-  const [newEmailError, setNewEmailError] = useState('');
-
-  const [animateTelNumChange, setAnimateTelNumChange] = useState(false);
-  const [telNumChangeSuccess, setTelNumChangeSuccess] = useState(false);
-  const [oldTelNum, setOldTelNum] = useState('');
-  const [newTelNum, setNewTelNum] = useState('');
-  const [oldTelNumError, setOldTelNumError] = useState('');
-  const [newTelNumError, setNewTelNumError] = useState('');
-  const [oldTelNumPrefix, setOldTelNumPrefix] = useState('+38 ');
-  const [newTelNumPrefix, setNewTelNumPrefix] = useState('+38 ');
-
-  const [animateAddressChange, setAnimateAddressChange] = useState(false);
-  const [addressSuccess, setAddressSuccess] = useState(false);
-  const [availableCities, setAvailableCities] = useState([]);
-  const [city, setCity] = useState('');
-  const [street, setStreet] = useState('');
-  const [houseNum, setHouseNum] = useState('');
-  const [flatNum, setFlatNum] = useState('');
-  const [cityError, setCityError] = useState('');
-  const [streetError, setStreetError] = useState('');
-  const [houseNumError, setHouseNumError] = useState('');
-  const [flatNumError, setFlatNumError] = useState('');
-  let language = i18n.language;
 
   useEffect(() => {
     if (stateChange) {
@@ -77,54 +48,26 @@ export default function Homepage() {
   }, [stateChange]);
 
   useEffect(() => {
+    console.log(localStorage.getItem(btoa('addresses')) ? JSON.parse(fromBinary(localStorage.getItem(btoa('addresses')))) : [])
+
     getOrders();
     authContext.checkState();
-    if (!localStorage.getItem('addresses') || !JSON.parse(localStorage.getItem('addresses'))) {
+    if (!localStorage.getItem(btoa('addresses'))) {
       getDeliveryAddresses();
     } else {
       timer(100).subscribe(() => authContext.loadDeliveryAddresses());
     }
   }, []);
 
-  useEffect(() => {
-    _getAvailableCities();
-  }, [t]);
-
-  function _getAvailableCities() {
-    axios.get(publicLinks.availableCities(language))
-      .then((response) => {
-        const {success, data, errors} = response.data;
-        if (success && !errors) {
-          setAvailableCities(data);
-        }
-      }).catch((e) => logError(e));
-  }
-
-  function _activateAnimation(type) {
-    switch (type) {
-      case 'address':
-        setAnimateAddressChange(true);
-        timer(600).subscribe(() => setAnimateAddressChange(false));
-        break;
-      case 'email':
-        setAnimateEmailChange(true);
-        timer(600).subscribe(() => setAnimateEmailChange(false));
-        break;
-      case 'pass':
-        setAnimatePasswordChange(true);
-        timer(600).subscribe(() => setAnimatePasswordChange(false));
-        break;
-      case 'tel':
-        setAnimateTelNumChange(true);
-        timer(600).subscribe(() => setAnimateTelNumChange(false));
-        break;
-      default:
-        break;
-    }
-  }
-
   function getOrders() {
-    axios.get(userLinks.orders(language), userConfig)
+    axios.get(userLinks.orders(language),
+      {
+        headers: {
+          Token: localStorage.getItem(btoa('token')) ? atob(localStorage.getItem(btoa('token'))) : null,
+          'Refresh-Token': localStorage.getItem(btoa('refreshToken')) ? atob(localStorage.getItem(btoa('refreshToken'))) : null,
+          withCredentials: true
+        }
+      })
       .then(response => {
         const {success, errors, data} = response.data;
         if (success) {
@@ -143,80 +86,18 @@ export default function Homepage() {
       }).catch((error) => logError(error));
   }
 
-  function addAddress() {
-    const address = {
-      city: city,
-      street: street,
-      houseNum: Number.parseInt(houseNum),
-      flatNum: Number.parseInt(flatNum)
-    };
-    axios.post(userLinks.addAddress, address, userConfig)
-      .then((response) => {
-        console.log(response)
-        const {success, errors} = response.data;
-        if (!success && errors) {
-          _activateAnimation('address');
-          if (errors.code === 500 || errors.code === 600) {
-            setModal({
-              ...modal,
-              internalError: true,
-              errorCode: errors.code
-            });
-          } else if (errors.code === 10) {
-            setCityError(errorHandler(errors.code));
-            setStreetError(errorHandler(errors.code));
-            setHouseNumError(errorHandler(errors.code));
-            setFlatNumError(errorHandler(errors.code));
-          } else {
-            if (errors.city) {
-              setCityError(errorHandler(errors.city));
-            } else {
-              setCityError(null);
-            }
-            if (errors.street) {
-              setStreetError(errorHandler(errors.street));
-            } else {
-              setStreetError(null);
-            }
-            if (errors.houseNum) {
-              setHouseNumError(errorHandler(errors.houseNum));
-            } else {
-              setHouseNumError(null);
-            }
-            if (errors.flatNum) {
-              setFlatNumError(errorHandler(errors.flatNum));
-            } else {
-              setFlatNumError(null);
-            }
-          }
-        } else {
-          authContext.addDeliveryAddress(address);
-          setAddressSuccess(true);
-          setTimeout(() => {
-            setAddressSuccess(false);
-          }, 800)
-          setStateChange(true);
-          setTimeout(() => {
-            setStateChange(false);
-          }, 200);
-          setCity('');
-          setStreet('');
-          setHouseNum('');
-          setFlatNum('');
-          setCityError(null);
-          setStreetError(null);
-          setHouseNumError(null);
-          setFlatNumError(null);
-        }
-      }).catch((error) => logError(error));
-  }
-
   function getDeliveryAddresses() {
-    axios.get(userLinks.deliveryAddresses, userConfig).then(response => {
+    axios.get(userLinks.deliveryAddresses,
+      {
+        headers: {
+          Token: localStorage.getItem(btoa('token')) ? atob(localStorage.getItem(btoa('token'))) : null,
+          'Refresh-Token': localStorage.getItem(btoa('refreshToken')) ? atob(localStorage.getItem(btoa('refreshToken'))) : null,
+          withCredentials: true
+        }
+      }).then(response => {
       const {success, data, errors} = response.data;
-      console.log(response.data)
       if (success && !errors) {
-        localStorage.setItem('addresses', JSON.stringify(data));
+        localStorage.setItem(btoa('addresses'), toBinary(JSON.stringify(data)));
         authContext.loadDeliveryAddresses();
       } else {
         setModal({
@@ -245,167 +126,8 @@ export default function Homepage() {
             errorCode: errors.code
           })
         }
-      }).catch((error) => logError(error));
-    // axios.delete('http://localhost:5000/api/protected/user/auth/addresses/delete/' + id,
-    //   {
-    //     headers: {
-    //       Token: localStorage.getItem('token'),
-    //       'Refresh-Token': localStorage.getItem('refreshToken'),
-    //       withCredentials: true
-    //     }
-    //   })
-    //   .then(response => {
-    //     const {success, errors} = response.data;
-    //     if (!success && errors) {
-    //       if (errors.code === 500 || errors.code === 600) {
-    //         setModal({
-    //           ...modal,
-    //           internalError: true,
-    //           errorCode: errors.code
-    //         })
-    //       }
-    //     } else {
-    //       let addressTemp = addresses;
-    //       let index = addressTemp.indexOf(event.target.value);
-    //       if (index !== -1) {
-    //         addressTemp.splice(index, 1);
-    //         setAddresses(addressTemp);
-    //       }
-    //       setStateChange(true);
-    //     }
-    //   }).catch((error) => console.log(error));
-  }
-
-  function passwordChange() {
-    axios.post(userLinks.changePassword,
-      {
-        oldPassword: oldPassword,
-        newPassword: newPassword
-      }, userConfig
-    ).then(async (response) => {
-      const {success, errors} = response.data;
-      if (!success && errors) {
-        _activateAnimation('pass');
-        if (errors.code === 500 || errors.code === 600) {
-          setModal({
-            ...modal,
-            internalError: true,
-            errorCode: errors.code
-          })
-        } else if (errors.code === 10) {
-          setOldPasswordError(errorHandler(errors.code));
-          setNewPasswordError(errorHandler(errors.code));
-        } else {
-          if (errors.oldPassword) {
-            setOldPasswordError(errorHandler(errors.oldPassword));
-          } else {
-            setOldPasswordError(null);
-          }
-          if (errors.newPassword) {
-            setNewPasswordError(errorHandler(errors.newPassword));
-          } else {
-            setNewPasswordError(null);
-          }
-        }
-      } else {
-        setPasswordChangeSuccess(true);
-        setTimeout(() => {
-          setPasswordChangeSuccess(false);
-        }, 2000);
-        setOldPassword('');
-        setNewPassword('');
-        setOldPasswordError(null);
-        setNewPasswordError(null);
-      }
-    }).catch((error) => logError(error));
-  }
-
-  function emailChange() {
-    axios.post(userLinks.changeEmail,
-      {
-        oldEmail: oldEmail,
-        newEmail: newEmail
-      }, userConfig
-    ).then((response) => {
-      const {success, errors} = response.data;
-      if (!success && errors) {
-        _activateAnimation('email');
-        if (errors.code === 500 || errors.code === 600) {
-          setModal({
-            ...modal,
-            internalError: true,
-            errorCode: errors.code
-          })
-        } else if (errors.code === 10) {
-          setOldEmailError(errorHandler(errors.code));
-          setNewEmailError(errorHandler(errors.code));
-        } else {
-          if (errors.oldEmail) {
-            setOldEmailError(errorHandler(errors.oldEmail));
-          } else {
-            setOldEmailError(null);
-          }
-          if (errors.newEmail) {
-            setNewEmailError(errorHandler(errors.newEmail));
-          } else {
-            setNewEmailError(null);
-          }
-        }
-      } else {
-        setEmailChangeSuccess(true);
-        setTimeout(() => {
-          setEmailChangeSuccess(false);
-        }, 2000)
-        setOldEmail('');
-        setNewEmail('');
-        setOldEmailError(null);
-        setNewEmailError(null);
-      }
-    }).catch((error) => logError(error));
-  }
-
-  function telNumChange() {
-    axios.post(userLinks.changeTelNum,
-      {
-        oldTelNum: oldTelNumPrefix + oldTelNum,
-        newTelNum: newTelNumPrefix + newTelNum
-      }, userConfig
-    ).then((response) => {
-      const {success, errors} = response.data;
-      if (!success && errors) {
-        _activateAnimation('tel');
-        if (errors.code === 500 || errors.code === 600) {
-          setModal({
-            ...modal,
-            internalError: true,
-            errorCode: errors.code
-          })
-        } else if (errors.code === 10) {
-          setOldTelNumError(errorHandler(errors.code));
-          setNewTelNumError(errorHandler(errors.code));
-        } else {
-          if (errors.oldTelNum) {
-            setOldTelNumError(errorHandler(errors.oldTelNum));
-          } else {
-            setOldTelNumError(null);
-          }
-          if (errors.newTelNum) {
-            setNewTelNumError(errorHandler(errors.newTelNum));
-          } else {
-            setNewTelNumError(null);
-          }
-        }
-      } else {
-        setTelNumChangeSuccess(true);
-        setTimeout(() => {
-          setTelNumChangeSuccess(false);
-        }, 2000)
-        setOldTelNum('');
-        setNewTelNum('');
-        setOldTelNumError(null);
-        setNewTelNumError(null);
-      }
-    }).catch((error) => logError(error));
+      })
+      .catch((error) => logError(error));
   }
 
   function searchOrder() {
@@ -439,261 +161,172 @@ export default function Homepage() {
   };
 
   return (
-    <div className='Homepage Nunito'>
-      <Head description={t('seo.homepage.description')} title={t('seo.homepage.title')}/>
-      <section id='orders' className='TopBlock'>
-        <section className='LeftCol'>
-          <header className='Form-Header Playfair'>
-            <h3>{t('homepage.orders.header')}</h3>
-          </header>
-          <Input tooltipId='search' inputType='search' inputName='search' autoComplete='off'
-                 inputOnBlur={(event) => handleSearch(event)} inputOnChange={(event) => handleSearch(event)}
-                 value={keyword} buttonOnClick={() => searchOrder()}/>
-          <ul className={'Orders-List helper ' + (orders.size % 2 ? 'Even' : 'Odd')}>
-            <li className='Orders-Header fill-width'>
-              <span>{t('date')}</span>
-              <span>{t('products')}</span>
-              <span>{t('price')}</span>
-            </li>
-            {orders ? Array.from(orders.values()).map((order) => {
-              return (
-                <li key={order.date} className='Order fill-width'>
-                  <button onClick={() => setOrderId(order.id)} type='button'
-                          className='button Orders-Cell fill-width '>
-                    <span className='Date'>{new Date(Number.parseInt(order.date)).toLocaleDateString('ru-RU')}</span>
-                    <span className='Products'>
-                      {order.products.map((product) => {
-                        return product + ', ';
-                      })}
+      <div className='Homepage Grid Nunito'>
+        <Head description={t('seo.homepage.description')} title={t('seo.homepage.title')}/>
+        <section id='orders' className='TopBlock Grid'>
+          <section className='LeftCol Grid'>
+            <header className='Flex J-C-S-A A-I-C T-C F-F-C-N Playfair'>
+              <h3>{t('homepage.orders.header')}</h3>
+              <div className='Form-Row fill-width'>
+                <Search tooltipId='search' inputType='search' inputName='search' autoComplete='off'
+                        inputOnBlur={(event) => handleSearch(event)} inputOnChange={(event) => handleSearch(event)}
+                        value={keyword} buttonOnClick={() => searchOrder()}/>
+              </div>
+            </header>
+            <ul className={`Orders-List Flex A-I-C J-C-F-S F-F-C-N helper ${(orders.size % 2) ? 'Even' : 'Odd'}`}>
+              <li className='Orders-Header Grid fill-width'>
+                <span className='Flex J-C-C A-I-C'>{t('date')}</span>
+                <span className='Flex J-C-C A-I-C'>{t('products')}</span>
+                <span className='Flex J-C-C A-I-C'>{t('price')}</span>
+              </li>
+              {orders ? Array.from(orders.values()).map((order) => {
+                return (
+                  <li key={order.date} className='Order Flex J-C-C A-I-C fill-width'>
+                    <button onClick={() => setOrderId(order.id)} type='button'
+                            className='button Orders-Cell Grid fill-width '>
+                      <span
+                        className='h6-size'>{new Date(Number.parseInt(order.date)).toLocaleDateString('ru-RU')}</span>
+                      <span className='h6-size Products'>
+                      {order.products.map((product, index) =>
+                        index !== order.products.length - 1 ? `${product}, ` : `${product}.`
+                      )}
                     </span>
-                    <span className='Total'>{order.price}</span>
-                  </button>
-                </li>);
-            }) : null}
-          </ul>
-        </section>
-        <section className='RightCol'>
-          <LoadingOverlay
-            active={!orders}
-            text={t('overlay.getting')}>
-            {orderId ?
-              <div className='Order-Data-Table'>
-                <div className='OrderDate-Row h5-size font-weight_300'>
-                  {t('homepage.orders.orderData.time')} {new Date(Number.parseInt(orders.get(orderId).date)).toLocaleDateString('ru-RU')}
-                </div>
-                <div className='Products-Column'>
-                  <header>
-                    <h4 className='font-weight_600'>{t('homepage.orders.orderData.products')}</h4>
-                  </header>
-                  <ul className='Products-List fill-width fill-height'>
-                    {orders && orders.get(orderId).products.map((product) => {
-                      return <li key={product}>{product}</li>;
-                    })}
-                  </ul>
-                </div>
-                <div className='Comment-Column'>
-                  <div className='Order-Comment'>
-                    <header>
-                      <h4 className='font-weight_600'>{t('homepage.orders.orderData.comment')}</h4>
-                    </header>
-                    <p>
-                      {orders.get(orderId).comment}
-                    </p>
+                      <span className='h6-size'>{order.price}</span>
+                    </button>
+                  </li>);
+              }) : null}
+            </ul>
+          </section>
+          {orderId ?
+            <section className='RightCol'>
+              <LoadingOverlay
+                active={!orders}
+                text={t('overlay.getting')}>
+                <div className='Flex A-I-C J-C-C fill-width fill-height'>
+                  <div className='Order-Data-Table Grid'>
+                    <div className='OrderDate-Row Flex J-C-F-S A-I-C h5-size font-weight_300'>
+                      {t('homepage.orders.orderData.time')} {new Date(Number.parseInt(orders.get(orderId).date)).toLocaleDateString('ru-RU')}
+                    </div>
+                    <div className='Products-Column Grid'>
+                      <header>
+                        <h4 className='font-weight_600'>{t('homepage.orders.orderData.products')}</h4>
+                      </header>
+                      <ul className='Products-List Flex A-I-F-S F-F-C-N fill-width fill-height'>
+                        {orders && orders.get(orderId).products.map((product) => {
+                          return <li key={product}>{product}</li>;
+                        })}
+                      </ul>
+                    </div>
+                    <div className='Comment-Column Grid'>
+                      <div className='Order-Comment Flex J-C-F-S A-I-C F-F-C-N'>
+                        <header>
+                          <h4 className='font-weight_600'>{t('homepage.orders.orderData.comment')}</h4>
+                        </header>
+                        <p>
+                          {orders.get(orderId).comment}
+                        </p>
+                      </div>
+                      <div className='Order-Total'>
+                        <h4 className='font-weight_600 Flex J-C-S-B A-I-C'>
+                          <span>{t('homepage.orders.orderData.comment')}</span>
+                          <span>{orders.get(orderId).price}$</span>
+                        </h4>
+                      </div>
+                    </div>
                   </div>
-                  <div className='Order-Total'>
-                    <h4 className='font-weight_600'>
-                      <span>{t('homepage.orders.orderData.comment')}</span>
-                      <span>{orders.get(orderId).price}$</span>
-                    </h4>
-                  </div>
                 </div>
-              </div>
-              :
-              null}
-          </LoadingOverlay>
+              </LoadingOverlay>
+            </section>
+            :
+            null}
         </section>
-      </section>
-      <section className='MiddleBlock'>
-        <section className='LeftCol'>
-          <header className='Form-Header fill-width'>
-            <h3>{t('homepage.addAddress.header')}</h3>
-          </header>
-          <Form id='addresses' success={addressSuccess}>
-            <div className='Form-Col Col-First'>
-              <div className='Form-Row'>
-                <Select selectName='city' selectOnBlur={(event) => setCity(event.target.value)}
-                        selectOnChange={(event) => setCity(event.target.value)} value={city}
-                        errorIdentifier={cityError} errorLabelText={cityError} labelText={t('label.city')}
-                        selectId='city'>
-                  <option value={0}>
-                    {t('homepage.selectCity')}
-                  </option>
-                  {availableCities && availableCities.map((item) => {
-                    return (
-                      <option key={item.city} value={item.city}>
-                        {item.city}
-                      </option>
-                    );
-                  })}
-                </Select>
-              </div>
-              <div className='Form-Row'>
-                <Input errorIdentifier={streetError} labelText={t('label.street')}
-                       errorLabelText={streetError}
-                       inputId='street' inputType='text' inputName='street'
-                       inputOnBlur={(event) => setStreet(event.target.value)}
-                       inputOnChange={(event) => setStreet(event.target.value)} inputRequired='required'
-                       autoComplete='on'
-                       value={street} tooltipId={t('tooltip.header.street')} tooltipText={t('tooltip.street')}/>
-              </div>
-            </div>
-            <div className='Form-Col Col-Second'>
-              <div className='Form-Row'>
-                <Input errorIdentifier={houseNumError} labelText={t('label.houseNum')}
-                       errorLabelText={houseNumError}
-                       inputId='houseNum' inputType='number' inputName='houseNum'
-                       inputOnBlur={(event) => setHouseNum(event.target.value)} min={1}
-                       inputOnChange={(event) => setHouseNum(event.target.value)}
-                       inputRequired='required' autoComplete='off' value={houseNum}
-                       tooltipId={t('tooltip.header.houseNum')}
-                       tooltipText={t('tooltip.telNumOrHouseOrFlatNum')}/>
-              </div>
-              <div className='Form-Row'>
-                <Input errorIdentifier={flatNumError} labelText={t('label.flatNum')}
-                       errorLabelText={flatNumError}
-                       inputId='flatNum' inputType='number' inputName='flatNum'
-                       inputOnBlur={(event) => setFlatNum(event.target.value)} min={1}
-                       inputOnChange={(event) => setFlatNum(event.target.value)} inputRequired='required'
-                       autoComplete='off' tooltipId={t('tooltip.header.flatNum')}
-                       tooltipText={t('tooltip.telNumOrHouseOrFlatNum')} value={flatNum}/>
-              </div>
-            </div>
-            <div className='Form-Button'>
-              <ConfirmButton onClick={() => addAddress()} disabled={!city || !street || !houseNum || !flatNum}
-                             animate={animateAddressChange} className='button-small-x-wide' text={t('button.submit')}/>
-            </div>
-          </Form>
-        </section>
-        <section className='RightCol'>
-          <header className='Form-Header'>
-            <h3>{t('homepage.deliveryAddresses.header')}</h3>
-          </header>
-          <ul
-            className={'Addresses-Table ' + (authContext.addresses && authContext.addresses.length % 2 ? 'Even' : 'Odd')}>
-            {authContext.addresses &&
-            authContext.addresses.map((address) => {
-              return (
-                <li key={address.street + address.flatNum} className='Addresses-Cell fill-width'>
-                  <div className='Content'>
+        <section className='MiddleBlock Grid'>
+          <section className='LeftCol Flex A-I-C J-C-C F-F-C-N'>
+            <header className='Flex J-C-C A-I-C T-C fill-width'>
+              <h3>{t('homepage.addAddress.header')}</h3>
+            </header>
+            <AddressForm/>
+          </section>
+          <section className='RightCol Grid'>
+            <header className='Flex A-I-C J-C-C T-C'>
+              <h3>{t('homepage.deliveryAddresses.header')}</h3>
+            </header>
+            <ul
+              className={`Addresses-Table Grid ${(authContext.addresses && authContext.addresses.length % 2 ? 'Even' : 'Odd')}`}>
+              {authContext.addresses && authContext.addresses.map((address) => {
+                return (
+                  <li key={address.street + address.flatNum} className='Addresses-Cell Grid fill-width'>
+                    <div className='Content'>
                     <span>
                       {`${t('city')} ${address.city},`}
                     </span>
-                    <span>
+                      <span>
                       {`${t('street')} ${address.street} ${address.houseNum}, ${t('flat')} № ${address.flatNum}.`}
                     </span>
-                  </div>
-                  <div className='Remove-Button'>
-                    <CloseButton onClick={() => deleteDeliveryAddress(address.id)}
-                                 animate={true} ariaLabel={t('aria-label.removeAddress')}/>
-                  </div>
-                </li>);
-            })}
-          </ul>
+                    </div>
+                    <div className='Remove-Button'>
+                      <CloseButton onClick={() => deleteDeliveryAddress(address.id)}
+                                   animate={true} ariaLabel={t('ariaLabel.removeAddress')}/>
+                    </div>
+                  </li>);
+              })}
+            </ul>
+          </section>
         </section>
-      </section>
-      <section id='forms' className='BottomBlock'>
-        <section className='Col Col-First'>
-          <header className='fill-width'>
-            <h3>{t('homepage.emailChange.header')}</h3>
-          </header>
-          <Form success={emailChangeSuccess}>
-            <div className='Form-Row'>
-              <Input errorIdentifier={oldEmailError} labelText={t('label.oldEmail')}
-                     errorLabelText={oldEmailError} value={oldEmail}
-                     inputId='oldEmail' inputType='email' inputName='oldEmail'
-                     inputOnBlur={(event) => setOldEmail(event.target.value)}
-                     inputOnChange={(event) => setOldEmail(event.target.value)} inputRequired='required'
-                     autoComplete='off' tooltipId={t('tooltip.header.oldEmail')} tooltipText={t('tooltip.oldEmail')}/>
-            </div>
-            <div className='Form-Row'>
-              <Input errorIdentifier={newEmailError} labelText={t('label.newEmail')}
-                     errorLabelText={newEmailError} value={newEmail}
-                     inputId='newEmail' inputType='email' inputName='newEmail'
-                     inputOnBlur={(event) => setNewEmail(event.target.value)}
-                     inputOnChange={(event) => setNewEmail(event.target.value)}
-                     inputRequired='required' autoComplete='off' tooltipId={t('tooltip.header.email')}
-                     tooltipText={t('tooltip.email')}/>
-            </div>
-            <div className='Form-Button'>
-              <ConfirmButton onClick={() => emailChange()} disabled={!oldEmail || !newEmail}
-                             animate={animateEmailChange} className='button-small-x-wide' text={t('button.submit')}/>
-            </div>
-          </Form>
+        <section id='forms' className='BottomBlock Flex J-C-S-B A-I-C'>
+          {width > 999 ?
+            <React.Fragment>
+              <section className='Flex A-I-C J-C-F-E F-F-C-N'>
+                <header className='fill-width T-C'>
+                  <h3>{t('homepage.emailChange.header')}</h3>
+                </header>
+                <EmailChangeForm/>
+              </section>
+              <section className='Flex A-I-C J-C-F-E F-F-C-N'>
+                <header className='fill-width T-C'>
+                  <h3>{t('homepage.passwordChange.header')}</h3>
+                </header>
+                <PasswordChangeForm/>
+              </section>
+              <section className='Flex A-I-C J-C-F-E F-F-C-N'>
+                <header className='fill-width T-C'>
+                  <h3>{t('homepage.telNumChange.header')}</h3>
+                </header>
+                <TelNumChangeForm/>
+              </section>
+            </React.Fragment>
+            :
+            <React.Fragment>
+              <Carousel prevIcon={PrevIcon(t('button.prev'))} nextIcon={NextIcon(t('button.next'))} touch={true}
+                        interval={1000000000} className='fill-width'>
+                <Carousel.Item>
+                  <section className='Flex A-I-C J-C-F-E F-F-C-N'>
+                    <header className='fill-width T-C'>
+                      <h3>{t('homepage.emailChange.header')}</h3>
+                    </header>
+                    <EmailChangeForm/>
+                  </section>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <section className='Flex A-I-C J-C-F-E F-F-C-N'>
+                    <header className='fill-width T-C'>
+                      <h3>{t('homepage.passwordChange.header')}</h3>
+                    </header>
+                    <PasswordChangeForm/>
+                  </section>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <section className='Flex A-I-C J-C-F-E F-F-C-N'>
+                    <header className='fill-width T-C'>
+                      <h3>{t('homepage.telNumChange.header')}</h3>
+                    </header>
+                    <TelNumChangeForm/>
+                  </section>
+                </Carousel.Item>
+              </Carousel>
+            </React.Fragment>
+          }
         </section>
-        <section className='Col Col-Second'>
-          <header className='fill-width'>
-            <h3>{t('homepage.passwordChange.header')}</h3>
-          </header>
-          <Form success={passwordChangeSuccess}>
-            <div className='Form-Row'>
-              <Input errorIdentifier={oldPasswordError}
-                     labelText={t('label.oldPassword')}
-                     errorLabelText={oldPasswordError} value={oldPassword}
-                     inputId='oldPassword' inputType='password' inputName='oldPassword'
-                     inputOnBlur={(event) => setOldPassword(event.target.value)}
-                     inputOnChange={(event) => setOldPassword(event.target.value)} inputRequired='required'
-                     autoComplete='off' tooltipId={t('tooltip.header.oldPassword')} tooltipText={t('tooltip.oldPassword')}/>
-            </div>
-            <div className='Form-Row'>
-              <Input errorIdentifier={newPasswordError}
-                     labelText={t('label.newPassword')}
-                     errorLabelText={newPasswordError} value={newPassword}
-                     inputId='newPassword' inputType='password' inputName='newPassword'
-                     inputOnBlur={(event) => setNewPassword(event.target.value)}
-                     inputOnChange={(event) => setNewPassword(event.target.value)}
-                     inputRequired='required' autoComplete='off' tooltipId={t('tooltip.header.password')}
-                     tooltipText={t('tooltip.password')}/>
-            </div>
-            <div className='Form-Button'>
-              <ConfirmButton onClick={() => passwordChange()} disabled={!oldPassword || !newPassword}
-                             animate={animatePasswordChange} className='button-small-x-wide' text={t('button.submit')}/>
-            </div>
-          </Form>
-        </section>
-        <section className='Col Col-Third'>
-          <header className='fill-width'>
-            <h3>{t('homepage.telNumChange.header')}</h3>
-          </header>
-          <Form success={telNumChangeSuccess}>
-            <div className='Form-Row'>
-              <Input errorIdentifier={oldTelNumError} labelText={t('label.oldTelNum')}
-                     errorLabelText={oldTelNumError} value={oldTelNum}
-                     inputId='oldTelNum' inputType='tel' inputName='oldTelNum'
-                     inputOnBlur={(event) => setOldTelNum(event.target.value)}
-                     inputOnChange={(event) => setOldTelNum(event.target.value)} inputRequired='required'
-                     autoComplete='off' selectOnChange={(event) => setOldTelNumPrefix(event.target.value)}
-                     selectValue={oldTelNumPrefix}
-                     tooltipId={t('tooltip.header.oldTel')} tooltipText={t('tooltip.oldTel')}
-                     mask={masks.tel}/>
-            </div>
-            <div className='Form-Row'>
-              <Input errorIdentifier={newTelNumError} labelText={t('label.newTelNum')}
-                     errorLabelText={newTelNumError} value={newTelNum}
-                     inputId='newTelNum' inputType='tel' inputName='newTelNum'
-                     inputOnBlur={(event) => setNewTelNum(event.target.value)}
-                     inputOnChange={(event) => {
-                       setNewTelNum(event.target.value)
-                     }} selectOnChange={(event) => setNewTelNumPrefix(event.target.value)} selectValue={newTelNumPrefix}
-                     inputRequired='required' autoComplete='off' tooltipId={t('tooltip.header.tel')}
-                     tooltipText={t('tooltip.telNumOrHouseOrFlatNum')} mask={masks.tel}/>
-            </div>
-            <div className='Form-Button'>
-              <ConfirmButton onClick={() => telNumChange()} disabled={!oldTelNum || !newTelNum}
-                             animate={animateTelNumChange} className='button-small-x-wide' text={t('button.submit')}/>
-            </div>
-          </Form>
-        </section>
-      </section>
-    </div>
+      </div>
   );
 }

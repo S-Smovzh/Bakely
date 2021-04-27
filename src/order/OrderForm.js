@@ -18,7 +18,7 @@ const OrderForm = () => {
   const authContext = useContext(AuthContext);
   const {modal, setModal} = useContext(ModalContext);
   const {orderForm, setOrderForm} = useContext(OrderFormContext);
-  const [currentPage, setCurrentPage] = useState(3);
+  const [currentPage, setCurrentPage] = useState(5);
 
   function closeModal() {
     setModal({
@@ -54,7 +54,7 @@ const OrderForm = () => {
 
   return (
     <Modal
-      className={`Modal Order-Form Flex J-C-C A-I-C ${currentPage === 1 && 'Introduction'} ${currentPage === 2 && 'Contact'} ${currentPage === 3 && 'Option'} ${currentPage === 4 && 'Delivery'} ${currentPage === 5 && 'Success'}`}
+      className={`Modal Order-Form Flex J-C-C A-I-C ${currentPage === 1 && 'Introduction'} ${currentPage === 2 && 'Contact'} ${currentPage === 3 && 'Option'} ${(currentPage === 4 && orderForm.delivery) && 'Delivery'} ${(currentPage === 4 && orderForm.selfPickUp) && 'SelfPickUp'} ${currentPage === 5 && 'Success'}`}
       onHide={() => closeModal()}
       show={(authContext.logged && modal.usersOrder) || modal.clientsOrder}
       backdrop="static"

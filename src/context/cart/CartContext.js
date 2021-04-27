@@ -1,8 +1,9 @@
 import React from "react";
+import {fromBinary} from "../../utils/base64encoder";
 
 export default React.createContext({
-  cart: localStorage.getItem('cartItems') ?
-    JSON.parse(localStorage.getItem('cartItems'))
+  cart: localStorage.getItem(btoa('cartItems')) ?
+    JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems'))))
     : [],
   show: false,
   cartButtonClick: false,

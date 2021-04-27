@@ -25,6 +25,8 @@
   display: -moz-flex !important;
   display: -o-flex !important;
   display: -ms-flex !important;
+  overflow: hidden !important;
+  overflow: -moz-hidden-unscrollable !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -36,7 +38,10 @@
   -o-transition: all 0.4s ease-in-out !important;
 }
 .Modal .modal-content {
-  border-radius: 30px;
+  border-radius: 20px;
+}
+.Modal .modal-content > *, .Modal .modal-dialog > * {
+  border: none;
 }
 
 .Error-Modal .Error {
@@ -45,9 +50,6 @@
 .Error-Modal .modal-content, .Error-Modal .modal-dialog {
   flex-flow: column nowrap;
   -webkit-flex-flow: column nowrap;
-}
-.Error-Modal .modal-content > *, .Error-Modal .modal-dialog > * {
-  border: none;
 }
 .Error-Modal .modal-content .modal-header, .Error-Modal .modal-dialog .modal-header {
   margin: 20px 10px 0;

@@ -7,6 +7,8 @@ export const ModalContext = React.createContext({
   errorCode: 0,
   clientsOrder: false,
   usersOrder: false,
+  activationModal: false,
+  notActivated: false,
   setModal: () => {
   }
 });

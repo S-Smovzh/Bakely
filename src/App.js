@@ -35,6 +35,8 @@ import CookiePolicy from "./info-pages/CookiePolicy";
 import './UI-components/link/Link.css';
 import ProductsList from "./shop-all/ProductsList";
 import useWindowDimensions from "./utils/isTouchDevice";
+import {userConfig} from "./utils/restApiConfigs";
+import {logError} from "./error/errorHandler";
 
 function Bakely() {
   const {modal, setModal} = useContext(ModalContext);
@@ -51,14 +53,14 @@ function Bakely() {
     cartContext.showCart(false);
     cartContext.loadProducts();
     setLoading(false);
-    if (location.pathname === '/user/homepage' && location.isLoggedIn) {
-      timer(100).subscribe(() => authContext.loadDeliveryAddresses());
-    }
+    // if (location.pathname === '/user/homepage' && location.isLoggedIn) {
+    //   timer(100).subscribe(() => authContext.loadDeliveryAddresses());
+    // }
   }, [location]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }, [location]);
 
   useEffect(() => {
     authContext.checkState();
@@ -89,14 +91,7 @@ function Bakely() {
       'http://localhost:5000/api/protected/user/auth/refresh',
       {
         fingerprint: result.visitorId
-      },
-      {
-        headers: {
-          Token: localStorage.getItem('token'),
-          'Refresh-Token': localStorage.getItem('refreshToken'),
-          withCredentials: true
-        }
-      }
+      }, userConfig
     ).then((response) => {
       const {success, errors, body} = response.data;
       if (!success && errors) {
@@ -106,8 +101,8 @@ function Bakely() {
           internalFailure: true
         });
       } else {
-        localStorage.setItem('token', JSON.stringify(body[0].token));
-        localStorage.setItem('refreshToken', JSON.stringify(body[1].refreshToken));
+        localStorage.setItem(btoa('token'), btoa(JSON.stringify(body[0].token)));
+        localStorage.setItem(btoa('refreshToken'), btoa(JSON.stringify(body[1].refreshToken)));
         // console.log('refreshed');
         // const t1 = Date.now();
         let subscription = interval(840000).subscribe(() => {
@@ -117,7 +112,7 @@ function Bakely() {
           refreshSession();
         })
       }
-    }).catch((error) => console.log(error));
+    }).catch((error) => logError(error));
   }
 
   useEffect(() => {

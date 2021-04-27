@@ -1,29 +1,31 @@
+import {fromBinary, toBinary} from "../../utils/base64encoder";
+
 export function login(state) {
-  localStorage.setItem('logged', 'true');
+  localStorage.setItem(btoa('logged'), btoa('true'));
   return {...state, logged: true};
 }
 
 export function logout(state) {
-  localStorage.removeItem('logged');
-  localStorage.removeItem('token');
-  localStorage.removeItem('refreshToken');
-  localStorage.removeItem('addresses');
-  localStorage.removeItem('refreshTime');
+  localStorage.removeItem(btoa('logged'));
+  localStorage.removeItem(btoa('token'));
+  localStorage.removeItem(btoa('refreshToken'));
+  localStorage.removeItem(btoa('addresses'));
+  localStorage.removeItem(btoa('refreshTime'));
   return {...state, logged: false};
 }
 
 export function checkState() {
-  const logged = localStorage.getItem('logged') ? localStorage.getItem('logged') : false;
+  const logged = localStorage.getItem(btoa('logged')) ? atob(localStorage.getItem(btoa('logged'))) : false;
   return {logged: logged};
 }
 
 export function loadDeliveryAddresses(state) {
-  return {...state, addresses: JSON.parse(localStorage.getItem('addresses'))};
+  return {...state, addresses: localStorage.getItem(btoa('addresses')) ? JSON.parse(fromBinary(localStorage.getItem(btoa('addresses')))) : []};
 }
 
 export const addDeliveryAddress = (address, state) => {
 
-  const updatedAddressList = localStorage.getItem('addresses') ? JSON.parse(localStorage.getItem('addresses')) : [];
+  const updatedAddressList = localStorage.getItem(btoa('addresses')) ? JSON.parse(fromBinary(localStorage.getItem(btoa('addresses')))) : [];
 
   if (updatedAddressList.length > 0) {
     const isExisting = updatedAddressList.find((item) => {
@@ -42,7 +44,7 @@ export const addDeliveryAddress = (address, state) => {
     updatedAddressList.push(address);
   }
 
-  localStorage.setItem('addresses', JSON.stringify(updatedAddressList));
+  localStorage.setItem(btoa('addresses'), toBinary(JSON.stringify(updatedAddressList)));
 
   return {...state, addresses: updatedAddressList};
 };
@@ -53,7 +55,7 @@ export const removeDeliveryAddress = (id, state) => {
   const index = updatedAddressList.findIndex((item) => item.id === id);
   updatedAddressList.splice(index, 1);
 
-  localStorage.setItem('addresses', JSON.stringify(updatedAddressList));
+  localStorage.setItem(btoa('addresses'), toBinary(JSON.stringify(updatedAddressList)));
 
   return {...state, addresses: updatedAddressList};
 };
@@ -63,6 +65,6 @@ export const clearAddressesList = (state) => {
 };
 
 export const saveName = (name, state) => {
-  localStorage.setItem('name', name);
+  localStorage.setItem(btoa('name'), btoa(name));
   return {...state, name: name};
 };

@@ -11,13 +11,14 @@ import {
   LOAD_DELIVERY_ADDRESSES,
   SAVE_NAME
 } from './actionTypes';
+import {fromBinary} from "../../utils/base64encoder";
 
 export default function AuthState(props) {
-  const logged = localStorage.getItem('logged') === 'true';
-  const addresses = JSON.parse(localStorage.getItem('addresses'));
-  const name = localStorage.getItem('name');
-
-  const [authState, dispatch] = useReducer(authReducer, {logged: logged, addresses: addresses, name: name});
+  const [authState, dispatch] = useReducer(authReducer, {
+    logged: localStorage.getItem(btoa('logged')) ? atob(localStorage.getItem(btoa('logged'))) : '',
+    addresses: localStorage.getItem(btoa('addresses')) ? fromBinary(localStorage.getItem(btoa('addresses'))) : '',
+    name: localStorage.getItem(btoa('name')) ? atob(localStorage.getItem(btoa('name'))) : '',
+  });
 
   const login = () => {
     dispatch({type: LOGIN, logged: true});

@@ -148,7 +148,7 @@ export const Footer = () => {
           <React.Fragment>
             {footerTop.map((section, index) =>
               <section key={index} className={`${section.className} Grid`}>
-                <h5 className={width < 992 && 'T-C'}>{section.header}</h5>
+                <h5 className={width < 992 ? 'T-C' : undefined}>{section.header}</h5>
                 <ul className='LinksList Flex F-F-C-N'>
                   {section.list.map((item, index) =>
                     <li key={index} className={`Flex A-I-F-S ${width < 992 ? 'J-C-C' : 'J-C-F-S'} fill-width`}>

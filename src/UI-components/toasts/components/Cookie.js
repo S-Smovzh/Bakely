@@ -29,7 +29,7 @@ export const Cookie = () => {
                       ...toast,
                       showCookie: !toast.showCookie
                     });
-                    localStorage.setItem('cookies', btoa('false'));
+                    localStorage.setItem(btoa('cookies'), btoa('false'));
                   }
                   }
     />

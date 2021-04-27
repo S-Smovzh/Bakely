@@ -1,8 +1,8 @@
 export const userConfig =
   {
     headers: {
-      Token: localStorage.getItem('token'),
-      'Refresh-Token': localStorage.getItem('refreshToken'),
+      Token: localStorage.getItem(btoa('token')) ? atob(localStorage.getItem(btoa('token'))) : null,
+      'Refresh-Token': localStorage.getItem(btoa('refreshToken')) ? atob(localStorage.getItem(btoa('refreshToken'))) : null,
       withCredentials: true
     }
   };
@@ -10,7 +10,7 @@ export const userConfig =
 export const clientConfig =
   {
     headers: {
-      'Client-Token': localStorage.getItem('clientsToken'),
+      'Client-Token': localStorage.getItem(btoa('clientsToken')) ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
       withCredentials: true
     }
   };

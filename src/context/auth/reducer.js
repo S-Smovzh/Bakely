@@ -19,11 +19,12 @@ import {
   saveName,
   loadDeliveryAddresses
 } from './dispatcher';
+import {fromBinary} from "../../utils/base64encoder";
 
 const initialState = {
-  logged: localStorage.getItem('logged') === 'true',
-  addresses: JSON.parse(localStorage.getItem('addresses')),
-  name: localStorage.getItem('name')
+  logged: localStorage.getItem(btoa('logged')) ? atob(localStorage.getItem(btoa('logged'))) : '',
+  addresses: localStorage.getItem(btoa('addresses')) ? fromBinary(localStorage.getItem(btoa('addresses'))) : '',
+  name: localStorage.getItem(btoa('name')) ? atob(localStorage.getItem(btoa('name'))) : '',
 };
 
 export const authReducer = (state = initialState, action) => {

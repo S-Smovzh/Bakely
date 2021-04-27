@@ -1,4 +1,4 @@
-.Success-Page .RightCol, .Success-Page .LeftCol, .Order-Form .modal-content, .Order-Form .modal-dialog {
+.Order-Form .modal-content, .Order-Form .modal-dialog {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -19,22 +19,6 @@
   justify-content: -o-center;
 }
 
-.Success-Page {
-  display: grid;
-  display: -webkit-grid;
-  display: -moz-grid;
-  display: -ms-grid;
-  display: -o-grid;
-}
-
-.Success-Page .RightCol, .Success-Page .LeftCol, .Success-Page header {
-  text-align: center;
-  text-align: -moz-center;
-  text-align: -webkit-center;
-  text-align: -ms-center;
-  text-align: -o-center;
-}
-
 .Order-Form .modal-content, .Order-Form .modal-dialog {
   flex-flow: column nowrap;
   -webkit-flex-flow: column nowrap;
@@ -46,7 +30,7 @@
   -ms-overflow-y: auto;
 }
 
-.Introduction-Page, .Contact-Data-Page, .Options-Page, .Delivery-Page {
+.Introduction-Page, .Contact-Data-Page, .Options-Page, .SelfPickUp-Page {
   row-gap: calc(7px * 6);
 }
 
@@ -114,9 +98,19 @@
   row-gap: calc(7px * 5);
 }
 
+.Delivery-Page {
+  row-gap: calc(7px * 4);
+}
+.Delivery-Page header {
+  column-gap: calc(7px * 2);
+  -webkit-column-gap: calc(7px * 2);
+  -moz-column-gap: calc(7px * 2);
+}
+.Delivery-Page form {
+  row-gap: calc(7px * 4);
+}
+
 .Success-Page {
-  grid-template-rows: 60px 400px;
-  grid-template-columns: repeat(2, minmax(10px, 1fr));
   column-gap: 60px;
   -webkit-column-gap: 60px;
   -moz-column-gap: 60px;
@@ -124,36 +118,36 @@
 .Success-Page header {
   grid-area: 1/1/2/3;
 }
-.Success-Page .LeftCol {
-  align-items: center;
-  -webkit-align-items: center;
-  justify-content: flex-start;
-  -webkit-justify-content: flex-start;
-  flex-flow: column nowrap;
-  -webkit-flex-flow: column nowrap;
-}
 .Success-Page .RightCol {
-  align-items: center;
-  -webkit-align-items: center;
-  justify-content: flex-start;
-  -webkit-justify-content: flex-start;
-  flex-flow: column nowrap;
-  -webkit-flex-flow: column nowrap;
-  row-gap: 10px;
+  row-gap: calc(7px * 2);
+  padding: 0;
 }
-.Success-Page .RightCol .Form-TextareaRow {
-  grid-template-columns: minmax(10px, 1fr) 52px;
-  grid-template-rows: 200px;
-}
-.Success-Page .RightCol .Form-TextareaRow .Textarea {
-  grid-area: 1/1/2/2;
-  max-height: 200px;
+.Success-Page .RightCol .Textarea {
   resize: none;
 }
-.Success-Page .RightCol .Form-TextareaRow .Input-TooltipButton {
-  grid-area: 1/2/2/3;
-}
 
+@media only screen and (max-width: 768px) {
+  .Success-Page {
+    grid-template-rows: 60px auto;
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .Success-Page header {
+    grid-area: 1/1/2/2;
+  }
+  .Success-Page > * {
+    grid-column: 1/2;
+    -ms-grid-column: 1/2;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .Success-Page {
+    grid-template-rows: 60px 400px;
+    grid-template-columns: repeat(2, minmax(10px, 1fr));
+  }
+  .Success-Page header {
+    grid-area: 1/1/2/3;
+  }
+}
 .NavigationButtons {
   margin-bottom: 5px;
 }
@@ -177,12 +171,15 @@
     width: 260px;
     height: 200px;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     width: 40vw;
   }
-  .Modal.Delivery .modal-content .Select-Page select, .Modal.Delivery .modal-dialog .Select-Page select {
+  .Modal.SelfPickUp .modal-content .Select-Page select, .Modal.SelfPickUp .modal-dialog .Select-Page select {
     padding: calc(7px * 2);
     width: 300px;
+  }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    width: 40vw;
   }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
     width: 50vw;
@@ -207,15 +204,18 @@
     width: 260px;
     height: 200px;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     width: 40vw;
   }
-  .Modal.Delivery .modal-content .Select-Page select, .Modal.Delivery .modal-dialog .Select-Page select {
+  .Modal.SelfPickUp .modal-content .Select-Page select, .Modal.SelfPickUp .modal-dialog .Select-Page select {
     padding: calc(7px * 2);
     width: 300px;
   }
-  .Modal.Success .modal-content, .Modal.Success .modal-dialog {
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
     width: 50vw;
+  }
+  .Modal.Success .modal-content, .Modal.Success .modal-dialog {
+    width: 60vw;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -237,15 +237,18 @@
     width: 240px;
     height: 200px;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     width: 50vw;
   }
-  .Modal.Delivery .modal-content .Select-Page select, .Modal.Delivery .modal-dialog .Select-Page select {
+  .Modal.SelfPickUp .modal-content .Select-Page select, .Modal.SelfPickUp .modal-dialog .Select-Page select {
     padding: calc(7px * 2);
     width: 300px;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    width: 60vw;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    width: 50vw;
+    width: 70vw;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
@@ -267,15 +270,18 @@
     width: 220px;
     height: 200px;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     width: 65vw;
   }
-  .Modal.Delivery .modal-content .Select-Page select, .Modal.Delivery .modal-dialog .Select-Page select {
+  .Modal.SelfPickUp .modal-content .Select-Page select, .Modal.SelfPickUp .modal-dialog .Select-Page select {
     padding: calc(7px * 2);
     width: 300px;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    width: 80vw;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    width: 50vw;
+    width: 71vw;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -315,15 +321,18 @@
     width: 260px;
     height: 200px;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     width: 80vw;
   }
-  .Modal.Delivery .modal-content .Select-Page select, .Modal.Delivery .modal-dialog .Select-Page select {
+  .Modal.SelfPickUp .modal-content .Select-Page select, .Modal.SelfPickUp .modal-dialog .Select-Page select {
     padding: calc(7px * 2);
     width: 300px;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    width: 90vw;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    width: 50vw;
+    width: 75vw;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
@@ -363,15 +372,18 @@
     width: 260px;
     height: 200px;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     width: 80vw;
   }
-  .Modal.Delivery .modal-content .Select-Page select, .Modal.Delivery .modal-dialog .Select-Page select {
+  .Modal.SelfPickUp .modal-content .Select-Page select, .Modal.SelfPickUp .modal-dialog .Select-Page select {
     padding: calc(7px * 2);
     width: 200px;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    width: 90vw;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    width: 50vw;
+    width: 90vw;
   }
 }
 @media only screen and (max-width: 320px) {
@@ -411,15 +423,18 @@
     width: 220px;
     height: 200px;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     width: 90vw;
   }
-  .Modal.Delivery .modal-content .Select-Page select, .Modal.Delivery .modal-dialog .Select-Page select {
+  .Modal.SelfPickUp .modal-content .Select-Page select, .Modal.SelfPickUp .modal-dialog .Select-Page select {
     padding: calc(7px * 2);
     width: 200px;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    width: 90vw;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    width: 50vw;
+    width: 95vw;
   }
 }
 @media only screen and (min-height: 951px) {
@@ -432,11 +447,14 @@
   .Modal.Option .modal-content, .Modal.Option .modal-dialog {
     height: 50vh;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     height: 30vh;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    height: 45vh;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    height: 60vh;
+    height: 550px;
   }
 }
 @media only screen and (min-height: 801px) and (max-height: 950px) {
@@ -449,11 +467,14 @@
   .Modal.Option .modal-content, .Modal.Option .modal-dialog {
     height: 60vh;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     height: 35vh;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    height: 55vh;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    height: 60vh;
+    height: 550px;
   }
 }
 @media only screen and (max-height: 800px) {
@@ -466,11 +487,14 @@
   .Modal.Option .modal-content, .Modal.Option .modal-dialog {
     height: 65vh;
   }
-  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
     height: 45vh;
   }
+  .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
+    height: 65vh;
+  }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    height: 60vh;
+    height: 550px;
   }
 }
 @media only screen and (max-height: 640px) {
@@ -483,11 +507,14 @@
   .Modal.Option .modal-content, .Modal.Option .modal-dialog {
     height: 75vh;
   }
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
+    height: 70vh;
+  }
   .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
-    height: 60vh;
+    height: 65vh;
   }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    height: 60vh;
+    height: 90vh;
   }
 }
 @media only screen and (max-height: 400px) {
@@ -500,11 +527,14 @@
   .Modal.Option .modal-content, .Modal.Option .modal-dialog {
     height: 70vh;
   }
+  .Modal.SelfPickUp .modal-content, .Modal.SelfPickUp .modal-dialog {
+    height: 80vh;
+  }
   .Modal.Delivery .modal-content, .Modal.Delivery .modal-dialog {
     height: 80vh;
   }
   .Modal.Success .modal-content, .Modal.Success .modal-dialog {
-    height: 60vh;
+    height: 90vh;
   }
 }
 

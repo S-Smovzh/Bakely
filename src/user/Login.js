@@ -13,7 +13,7 @@ import ConfirmButton from "../UI-components/button/ConfirmButton";
 import useWindowDimensions from "../utils/isTouchDevice";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import {userLinks} from "../utils/restLinks";
-import {userConfig} from "../utils/restApiConfigs";
+import {clientConfig} from "../utils/restApiConfigs";
 import {timer} from "rxjs";
 import {logError} from "../error/errorHandler";
 
@@ -24,82 +24,84 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState('');
   const [animate, setAnimate] = useState(false);
   const [success, setSuccess] = useState(false);
-
   const [t] = useTranslation();
 
   const {width} = useWindowDimensions();
   const {modal, setModal} = useContext(ModalContext);
   const history = useHistory();
-  const context = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
   const location = useLocation();
 
   async function handleLogin() {
     setEmailError('');
     setPasswordError('');
 
-      const fp = await FingerprintJS.load();
-      const result = await fp.get();
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
 
-      await axios.post(userLinks.login,
-        {
-          email: email,
-          password: password,
-          fingerprint: result.visitorId
-        }, userConfig)
-        .then((response) => {
-          const {success, errors, body} = response.data;
-          if (!success && errors) {
-            setAnimate(true);
-            timer(400).subscribe(() => setAnimate(false));
-            if (errors.code === 500) {
-              setModal({
-                ...modal,
-                internalError: true,
-                errorCode: 500
-              });
-            } else if (errors.code === 10) {
-              setEmailError(errorHandler(errors.code));
-              setPasswordError(errorHandler(errors.code));
-            } else if (errors.code === 50) {
-              console.log('too many tries') //TODO
-            } else {
-              if (errors.email) {
-                const a = errorHandler(errors.email);
-
-                console.log(a, 'jjh')
-
-                setEmailError(()=>errorHandler(errors.email));
-              } else {
-                setEmailError(null);
-              }
-              if (errors.password) {
-                setPasswordError(errorHandler(errors.password));
-              } else {
-                setPasswordError(null);
-              }
-            }
-          } else if (success) {
-            setEmailError('');
-            setPasswordError('');
-
-            setSuccess(true);
-            localStorage.setItem('token', JSON.stringify(body[0].token));
-            localStorage.setItem('refreshToken', JSON.stringify(body[1].refreshToken));
-            context.login();
-            context.loadDeliveryAddresses();
-            localStorage.setItem('refreshTime', JSON.stringify({now: Date.now(), expires: Date.now() + 40000}));
-
-            timer(600).subscribe(() => {
-              if (location.pathname === '/user/login') {
-                history.push({
-                  pathname: '/user/homepage',
-                  isLoggedIn: true
-                });
-              }
+    await axios.post(userLinks.login,
+      {
+        email: email,
+        password: password,
+        fingerprint: result.visitorId
+      }, clientConfig)
+      .then((response) => {
+        const {success, errors, body} = response.data;
+        if (!success && errors) {
+          setAnimate(true);
+          timer(400).subscribe(() => setAnimate(false));
+          if (errors.code === 500) {
+            setModal({
+              ...modal,
+              internalError: true,
+              errorCode: 500
             });
+          } else if (errors.code === 10) {
+            setEmailError(errorHandler(errors.code));
+            setPasswordError(errorHandler(errors.code));
+          } else if (errors.code === 50) {
+            setModal({
+              ...modal,
+              internalError: true,
+              errorCode: 50
+            });
+          } else {
+            if (errors.email) {
+              setEmailError(errorHandler(errors.email));
+            } else {
+              setEmailError('');
+            }
+            if (errors.password) {
+              setPasswordError(errorHandler(errors.password));
+            } else {
+              setPasswordError('');
+            }
           }
-        })
-        .catch((error) => logError(error));
+        } else if (success) {
+          setEmailError('');
+          setPasswordError('');
+
+          setSuccess(true);
+          localStorage.setItem(btoa('token'), btoa(JSON.stringify(body[0].token)));
+          localStorage.setItem(btoa('refreshToken'), btoa(JSON.stringify(body[1].refreshToken)));
+          localStorage.setItem(btoa('refreshTime'), btoa(JSON.stringify({
+            now: Date.now(),
+            expires: Date.now() + 840000
+          })));
+          authContext.loadDeliveryAddresses();
+
+          timer(800).subscribe(() => {
+            authContext.login();
+            if (location.pathname === '/user/login') {
+              history.push({
+                pathname: '/user/homepage',
+                isLoggedIn: true
+              });
+            }
+          });
+        }
+      })
+      .catch((error) => logError(error));
   }
 
   return (

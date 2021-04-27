@@ -9,10 +9,11 @@ import {
   REMOVE_PRODUCT, SHOW_CART
 } from './actionTypes';
 import {cartReducer} from './reducer';
+import {fromBinary} from "../../utils/base64encoder";
 
 export default function CartState(props) {
-  const cart = localStorage.getItem('cartItems') ?
-    JSON.parse(localStorage.getItem('cartItems'))
+  const cart = localStorage.getItem(btoa('cartItems')) ?
+    JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems'))))
     : [];
 
   const [cartState, dispatch] = useReducer(cartReducer, {cart: cart, show: false, cartButtonClick: false});

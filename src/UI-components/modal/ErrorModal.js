@@ -3,7 +3,6 @@ import {Modal} from 'react-bootstrap';
 import {ModalContext} from '../../context/modal/ModalContext';
 import {useTranslation} from 'react-i18next';
 import {Picture} from '../picture/Picture';
-import './../form/Form.css';
 import './Modal.css';
 import {handleInternalServerError} from '../../utils/errorHandler';
 import AuthContext from "../../context/auth/AuthContext";
@@ -16,7 +15,9 @@ export const ErrorModal = () => {
 
   function closeModal() {
     if (modal.errorCode === 600) {
-      authContext.logout();
+      // authContext.logout();
+      // localStorage.removeItem('clientsToken');
+      // location.reload();
     }
 
     setModal({
@@ -31,7 +32,9 @@ export const ErrorModal = () => {
            show={modal.internalError} centered id='error'>
       <Modal.Header className='fill-width'>
         <h1 className='T-L h3-size Error'>
-          {modal.errorCode === 500 ? t('error.internal.header') : t('error.login.header')}
+          {modal.errorCode === 600 ? t('error.login.header') : undefined}
+          {modal.errorCode === 500 ? t('error.internal.header') : undefined}
+          {modal.errorCode === 50 ? t('error.tooManyLogins.header') : undefined}
         </h1>
         <CloseButton onClick={() => closeModal()} animate={true} ariaLabel={t('button.close')}/>
       </Modal.Header>
@@ -39,7 +42,9 @@ export const ErrorModal = () => {
         <Picture src='http://localhost:3000/img/svg/internal-error.svg' alt=''
                  imgClassName='SVG-Image'/>
         <p className='T-C h5-size'>
-          {modal.errorCode === 500 ? handleInternalServerError(500) : handleInternalServerError(600)}
+          {modal.errorCode === 600 ? handleInternalServerError(600) : undefined}
+          {modal.errorCode === 500 ? handleInternalServerError(500) : undefined}
+          {modal.errorCode === 50 ? handleInternalServerError(50) : undefined}
         </p>
       </Modal.Body>
       <Modal.Footer className='Flex J-C-C A-I-C fill-width'>

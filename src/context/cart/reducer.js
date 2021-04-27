@@ -15,12 +15,13 @@ import {
   loadProducts,
   removeProductFromCart, showCart
 } from './dispatcher';
+import {fromBinary} from "../../utils/base64encoder";
 
 const initialState = {
   show: false,
   cartButtonClick: false,
-  products: localStorage.getItem('cartItems') ?
-    JSON.parse(localStorage.getItem('cartItems'))
+  products: localStorage.getItem(btoa('cartItems')) ?
+    JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems'))))
     : []
 };
 

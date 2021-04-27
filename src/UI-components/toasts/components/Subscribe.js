@@ -46,7 +46,7 @@ export const Subscribe = () => {
             ...toast,
             showSubscription: false
           });
-          localStorage.setItem('showSubscription', btoa('false'));
+          localStorage.setItem(btoa('showSubscription'), btoa('false'));
           setEmail('');
           setEmailError(null);
           closeModal();
@@ -60,9 +60,9 @@ export const Subscribe = () => {
       showSubscription: false
     });
     if (show) {
-      localStorage.setItem('subscriptionShow', btoa('true'));
+      localStorage.setItem(btoa('subscriptionShow'), btoa('true'));
     } else {
-      localStorage.setItem('subscriptionShow', btoa('false'));
+      localStorage.setItem(btoa('subscriptionShow'), btoa('false'));
     }
   }
 

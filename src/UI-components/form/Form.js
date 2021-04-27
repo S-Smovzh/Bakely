@@ -1,8 +1,8 @@
 import React from "react";
 
-export const Form = ({success, children}) => {
+export const Form = ({className, success, children}) => {
   return (
-    <form className='Form Grid fill-width' method='POST'>
+    <form className={`Form fill-width ${className ? className : 'Grid'}`} method='POST'>
       {success ?
         <div className='SVG__Container Flex J-C-C A-I-C fill-width fill-height'>
           <svg version="1.1" className='Success-Tick' xmlns="http://www.w3.org/2000/svg"

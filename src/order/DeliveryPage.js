@@ -14,10 +14,11 @@ import {logError} from "../error/errorHandler";
 import {clientConfig, userConfig} from "../utils/restApiConfigs";
 import CloseButton from "../UI-components/button/close/CloseButton";
 import i18n from "i18next";
+import {Carousel} from "react-bootstrap";
+import {NextIcon, PrevIcon} from "../UI-components/icons/Icons";
+import useWindowDimensions from "../utils/isTouchDevice";
 
 export const DeliveryPage = ({closeModal, next, page, prev, type}) => {
-  const {modal, setModal} = useContext(ModalContext);
-  const {orderForm} = useContext(OrderFormContext);
   const authContext = useContext(AuthContext);
   const [t] = useTranslation();
 
@@ -34,6 +35,10 @@ export const DeliveryPage = ({closeModal, next, page, prev, type}) => {
   const [flatNumError, setFlatNumError] = useState('');
 
   const [availableCities, setAvailableCities] = useState([]);
+
+  const {modal, setModal} = useContext(ModalContext);
+  const {orderForm} = useContext(OrderFormContext);
+  const {width} = useWindowDimensions();
 
   useEffect(() => {
     _getAvailableCities();
@@ -119,25 +124,77 @@ export const DeliveryPage = ({closeModal, next, page, prev, type}) => {
       .catch((error) => logError(error));
   }
 
+  const citySelect =
+    <div className='Select-Row'>
+      <Select selectName='city' selectOnBlur={(event) => setCity(event.target.value)}
+              selectOnChange={(event) => setCity(event.target.value)} value={city}
+              errorIdentifier={cityError} errorLabelText={cityError} labelText={t('label.city')}
+              selectId='city'>
+        <option value={0}>
+          -- Select city
+        </option>
+        {availableCities && availableCities.map((item) => {
+          return (
+            <option key={item.city} value={item.city}>
+              {item.city}
+            </option>
+          );
+        })}
+      </Select>
+    </div>;
+
+  const streetCell =
+    <div className='Form-Row'>
+      <Input errorIdentifier={streetError} labelText={t('label.street')}
+             errorLabelText={streetError}
+             inputId='street' inputType='text' inputName='street'
+             inputOnBlur={(e) => setStreet(e.target.value)}
+             inputOnChange={(e) => setStreet(e.target.value)} inputRequired='required' autoComplete='off'
+             value={street} tooltipId={t('tooltip.header.street')} tooltipText={t('tooltip.street')}/>
+    </div>;
+
+  const houseNumCell =
+    <div className='Form-Row'>
+      <Input errorIdentifier={houseNumError} labelText={t('label.houseNum')}
+             errorLabelText={houseNumError}
+             inputId='houseNum' inputType='number' inputName='houseNum'
+             inputOnBlur={(e) => setHouseNum(e.target.value)}
+             inputOnChange={(e) => setHouseNum(e.target.value)}
+             inputRequired='required' autoComplete='off' value={houseNum}
+             tooltipId={t('tooltip.header.houseNum')} min={1}
+             tooltipText={t('tooltip.header.telNumOrHouseOrFlatNum')}/>
+    </div>;
+
+  const flatNumCell =
+    <div className='Form-Row'>
+      <Input errorIdentifier={flatNumError} labelText={t('label.flatNum')}
+             errorLabelText={flatNumError}
+             inputId='flatNum' inputType='number' inputName='flatNum'
+             inputOnBlur={(e) => setFlatNum(e.target.value)} min={1}
+             inputOnChange={(e) => setFlatNum(e.target.value)} inputRequired='required'
+             autoComplete='off' tooltipId={t('tooltip.header.flatNum')}
+             tooltipText={t('tooltip.telNumOrHouseOrFlatNum')} value={flatNum}/>
+    </div>;
+
   return (
     <section
-      className={`Delivery-Page fill-height fill-width ${((orderForm.selfPickUp || page !== 4) ? 'none' : '')}`}>
+      className={`Delivery-Page Flex J-C-F-S A-I-C F-F-C-N fill-height fill-width ${((orderForm.selfPickUp || page !== 4) ? 'none' : '')}`}>
       <header className='Flex A-I-C F-F-R-N J-C-S-B T-L fill-width'>
         {authContext.logged ?
-          <div className='Tab-Container Flex A-I-C J-C-F-S F-F-R-N'>
-            <button onClick={() => setAddAddress(false)}
-                    className={`Tab helper Flex J-C-C A-I-C button-small button-primary ${(authContext.logged && !addAddress ? 'Active' : '')}`}
-                    type='button' disabled={!(authContext.addresses && authContext.addresses.length > 0)}>
-              {t('button.orderForm.selectAddress')}
-            </button>
-            <button onClick={() => setAddAddress(true)}
-                    className={`Tab helper Flex J-C-C A-I-C button-small button-primary ${(authContext.logged && addAddress ? 'Active' : '')}`}
-                    type='button'>
-              {t('button.orderForm.addAddress')}
-            </button>
-          </div>
-          :
-          <h1 className='h3-size'>{t('orderForm.delivery.client.header')}</h1>
+        <div className='Tab-Container Flex A-I-C J-C-F-S F-F-R-N'>
+          <button onClick={() => setAddAddress(false)}
+                  className={`Tab helper Flex J-C-C A-I-C button-small button-primary ${(authContext.logged && !addAddress ? 'Active' : '')}`}
+                  type='button' disabled={!(authContext.addresses && authContext.addresses.length > 0)}>
+            {t('button.orderForm.selectAddress')}
+          </button>
+          <button onClick={() => setAddAddress(true)}
+                  className={`Tab helper Flex J-C-C A-I-C button-small button-primary ${(authContext.logged && addAddress ? 'Active' : '')}`}
+                  type='button'>
+            {t('button.orderForm.addAddress')}
+          </button>
+        </div>
+        :
+        <h1 className='h3-size'>{t('orderForm.delivery.client.header')}</h1>
         }
         <CloseButton onClick={closeModal} animate={true} ariaLabel={t('ariaLabel.close')}/>
       </header>
@@ -165,60 +222,40 @@ export const DeliveryPage = ({closeModal, next, page, prev, type}) => {
         </React.Fragment>
         :
         <React.Fragment>
-          <form className='Form fill-width'>
-            <fieldset className='Form-Row-Double'>
-              <div className='Form-Row'>
-                <Select selectName='city' selectOnBlur={(event) => setCity(event.target.value)}
-                        selectOnChange={(event) => setCity(event.target.value)} value={city}
-                        errorIdentifier={cityError} errorLabelText={cityError} labelText={t('label.city')}
-                        selectId='city'>
-                  <option value={0}>
-                    -- Select city
-                  </option>
-                  {availableCities && availableCities.map((item) => {
-                    return (
-                      <option key={item.city} value={item.city}>
-                        {item.city}
-                      </option>
-                    );
-                  })}
-                </Select>
-              </div>
-              <div className='Form-Row'>
-                <Input errorIdentifier={streetError} labelText={t('label.street')}
-                       errorLabelText={streetError}
-                       inputId='street' inputType='text' inputName='street'
-                       inputOnBlur={(e) => setStreet(e.target.value)}
-                       inputOnChange={(e) => setStreet(e.target.value)} inputRequired='required' autoComplete='off'
-                       value={street} tooltipId={t('tooltip.header.street')} tooltipText={t('tooltip.street')}/>
-              </div>
-            </fieldset>
-            <fieldset className='Form-Row-Double'>
-              <div className='Form-Row'>
-                <Input errorIdentifier={houseNumError} labelText={t('label.houseNum')}
-                       errorLabelText={houseNumError}
-                       inputId='houseNum' inputType='number' inputName='houseNum'
-                       inputOnBlur={(e) => setHouseNum(e.target.value)}
-                       inputOnChange={(e) => setHouseNum(e.target.value)}
-                       inputRequired='required' autoComplete='off' value={houseNum}
-                       tooltipId={t('tooltip.header.houseNum')} min={1}
-                       tooltipText={t('tooltip.header.telNumOrHouseOrFlatNum')}/>
-              </div>
-              <div className='Form-Row'>
-                <Input errorIdentifier={flatNumError} labelText={t('label.flatNum')}
-                       errorLabelText={flatNumError}
-                       inputId='flatNum' inputType='number' inputName='flatNum'
-                       inputOnBlur={(e) => setFlatNum(e.target.value)} min={1}
-                       inputOnChange={(e) => setFlatNum(e.target.value)} inputRequired='required'
-                       autoComplete='off' tooltipId={t('tooltip.header.flatNum')}
-                       tooltipText={t('tooltip.telNumOrHouseOrFlatNum')} value={flatNum}/>
-              </div>
-            </fieldset>
-          </form>
+          {width > 768 ?
+            <form className='Form Flex F-F-C-N fill-width'>
+                <fieldset className='Form-Row-Double'>
+                {citySelect}
+                {streetCell}
+                </fieldset>
+              <fieldset className='Form-Row-Double'>
+                {houseNumCell}
+                {flatNumCell}
+              </fieldset>
+            </form>
+            :
+            <React.Fragment>
+              <Carousel prevIcon={PrevIcon(t('button.prev'))} nextIcon={NextIcon(t('button.next'))} touch={true}
+                        interval={1000000000} className='fill-width'>
+                <Carousel.Item>
+                  <fieldset className='Flex J-C-S-A A-I-C F-F-C-N fill-height'>
+                    {citySelect}
+                    {streetCell}
+                  </fieldset>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <fieldset className='Flex J-C-S-A A-I-C F-F-C-N fill-height'>
+                    {houseNumCell}
+                    {flatNumCell}
+                  </fieldset>
+                </Carousel.Item>
+              </Carousel>
+            </React.Fragment>
+          }
         </React.Fragment>
       }
       <NavigationButtons page={page} nextButtonText={t('button.submit')} prevOnClickAction={() => prev()}
-                         displayNext={addAddress} displayPrev={true}
+                         displayNext={authContext.logged ? addAddress : true} displayPrev={true}
                          nextButtonDisabled={!city || !street || !houseNum || !flatNum}
                          nextOnClickAction={() => {
                            sendDeliveryData();

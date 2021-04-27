@@ -68,7 +68,7 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 620px minmax(10px, 1fr) 240px;
+    grid-template-columns: 620px minmax(10px, 1fr) 290px;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -81,7 +81,7 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 580px minmax(10px, 1fr) 220px;
+    grid-template-columns: 580px minmax(10px, 1fr) 284px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -90,7 +90,7 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 500px minmax(10px, 1fr) 200px;
+    grid-template-columns: 500px minmax(10px, 1fr) 270px;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
@@ -99,7 +99,8 @@
   }
 
   .Navbar-Bottom {
-    grid-template-columns: 460px minmax(10px, 1fr) 190px;
+    grid-template-columns: 460px minmax(10px, 1fr) 260px;
+    padding-inline: calc(7px * 2);
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {

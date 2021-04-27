@@ -37,6 +37,7 @@ import {Menu} from "./UI-components/navbar/Menu";
 import NotificationButton from "./UI-components/button/notification/NotificationButton";
 import useWindowDimensions from "./utils/isTouchDevice";
 import {NotificationOverlayContext} from "./context/notification-overlay/NavbarMenuContext";
+import {ActivationModal} from "./UI-components/modal/ActivationModal";
 
 function App() {
   const toastRef = useRef(null);
@@ -48,13 +49,15 @@ function App() {
     internalError: false,
     errorCode: 0,
     clientsOrder: false,
-    usersOrder: false
+    usersOrder: false,
+    activationModal: false,
+    notActivated: false
   });
   const modalValue = {modal, setModal};
 
   const [toast, setToast] = useState({
-    showSubscription: atob(localStorage.getItem('subscriptionShow')) === 'true' || localStorage.getItem('subscriptionShow') === null,
-    showCookie: atob(localStorage.getItem('cookies')) === 'true' || localStorage.getItem('cookies') === null,
+    showSubscription: atob(localStorage.getItem(btoa('subscriptionShow'))) === 'true' || localStorage.getItem(btoa('subscriptionShow')) === null,
+    showCookie: atob(localStorage.getItem(btoa('cookies'))) === 'true' || localStorage.getItem(btoa('cookies')) === null,
     hoverTipShow: false,
     tipTop: '70%',
     verified: false
@@ -85,15 +88,13 @@ function App() {
   }, []);
 
   function createClientsSession() {
-    if (!localStorage.getItem('clientsToken')) {
-      axios.post(
-        'http://localhost:5000/api/protected/client/auth/create-session',
-        {}
-      ).then((response) => {
+    if (!localStorage.getItem(btoa('clientsToken'))) {
+      axios.get('http://localhost:5000/api/protected/client/auth/create-session')
+        .then((response) => {
         const {success, body} = response.data;
 
         if (success) {
-          localStorage.setItem('clientsToken', JSON.stringify(body[0].token));
+          localStorage.setItem(btoa('clientsToken'), btoa(JSON.stringify(body[0].token)));
         }
       }).catch((error) => logError(error));
     }
@@ -126,7 +127,7 @@ function App() {
                           {toast.showCookie ?
                             <Cookie/>
                             : null}
-                          {localStorage.getItem('cookies') && atob(localStorage.getItem('cookies')) === 'false'
+                          {localStorage.getItem(btoa('cookies')) && atob(localStorage.getItem(btoa('cookies'))) === 'false'
                             ?
                             delay(6000) && <Subscribe/>
                             : null}
@@ -139,11 +140,12 @@ function App() {
                       <Cart/>
                       <HoverTooltip/>
                       <ErrorModal/>
+                      <ActivationModal/>
                       <CateringModal/>
                       {width > 1850 ?
                         <div className='Toasts-Stack'>
                           <Cookie/>
-                          {localStorage.getItem('cookies') && atob(localStorage.getItem('cookies')) === 'false'
+                          {localStorage.getItem(btoa('cookies')) && atob(localStorage.getItem(btoa('cookies'))) === 'false'
                             ?
                             delay(6000) && <Subscribe/>
                             : null}

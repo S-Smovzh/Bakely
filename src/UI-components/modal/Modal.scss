@@ -7,6 +7,8 @@
   display: -o-flex !important;
   display: -ms-flex !important;
 
+  overflow: hidden !important;
+  overflow: -moz-hidden-unscrollable !important;
 
   position: fixed;
   top: 0;
@@ -15,7 +17,13 @@
   @include transition(.4);
 
   .modal-content {
-    border-radius: 30px;
+    border-radius: 20px;
+  }
+
+  .modal-content, .modal-dialog{
+    & > * {
+      border: none;
+    }
   }
 }
 
@@ -28,10 +36,6 @@
     @extend %flex;
     @extend %flex__center;
     @include flex-flow(column nowrap);
-
-    & > * {
-      border: none;
-    }
 
     .modal-header {
       margin: 20px 10px 0;
