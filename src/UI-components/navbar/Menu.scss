@@ -4,17 +4,19 @@
   top: 0;
   left: 0;
   position: fixed;
+  height: 100vh;
+  padding-top: 40px;
   padding-inline: 20px;
   overflow-x: hidden;
   overflow-x: -moz-hidden-unscrollable;
   -ms-overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
   z-index: 999;
+  background: $layout-100;
   @include transition(0.2);
   @include transform-origin(0 0);
-  background: $layout-100;
   @include pageMainPartShadow;
-  height: 100vh;
-  padding-top: 40px;
 
   &-Item {
     min-height: 0;
@@ -22,7 +24,6 @@
   }
 }
 
-/* Landscape phones and portrait tablets */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .Menu {
     width: 60%;
@@ -39,7 +40,6 @@
   }
 }
 
-/* Portrait phones and smaller */
 @media only screen and (max-width: 480px) {
   .Menu {
     width: 100%;

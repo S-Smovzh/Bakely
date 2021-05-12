@@ -1,46 +1,49 @@
-.ErrorPage {
+.Error-Page {
   row-gap: calc(7px * 6);
 }
-.ErrorPage .TopBlock {
+.Error-Page .B-T {
   grid-area: 2/2/3/3;
 }
-.ErrorPage > .MiddleBlock {
+.Error-Page > .B-M {
   grid-area: 3/2/4/3;
   row-gap: calc(7px * 6);
 }
+.Error-Page > .B-M img {
+  height: 350px;
+}
 
 @media only screen and (min-width: 1200px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(7px * 4) 50px 480px calc(7px * 10);
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(7px * 4) 50px 440px calc(7px * 10);
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(7px * 4) 100px 360px calc(7px * 10);
     grid-template-columns: calc(7px * 5) minmax(10px, 1fr) calc(7px * 5);
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(7px * 4) 100px 340px calc(7px * 10);
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(7px * 4) 130px 340px calc(7px * 10);
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
 }
 @media only screen and (max-width: 320px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(7px * 4) 130px 340px calc(7px * 10);
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }

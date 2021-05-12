@@ -1,5 +1,5 @@
-import React from "react";
-import {fromBinary} from "../../utils/base64encoder";
+import React from 'react';
+import { fromBinary } from '../../utils/base64encoder';
 
 export default React.createContext({
   cart: localStorage.getItem(btoa('cartItems')) ?
@@ -7,19 +7,17 @@ export default React.createContext({
     : [],
   show: false,
   cartButtonClick: false,
-  showCart: (show) => {
-  },
-  cartButtonInteraction: (cartButtonClick) => {
+  showCart: () => {
   },
   loadProducts: () => {
   },
-  decreaseQuantity: (product) => {
+  decreaseQuantity: () => {
   },
-  increaseQuantity: (product) => {
+  increaseQuantity: () => {
   },
-  addProductToCart: (product) => {
+  addProductToCart: () => {
   },
-  removeProductFromCart: (product) => {
+  removeProductFromCart: () => {
   },
   clearCart: () => {
   }

@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "any",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/en",
   "incognito": "spanning",
   "version": "0.1",
   "omnibox": {
@@ -19,7 +19,7 @@
   "developer": {
     "name": "Sergey Smovzh"
   },
-  "homepage_url": "http://localhost:3000",
+  "homepage_url": "http://localhost:3000/en",
   "icons": [
     {
       "src": "img/manifest-icons/icons/icon-72x72.png",

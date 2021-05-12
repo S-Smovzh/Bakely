@@ -1,19 +1,21 @@
 import React from 'react';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import Head from '../head/Head';
 
 export default function PrivacyPolicy() {
-  const [t] = useTranslation();
+  const [ t ] = useTranslation();
 
   return (
-    <div className='InfoPage Grid'>
-      <section className='TopBlock Flex J-C-C A-I-C T-C'>
+    <div className="Info-Page Grid">
+      <Head title={t('infoPages.privacy.seo.title')} description={t('infoPages.privacy.seo.description')}/>
+      <section className="B-T Flex J-C-C A-I-C T-C">
         <h1>
           {t('infoPages.privacy.header')}
         </h1>
       </section>
-      <article className='MiddleBlock Nunito Flex J-C-S-B A-I-F-S F-F-C-N'>
+      <article className="B-M Nunito Flex J-C-S-B A-I-F-S F-F-C-N">
         <p>
-          At Bakely, accessible from <a href='http://www.bakely.com'>http://www.bakely.com</a>, one of our main
+          At Bakely, accessible from <a href="https://www.bakely.com">https://www.bakely.com</a>, one of our main
           priorities is
           the privacy of our visitors. This
           Privacy Policy document contains types of information that is collected and recorded by Bakely and how we use
@@ -27,11 +29,11 @@ export default function PrivacyPolicy() {
           This Privacy Policy applies only to our online activities and is valid for visitors to our website
           with regards to the information that they shared and/or collect in Bakely.
           This policy is not applicable to any information collected offline or via channels other than this website.
-          Our Privacy Policy was created with the help of the <a target="_blank" rel="nofollow"
-                                                                 href="https://www.privacypolicygenerator.info">
-          Privacy Policy Generator</a> and the <a target="_blank" rel="nofollow"
-                                                  href="https://www.generateprivacypolicy.com/#wizard">
-          Free Privacy Policy Generator</a>.
+          Our Privacy Policy was created with the help of the <a target="_blank" rel="nofollow noreferrer"
+            href="https://www.privacypolicygenerator.info">
+            Privacy Policy Generator</a> and the <a target="_blank" rel="nofollow noreferrer"
+              href="https://www.generateprivacypolicy.com/#wizard">
+              Free Privacy Policy Generator</a>.
         </p>
         <h3>Consent</h3>
         <p>
@@ -59,7 +61,7 @@ export default function PrivacyPolicy() {
         <p>
           We use the information we collect in various ways, including to:
         </p>
-        <ul className='Policy-List'>
+        <ul className="Po-L">
           <li>
             <p>Provide, operate, and maintain our website;</p>
           </li>
@@ -103,9 +105,9 @@ export default function PrivacyPolicy() {
           information.
         </p>
         <p>
-          For more general information on cookies, please read <a target="_blank" rel="nofollow"
-                                                                  href="https://www.cookieconsent.com/what-are-cookies/">
-          "What Are Cookies" from Cookie Consent</a>.
+          For more general information on cookies, please read <a target="_blank" rel="nofollow noreferrer"
+            href="https://www.cookieconsent.com/what-are-cookies/">
+            "What Are Cookies" from Cookie Consent</a>.
         </p>
         <h3>Advertising Partners Privacy Policies</h3>
         <p>

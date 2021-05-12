@@ -1,6 +1,6 @@
 @import '../../css/base/Extensions';
 
-.Checkbox-Container {
+.Checkbox-C {
   display: inline-block;
   vertical-align: middle;
 
@@ -10,7 +10,7 @@
     stroke-width: 3px;
   }
 
-  .Hidden-Checkbox {
+  .H-Checkbox {
     border: 0;
     clip: rect(0 0 0 0);
     clippath: inset(50%);
@@ -23,7 +23,7 @@
     width: 1px;
   }
 
-  .Styled-Checkbox {
+  .S-Checkbox {
     border: 1px inset $text;
     background: $text-inverted;
     width: 24px;

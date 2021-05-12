@@ -1,14 +1,15 @@
 import i18n from 'i18next';
+import detector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import HttpApi from 'i18next-http-backend';
-import detector from 'i18next-browser-languagedetector';
+import { logError } from '../error/errorHandler';
 
 i18n
   .use(HttpApi)
   .use(detector)
   .use(initReactI18next)
   .init({
-    ns: ['common'],
+    ns: [ 'common' ],
     defaultNS: 'common',
     fallbackLng: 'en',
     keySeparator: false,
@@ -31,5 +32,5 @@ i18n
 export default i18n;
 
 export function changeLang(i18n, lng) {
-  i18n.changeLanguage(lng).catch(error => console.log(error));
+  i18n.changeLanguage(lng).catch(error => logError(error));
 }

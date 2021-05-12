@@ -1,0 +1,70 @@
+@import '../../css/base/Extensions';
+
+.dropdown-toggle.tel {
+  border-radius: 8px 0 0 8px;
+}
+
+.dropdown-toggle {
+  @include box-shadow(none);
+}
+
+.dropdown-menu {
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+
+  &.tel-menu {
+    min-height: 105px;
+    max-height: 122px;
+    min-width: 60px;
+    max-width: 60px;
+    row-gap: $standard;
+
+    &.show {
+      display: flex;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -o-flex;
+      display: -ms-flex;
+    }
+
+    & > * {
+      padding: 0;
+    }
+  }
+}
+
+.btn {
+  &:focus {
+    @include box-shadow(none);
+  }
+}
+
+@media only screen and (min-height: 951px) {
+  .dropdown-menu {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-height: 801px) and (max-height: 950px) {
+  .dropdown-menu {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .dropdown-menu {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-height: 640px) {
+  .dropdown-menu {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .dropdown-menu {
+    height: 100px;
+  }
+}

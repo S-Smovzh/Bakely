@@ -1,115 +1,141 @@
-import React, {useEffect, useRef, useState} from 'react';
-import './Overlay.css';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from "react-router-dom";
-import {Animation} from "../../animation/Animation";
-import useWindowDimensions from "../../utils/isTouchDevice";
+import { Link } from 'react-router-dom';
+import { CloudinaryImage } from '../../images/CloudinaryImage';
+import useWindowDimensions from '../../utils/isTouchDevice';
+import { imageClasses } from '../../utils/imagesClasses';
+import { Animation } from '../../animation/Animation';
+import './Overlay.css';
 
 export const Overlay = ({
-                          id,
-                          src,
-                          alt,
-                          src320,
-                          src480,
-                          src768,
-                          src991,
-                          src1199,
-                          imgClassName,
-                          imageType,
-                          type,
-                          text,
-                          link,
-                          onClick,
-                          linkClassName,
-                          buttonClassName,
-                          pictureRef,
-                          children,
-                          animationType,
-                          animationOnHover,
-                          animationOnClick
-                        }) => {
-
+  id,
+  src,
+  alt,
+  imgClassName,
+  imageType,
+  type,
+  text,
+  link,
+  onClick,
+  linkClassName,
+  buttonClassName,
+  pictureRef,
+  children,
+  animationType,
+  cldI,
+  folders,
+  imageName
+}) => {
   Overlay.propTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
+    id: PropTypes.string,
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    imgClassName: PropTypes.string,
+    imageType: PropTypes.string,
+    type: PropTypes.string,
+    text: PropTypes.string,
+    link: PropTypes.string,
+    onClick: PropTypes.func,
+    linkClassName: PropTypes.string,
+    buttonClassName: PropTypes.string,
+    pictureRef: PropTypes.any,
+    animationType: PropTypes.string,
+    cldI: PropTypes.bool,
+    folders: PropTypes.string,
+    imageName: PropTypes.string,
+    children: PropTypes.any
   };
 
   Overlay.defaultProps = {
-    id: null,
-    src: null,
+    id: undefined,
+    src: '',
     alt: '',
-    src320: null,
-    src480: null,
-    src768: null,
-    src991: null,
-    src1199: null,
     imageType: 'listImage',
     type: 'button',
     text: '',
-    link: null,
-    onClick: null,
+    link: '',
+    onClick: undefined,
     linkClassName: '',
     buttonClassName: '',
-    pictureRef: null,
-    animationType: 'none',
-    animationOnHover: false,
-    animationOnClick: false
+    pictureRef: undefined,
+    cldI: false,
+    folders: '',
+    imageName: '',
+    animationType: 'none'
   };
 
-  const [className, setClassName] = useState('listImage');
+  const [className, setClassName] = useState('Image-L');
+  const [imHeight, setImHeight] = useState(null);
+  const [imWidth, setImWidth] = useState(null);
+
   const ref = useRef();
-  const {width} = useWindowDimensions();
+  const { width } = useWindowDimensions();
+
   let component;
 
   useEffect(() => {
-    switch (imageType) {
-      case 'listImage':
-        setClassName('listImage');
-        break;
-      case 'product':
-        setClassName('productImage');
-        break;
-      case 'similarProduct':
-        setClassName('similarProductImage');
-        break;
-      case '300x400':
-        setClassName('Image-Width300-Height400');
-        break;
-      case 'none':
-        setClassName('');
-        break;
-      default:
-        break;
+    if (width > 0) {
+      switch (imageType) {
+        case 'listImage':
+          setClassName('Image-L');
+          setImHeight(imageClasses.listImage(width).height);
+          setImWidth(imageClasses.listImage(width).width);
+          break;
+        case 'similarProduct':
+          setClassName('Image-S-P');
+          setImHeight(imageClasses.similarProduct(width).height);
+          setImWidth(imageClasses.similarProduct(width).width);
+          break;
+        case 'none':
+          setClassName('');
+          break;
+        case 'main.vertical':
+          setImHeight(imageClasses.main.vertical(width).height);
+          setImWidth(imageClasses.main.vertical(width).width);
+          setClassName('');
+          break;
+        case 'main.horizontal':
+          setImHeight(imageClasses.main.horizontal(width).height);
+          setImWidth(imageClasses.main.horizontal(width).width);
+          setClassName('');
+          break;
+        default:
+          setClassName('');
+          break;
+      }
     }
-  }, [])
+  }, [ width ]);
 
   function onFocus() {
     if (ref && ref.current) {
-      ref.current.addEventListener("focus", ref.current.classList.add('opacity-1'))
+      ref.current.addEventListener('focus', ref.current.classList.add('Opacity-1'));
     }
   }
 
   function onFocusOut() {
     if (ref && ref.current) {
-      ref.current.addEventListener("focusout", ref.current.classList.remove('opacity-1'))
+      ref.current.addEventListener('focusout', ref.current.classList.remove('Opacity-1'));
     }
   }
 
   if (type === 'link') {
-    component =
-      <Animation onHover={animationOnHover} onClick={animationOnClick} type={animationType}>
-        <Link to={link} className={linkClassName} onFocus={() => onFocus()} onBlur={() => onFocusOut()}>
+    component = (
+      <Animation onHover onClick type={animationType}>
+        <Link to={link} className={linkClassName} onFocus={() => onFocus()}
+          onBlur={() => onFocusOut()}>
           {text}
         </Link>
-      </Animation>;
+      </Animation>
+    );
   } else if (type === 'button') {
-    component =
-      <Animation onHover={animationOnHover} onClick={animationOnClick} type={animationType}>
+    component = (
+      <Animation onHover onClick type={animationType}>
         <button onClick={onClick} className={buttonClassName} onFocus={() => onFocus()}
-                onBlur={() => onFocusOut()}>
+          onBlur={() => onFocusOut()}>
           {text}
         </button>
-      </Animation>;
+      </Animation>
+    );
   } else if (type === 'text') {
     component = <p>{text}</p>;
   } else {
@@ -118,22 +144,26 @@ export const Overlay = ({
   }
 
   return (
-    <picture ref={pictureRef && pictureRef} id={id}
-             className={`Overlay-Container ${className} ${imgClassName} ${width < 769 ? 'N-P' : ' '}`}>
+    <div ref={pictureRef && pictureRef} id={id}
+      className={`Ov-C ${className} ${imgClassName} ${width < 769 ? 'N-P' : ' '}`}>
 
-      <div className={`Overlay Flex J-C-C A-I-C F-F-C-N fill-width fill-height ${className} ${imgClassName} ${width < 769 ? 'N-P' : ' '}`} ref={ref}>
+      <div className={`Ov Flex J-C-C A-I-C F-F-C-N F-W F-H ${className} ${imgClassName} ${width < 769 ? 'N-P' : ' '}`}
+        ref={ref}>
         {component}
         {children ? children : null}
       </div>
 
-      <source srcSet={src} media="(min-width: 1200px)"/>
-      <source srcSet={src1199} media="(min-width: 992px) and (max-width: 1199px)"/>
-      <source srcSet={src991} media="(min-width: 768px) and (max-width: 991px)"/>
-      <source srcSet={src768} media="(max-width: 768px)"/>
-      <source srcSet={src480} media="(max-width: 480px)"/>
-      <source srcSet={src320} media="(max-width: 320px)"/>
-
-      <img src={src} loading='lazy' alt={alt} className={`${className} ${imgClassName}`}/>
-    </picture>
+      {cldI
+        ? (
+          <CloudinaryImage imageWidth={imWidth} imageHeight={imHeight}
+            folders={folders} imageName={imageName} alt={alt}
+          />
+        )
+        : (
+          <img src={src} loading="lazy" alt={alt}
+            className={`${className} ${imgClassName}`}
+          />
+        )}
+    </div>
   );
 };

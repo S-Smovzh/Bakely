@@ -1,44 +1,45 @@
-import React, {useCallback, useEffect, useState, useRef, useContext} from 'react';
-import './Locations.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faMapMarker} from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet';
-import {Overlay} from '../UI-components/overlay/Overlay';
-import {Card} from '../UI-components/card/Card';
+import React, { useCallback, useEffect, useState, useRef, useContext } from 'react';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { useTranslation } from 'react-i18next';
+import { Modal } from 'react-bootstrap';
+import { timer } from 'rxjs';
 import i18n from 'i18next';
-import {Modal} from 'react-bootstrap';
-import {ModalContext} from '../context/modal/ModalContext';
+import axios from 'axios';
+import { LoadingOverlay } from '../UI-components/overlay/loading/LoadingOverlay';
+import { ModalContext } from '../context/modal/ModalContext';
+import { Overlay } from '../UI-components/overlay/Overlay';
+import { isTouchDevice } from '../utils/isTouchDevice';
+import mapMarker from '../images/icons/map-marker.svg';
+import { Animation } from '../animation/Animation';
 import useOnScreen from '../utils/scrollHandler';
-import {useTranslation} from "react-i18next";
-import {LoadingOverlay} from "../UI-components/overlay/loading/LoadingOverlay";
-import {publicLinks} from "../utils/restLinks";
-import {timer} from "rxjs";
-import {logError} from "../error/errorHandler";
-import {Animation} from "../animation/Animation";
-import {isTouchDevice} from "../utils/isTouchDevice";
+import { Card } from '../UI-components/card/Card';
+import { publicLinks } from '../utils/restLinks';
+import { logError } from '../error/errorHandler';
+import Head from '../head/Head';
+import './Locations.css';
 
-export function Locations() {
+export default function Locations() {
   const [locations, setLocations] = useState([]);
   const [map, setMap] = useState(null);
-  const [t] = useTranslation();
-  const [elementRef] = useOnScreen({
+  const [ t ] = useTranslation();
+  const [ elementRef ] = useOnScreen({
     root: null,
     rootMargin: '-30% 0px -40% 0px',
     threshold: 0.1
   }, '40%');
-  const {modal, setModal} = useContext(ModalContext);
+  const { modal, setModal } = useContext(ModalContext);
   const centreRef = useRef();
   const center = [50.4501811, 30.5299976];
 
   useEffect(() => {
     getLocations();
-  }, [t]);
+  }, [ t ]);
 
   const getLocations = async () => {
     axios.get(publicLinks.bakeries(i18n.language))
       .then(async (response) => {
-        const {success, data} = response.data;
+        const { success, data } = response.data;
+
         if (success) {
           setLocations(await _isOpened(data));
         } else {
@@ -58,47 +59,52 @@ export function Locations() {
     });
   }
 
-  async function _isOpened(locations) {
+  async function _isOpened(locs) {
     const hours = new Date().getHours();
+
     let workingHours = [];
+
     let i;
 
-    for (i = 0; i < locations.length; i++) {
-      locations[i].hours = locations[i].workingHours;
-      workingHours = locations[i].workingHours.split('-');
+    for (i = 0; i < locs.length; i++) {
+      locs[i].hours = locs[i].workingHours;
+      workingHours = locs[i].workingHours.split('-');
       workingHours[0] = workingHours[0].split(':')[0];
       workingHours[1] = workingHours[1].split(':')[0];
       if ((workingHours[0] > hours || workingHours[1] < hours)) {
-        locations[i].workingHours = t('closed'); //TODO
+        locs[i].workingHours = t('closed');
       } else {
-        locations[i].workingHours = t('open');
+        locs[i].workingHours = t('open');
       }
     }
-    return locations;
+    return locs;
   }
 
-  function DisplayPosition({map, latitude, longitude, name}) {
+  // eslint-disable-next-line react/prop-types
+  function DisplayPosition({ locMap, locLatitude, locLongitude, locName }) {
     const onClick = useCallback(() => {
       setModal({
         ...modal,
         locationModal: true
       });
       try {
-        map.setView([latitude, longitude], 16);
+        // eslint-disable-next-line react/prop-types
+        locMap.setView([locLatitude, locLongitude], 16);
         timer(10).subscribe(() => {
-          map.invalidateSize();
+          // eslint-disable-next-line react/prop-types
+          locMap.invalidateSize();
         });
       } catch (e) {
         return true;
       }
-    }, [map]);
+    }, [ locMap ]);
 
     return (
-      <header onClick={onClick} className='ButtonWrapper Flex J-C-F-S'>
+      <header onClick={onClick} className="Flex J-C-F-S">
         <button aria-label={t('locations.modal.button')}
-                className='button-secondary button-small Modal-Toggle Grid' type='button'>
-          <FontAwesomeIcon icon={faMapMarker}/>
-          <span className='helper'>{name}</span>
+          className="Btn-S Btn-Sm Modal-Tog Grid" type="button">
+          <img src={mapMarker} className="Icon" alt=""/>
+          <span className="helper">{locName}</span>
         </button>
       </header>
     );
@@ -108,30 +114,37 @@ export function Locations() {
     <LoadingOverlay
       active={locations.length === 0}
       text={t('overlay.getting')}>
-      <div className='LocationsPage Grid'>
-        <header className='TopBlock Flex J-C-C A-I-C T-C'>
+      <Head title={t('locations.seo.title')} description={t('locations.seo.description')}
+        cardTitle={t('locations.seo.title')} cardDescription={t('locations.seo.cardDescription')}
+        imgUrl="https://res.cloudinary.com/gachi322/image/upload/v1620396518/Bakely/cards/locations_mmj8zh.jpg"
+        imgUrlSecure="https://res.cloudinary.com/gachi322/image/upload/v1620396518/Bakely/cards/locations_mmj8zh.jpg"
+        imgAlt={t('locations.seo.imgAlt')} imgType="JPG"
+      />
+      <div className="Locations-Page Grid">
+        <header className="B-T Flex J-C-C A-I-C T-C">
           <h1>
             {t('locations.header')}
           </h1>
         </header>
-        <section ref={isTouchDevice() ? null : elementRef} className='MiddleBlock Nunito'>
-          <ul className='LocationsList Flex J-C-S-A A-I-C F-F-R-W'>
+        <section ref={isTouchDevice() ? null : elementRef} className="B-M Nunito">
+          <ul className="Loc-L Flex J-C-S-A A-I-C F-F-R-W">
             {locations &&
             locations.map((location) => {
               return (
-                <li key={location.longitude} className='Location Flex F-F-C-W'>
+                <li key={location.longitude} className="Location Flex F-F-C-W">
                   <DisplayPosition map={map} longitude={location.longitude}
-                                   latitude={location.latitude} name={location.name}/>
-                  <Card type='no-animation' className='listImageContainer'>
+                    latitude={location.latitude} name={location.name}
+                  />
+                  <Card type="no-animation" className="Image-List-C">
                     <Overlay src={location.img} alt={location.name}>
-                      <p className='h4-size'>Working Hours:</p>
-                      <p className='h4-size'>{location.hours}</p>
+                      <p className="h4-size">Working Hours:</p>
+                      <p className="h4-size">{location.hours}</p>
                     </Overlay>
-                    <div className='DetailsWrapper Flex J-C-C A-I-C F-F-C-N font-weight_500 fill-width'>
-                      <p className='h6-size fill-width fill-height T-L'>{location.name}</p>
+                    <div className="DetailsWrapper Flex J-C-C A-I-C F-F-C-N font-weight_500 F-W">
+                      <p className="h6-size F-W F-H T-L">{location.name}</p>
                       <a href={'tel:' + '+38' + location.telNum}
-                         className='h6-size Primary-Link fill-width fill-height T-L'>{location.telNum}</a>
-                      <p className='h6-size fill-width fill-height T-L'>{location.workingHours}</p>
+                        className="h6-size Primary-Link F-W F-H T-L">{location.telNum}</a>
+                      <p className="h6-size F-W F-H T-L">{location.workingHours}</p>
                     </div>
                   </Card>
                 </li>
@@ -141,27 +154,28 @@ export function Locations() {
         </section>
       </div>
 
-      <Modal className='Modal Flex J-C-C A-I-C fill-width fill-height Map' onHide={() => closeModal()}
-             show={modal.locationModal} centered={true} size="xl">
-        <Modal.Body className='Flex J-C-C A-I-C F-F-C-N fill-width'>
+      <Modal className="Modal Flex J-C-C A-I-C F-W F-H Map" onHide={() => closeModal()}
+        show={modal.locationModal} centered size="xl">
+        <Modal.Body className="Flex J-C-C A-I-C F-F-C-N fill-width">
           <MapContainer
-            id='map'
+            id="map"
             ref={centreRef}
             center={center}
-            className='Leaflet'
+            className="Leaflet"
             zoom={11}
             maxZoom={18}
-            attributionControl={true}
-            zoomControl={true}
-            doubleClickZoom={true}
-            scrollWheelZoom={true}
-            dragging={true}
-            animate={true}
+            attributionControl
+            zoomControl
+            doubleClickZoom
+            scrollWheelZoom
+            dragging
+            animate
             whenReady={setMap}
             easeLinearity={0.35}>
             <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
             {locations &&
             locations.map((location) => {
               return (
@@ -173,9 +187,10 @@ export function Locations() {
               );
             })}
           </MapContainer>
-          <Animation className='Flex J-C-C A-I-C' type='bounce' onHover={true} onClick={true} infinite={false}>
+          <Animation className="Flex J-C-C A-I-C" type="bounce" onHover
+            onClick infinite={false}>
             <button onClick={() => closeModal()}
-                    type='button' className='button-error button-small-x-wide' aria-label={t('button.close')}>
+              type="button" className="Btn-E Btn-Sm-X-W" aria-label={t('button.close')}>
               {t('button.close')}
             </button>
           </Animation>

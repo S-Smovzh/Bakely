@@ -1,11 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
+
 global.Promise = require('bluebird');
-const publicPath = 'http://localhost:3000/public/';
-const ESLintPlugin = require('eslint-webpack-plugin');
+// eslint-disable-next-line no-unused-vars
+// const publicPath = 'http://localhost:3000/';
+// eslint-disable-next-line no-unused-vars
+// const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -30,46 +37,52 @@ const CompressionPlugin = require("compression-webpack-plugin");
  */
 
 
-/*
- * We've enabled TerserPlugin for you! This minifies your app
- * in order to load faster and run less javascript.
- *
- * https://github.com/webpack-contrib/terser-webpack-plugin
- *
- */
-
 const TerserPlugin = require('terser-webpack-plugin');
 
-
 module.exports = {
-  mode: 'production',
-  entry: './src/index.js',
+  mode: 'development',
+  entry: {
+    main: './src/index.js'
+
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js'
+  },
+  resolve: {
+    fallback: {
+      'fs': false,
+      'os': false,
+      'path': false
+    }
+  },
   module: {
     rules: [
       {
         test: /\.js|jsx$/,
-        include: [path.resolve(__dirname, 'src')],
+        include: [ path.resolve(__dirname, 'src') ],
+        exclude: [ path.resolve(__dirname, 'node_modules') ],
         loader: 'babel-loader'
       },
       {
         test: /\.css|scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sourceMap: false
-            },
-          }],
+            }
+          } ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
-      },
-      {test: /\.(png|woff|woff2|eot|ttf|svg)$/, use: ['url-loader?limit=100000']}]
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
+        use: [ 'file-loader' ]
+      }
+    ]
   },
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin({
+    minimizer: [ new TerserPlugin({
       include: /\.min\.js$/,
       terserOptions: {
         ecma: undefined,
@@ -77,34 +90,21 @@ module.exports = {
         compress: {},
         mangle: true,
         module: false,
-        // Deprecated
         output: null,
         format: null,
         toplevel: false,
         nameCache: null,
         ie8: false,
+        // eslint-disable-next-line camelcase
         keep_classnames: undefined,
+        // eslint-disable-next-line camelcase
         keep_fnames: false,
-        safari10: false,
+        safari10: false
       }
-    })],
-    // splitChunks: {
-    //   cacheGroups: {
-    //     vendors: {
-    //       priority: -10,
-    //       test: /[\\/]node_modules[\\/]/
-    //     }
-    //   },
-    //
-    //   chunks: 'async',
-    //   minChunks: 1,
-    //   minSize: 30000,
-    //   name: false
-    // }
+    }) ],
     splitChunks: {
       chunks: 'async',
       minSize: 20000,
-      minRemainingSize: 0,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -113,37 +113,44 @@ module.exports = {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          reuseExistingChunk: true,
+          reuseExistingChunk: true
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true,
+          reuseExistingChunk: true
         }
       }
-    }
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  resolve: {
-    fallback: {
-      'path': false,
-      'fs': false
     }
   },
   plugins: [
     new webpack.ProgressPlugin(),
     new DuplicatePackageCheckerPlugin(),
+    new webpack.ProvidePlugin({
+      process: 'process/browser'
+    }),
+    new LoadablePlugin(),
+    // new BundleAnalyzerPlugin(),
     // new webpack.optimize.OccurrenceOrderPlugin(true),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    }),
     new CompressionPlugin(),
-    new HtmlWebpackPlugin({template: './public/index.html'})],
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './public/img/logo.svg', to: 'img/logo.svg' },
+        { from: './public/img/spinner.gif', to: 'img/spinner.gif' },
+        { from: './public/manifest.json', to: 'manifest.json' }
+      ]
+    }),
+    new HtmlWebpackPlugin({ template: './public/index.html' })],
   devServer: {
-    contentBase: [path.join(__dirname, 'dist')],
+    contentBase: [ path.join(__dirname, 'dist') ],
     compress: true,
     port: 3000,
     watchContentBase: true,
-    progress: true
+    progress: true,
+    historyApiFallback: true
   }
 };

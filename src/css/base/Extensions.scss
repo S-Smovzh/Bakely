@@ -150,9 +150,9 @@ $mainPadding: calc(#{$standard} * 10);
 }
 
 %avaWidth {
-  width: stretch;
+  width: 100%;
   width: -webkit-fill-available;
-  height: -moz-available;
+  width: -moz-available;
 }
 
 %avaHeight {

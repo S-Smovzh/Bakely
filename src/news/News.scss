@@ -4,7 +4,7 @@
   grid-template-rows: calc(#{$standard} * 4) $mainPadding minmax(10px, 1fr) $mainPadding;
   row-gap: calc(#{$standard} * 6);
 
-  & > .TopBlock {
+  & > .B-T {
     grid-area: 2/2/3/3;
   }
 
@@ -26,7 +26,7 @@
     }
   }
 
-  & > .MiddleBlock {
+  & > .B-M {
     grid-area: 3/2/4/3;
     row-gap: calc(#{$standard} * 6);
     @include columnGap(calc(#{$standard} * 4));

@@ -20,7 +20,6 @@
 }
 
 .loading-spinner {
-  grid-area: 1/2/2/3;
   @extend %flex;
   @extend %flex__center;
   background: #f8f7de;
@@ -28,7 +27,7 @@
   height: 100vh;
 }
 
-.BlockScroll {
+.Block-Scrolling {
   overflow-y: hidden;
   overflow-y: -moz-hidden-unscrollable;
 }

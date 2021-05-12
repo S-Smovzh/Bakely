@@ -1,41 +1,35 @@
-import React, {useEffect, useState} from "react";
-import {timer} from "rxjs";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { timer } from 'rxjs';
 import './Animation.css';
-import PropTypes from "prop-types";
 
 export const Animation = ({
-                            active,
-                            className,
-                            inactivityTiming,
-                            infinite,
-                            onClick,
-                            onHover,
-                            onInactivity,
-                            type,
-                            children
-                          }) => {
-
+  active,
+  className,
+  infinite,
+  onClick,
+  onHover,
+  type,
+  children
+}) => {
   Animation.propTypes = {
     active: PropTypes.bool,
     className: PropTypes.string,
-    inactivityTiming: PropTypes.number,
     infinite: PropTypes.bool,
     onClick: PropTypes.bool.isRequired,
     onHover: PropTypes.bool.isRequired,
-    onInactivity: PropTypes.bool,
-    type: PropTypes.string.isRequired
-  }
+    type: PropTypes.string.isRequired,
+    children: PropTypes.any
+  };
 
   Animation.defaultProps = {
     active: false,
     className: '',
-    inactivityTiming: 999999,
     infinite: false,
     onClick: false,
     onHover: false,
-    onInactivity: false,
     type: 'none'
-  }
+  };
 
   const [animationType, setAnimationType] = useState('');
   const [start, setStart] = useState(false);
@@ -74,33 +68,27 @@ export const Animation = ({
         setAnimationType('');
         break;
       default:
-        setAnimationType('')
+        setAnimationType('');
     }
 
     setStart(active);
-
-  }, [type])
+  }, [ type ]);
 
   return (
     <div className={(infinite ? `Infinite ${animationType}` : start ? animationType : ' ') + ' ' + className}
-         onClick={() => {
-           if (onClick) {
-             setStart(true);
-             timer(delay).subscribe(() => setStart(false));
-           }
-         }}
-         onMouseEnter={() => {
-           if (onHover) {
-             setStart(true);
-             timer(delay).subscribe(() => setStart(false));
-           }
-         }}
-         onMouseLeave={() => {
-           if (onHover) {
-
-           }
-         }}>
+      onClick={() => {
+        if (onClick) {
+          setStart(true);
+          timer(delay).subscribe(() => setStart(false));
+        }
+      }}
+      onMouseEnter={() => {
+        if (onHover) {
+          setStart(true);
+          timer(delay).subscribe(() => setStart(false));
+        }
+      }}>
       {children}
     </div>
   );
-}
+};

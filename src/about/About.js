@@ -1,67 +1,73 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Carousel } from 'react-bootstrap';
+import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
+import { CloudinaryImage } from '../images/CloudinaryImage';
+import useWindowDimensions from '../utils/isTouchDevice';
+import Head from '../head/Head';
 import './About.css';
-import {Picture} from '../UI-components/picture/Picture';
-import {useTranslation} from 'react-i18next';
-import about_1 from '../images/about/about_1.jpg';
-import about_2 from '../images/about/about_2.jpg';
-import about_3 from '../images/about/about_3.jpg';
-import useWindowDimensions from "../utils/isTouchDevice";
-import {Carousel} from "react-bootstrap";
-import {NextIcon, PrevIcon} from "../UI-components/icons/Icons";
-import Head from "../head/Head";
 
-export const About = () => {
-  const [t] = useTranslation();
-  const {width} = useWindowDimensions();
+export default function About() {
+  const [ t ] = useTranslation();
+  const { width } = useWindowDimensions();
 
   return (
-    <div className='AboutPage Grid'>
-      <section className='TopBlock Grid'>
-        <header className='TitleWrapper Flex J-C-C A-I-C T-C'>
+    <div className="Page-About Grid">
+      <Head title={t('about.seo.title')} description={t('about.seo.description')}/>
+      <section className="B-T Grid">
+        <header className="Flex J-C-C A-I-C T-C">
           <h1>
             {t('about.header')}
           </h1>
         </header>
-        {width > 1199 ?
-          <ul className='ImageList Flex J-C-S-B A-I-C F-F-R-N'>
+        {width > 1199 ? (
+          <ul className="I-L Flex J-C-S-B A-I-C F-F-R-N">
             <li>
-              <Picture src={about_1} alt=''
-                       imgClassName='Image_200_300'/>
+              <CloudinaryImage imageWidth={300} imageHeight={380} folders="about"
+                imageName="about_1_xgbygc.jpg" alt=""
+              />
             </li>
             <li>
-              <Picture src={about_2} alt=''
-                       imgClassName='Image_200_300'/>
+              <CloudinaryImage imageWidth={300} imageHeight={380} folders="about"
+                imageName="about_2_wngn5h.jpg" alt=""
+              />
             </li>
             <li>
-              <Picture src={about_3} alt=''
-                       imgClassName='Image_200_300'/>
+              <CloudinaryImage imageWidth={300} imageHeight={380} folders="about"
+                imageName="about_3_yuunir.jpg" alt=""
+              />
             </li>
           </ul>
-          :
-          <Carousel prevIcon={PrevIcon(t('button.prev'))} nextIcon={NextIcon(t('button.next'))} touch={true} interval={null} className='fill-width'>
-            <Carousel.Item>
-              <div className='Flex A-I-C J-C-C'>
-                <img src={about_1} alt=''
-                     className='Image_200_300'/>
-              </div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <div className='Flex A-I-C J-C-C'>
-                <img src={about_2} alt=''
-                     className='Image_200_300'/>
-              </div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <div className='Flex A-I-C J-C-C'>
-                <img src={about_3} alt=''
-                     className='Image_200_300'/>
-              </div>
-            </Carousel.Item>
-          </Carousel>
-        }
+        )
+          : (
+            <Carousel prevIcon={PrevIcon(t('button.prev'))} nextIcon={NextIcon(t('button.next'))} touch
+              interval={null} className="F-W">
+              <Carousel.Item>
+                <div className="Flex A-I-C J-C-C">
+                  <CloudinaryImage imageWidth={300} imageHeight={380} folders="about"
+                    imageName="about_1_xgbygc.jpg" alt=""
+                  />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="Flex A-I-C J-C-C">
+                  <CloudinaryImage imageWidth={300} imageHeight={380} folders="about"
+                    imageName="about_2_wngn5h.jpg" alt=""
+                  />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="Flex A-I-C J-C-C">
+                  <CloudinaryImage imageWidth={300} imageHeight={380} folders="about"
+                    imageName="about_3_yuunir.jpg" alt=""
+                  />
+                </div>
+              </Carousel.Item>
+            </Carousel>
+          )}
       </section>
-      <section className='MiddleBlock Nunito  Flex J-C-C A-I-C'>
-        <article className='Appeal Flex J-C-C A-I-C F-F-C-N'>
+      <section className="B-M Nunito Flex J-C-C A-I-C">
+        <article className="Appeal Flex J-C-C A-I-C F-F-C-N">
           <p>
             {t('about.appeal.firstPart')}
           </p>
@@ -82,9 +88,9 @@ export const About = () => {
           </p>
         </article>
       </section>
-      <section className='BottomBlock Nunito Flex J-C-C A-I-C F-F-C-N'>
-        <header className='T-C TitleWrapper'>
-          <h1 className='Playfair'>
+      <section className="B-B Nunito Flex J-C-C A-I-C F-F-C-N">
+        <header className="T-C">
+          <h1 className="Playfair">
             {t('about.feedbacks.header')}
           </h1>
         </header>
@@ -103,4 +109,4 @@ export const About = () => {
       </section>
     </div>
   );
-};
+}

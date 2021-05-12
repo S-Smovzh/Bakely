@@ -1,12 +1,14 @@
-import {interval} from "rxjs";
-import axios from "axios";
+import { interval } from 'rxjs';
+import axios from 'axios';
+import { userLinks } from '../utils/restLinks';
 
 let errors = {};
 
 export function logError(error) {
-
-  const clientsToken = localStorage.getItem('clientsToken');
-  const userToken = localStorage.getItem('token');
+  const clientsToken = localStorage.getItem(btoa('clientsToken'))
+    ? atob(localStorage.getItem(btoa('clientsToken'))) : null;
+  const userToken = localStorage.getItem(btoa('token'))
+    ? atob(localStorage.getItem(btoa('token'))) : null;
 
   const token = userToken ? userToken : clientsToken;
 
@@ -24,9 +26,11 @@ export function logError(error) {
 
 export async function sendErrorReport() {
   interval(180000).subscribe(() => {
-    axios.post('http://localhost:5000/api/protected/errors/', errors, {
+    axios.post(userLinks.error, errors, {
       headers: {
-        'Submission-Key': btoa('Key')
+        'Submission-Key':
+          localStorage.getItem(btoa('clientsToken'))
+            ? atob(localStorage.getItem(btoa('clientsToken'))) : null
       }
     }).catch();
   });

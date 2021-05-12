@@ -1,11 +1,3 @@
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper {
-  display: grid;
-  display: -webkit-grid;
-  display: -moz-grid;
-  display: -ms-grid;
-  display: -o-grid;
-}
-
 .Cart-Page {
   top: 0;
   right: 0;
@@ -19,16 +11,16 @@
   height: 100vh;
   background: #fffcf9;
 }
-.Cart-Page .TopBlock {
+.Cart-Page .B-T {
   grid-area: 1/1/2/2;
   background: #2a0800;
   color: #ffffff;
 }
-.Cart-Page .MiddleBlock {
+.Cart-Page .B-M {
   grid-area: 2/1/3/2;
   row-gap: 7px;
 }
-.Cart-Page .MiddleBlock .Cart-Products {
+.Cart-Page .B-M .Cart-Pr {
   row-gap: calc(7px * 2);
   overflow-y: auto;
   -ms-overflow-y: auto;
@@ -38,58 +30,61 @@
   padding-block: calc(7px * 4);
   padding-inline: 4px;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product {
+.Cart-Page .B-M .Cart-Pr .Cart-It {
   box-shadow: 0px 4px 14px rgba(78, 34, 16, 0.15);
   -webkit-box-shadow: 0px 4px 14px rgba(78, 34, 16, 0.15);
   -moz-box-shadow: 0px 4px 14px rgba(78, 34, 16, 0.15);
   -o-box-shadow: 0px 4px 14px rgba(78, 34, 16, 0.15);
   border-radius: 10px;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid {
   grid-area: 1/2/2/3;
+  column-gap: calc(7px * 2);
+  -webkit-column-gap: calc(7px * 2);
+  -moz-column-gap: calc(7px * 2);
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product-Data {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-D {
   grid-area: 1/1/2/2;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product-Data > ::-webkit-scrollbar {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-D > ::-webkit-scrollbar {
   width: 6px !important;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product-Data span:nth-child(1) {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-D span:nth-child(1) {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 52px;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Remove-Button {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Btn-Rem {
   grid-area: 1/3/2/4;
   justify-self: flex-end;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product-Image {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-Im {
   grid-area: 1/1/2/2;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product_Quantity {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-Qu {
   grid-area: 1/2/2/3;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product_Quantity > #quantity {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-Qu > #qu {
   height: 30px;
   width: 32px;
   background: #ffffff;
   border: 1px inset #000000;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product_Quantity > button {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-Qu > button {
   height: 32px;
   width: 32px;
   box-shadow: none;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product_Quantity > button:nth-child(1) {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-Qu > button:nth-child(1) {
   border-radius: 8px 8px 0 0;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product_Quantity > button:nth-child(1) img {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-Qu > button:nth-child(1) img {
   transform: rotateX(180deg);
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .Product_Quantity > button:nth-child(3) {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .Item-Qu > button:nth-child(3) {
   border-radius: 0 0 8px 8px;
 }
-.Cart-Page .MiddleBlock .Cart-Products .Cart-Product .Product-Data-Wrapper .H-Ruler {
+.Cart-Page .B-M .Cart-Pr .Cart-It > div.Grid .H-Ruler {
   grid-area: 2/1/3/3;
   background: #711604;
   opacity: 0.8;
@@ -314,7 +309,7 @@
     row-gap: calc(7px * 4);
     padding-inline: calc(7px * 3);
   }
-  .Cart-Page .TopBlock {
+  .Cart-Page .B-T {
     margin-inline: calc(-7px * 3);
     align-items: center;
     align-items: -moz-center;
@@ -327,14 +322,14 @@
     justify-content: -ms-center;
     justify-content: -o-center;
   }
-  .Cart-Page .Cart-Product {
-    grid-template-rows: 110px 4px;
+  .Cart-Page .Cart-It {
+    grid-template-rows: 110px;
     grid-template-columns: 80px auto;
     column-gap: 10px;
     padding: 4px 10px;
     width: 100%;
   }
-  .Cart-Page .Cart-Product .Product-Data-Wrapper {
+  .Cart-Page .Cart-It .Item-D {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 140px 75px auto;
   }
@@ -346,7 +341,7 @@
     row-gap: calc(7px * 4);
     padding-inline: calc(7px * 3);
   }
-  .Cart-Page .TopBlock {
+  .Cart-Page .B-T {
     margin-inline: calc(-7px * 3);
     align-items: center;
     align-items: -moz-center;
@@ -359,14 +354,14 @@
     justify-content: -ms-center;
     justify-content: -o-center;
   }
-  .Cart-Page .Cart-Product {
-    grid-template-rows: 110px 4px;
+  .Cart-Page .Cart-It {
+    grid-template-rows: 110px;
     grid-template-columns: 80px auto;
     column-gap: 10px;
     padding: 4px 10px;
     width: 100%;
   }
-  .Cart-Page .Cart-Product .Product-Data-Wrapper {
+  .Cart-Page .Cart-It .Item-D {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 140px 75px auto;
   }
@@ -378,7 +373,7 @@
     row-gap: calc(7px * 4);
     padding-inline: calc(7px * 2);
   }
-  .Cart-Page .TopBlock {
+  .Cart-Page .B-T {
     margin-inline: calc(-7px * 2);
     align-items: center;
     align-items: -moz-center;
@@ -391,14 +386,14 @@
     justify-content: -ms-center;
     justify-content: -o-center;
   }
-  .Cart-Page .Cart-Product {
-    grid-template-rows: 110px 4px;
+  .Cart-Page .Cart-It {
+    grid-template-rows: 110px;
     grid-template-columns: 80px auto;
     column-gap: 10px;
     padding: 4px 10px;
     width: 100%;
   }
-  .Cart-Page .Cart-Product .Product-Data-Wrapper {
+  .Cart-Page .Cart-It .Item-D {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 140px 75px auto;
   }
@@ -410,25 +405,25 @@
     row-gap: calc(7px * 4);
     padding-inline: calc(7px * 2);
   }
-  .Cart-Page .TopBlock {
+  .Cart-Page .B-T {
     margin-inline: calc(-7px * 2);
   }
-  .Cart-Page .TopBlock.Small-Device {
+  .Cart-Page .B-T.Small-Device {
     justify-content: space-around;
     -webkit-justify-content: space-around;
     align-items: center;
     -webkit-align-items: center;
   }
-  .Cart-Page .TopBlock.Small-Device button {
+  .Cart-Page .B-T.Small-Device button {
     box-shadow: 0 4px 2px rgba(255, 255, 255, 0.25);
   }
-  .Cart-Page .Cart-Product {
+  .Cart-Page .Cart-It {
     grid-template-rows: 110px;
     grid-template-columns: 80px auto;
     column-gap: 10px;
     padding: 4px 10px;
   }
-  .Cart-Page .Cart-Product .Product-Data-Wrapper {
+  .Cart-Page .Cart-It .Item-D {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 240px 75px auto;
   }
@@ -440,25 +435,25 @@
     row-gap: calc(7px * 4);
     padding-inline: 7px;
   }
-  .Cart-Page .TopBlock {
+  .Cart-Page .B-T {
     margin-inline: calc(-7px);
   }
-  .Cart-Page .TopBlock.Small-Device {
+  .Cart-Page .B-T.Small-Device {
     justify-content: space-around;
     -webkit-justify-content: space-around;
     align-items: center;
     -webkit-align-items: center;
   }
-  .Cart-Page .TopBlock.Small-Device button {
+  .Cart-Page .B-T.Small-Device button {
     box-shadow: 0 4px 2px rgba(255, 255, 255, 0.25);
   }
-  .Cart-Page .Cart-Product {
-    grid-template-rows: 110px 4px;
+  .Cart-Page .Cart-It {
+    grid-template-rows: 110px;
     grid-template-columns: 80px auto;
     column-gap: 10px;
     padding: 4px 10px;
   }
-  .Cart-Page .Cart-Product .Product-Data-Wrapper {
+  .Cart-Page .Cart-It .Item-D {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 140px 75px auto;
   }
@@ -470,27 +465,30 @@
     row-gap: calc(7px * 4);
     padding-inline: 7px;
   }
-  .Cart-Page .TopBlock {
+  .Cart-Page .B-T {
     margin-inline: calc(-7px);
   }
-  .Cart-Page .TopBlock.Small-Device {
+  .Cart-Page .B-T.Small-Device {
     justify-content: space-around;
     -webkit-justify-content: space-around;
     align-items: center;
     -webkit-align-items: center;
   }
-  .Cart-Page .TopBlock.Small-Device button {
+  .Cart-Page .B-T.Small-Device button {
     box-shadow: 0 4px 2px rgba(255, 255, 255, 0.25);
   }
-  .Cart-Page .Cart-Product {
-    grid-template-rows: 110px 4px;
+  .Cart-Page .Cart-It {
+    grid-template-rows: 130px;
     grid-template-columns: 80px auto;
     column-gap: 10px;
-    padding: 4px 10px;
+    padding: 4px;
   }
-  .Cart-Page .Cart-Product .Product-Data-Wrapper {
+  .Cart-Page .Cart-It .Item-D {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 120px 55px auto;
+    column-gap: 0 !important;
+    -webkit-column-gap: 0 !important;
+    -moz-column-gap: 0 !important;
   }
 }
 

@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from "react";
-import {timer} from "rxjs";
+import { useEffect, useRef, useState } from 'react';
+import { timer } from 'rxjs';
 
 export const masks = {
-  "tel": "999 999-99-99"
-}
+  'tel': '999 999-99-99'
+};
 
 export default function useDigitPress() {
   const elementRef = useRef(null);
@@ -88,8 +88,8 @@ export default function useDigitPress() {
         event.stopPropagation();
         timer(100).subscribe(() => setPasteProhibited(false));
       });
-    }
-  }, [elementRef])
+    };
+  }, [ elementRef ]);
 
   return [elementRef, pasteProhibited];
 }

@@ -1,108 +1,108 @@
 .Product_Page {
   row-gap: calc(calc(7px * 10) * 2);
 }
-.Product_Page .MiddleBlock {
+.Product_Page .B-M {
   grid-area: 1/2/2/3;
   margin-top: calc(7px * 10);
   grid-column-gap: calc(7px * 10);
   row-gap: calc(7px * 4);
 }
-.Product_Page .MiddleBlock .Col_First {
+.Product_Page .B-M .Col-F {
   row-gap: calc(7px * 4);
 }
-.Product_Page .MiddleBlock .Col_First > .Flex {
+.Product_Page .B-M .Col-F > .Flex {
   gap: calc(7px * 3);
 }
-.Product_Page .MiddleBlock .Col_Second {
+.Product_Page .B-M .Col-S {
   grid-template-columns: minmax(10px, 1fr);
   row-gap: calc(7px * 2);
 }
-.Product_Page .MiddleBlock .Col_Second .Product_Info, .Product_Page .MiddleBlock .Col_Second .Product_Ingredients {
+.Product_Page .B-M .Col-S .It-Inf, .Product_Page .B-M .Col-S .Item-Ingr {
   row-gap: calc(7px * 2);
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Info {
+.Product_Page .B-M .Col-S > .It-Inf {
   grid-area: 1/1/2/2;
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Ingredients {
+.Product_Page .B-M .Col-S > .Item-Ingr {
   grid-area: 2/1/3/2;
   grid-template-columns: minmax(10px, 1fr);
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Ingredients h3 {
+.Product_Page .B-M .Col-S > .Item-Ingr h3 {
   grid-area: 1/1/2/2;
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Ingredients .Ingredients_List {
+.Product_Page .B-M .Col-S > .Item-Ingr .Ingr-L {
   grid-area: 2/1/3/2;
   gap: 7px;
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details {
+.Product_Page .B-M .Col-S > .Item-D {
   grid-area: 3/1/4/2;
   column-gap: calc(7px * 3);
   -webkit-column-gap: calc(7px * 3);
   -moz-column-gap: calc(7px * 3);
   row-gap: calc(7px * 5);
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options {
+.Product_Page .B-M .Col-S > .Item-D .Item-O {
   grid-area: 1/1/2/2;
   row-gap: calc(7px * 4);
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options .Wrapper {
+.Product_Page .B-M .Col-S > .Item-D .Item-O .Wrapper {
   column-gap: calc(7px * 6);
   -webkit-column-gap: calc(7px * 6);
   -moz-column-gap: calc(7px * 6);
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options .Wrapper select {
+.Product_Page .B-M .Col-S > .Item-D .Item-O .Wrapper select {
   height: 32px;
   min-width: calc(calc(7px * 10) * 2);
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options .Wrapper .Quantity_Change h5 {
+.Product_Page .B-M .Col-S > .Item-D .Item-O .Wrapper .Qu h5 {
   line-height: 1.5;
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options .Wrapper .Quantity_Change > #quantity {
+.Product_Page .B-M .Col-S > .Item-D .Item-O .Wrapper .Qu > #qu {
   height: 32px;
   width: 32px;
   background: #ffffff;
   border: 1px inset #000000;
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options .Wrapper .Quantity_Change > button {
+.Product_Page .B-M .Col-S > .Item-D .Item-O .Wrapper .Qu > button {
   height: 32px;
   width: 32px;
   box-shadow: none;
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options .Wrapper .Quantity_Change > button:nth-child(1) {
+.Product_Page .B-M .Col-S > .Item-D .Item-O .Wrapper .Qu > button:nth-child(1) {
   border-radius: 8px 0 0 8px;
 }
-.Product_Page .MiddleBlock .Col_Second > .Product_Details .Product_Options .Wrapper .Quantity_Change > button:nth-child(3) {
+.Product_Page .B-M .Col-S > .Item-D .Item-O .Wrapper .Qu > button:nth-child(3) {
   border-radius: 0 8px 8px 0;
 }
-.Product_Page .BottomBlock {
+.Product_Page .B-B {
   grid-area: 2/2/3/3;
   grid-template-rows: 60px minmax(10px, 1fr);
   grid-template-columns: minmax(10px, 1fr);
   gap: calc(7px * 6);
   margin-bottom: calc(7px * 10);
 }
-.Product_Page .BottomBlock > .Products_List {
+.Product_Page .B-B > .Items-L {
   grid-area: 2/1/3/2;
 }
-.Product_Page .BottomBlock > .Products_List a[href] {
+.Product_Page .B-B > .Items-L a[href] {
   text-decoration: none;
 }
-.Product_Page .BottomBlock > .Products_List .Card {
+.Product_Page .B-B > .Items-L .Card {
   grid-template-rows: minmax(10px, 1fr) 110px;
   grid-template-columns: minmax(10px, 1fr);
   row-gap: 14px;
   color: #000000;
 }
-.Product_Page .BottomBlock > .Products_List .Card .Overlay-Container {
+.Product_Page .B-B > .Items-L .Card .Ov-C {
   grid-area: 1/1/2/2;
 }
-.Product_Page .BottomBlock > .Products_List .Card .Product-Info {
+.Product_Page .B-B > .Items-L .Card .It-Inf {
   grid-area: 2/1/3/2;
   grid-template-rows: 50px 60px;
   grid-template-columns: minmax(10px, 1fr);
 }
 
-.HR-Container > hr {
+.HR-C > hr {
   width: 100%;
   border-color: #000000;
   border-width: 3px;
@@ -114,25 +114,25 @@
     grid-template-rows: 560px minmax(10px, 1fr);
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
-  .Product_Page .MiddleBlock {
+  .Product_Page .B-M {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 400px minmax(10px, 1fr);
   }
-  .Product_Page .MiddleBlock .Col_First {
+  .Product_Page .B-M .Col-F {
     grid-area: 1/1/2/2;
   }
-  .Product_Page .MiddleBlock .Col_Second {
+  .Product_Page .B-M .Col-S {
     grid-area: 1/2/2/3;
     grid-template-rows: 130px 220px 100px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Ingredients {
+  .Product_Page .B-M .Col-S > .Item-Ingr {
     grid-template-rows: 40px 100px 40px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Details {
+  .Product_Page .B-M .Col-S > .Item-D {
     grid-template-columns: 320px minmax(10px, 1fr);
     grid-template-rows: minmax(10px, 1fr);
   }
-  .Product_Page .Products_List {
+  .Product_Page .Items-L {
     gap: calc(7px * 5);
   }
 }
@@ -141,25 +141,25 @@
     grid-template-rows: 740px minmax(10px, 1fr);
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
-  .Product_Page .MiddleBlock {
+  .Product_Page .B-M {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 320px minmax(10px, 1fr);
   }
-  .Product_Page .MiddleBlock .Col_First {
+  .Product_Page .B-M .Col-F {
     grid-area: 1/1/2/2;
   }
-  .Product_Page .MiddleBlock .Col_Second {
+  .Product_Page .B-M .Col-S {
     grid-area: 1/2/2/3;
     grid-template-rows: 170px 300px 140px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Ingredients {
+  .Product_Page .B-M .Col-S > .Item-Ingr {
     grid-template-rows: 40px 180px 40px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Details {
+  .Product_Page .B-M .Col-S > .Item-D {
     grid-template-columns: 320px minmax(10px, 1fr);
     grid-template-rows: minmax(10px, 1fr);
   }
-  .Product_Page .Products_List {
+  .Product_Page .Items-L {
     gap: calc(7px * 3);
   }
 }
@@ -168,25 +168,25 @@
     grid-template-rows: 870px minmax(10px, 1fr);
     grid-template-columns: calc(7px * 4) minmax(10px, 1fr) calc(7px * 4);
   }
-  .Product_Page .MiddleBlock {
+  .Product_Page .B-M {
     grid-template-rows: minmax(10px, 1fr);
     grid-template-columns: 300px minmax(10px, 1fr);
   }
-  .Product_Page .MiddleBlock .Col_First {
+  .Product_Page .B-M .Col-F {
     grid-area: 1/1/2/2;
   }
-  .Product_Page .MiddleBlock .Col_Second {
+  .Product_Page .B-M .Col-S {
     grid-area: 1/2/2/3;
     grid-template-rows: 200px 320px 210px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Ingredients {
+  .Product_Page .B-M .Col-S > .Item-Ingr {
     grid-template-rows: 40px 212px 40px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Details {
+  .Product_Page .B-M .Col-S > .Item-D {
     grid-template-columns: minmax(10px, 1fr);
     grid-template-rows: minmax(10px, 1fr) 60px;
   }
-  .Product_Page .Products_List {
+  .Product_Page .Items-L {
     gap: calc(7px * 6);
   }
 }
@@ -195,25 +195,25 @@
     grid-template-rows: 1100px minmax(10px, 1fr);
     grid-template-columns: calc(7px * 4) minmax(10px, 1fr) calc(7px * 4);
   }
-  .Product_Page .MiddleBlock {
+  .Product_Page .B-M {
     grid-template-rows: 400px minmax(10px, 1fr);
     grid-template-columns: minmax(10px, 1fr);
   }
-  .Product_Page .MiddleBlock .Col_First {
+  .Product_Page .B-M .Col-F {
     grid-area: 1/1/2/2;
   }
-  .Product_Page .MiddleBlock .Col_Second {
+  .Product_Page .B-M .Col-S {
     grid-area: 2/1/3/2;
     grid-template-rows: 170px 280px 110px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Ingredients {
+  .Product_Page .B-M .Col-S > .Item-Ingr {
     grid-template-rows: 40px 172px 40px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Details {
+  .Product_Page .B-M .Col-S > .Item-D {
     grid-template-columns: 320px minmax(10px, 1fr);
     grid-template-rows: minmax(10px, 1fr);
   }
-  .Product_Page .Products_List {
+  .Product_Page .Items-L {
     gap: calc(7px * 6);
   }
 }
@@ -222,25 +222,25 @@
     grid-template-rows: 1400px minmax(10px, 1fr);
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
   }
-  .Product_Page .MiddleBlock {
+  .Product_Page .B-M {
     grid-template-rows: 450px minmax(10px, 1fr);
     grid-template-columns: minmax(10px, 1fr);
   }
-  .Product_Page .MiddleBlock .Col_First {
+  .Product_Page .B-M .Col-F {
     grid-area: 1/1/2/2;
   }
-  .Product_Page .MiddleBlock .Col_Second {
+  .Product_Page .B-M .Col-S {
     grid-area: 2/1/3/2;
     grid-template-rows: 250px 320px 220px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Ingredients {
+  .Product_Page .B-M .Col-S > .Item-Ingr {
     grid-template-rows: 40px 212px 40px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Details {
+  .Product_Page .B-M .Col-S > .Item-D {
     grid-template-columns: minmax(10px, 1fr);
     grid-template-rows: minmax(10px, 1fr) 60px;
   }
-  .Product_Page .Products_List {
+  .Product_Page .Items-L {
     gap: calc(7px * 6);
   }
 }
@@ -249,25 +249,25 @@
     grid-template-rows: 1400px minmax(10px, 1fr);
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .Product_Page .MiddleBlock {
+  .Product_Page .B-M {
     grid-template-rows: 370px minmax(10px, 1fr);
     grid-template-columns: minmax(10px, 1fr);
   }
-  .Product_Page .MiddleBlock .Col_First {
+  .Product_Page .B-M .Col-F {
     grid-area: 1/1/2/2;
   }
-  .Product_Page .MiddleBlock .Col_Second {
+  .Product_Page .B-M .Col-S {
     grid-area: 2/1/3/2;
     grid-template-rows: 250px 320px 220px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Ingredients {
+  .Product_Page .B-M .Col-S > .Item-Ingr {
     grid-template-rows: 40px 212px 40px;
   }
-  .Product_Page .MiddleBlock .Col_Second > .Product_Details {
+  .Product_Page .B-M .Col-S > .Item-D {
     grid-template-columns: minmax(10px, 1fr);
     grid-template-rows: minmax(10px, 1fr) 60px;
   }
-  .Product_Page .Products_List {
+  .Product_Page .Items-L {
     gap: calc(7px * 6);
   }
 }

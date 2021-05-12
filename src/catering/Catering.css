@@ -1,33 +1,34 @@
-.CateringPage {
+.Catering-Page {
   row-gap: calc(7px * 4);
 }
-.CateringPage > .TopBlock {
+.Catering-Page > .B-T {
   grid-area: 2/2/3/3;
 }
-.CateringPage > .MiddleBlock {
+.Catering-Page > .B-M {
   grid-area: 3/2/4/3;
+  row-gap: calc(7px * 3);
 }
-.CateringPage > .MiddleBlock .Card {
+.Catering-Page > .B-M .Card {
   row-gap: calc(7px * 2);
 }
-.CateringPage > .MiddleBlock .Card .Overlay-Container {
+.Catering-Page > .B-M .Card .Ov-C {
   grid-area: 1/1/2/2;
 }
-.CateringPage > .MiddleBlock .Card .Catering-Title {
+.Catering-Page > .B-M .Card .Catering-Title {
   grid-area: 2/1/3/2;
 }
-.CateringPage > .MiddleBlock .Card .Catering-Description {
+.Catering-Page > .B-M .Card .Catering-Description {
   grid-area: 3/1/4/2;
   padding-inline: calc(7px * 2);
 }
-.CateringPage > .MiddleBlock .carousel-inner {
+.Catering-Page > .B-M .carousel-inner {
   height: 90%;
   padding: calc(7px * 2);
 }
-.CateringPage > .MiddleBlock .carousel-item {
+.Catering-Page > .B-M .carousel-item {
   height: 100%;
 }
-.CateringPage > .MiddleBlock .carousel-item.active {
+.Catering-Page > .B-M .carousel-item.active {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -44,139 +45,137 @@
   justify-content: -ms-center;
   justify-content: -o-center;
 }
-.CateringPage > .MiddleBlock .carousel-indicators {
+.Catering-Page > .B-M .carousel-indicators {
   margin: 0;
 }
-.CateringPage > .MiddleBlock .carousel-indicators li {
+.Catering-Page > .B-M .carousel-indicators li {
   background-color: #4e2210;
 }
 
 @media only screen and (min-width: 1400px) {
-  .CateringPage {
+  .Catering-Page {
     grid-template-rows: calc(7px * 10) 40px 900px calc(7px * 10);
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
-  .CateringPage .Card {
+  .Catering-Page .Card {
     grid-template-columns: 400px;
-    grid-template-rows: 250px 40px 260px;
+    grid-template-rows: 250px 40px 270px;
     grid-row-gap: 14px;
   }
-  .CateringPage .Card img, .CateringPage .Card .Overlay-Container {
+  .Catering-Page .Card img, .Catering-Page .Card .Ov-C {
     height: 250px;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .CateringPage {
+  .Catering-Page {
     grid-template-rows: calc(7px * 10) 40px 900px calc(7px * 10);
     grid-template-columns: calc(7px * 8) minmax(10px, 1fr) calc(7px * 8);
   }
-  .CateringPage .Card {
+  .Catering-Page .Card {
     grid-template-columns: 300px;
-    grid-template-rows: 185px 40px 280px;
+    grid-template-rows: 185px 40px 300px;
   }
-  .CateringPage .Card img, .CateringPage .Card .Overlay-Container {
+  .Catering-Page .Card img, .Catering-Page .Card .Ov-C {
     width: 300px;
     height: 185px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .CateringPage {
+  .Catering-Page {
     grid-template-rows: calc(7px * 10) 40px 800px calc(7px * 10);
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
-  .CateringPage .CateringOptions li > .Card {
+  .Catering-Page .CateringOptions li > .Card {
     grid-template-columns: 270px;
     grid-template-rows: 185px 40px 300px;
   }
-  .CateringPage .CateringOptions li > .Card img, .CateringPage .CateringOptions li > .Card .Overlay-Container {
+  .Catering-Page .CateringOptions li > .Card img, .Catering-Page .CateringOptions li > .Card .Ov-C {
     width: 270px;
     height: 185px;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .CateringPage {
+  .Catering-Page {
     grid-template-rows: calc(7px * 10) 40px 700px calc(7px * 10);
     grid-template-columns: calc(7px * 5) minmax(10px, 1fr) calc(7px * 5);
   }
-  .CateringPage .Card {
+  .Catering-Page .Card {
     width: 70%;
     height: 100%;
     padding: calc(7px * 3);
     grid-template-columns: minmax(10px, 1fr);
     grid-template-rows: 180px 40px 300px;
   }
-  .CateringPage .Card img, .CateringPage .Card .Overlay-Container {
+  .Catering-Page .Card img, .Catering-Page .Card .Ov-C {
     width: 100%;
     height: 180px;
   }
-  .CateringPage .carousel {
+  .Catering-Page .carousel {
     height: 520px;
   }
 }
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-  .CateringPage {
+  .Catering-Page {
     grid-template-rows: calc(7px * 10) 40px 800px calc(7px * 10);
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
   }
-  .CateringPage .Card {
+  .Catering-Page .Card {
     width: 70%;
     height: 100%;
     padding: calc(7px * 2);
     grid-template-columns: minmax(10px, 1fr);
     grid-template-rows: 185px 40px 300px;
   }
-  .CateringPage .Card img, .CateringPage .Card .Overlay-Container {
+  .Catering-Page .Card img, .Catering-Page .Card .Ov-C {
     width: 100%;
     height: 180px;
   }
-  .CateringPage .carousel {
+  .Catering-Page .carousel {
     height: 580px;
   }
 }
 @media only screen and (min-width: 381px) and (max-width: 599px) {
-  .CateringPage {
-    grid-template-rows: calc(7px * 10) 40px 900px calc(7px * 10);
+  .Catering-Page {
+    grid-template-rows: calc(7px * 10) 40px 700px calc(7px * 10);
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .CateringPage .Card {
+  .Catering-Page .Card {
     width: 100%;
-    height: 100%;
     padding: 7px;
     grid-template-columns: minmax(10px, 1fr);
-    grid-template-rows: 180px 40px 300px;
+    grid-template-rows: 180px 40px 200px;
   }
-  .CateringPage .Card img, .CateringPage .Card .Overlay-Container {
+  .Catering-Page .Card img, .Catering-Page .Card .Ov-C {
     width: 100%;
     height: 180px;
   }
-  .CateringPage .carousel {
+  .Catering-Page .carousel {
     height: 620px;
   }
-  .CateringPage .carousel-control-prev, .CateringPage .carousel-control-next {
+  .Catering-Page .carousel-control-prev, .Catering-Page .carousel-control-next {
     top: auto;
     z-index: 20;
   }
 }
 @media only screen and (max-width: 380px) {
-  .CateringPage {
-    grid-template-rows: 7px 100px 1000px calc(7px * 10);
+  .Catering-Page {
+    grid-template-rows: 7px 100px 700px calc(7px * 10);
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .CateringPage .Card {
+  .Catering-Page .Card {
     width: 100%;
-    height: 100%;
     padding: 7px;
     grid-template-columns: minmax(10px, 1fr);
-    grid-template-rows: 180px 40px 300px;
+    grid-template-rows: 180px 40px 230px;
   }
-  .CateringPage .Card img, .CateringPage .Card .Overlay-Container {
+  .Catering-Page .Card img, .Catering-Page .Card .Ov-C {
     width: 100%;
     height: 180px;
   }
-  .CateringPage .carousel {
+  .Catering-Page .carousel {
     height: 800px;
   }
-  .CateringPage .carousel-control-prev, .CateringPage .carousel-control-next {
+  .Catering-Page .carousel-control-prev, .Catering-Page .carousel-control-next {
     top: auto;
     z-index: 20;
   }

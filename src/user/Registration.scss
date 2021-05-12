@@ -3,15 +3,15 @@
 .Registration-Page {
   grid-template-rows: $mainPadding 440px 120px $mainPadding;
 
-  .MiddleBlock {
+  .B-M {
     grid-area: 2/2/3/3;
     grid-template-rows: minmax(10px, 1fr);
 
-    .LeftRow {
+    .F-C {
       grid-area: 1/1/2/2;
     }
 
-    .RightRow {
+    .S-C {
       grid-area: 1/2/2/3;
       grid-template-rows: 100px 340px;
 
@@ -24,14 +24,14 @@
         grid-template-columns: minmax(10px, 1fr);
         grid-template-rows: repeat(3, 100px);
 
-        .NavigationButtons {
+        .Nav-Btns {
           grid-area: 3/1/4/2;
         }
       }
     }
   }
 
-  .BottomBlock {
+  .B-B {
     grid-area: 3/2/4/3;
   }
 }
@@ -40,10 +40,10 @@
   .Registration-Page {
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: 500px minmax(10px, 1fr);
 
-      .RightRow {
+      .S-C {
         grid-template-columns: calc(#{$standard} * 12) minmax(10px, 1fr) calc(#{$standard} * 12);
       }
     }
@@ -54,10 +54,10 @@
   .Registration-Page {
     grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: 400px minmax(10px, 1fr);
 
-      .RightRow {
+      .S-C {
         grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
       }
     }
@@ -68,10 +68,10 @@
   .Registration-Page {
     grid-template-columns: calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4);
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: 300px minmax(10px, 1fr);
 
-      .RightRow {
+      .S-C {
         grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
       }
     }
@@ -82,10 +82,10 @@
   .Registration-Page {
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: minmax(10px, 1fr);
 
-      .RightRow {
+      .S-C {
         grid-area: 1/1/2/2;
         grid-template-columns: 15% minmax(10px, 1fr) 15%;
       }
@@ -97,14 +97,14 @@
   .Registration-Page {
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: minmax(10px, 1fr);
 
-      .RightRow {
+      .S-C {
         grid-area: 1/1/2/2;
         grid-template-columns: calc(#{$standard} * 2)  minmax(10px, 1fr) calc(#{$standard} * 2);
 
-        .button-small {
+        .Btn-Sm {
           word-break: break-word;
         }
       }
@@ -116,14 +116,14 @@
   .Registration-Page {
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: minmax(10px, 1fr);
 
-      .RightRow {
+      .S-C {
         grid-area: 1/1/2/2;
         grid-template-columns: calc(#{$standard} * 2)  minmax(10px, 1fr) calc(#{$standard} * 2);
 
-        .button-small {
+        .Btn-Sm {
           word-break: break-word;
         }
       }

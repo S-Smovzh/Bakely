@@ -1,6 +1,7 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
+import { fromBinary } from '../../utils/base64encoder';
 import AuthContext from './AuthContext';
-import {authReducer} from './reducer';
+import { authReducer } from './reducer';
 import {
   ADD_DELIVERY_ADDRESS,
   CHECK_STATE,
@@ -11,45 +12,45 @@ import {
   LOAD_DELIVERY_ADDRESSES,
   SAVE_NAME
 } from './actionTypes';
-import {fromBinary} from "../../utils/base64encoder";
 
-export default function AuthState(props) {
+// eslint-disable-next-line react/prop-types
+export default function AuthState({ children }) {
   const [authState, dispatch] = useReducer(authReducer, {
     logged: localStorage.getItem(btoa('logged')) ? atob(localStorage.getItem(btoa('logged'))) : '',
     addresses: localStorage.getItem(btoa('addresses')) ? fromBinary(localStorage.getItem(btoa('addresses'))) : '',
-    name: localStorage.getItem(btoa('name')) ? atob(localStorage.getItem(btoa('name'))) : '',
+    name: localStorage.getItem(btoa('name')) ? atob(localStorage.getItem(btoa('name'))) : ''
   });
 
   const login = () => {
-    dispatch({type: LOGIN, logged: true});
+    dispatch({ type: LOGIN, logged: true });
   };
 
   const logout = () => {
-    dispatch({type: LOGOUT, logged: false});
+    dispatch({ type: LOGOUT, logged: false });
   };
 
   const checkState = (isLogged) => {
-    dispatch({type: CHECK_STATE, logged: isLogged});
+    dispatch({ type: CHECK_STATE, logged: isLogged });
   };
 
   const loadDeliveryAddresses = (loadedAddresses) => {
-    dispatch({type: LOAD_DELIVERY_ADDRESSES, addresses: loadedAddresses});
+    dispatch({ type: LOAD_DELIVERY_ADDRESSES, addresses: loadedAddresses });
   };
 
   const addDeliveryAddress = (address) => {
-    dispatch({type: ADD_DELIVERY_ADDRESS, address: address});
+    dispatch({ type: ADD_DELIVERY_ADDRESS, address: address });
   };
 
   const removeDeliveryAddress = (id) => {
-    dispatch({type: REMOVE_DELIVERY_ADDRESS, id: id});
+    dispatch({ type: REMOVE_DELIVERY_ADDRESS, id: id });
   };
 
   const clearAddressesList = () => {
-    dispatch({type: CLEAR_ADDRESSES});
+    dispatch({ type: CLEAR_ADDRESSES });
   };
 
   const saveName = (name) => {
-    dispatch({type: SAVE_NAME, name: name});
+    dispatch({ type: SAVE_NAME, name: name });
   };
 
   return (
@@ -58,16 +59,16 @@ export default function AuthState(props) {
         logged: authState.logged,
         addresses: authState.addresses,
         name: authState.name,
-        login: login,
-        logout: logout,
-        checkState: checkState,
-        loadDeliveryAddresses: loadDeliveryAddresses,
-        addDeliveryAddress: addDeliveryAddress,
-        removeDeliveryAddress: removeDeliveryAddress,
-        clearAddressesList: clearAddressesList,
-        saveName: saveName
+        login,
+        logout,
+        checkState,
+        loadDeliveryAddresses,
+        addDeliveryAddress,
+        removeDeliveryAddress,
+        clearAddressesList,
+        saveName
       }}>
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 }

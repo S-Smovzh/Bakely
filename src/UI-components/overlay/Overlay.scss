@@ -1,17 +1,17 @@
 @import "../../css/base/Extensions";
 
-.opacity-1 {
+.Opacity-1 {
   opacity: 1 !important;
 }
 
-.Overlay-Container {
+.Ov-C {
   position: relative;
 
-  &:hover .Overlay {
+  &:hover .Ov {
     opacity: 1;
   }
 
-  & > .Overlay {
+  & > .Ov {
     position: absolute;
     top: 0;
     left: 0;

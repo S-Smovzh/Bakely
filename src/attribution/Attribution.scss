@@ -1,0 +1,63 @@
+@import "../css/base/Extensions";
+
+.Attr-Page {
+  row-gap: $mainPadding;
+
+  .B-T {
+    grid-area: 2/2/3/3;
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: calc(#{$standard} * 2) 40px minmax(10px, 1fr);
+    row-gap: calc(#{$standard} * 8);
+  }
+
+  .B-M {
+    grid-area: 3/2/4/3;
+    row-gap: calc(#{$standard} * 8);
+
+    .Flex{
+      row-gap: calc(#{$standard} * 6);
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Attr-Page {
+    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Attr-Page {
+    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Attr-Page {
+    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .Attr-Page {
+    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Attr-Page {
+    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Attr-Page {
+    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+  }
+}

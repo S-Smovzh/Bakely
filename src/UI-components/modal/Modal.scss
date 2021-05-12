@@ -16,11 +16,19 @@
   background-color: rgba(0, 0, 0, 0.5);
   @include transition(.4);
 
+  .modal-dialog {
+    margin: auto !important;
+  }
+
+  .modal-body {
+    row-gap: calc(#{$standard} * 8);
+  }
+
   .modal-content {
     border-radius: 20px;
   }
 
-  .modal-content, .modal-dialog{
+  .modal-content, .modal-dialog {
     & > * {
       border: none;
     }
@@ -44,67 +52,121 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .modal-content {
-    width: 600px;
-    height: 660px;
+  .Modal.Error-Modal, .Modal.Activation {
+    .modal-content {
+      width: 500px;
 
-    & > * {
-      padding: calc(#{$standard} * 4);
+      & > * {
+        padding-inline: calc(#{$standard} * 4);
+      }
     }
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .modal-content {
-    width: 55vw;
-    height: 90vh;
+  .Modal.Error-Modal, .Modal.Activation {
+    .modal-content {
+      width: 500px;
 
-    & > * {
-      padding: calc(#{$standard} * 3);
+      & > * {
+        padding-inline: calc(#{$standard} * 3);
+      }
     }
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .modal-content {
-    width: 55vw;
-    height: 85vh;
+  .Modal.Error-Modal, .Modal.Activation {
+    .modal-content {
+      width: 500px;
 
-    & > * {
-      padding: calc(#{$standard} * 2);
+      & > * {
+        padding-inline: calc(#{$standard} * 2);
+      }
     }
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .modal-content {
-    width: 80vw;
-    height: 85vh;
+  .Modal.Error-Modal, .Modal.Activation {
+    .modal-content {
+      width: 80vw;
 
-    & > * {
-      padding: calc(#{$standard} * 2);
+      & > * {
+        padding-inline: calc(#{$standard} * 2);
+      }
     }
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .modal-content {
-    width: 80vw;
-    height: 85vh;
+  .Modal.Error-Modal, .Modal.Activation {
+    .modal-content {
+      width: 80vw;
 
-    & > * {
-      padding: $standard
+      & > * {
+        padding-inline: $standard
+      }
     }
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .modal-content {
-    width: 80vw;
-    height: 85vh;
+  .Modal.Error-Modal, .Modal.Activation {
+    .modal-content {
+      width: 80vw;
 
-    & > * {
-      padding: $standard
+      & > * {
+        padding-inline: $standard
+      }
+    }
+  }
+}
+
+@media only screen and (min-height: 620px) {
+  .Modal {
+    &.Error-Modal {
+      .modal-content, .modal-dialog {
+        height: 600px;
+      }
+    }
+
+    &.Activation {
+      .modal-content, .modal-dialog {
+        height: 600px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 620px) {
+  .Modal {
+    &.Error-Modal {
+      .modal-content, .modal-dialog {
+        height: 300px;
+      }
+    }
+
+    &.Activation {
+      .modal-content, .modal-dialog {
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .Modal {
+    &.Error-Modal {
+      .modal-content, .modal-dialog {
+        height: 90vh;
+      }
+    }
+
+    &.Activation {
+      .modal-content, .modal-dialog {
+        height: 85vh;
+      }
     }
   }
 }

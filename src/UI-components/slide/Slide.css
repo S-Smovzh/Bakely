@@ -1,0 +1,98 @@
+.Slide {
+  background-color: #f0f0f0;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.Slide img {
+  z-index: 0;
+}
+.Slide .Slide-D, .Slide .Slide-T, .Slide .Slide-C {
+  z-index: 1;
+}
+.Slide .Slide-D {
+  padding-inline: calc(7px * 4);
+}
+.Slide .Slide-C {
+  row-gap: calc(7px * 6);
+  padding-top: calc(7px * 16);
+}
+
+@media only screen and (min-width: 1200px) {
+  .Slide {
+    grid-template-rows: repeat(5, 160px);
+    grid-template-columns: repeat(10, minmax(120px, 140px));
+  }
+  .Slide .Btn-Cont {
+    grid-area: 4/2/5/4;
+  }
+  .Slide .Slide-C {
+    grid-area: 1/6/4/10;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Slide {
+    grid-template-rows: repeat(5, 160px);
+    grid-template-columns: repeat(10, minmax(99px, 120px));
+  }
+  .Slide .Btn-Cont {
+    grid-area: 4/2/5/4;
+  }
+  .Slide .Slide-C {
+    grid-area: 1/6/4/10;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Slide {
+    grid-template-rows: repeat(5, 150px);
+    grid-template-columns: repeat(10, minmax(77px, 99px));
+  }
+  .Slide .Btn-Cont {
+    grid-area: 4/6/5/10;
+  }
+  .Slide .Slide-C {
+    grid-area: 1/2/4/7;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Slide {
+    grid-template-rows: repeat(5, 150px);
+    grid-template-columns: repeat(10, minmax(48px, 77px));
+  }
+  .Slide .Btn-Cont {
+    grid-area: 4/2/5/6;
+  }
+  .Slide .Slide-C {
+    grid-area: 1/2/4/10;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Slide {
+    grid-template-rows: repeat(5, 150px);
+    grid-template-columns: repeat(10, minmax(32px, 48px));
+  }
+  .Slide .Btn-Cont {
+    grid-area: 4/2/6/10;
+  }
+  .Slide .Slide-C {
+    grid-area: 1/3/4/9;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .Slide {
+    grid-template-rows: repeat(5, 150px);
+    grid-template-columns: repeat(10, minmax(20px, 32px));
+  }
+  .Slide .Btn-Cont {
+    grid-area: 4/2/6/10;
+  }
+  .Slide .Slide-C {
+    grid-area: 1/3/4/9;
+  }
+}
+
+/*# sourceMappingURL=Slide.css.map */

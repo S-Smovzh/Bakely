@@ -17,6 +17,7 @@ export default function useWindowDimensions() {
 
 function _getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
+
   return {
     width,
     height
@@ -24,5 +25,5 @@ function _getWindowDimensions() {
 }
 
 export function isTouchDevice() {
-  return matchMedia('(hover: none), (pointer: coarse)').matches;
+  return matchMedia('(hover: None), (pointer: coarse)').matches;
 }

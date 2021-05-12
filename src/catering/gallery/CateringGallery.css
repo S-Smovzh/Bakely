@@ -1,81 +1,81 @@
-.GalleryPage {
+.Gallery-Page {
   grid-area: 2/2/3/3;
   grid-template-rows: 7px 40px minmax(10px, 1fr) 7px;
   row-gap: calc(63px);
 }
-.GalleryPage > .TopBlock {
+.Gallery-Page > .B-T {
   grid-area: 2/2/3/3;
 }
-.GalleryPage > .MiddleBlock {
+.Gallery-Page > .B-M {
   grid-area: 3/2/4/3;
 }
-.GalleryPage > .MiddleBlock > .Event_List {
+.Gallery-Page > .B-M > .Ev-L {
   row-gap: calc(56px);
   column-gap: calc(28px);
   -webkit-column-gap: calc(28px);
   -moz-column-gap: calc(28px);
 }
-.GalleryPage > .MiddleBlock > .Event_List > .Event .Card {
+.Gallery-Page > .B-M > .Ev-L > .Ev .Card {
   row-gap: calc(7px * 2);
 }
-.GalleryPage > .MiddleBlock > .Event_List > .Event .Card .Event-Details {
+.Gallery-Page > .B-M > .Ev-L > .Ev .Card .Ev-Det {
   row-gap: calc(7px * 2);
   padding-block: calc(7px * 2);
 }
 
 @media only screen and (min-width: 1400px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
-  .GalleryPage .Event-Details {
+  .Gallery-Page .Ev-Det {
     height: 140px;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(7px * 8) minmax(10px, 1fr) calc(7px * 8);
   }
-  .GalleryPage .Event-Details {
+  .Gallery-Page .Ev-Det {
     height: 140px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
-  .GalleryPage .Event-Details {
+  .Gallery-Page .Ev-Det {
     height: 140px;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(7px * 5) minmax(10px, 1fr) calc(7px * 5);
   }
-  .GalleryPage .Event-Details {
+  .Gallery-Page .Ev-Det {
     height: 140px;
   }
 }
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
   }
-  .GalleryPage .Event-Details {
+  .Gallery-Page .Ev-Det {
     height: 140px;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 599px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .GalleryPage .Event-Details {
+  .Gallery-Page .Ev-Det {
     height: 140px;
   }
 }
 @media only screen and (max-width: 320px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .GalleryPage .Event-Details {
+  .Gallery-Page .Ev-Det {
     height: 140px;
   }
 }

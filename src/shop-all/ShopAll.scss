@@ -4,11 +4,11 @@
   grid-template-rows: calc(#{$standard} * 3) 84px minmax(10px, 1fr) $mainPadding;
   row-gap: $mainPadding;
 
-  & > .TopBlock {
+  & > .B-T {
     grid-area: 2/2/3/3;
   }
 
-  & > .MiddleBlock {
+  & > .B-M {
     grid-area: 3/2/4/3;
 
     & > .Categories {

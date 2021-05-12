@@ -4,13 +4,12 @@
   grid-area: 3/2/4/3;
   width: 100px;
   height: 100px;
-  background: $primary-100;
+  right: 60px;
   border-radius: 16px;
-  color: $text;
-
   position: fixed;
   position: -ms-device-fixed;
-  right: 60px;
+  background: $primary-100;
+  color: $text;
   z-index: 1000;
 }
 

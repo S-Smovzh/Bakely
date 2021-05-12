@@ -1,4 +1,4 @@
-.Button-Notification + .Overlay {
+.Btn-N + .Ov {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -11,9 +11,10 @@
   -o-transform: translate3d(100%, 100%, 0);
   -ms-transform: translate3d(100%, 100%, 0);
   opacity: 0;
+  -moz-opacity: 0;
 }
 
-.Button-Notification {
+.Btn-N {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -22,10 +23,10 @@
   background: #f0f0f0;
   border: 1px solid #49504C;
 }
-.Button-Notification .Bell {
+.Btn-N .Bell {
   transform-origin: 50% 2px;
 }
-.Button-Notification .Notification-Count {
+.Btn-N .N-C {
   position: absolute;
   top: -5px;
   right: -5px;
@@ -50,10 +51,10 @@
   -moz-transition: all 0.6s ease-in-out !important;
   -ms-transition: all 0.6s ease-in-out !important;
   -o-transition: all 0.6s ease-in-out !important;
-  animation: toast-stack-reveal 600ms ease-in-out forwards;
-  -webkit-animation: toast-stack-reveal 600ms ease-in-out forwards;
-  -moz-animation: toast-stack-reveal 600ms ease-in-out forwards;
-  -o-animation: toast-stack-reveal 600ms ease-in-out forwards;
+  animation: toast-stack-reveal 400ms ease-in-out forwards;
+  -webkit-animation: toast-stack-reveal 400ms ease-in-out forwards;
+  -moz-animation: toast-stack-reveal 400ms ease-in-out forwards;
+  -o-animation: toast-stack-reveal 400ms ease-in-out forwards;
 }
 
 .Toast-Stack-Disappear {
@@ -62,10 +63,10 @@
   -moz-transition: all 0.6s ease-in-out !important;
   -ms-transition: all 0.6s ease-in-out !important;
   -o-transition: all 0.6s ease-in-out !important;
-  animation: toast-stack-disappear 600ms ease-in-out forwards;
-  -webkit-animation: toast-stack-disappear 600ms ease-in-out forwards;
-  -moz-animation: toast-stack-disappear 600ms ease-in-out forwards;
-  -o-animation: toast-stack-disappear 600ms ease-in-out forwards;
+  animation: toast-stack-disappear 400ms ease-in-out forwards;
+  -webkit-animation: toast-stack-disappear 400ms ease-in-out forwards;
+  -moz-animation: toast-stack-disappear 400ms ease-in-out forwards;
+  -o-animation: toast-stack-disappear 400ms ease-in-out forwards;
 }
 
 .BellRing {
@@ -74,10 +75,10 @@
   -moz-transition: all 0.6s ease-in-out !important;
   -ms-transition: all 0.6s ease-in-out !important;
   -o-transition: all 0.6s ease-in-out !important;
-  animation: bellRing 600ms ease-in-out forwards;
-  -webkit-animation: bellRing 600ms ease-in-out forwards;
-  -moz-animation: bellRing 600ms ease-in-out forwards;
-  -o-animation: bellRing 600ms ease-in-out forwards;
+  animation: bellRing 400ms ease-in-out forwards;
+  -webkit-animation: bellRing 400ms ease-in-out forwards;
+  -moz-animation: bellRing 400ms ease-in-out forwards;
+  -o-animation: bellRing 400ms ease-in-out forwards;
 }
 
 @keyframes toast-stack-reveal {

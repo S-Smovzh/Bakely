@@ -1,4 +1,4 @@
-.Overlay-Container > .Overlay > p, .Overlay-Container > .Overlay span, .Overlay-Container > .Overlay h1, .Overlay-Container > .Overlay h2, .Overlay-Container > .Overlay h3, .Overlay-Container > .Overlay h4, .Overlay-Container > .Overlay h5, .Overlay-Container > .Overlay h6 {
+.Ov-C > .Ov > p, .Ov-C > .Ov span, .Ov-C > .Ov h1, .Ov-C > .Ov h2, .Ov-C > .Ov h3, .Ov-C > .Ov h4, .Ov-C > .Ov h5, .Ov-C > .Ov h6 {
   text-align: center;
   text-align: -moz-center;
   text-align: -webkit-center;
@@ -6,17 +6,17 @@
   text-align: -o-center;
 }
 
-.opacity-1 {
+.Opacity-1 {
   opacity: 1 !important;
 }
 
-.Overlay-Container {
+.Ov-C {
   position: relative;
 }
-.Overlay-Container:hover .Overlay {
+.Ov-C:hover .Ov {
   opacity: 1;
 }
-.Overlay-Container > .Overlay {
+.Ov-C > .Ov {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,7 +30,7 @@
   -ms-transition: all 1s ease-in-out !important;
   -o-transition: all 1s ease-in-out !important;
 }
-.Overlay-Container > .Overlay > p, .Overlay-Container > .Overlay span, .Overlay-Container > .Overlay h1, .Overlay-Container > .Overlay h2, .Overlay-Container > .Overlay h3, .Overlay-Container > .Overlay h4, .Overlay-Container > .Overlay h5, .Overlay-Container > .Overlay h6 {
+.Ov-C > .Ov > p, .Ov-C > .Ov span, .Ov-C > .Ov h1, .Ov-C > .Ov h2, .Ov-C > .Ov h3, .Ov-C > .Ov h4, .Ov-C > .Ov h5, .Ov-C > .Ov h6 {
   color: #ffffff !important;
   margin: 1rem;
 }

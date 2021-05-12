@@ -1,4 +1,4 @@
-.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error, .Button-primary, .Button-secondary, .Button-tertiary, .Button-success, .Button-warning, .Button-error {
+.Btn-P, .Btn-S, .Btn-T, .Btn-Su, .Btn-W, .Btn-E {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -6,7 +6,7 @@
   display: -o-flex;
 }
 
-.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error, .Button-primary, .Button-secondary, .Button-tertiary, .Button-success, .Button-warning, .Button-error {
+.Btn-P, .Btn-S, .Btn-T, .Btn-Su, .Btn-W, .Btn-E {
   align-items: center;
   align-items: -moz-center;
   align-items: -webkit-center;
@@ -23,7 +23,7 @@ button:focus-within, button:focus, button:active {
   outline: none;
 }
 
-.button-primary, .button-secondary, .button-tertiary, .button-success, .button-warning, .button-error, .Button-primary, .Button-secondary, .Button-tertiary, .Button-success, .Button-warning, .Button-error {
+.Btn-P, .Btn-S, .Btn-T, .Btn-Su, .Btn-W, .Btn-E {
   transition: all 0.6s ease-in-out !important;
   -webkit-transition: all 0.6s ease-in-out !important;
   -moz-transition: all 0.6s ease-in-out !important;
@@ -36,197 +36,194 @@ button:focus-within, button:focus, button:active {
   -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
   -o-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.4);
 }
-.button-primary, .Button-primary {
+.Btn-P {
   color: #ffffff;
   background: #711604;
 }
-.button-primary:hover, .Button-primary:hover {
+.Btn-P:hover {
   color: #000000;
   background: #FA5B3D;
 }
-.button-primary:active, .Button-primary:active {
+.Btn-P:active {
   color: #000000;
   background: #ff8771;
 }
-.button-primary:focus, .Button-primary:focus {
+.Btn-P:focus {
   background: #BD2608;
 }
-.button-primary:focus-visible, .Button-primary:focus-visible {
+.Btn-P:focus-visible {
   background: #BD2608;
 }
-.button-primary:-moz-focusring, .Button-primary:-moz-focusring {
+.Btn-P:-moz-focusring {
   background: #BD2608;
 }
-.button-primary:disabled, .Button-primary:disabled {
+.Btn-P:disabled {
   background: #711604;
   color: #000000;
   opacity: 0.5;
 }
-.button-secondary, .Button-secondary {
+.Btn-S {
   color: #000000;
   background: #fffcf9;
   border: 1px solid #2a0800;
 }
-.button-secondary:hover, .Button-secondary:hover {
+.Btn-S:hover {
   color: #000000;
   background: #ffcf9c;
 }
-.button-secondary:active, .Button-secondary:active {
+.Btn-S:active {
   color: #000000;
   background: #eeb785;
 }
-.button-secondary:focus, .Button-secondary:focus {
+.Btn-S:focus {
   background: #b96d40;
 }
-.button-secondary:focus-visible, .Button-secondary:focus-visible {
+.Btn-S:focus-visible {
   background: #b96d40;
 }
-.button-secondary:-moz-focusring, .Button-secondary:-moz-focusring {
+.Btn-S:-moz-focusring {
   background: #b96d40;
 }
-.button-secondary:disabled, .Button-secondary:disabled {
+.Btn-S:disabled {
   background: #fffcf9;
   color: #000000;
   opacity: 0.5;
 }
-.button-tertiary, .Button-tertiary {
+.Btn-T {
   color: #ffffff;
   background: #757C78;
 }
-.button-tertiary:hover, .Button-tertiary:hover {
+.Btn-T:hover {
   color: #000000;
   background: #C6C9C7;
 }
-.button-tertiary:active, .Button-tertiary:active {
+.Btn-T:active {
   color: #000000;
   background: #DBDDDC;
 }
-.button-tertiary:focus, .Button-tertiary:focus {
+.Btn-T:focus {
   background: #a7aca9;
 }
-.button-tertiary:focus-visible, .Button-tertiary:focus-visible {
+.Btn-T:focus-visible {
   background: #a7aca9;
 }
-.button-tertiary:-moz-focusring, .Button-tertiary:-moz-focusring {
+.Btn-T:-moz-focusring {
   background: #a7aca9;
 }
-.button-tertiary:disabled, .Button-tertiary:disabled {
+.Btn-T:disabled {
   background: #757C78;
   color: #000000;
   opacity: 0.5;
 }
-.button-success, .Button-success {
+.Btn-Su {
   color: #000000;
   background: #25B84C;
 }
-.button-success:hover, .Button-success:hover {
+.Btn-Su:hover {
   background: #5dd07c;
 }
-.button-success:active, .Button-success:active {
+.Btn-Su:active {
   background: #95E8AB;
 }
-.button-success:focus, .Button-success:focus {
+.Btn-Su:focus {
   background: #168734;
 }
-.button-success:focus-visible, .Button-success:focus-visible {
+.Btn-Su:focus-visible {
   background: #168734;
 }
-.button-success:-moz-focusring, .Button-success:-moz-focusring {
+.Btn-Su:-moz-focusring {
   background: #168734;
 }
-.button-success:disabled, .Button-success:disabled {
+.Btn-Su:disabled {
   background: #25B84C;
   opacity: 0.5;
 }
-.button-warning, .Button-warning {
+.Btn-W {
   color: #000000;
   background: #DDB814;
 }
-.button-warning:hover, .Button-warning:hover {
+.Btn-W:hover {
   color: #000000;
   background: #EEC71C;
 }
-.button-warning:active, .Button-warning:active {
+.Btn-W:active {
   color: #000000;
   background: #F0D458;
 }
-.button-warning:focus, .Button-warning:focus {
+.Btn-W:focus {
   background: #C8A919;
 }
-.button-warning:focus-visible, .Button-warning:focus-visible {
+.Btn-W:focus-visible {
   background: #C8A919;
 }
-.button-warning:-moz-focusring, .Button-warning:-moz-focusring {
+.Btn-W:-moz-focusring {
   background: #C8A919;
 }
-.button-warning:disabled, .Button-warning:disabled {
+.Btn-W:disabled {
   background: #DDB814;
   opacity: 0.5;
 }
-.button-error, .Button-error {
+.Btn-E {
   color: #ffffff;
   background: #D0343C;
 }
-.button-error:hover, .Button-error:hover {
+.Btn-E:hover {
   color: #000000;
   background: #FA6E75;
 }
-.button-error:active, .Button-error:active {
+.Btn-E:active {
   color: #000000;
   background: #FA6E75;
 }
-.button-error:focus, .Button-error:focus {
+.Btn-E:focus {
   background: #c11c24;
   box-shadow: 0 0 4px 8px #4e2210;
   -webkit-box-shadow: 0 0 4px 8px #4e2210;
   -moz-box-shadow: 0 0 4px 8px #4e2210;
   -o-box-shadow: 0 0 4px 8px #4e2210;
 }
-.button-error:focus-visible, .Button-error:focus-visible {
+.Btn-E:focus-visible {
   background: #c11c24;
   box-shadow: 0 0 4px 8px #4e2210;
   -webkit-box-shadow: 0 0 4px 8px #4e2210;
   -moz-box-shadow: 0 0 4px 8px #4e2210;
   -o-box-shadow: 0 0 4px 8px #4e2210;
 }
-.button-error:-moz-focusring, .Button-error:-moz-focusring {
+.Btn-E:-moz-focusring {
   background: #c11c24;
   box-shadow: 0 0 4px 8px #4e2210;
   -webkit-box-shadow: 0 0 4px 8px #4e2210;
   -moz-box-shadow: 0 0 4px 8px #4e2210;
   -o-box-shadow: 0 0 4px 8px #4e2210;
 }
-.button-error:disabled, .Button-error:disabled {
+.Btn-E:disabled {
   background: #D0343C;
   color: #000000;
   opacity: 0.5;
 }
 
 @media only screen and (min-width: 1200px) {
-  .button-icon {
+  .Btn-I {
     width: 60px;
     height: 60px;
   }
-  .button-icon-footer {
+  .Btn-I-F {
     width: 40px;
     height: 40px;
   }
-  .button-icon-dropdown {
+  .Btn-I-D {
     width: 52px;
     height: 52px;
   }
-  .button-small {
+  .Btn-Sm {
     width: 120px;
     height: 60px;
   }
-  .button-small-thin {
-    height: 40px;
-  }
-  .button-small-x-wide {
+  .Btn-Sm-X-W {
     width: 200px;
     height: 60px;
   }
-  .button-small-auto-wide {
+  .Btn-Sm-A-W {
     height: 60px;
     padding: 10px;
     flex-flow: column nowrap;
@@ -234,40 +231,37 @@ button:focus-within, button:focus, button:active {
     justify-content: space-around;
     -webkit-justify-content: space-around;
   }
-  .button-large {
+  .Btn-L {
     width: 180px;
     height: 80px;
   }
-  .button-large-x-wide {
+  .Btn-L-X-W {
     width: 260px;
     height: 80px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .button-icon {
+  .Btn-I {
     width: 57px;
     height: 57px;
   }
-  .button-icon-footer {
+  .Btn-I-F {
     width: 38px;
     height: 38px;
   }
-  .button-icon-dropdown {
+  .Btn-I-D {
     width: 49px;
     height: 49px;
   }
-  .button-small {
+  .Btn-Sm {
     width: 114px;
     height: 57px;
   }
-  .button-small-thin {
-    height: 36px;
-  }
-  .button-small-x-wide {
+  .Btn-Sm-X-W {
     width: 190px;
     height: 57px;
   }
-  .button-small-auto-wide {
+  .Btn-Sm-A-W {
     height: 57px;
     padding: 9px;
     flex-flow: column nowrap;
@@ -275,40 +269,37 @@ button:focus-within, button:focus, button:active {
     justify-content: space-around;
     -webkit-justify-content: space-around;
   }
-  .button-large {
+  .Btn-L {
     width: 170px;
     height: 76px;
   }
-  .button-large-x-wide {
+  .Btn-L-X-W {
     width: 245px;
     height: 76px;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .button-icon {
+  .Btn-I {
     width: 54px;
     height: 54px;
   }
-  .button-icon-footer {
+  .Btn-I-F {
     width: 36px;
     height: 36px;
   }
-  .button-icon-dropdown {
+  .Btn-I-D {
     width: 46px;
     height: 46px;
   }
-  .button-small {
+  .Btn-Sm {
     width: 108px;
     height: 54px;
   }
-  .button-small-thin {
-    height: 28px;
-  }
-  .button-small-x-wide {
+  .Btn-Sm-X-W {
     width: 180px;
     height: 54px;
   }
-  .button-small-auto-wide {
+  .Btn-Sm-A-W {
     height: 54px;
     padding: 10px;
     flex-flow: column nowrap;
@@ -316,40 +307,37 @@ button:focus-within, button:focus, button:active {
     justify-content: space-around;
     -webkit-justify-content: space-around;
   }
-  .button-large {
+  .Btn-L {
     width: 160px;
     height: 72px;
   }
-  .button-large-x-wide {
+  .Btn-L-X-W {
     width: 230px;
     height: 72px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .button-icon {
+  .Btn-I {
     width: 51px;
     height: 51px;
   }
-  .button-icon-footer {
+  .Btn-I-F {
     width: 34px;
     height: 34px;
   }
-  .button-icon-dropdown {
+  .Btn-I-D {
     width: 43px;
     height: 43px;
   }
-  .button-small {
+  .Btn-Sm {
     width: 102px;
     height: 51px;
   }
-  .button-small-thin {
-    height: 22px;
-  }
-  .button-small-x-wide {
+  .Btn-Sm-X-W {
     width: 170px;
     height: 51px;
   }
-  .button-small-auto-wide {
+  .Btn-Sm-A-W {
     height: 51px;
     padding: 7px;
     flex-flow: column nowrap;
@@ -357,40 +345,37 @@ button:focus-within, button:focus, button:active {
     justify-content: space-around;
     -webkit-justify-content: space-around;
   }
-  .button-large {
+  .Btn-L {
     width: 150px;
     height: 68px;
   }
-  .button-large-x-wide {
+  .Btn-L-X-W {
     width: 215px;
     height: 68px;
   }
 }
 @media only screen and (max-width: 480px) {
-  .button-icon {
+  .Btn-I {
     width: 48px;
     height: 48px;
   }
-  .button-icon-footer {
+  .Btn-I-F {
     width: 32px;
     height: 32px;
   }
-  .button-icon-dropdown {
+  .Btn-I-D {
     width: 40px;
     height: 40px;
   }
-  .button-small {
+  .Btn-Sm {
     width: 96px;
     height: 48px;
   }
-  .button-small-thin {
-    height: 24px;
-  }
-  .button-small-x-wide {
+  .Btn-Sm-X-W {
     width: 160px;
     height: 48px;
   }
-  .button-small-auto-wide {
+  .Btn-Sm-A-W {
     height: 48px;
     padding: 10px;
     flex-flow: column nowrap;
@@ -398,37 +383,37 @@ button:focus-within, button:focus, button:active {
     justify-content: space-around;
     -webkit-justify-content: space-around;
   }
-  .button-large {
+  .Btn-L {
     width: 146px;
     height: 64px;
   }
-  .button-large-x-wide {
+  .Btn-L-X-W {
     width: 200px;
     height: 64px;
   }
 }
 @media only screen and (max-width: 320px) {
-  .button-icon {
+  .Btn-I {
     width: 45px;
     height: 45px;
   }
-  .button-icon-footer {
+  .Btn-I-F {
     width: 30px;
     height: 30px;
   }
-  .button-icon-dropdown {
+  .Btn-I-D {
     width: 37px;
     height: 37px;
   }
-  .button-small {
+  .Btn-Sm {
     width: 90px;
     height: 45px;
   }
-  .button-small-x-wide {
+  .Btn-Sm-X-W {
     width: 150px;
     height: 45px;
   }
-  .button-small-auto-wide {
+  .Btn-Sm-A-W {
     height: 45px;
     padding: 10px;
     flex-flow: column nowrap;
@@ -436,11 +421,11 @@ button:focus-within, button:focus, button:active {
     justify-content: space-around;
     -webkit-justify-content: space-around;
   }
-  .button-large {
+  .Btn-L {
     width: 130px;
     height: 60px;
   }
-  .button-large-x-wide {
+  .Btn-L-X-W {
     width: 185px;
     height: 60px;
   }

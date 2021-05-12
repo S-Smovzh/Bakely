@@ -1,26 +1,26 @@
-.LocationsPage {
+.Locations-Page {
   grid-template-rows: 7px 40px minmax(10px, 1fr) 7px;
   row-gap: calc(7px * 9);
 }
-.LocationsPage .TopBlock {
+.Locations-Page .B-T {
   grid-area: 2/2/3/3;
 }
-.LocationsPage .MiddleBlock {
+.Locations-Page .B-M {
   grid-area: 3/2/4/3;
 }
-.LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle {
+.Locations-Page .B-M .Modal-Tog {
   grid-template-columns: 8px 20px minmax(10px, 1fr);
   grid-template-rows: minmax(10px, 1fr);
   border-radius: 18px 18px 0 0;
   border-bottom: none;
 }
-.LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle > svg {
+.Locations-Page .B-M .Modal-Tog > svg {
   grid-area: 1/2/2/3;
 }
-.LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle > span {
+.Locations-Page .B-M .Modal-Tog > span {
   grid-area: 1/3/2/4;
 }
-.LocationsPage .MiddleBlock .LocationsList {
+.Locations-Page .B-M .Loc-L {
   row-gap: calc(7px * 8);
   column-gap: calc(7px * 4);
 }
@@ -42,13 +42,13 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .LocationsPage {
+  .Locations-Page {
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
-  .LocationsPage .MiddleBlock .Location .DetailsWrapper {
+  .Locations-Page .B-M .Location .DetailsWrapper {
     padding: 0 20px;
   }
-  .LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle {
+  .Locations-Page .B-M .Modal-Tog {
     flex-basis: 50%;
   }
 
@@ -62,13 +62,13 @@
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .LocationsPage {
+  .Locations-Page {
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
-  .LocationsPage .MiddleBlock .Location .DetailsWrapper {
+  .Locations-Page .B-M .Location .DetailsWrapper {
     padding: 0 20px;
   }
-  .LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle {
+  .Locations-Page .B-M .Modal-Tog {
     flex-basis: 60%;
   }
 
@@ -85,13 +85,13 @@
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .LocationsPage {
+  .Locations-Page {
     grid-template-columns: calc(7px * 5) minmax(10px, 1fr) calc(7px * 5);
   }
-  .LocationsPage .MiddleBlock .Location .DetailsWrapper {
+  .Locations-Page .B-M .Location .DetailsWrapper {
     padding: 0 20px;
   }
-  .LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle {
+  .Locations-Page .B-M .Modal-Tog {
     flex-basis: 70%;
   }
 
@@ -108,13 +108,13 @@
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .LocationsPage {
+  .Locations-Page {
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
   }
-  .LocationsPage .MiddleBlock .Location .DetailsWrapper {
+  .Locations-Page .B-M .Location .DetailsWrapper {
     padding: 0 20px;
   }
-  .LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle {
+  .Locations-Page .B-M .Modal-Tog {
     flex-basis: 80%;
   }
 
@@ -131,13 +131,13 @@
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .LocationsPage {
+  .Locations-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .LocationsPage .MiddleBlock .Location .DetailsWrapper {
+  .Locations-Page .B-M .Location .DetailsWrapper {
     padding: 0 20px;
   }
-  .LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle {
+  .Locations-Page .B-M .Modal-Tog {
     flex-basis: 100%;
   }
 
@@ -154,13 +154,13 @@
   }
 }
 @media only screen and (max-width: 320px) {
-  .LocationsPage {
+  .Locations-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .LocationsPage .MiddleBlock .Location .DetailsWrapper {
+  .Locations-Page .B-M .Location .DetailsWrapper {
     padding: 0 20px;
   }
-  .LocationsPage .MiddleBlock .ButtonWrapper .Modal-Toggle {
+  .Locations-Page .B-M .Modal-Tog {
     flex-basis: 100%;
   }
 

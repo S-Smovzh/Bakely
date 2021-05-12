@@ -1,20 +1,22 @@
 import React from 'react';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import Head from '../head/Head';
 
 export default function TermsAndConditions() {
-  const [t] = useTranslation();
+  const [ t ] = useTranslation();
 
   return (
-    <div className='InfoPage Grid'>
-      <section className='TopBlock Flex J-C-C A-I-C T-C'>
+    <div className="Info-Page Grid">
+      <Head title={t('infoPages.terms.seo.title')} description={t('infoPages.terms.seo.description')}/>
+      <section className="B-T Flex J-C-C A-I-C T-C">
         <h1>
           {t('infoPages.terms.header')}
         </h1>
       </section>
-      <article className='MiddleBlock Nunito Flex J-C-S-B A-I-F-S F-F-C-N'>
+      <article className="B-M Nunito Flex J-C-S-B A-I-F-S F-F-C-N">
         <p>
           These terms and conditions (&quot;Agreement&quot;) set forth the general terms and conditions of your use of
-          the <a target="_blank" rel="nofollow" href="http://www.bakely.com">bakely.com</a> website
+          the <a target="_blank" rel="nofollow noreferrer" href="https://www.bakely.com">bakely.com</a> website
           (&quot;Website&quot; or &quot;Service&quot;) and any of its related products and services
           (collectively, &quot;Services&quot;). This Agreement is legally binding between you
           (&quot;User&quot;, &quot;you&quot; or &quot;your&quot;) and this Website operator
@@ -139,7 +141,7 @@ export default function TermsAndConditions() {
           effective upon posting of an updated version of this Agreement on the Website. When we do,
           we will send you an email to notify you. Continued use of the Website and Services after any such
           changes shall constitute your consent to such changes. Policy was created with <a target="_blank"
-                                                                                            href="https://www.websitepolicies.com/blog/sample-terms-conditions-template">WebsitePolicies</a>.
+            href="https://www.websitepolicies.com/blog/sample-terms-conditions-template" rel="noreferrer">WebsitePolicies</a>.
         </p>
         <h2>Acceptance of these terms</h2>
         <p>
@@ -150,8 +152,8 @@ export default function TermsAndConditions() {
         <h2>Contacting us</h2>
         <p>
           If you would like to contact us to understand more about this Agreement or wish to contact us concerning any matter
-          relating to it, you may do so via the <a target="_blank" rel="nofollow" href="http://www.bakely.com/contact">
-          contact form</a> or send an email to ba&#107;e&#108;&#121;.&#117;k&#114;&#64;gmail&#46;c&#111;&#109;
+          relating to it, you may do so via the <a target="_blank" rel="nofollow noreferrer" href="https://www.bakely.com/en/contact-us">
+            contact form</a> or send an email to ba&#107;e&#108;&#121;.&#117;k&#114;&#64;gmail&#46;c&#111;&#109;
         </p>
         <p>
           This document was last updated on December 31, 2020

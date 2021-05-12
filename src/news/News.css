@@ -2,7 +2,7 @@
   grid-template-rows: calc(7px * 4) calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   row-gap: calc(7px * 6);
 }
-.News > .TopBlock {
+.News > .B-T {
   grid-area: 2/2/3/3;
 }
 .News a:hover {
@@ -17,14 +17,14 @@
 .News a:focus-visible {
   text-decoration: none;
 }
-.News > .MiddleBlock {
+.News > .B-M {
   grid-area: 3/2/4/3;
   row-gap: calc(7px * 6);
   column-gap: calc(7px * 4);
   -webkit-column-gap: calc(7px * 4);
   -moz-column-gap: calc(7px * 4);
 }
-.News > .MiddleBlock .Card {
+.News > .B-M .Card {
   grid-template-rows: 70px 210px 140px;
   grid-template-columns: 280px 260px;
   box-shadow: 0 0 8px #2a0800;
@@ -34,55 +34,55 @@
   padding: calc(7px * 2);
   color: #000000;
 }
-.News > .MiddleBlock .Card:focus {
+.News > .B-M .Card:focus {
   box-shadow: 0 0 20px #cb8657;
   -webkit-box-shadow: 0 0 20px #cb8657;
   -moz-box-shadow: 0 0 20px #cb8657;
   -o-box-shadow: 0 0 20px #cb8657;
 }
-.News > .MiddleBlock .Card:focus-visible {
+.News > .B-M .Card:focus-visible {
   box-shadow: 0 0 20px #cb8657;
   -webkit-box-shadow: 0 0 20px #cb8657;
   -moz-box-shadow: 0 0 20px #cb8657;
   -o-box-shadow: 0 0 20px #cb8657;
 }
-.News > .MiddleBlock .Card:-moz-focusring {
+.News > .B-M .Card:-moz-focusring {
   box-shadow: 0 0 20px #cb8657;
   -webkit-box-shadow: 0 0 20px #cb8657;
   -moz-box-shadow: 0 0 20px #cb8657;
   -o-box-shadow: 0 0 20px #cb8657;
 }
-.News > .MiddleBlock .Card .Image {
+.News > .B-M .Card .Image {
   grid-area: 1/1/4/2;
 }
-.News > .MiddleBlock .Card .Title {
+.News > .B-M .Card .Title {
   grid-area: 1/2/2/3;
 }
-.News > .MiddleBlock .Card .Description {
+.News > .B-M .Card .Description {
   grid-area: 2/2/4/3;
   row-gap: calc(7px * 4);
 }
-.News > .MiddleBlock .Card.Small-Screen {
+.News > .B-M .Card.Small-Screen {
   grid-template-rows: 70px 210px minmax(0px, 140px) auto;
   grid-template-columns: 280px;
   padding: 4px;
 }
-.News > .MiddleBlock .Card.Small-Screen .Title {
+.News > .B-M .Card.Small-Screen .Title {
   grid-area: 1/1/2/2;
 }
-.News > .MiddleBlock .Card.Small-Screen .Description {
+.News > .B-M .Card.Small-Screen .Description {
   grid-area: 2/1/4/2;
 }
-.News > .MiddleBlock .Card.Small-Screen .Image {
+.News > .B-M .Card.Small-Screen .Image {
   grid-area: 4/1/5/2;
 }
-.News > .MiddleBlock .Card.No-Img {
+.News > .B-M .Card.No-Img {
   grid-template-columns: 280px;
 }
-.News > .MiddleBlock .Card.No-Img .Title {
+.News > .B-M .Card.No-Img .Title {
   grid-area: 1/1/2/2;
 }
-.News > .MiddleBlock .Card.No-Img .Description {
+.News > .B-M .Card.No-Img .Description {
   grid-area: 2/1/4/2;
 }
 

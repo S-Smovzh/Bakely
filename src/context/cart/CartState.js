@@ -1,53 +1,50 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
+import { fromBinary } from '../../utils/base64encoder';
 import CartContext from './CartContext';
 import {
-  ADD_PRODUCT, CART_BUTTON_CLICKED,
+  ADD_PRODUCT,
   CLEAR_CART,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
   LOAD_PRODUCTS,
   REMOVE_PRODUCT, SHOW_CART
 } from './actionTypes';
-import {cartReducer} from './reducer';
-import {fromBinary} from "../../utils/base64encoder";
+import { cartReducer } from './reducer';
 
-export default function CartState(props) {
+// eslint-disable-next-line react/prop-types
+export default function CartState({ children }) {
   const cart = localStorage.getItem(btoa('cartItems')) ?
     JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems'))))
     : [];
 
-  const [cartState, dispatch] = useReducer(cartReducer, {cart: cart, show: false, cartButtonClick: false});
+  const [cartState, dispatch] = useReducer(cartReducer, { cart: cart, show: false, cartButtonClick: false });
 
   const showCart = (show) => {
-    dispatch({type: SHOW_CART, show: show});
-  };
-
-  const cartButtonInteraction = (cartButtonClick) => {
-    dispatch({type: CART_BUTTON_CLICKED, cartButtonClick: cartButtonClick});
+    dispatch({ type: SHOW_CART, show: show });
   };
 
   const loadProducts = (loadedProducts) => {
-    dispatch({type: LOAD_PRODUCTS, cart: loadedProducts});
+    dispatch({ type: LOAD_PRODUCTS, cart: loadedProducts });
   };
 
   const decreaseQuantity = (product) => {
-    dispatch({type: DECREASE_QUANTITY, product: product});
+    dispatch({ type: DECREASE_QUANTITY, product: product });
   };
 
   const increaseQuantity = (product) => {
-    dispatch({type: INCREASE_QUANTITY, product: product});
+    dispatch({ type: INCREASE_QUANTITY, product: product });
   };
 
   const addProductToCart = (product) => {
-    dispatch({type: ADD_PRODUCT, product: product});
+    dispatch({ type: ADD_PRODUCT, product: product });
   };
 
   const removeProductFromCart = (product) => {
-    dispatch({type: REMOVE_PRODUCT, product: product});
+    dispatch({ type: REMOVE_PRODUCT, product: product });
   };
 
   const clearCart = () => {
-    dispatch({type: CLEAR_CART});
+    dispatch({ type: CLEAR_CART });
   };
 
   return (
@@ -56,16 +53,15 @@ export default function CartState(props) {
         cart: cartState.cart,
         show: cartState.show,
         cartButtonClick: cartState.cartButtonClick,
-        showCart: showCart,
-        cartButtonInteraction: cartButtonInteraction,
-        loadProducts: loadProducts,
-        decreaseQuantity: decreaseQuantity,
-        increaseQuantity: increaseQuantity,
-        addProductToCart: addProductToCart,
-        removeProductFromCart: removeProductFromCart,
-        clearCart: clearCart
+        showCart,
+        loadProducts,
+        decreaseQuantity,
+        increaseQuantity,
+        addProductToCart,
+        removeProductFromCart,
+        clearCart
       }}>
-      {props.children}
+      {children}
     </CartContext.Provider>
   );
 }

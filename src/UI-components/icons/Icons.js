@@ -1,19 +1,38 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import arrowL from '../../images/icons/arrow-left_black.svg';
+import arrowR from '../../images/icons/arrow-right_black.svg';
 
-export {PrevIcon, NextIcon};
+function PrevIcon({ ariaLabel }) {
+  PrevIcon.propTypes = {
+    ariaLabel: PropTypes.string
+  };
 
-const PrevIcon = ({ariaLabel}) => {
+  PrevIcon.defaultProps = {
+    ariaLabel: ''
+  };
+
   return (
-    <span className='button-secondary button-icon' aria-label={ariaLabel}>
-      <img src='http://localhost:3000/img/icons/arrow-left_black.svg' alt='' className='icon'/>
+    <span className="Btn-S Btn-I" aria-label={ariaLabel}>
+      <img src={arrowL} alt="" className="Icon"/>
     </span>
   );
-};
+}
 
-const NextIcon = ({ariaLabel}) => {
+function NextIcon({ ariaLabel }) {
+  NextIcon.propTypes = {
+    ariaLabel: PropTypes.string
+  };
+
+  NextIcon.defaultProps = {
+    ariaLabel: ''
+  };
+
   return (
-    <span className='button-secondary button-icon' aria-label={ariaLabel}>
-      <img src='http://localhost:3000/img/icons/arrow-right_black.svg' alt='' className='icon'/>
+    <span className="Btn-S Btn-I" aria-label={ariaLabel}>
+      <img src={arrowR} alt="" className="Icon"/>
     </span>
   );
-};
+}
+
+export { PrevIcon, NextIcon };

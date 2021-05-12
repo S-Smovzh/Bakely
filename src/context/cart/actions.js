@@ -5,20 +5,13 @@ import {
   INCREASE_QUANTITY,
   DECREASE_QUANTITY,
   CLEAR_CART,
-  SHOW_CART,
-  CART_BUTTON_CLICKED
+  SHOW_CART
 } from './actionTypes';
 
 export const showCart = (show) => ({
   type: SHOW_CART,
   show: show
 });
-
-export const cartButtonInteraction = (cartButtonClick) => ({
-  type: CART_BUTTON_CLICKED,
-  cartButtonClick: cartButtonClick
-});
-
 
 export const loadProducts = () => ({
   type: LOAD_PRODUCTS

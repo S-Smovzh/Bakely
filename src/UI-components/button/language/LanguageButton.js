@@ -1,15 +1,24 @@
-import React, {useEffect, useRef, useState} from 'react';
-import './LanguageButton.css';
+import React, { useEffect, useRef, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import i18n from '../../../utils/i18n';
-import {useTranslation} from "react-i18next";
-import {Button} from "../Button";
+import { logError } from '../../../error/errorHandler';
+import { Button } from '../Button';
+import './LanguageButton.css';
+import world from '../../../images/icons/world.svg';
+import enFlag from '../../../images/icons/en.svg';
+import ruFlag from '../../../images/icons/ru.svg';
+import uaFlag from '../../../images/icons/ua.svg';
+
 
 export default function LanguageButton() {
   const [toggle, setToggle] = useState(false);
   const [clicksCount, setClicksCount] = useState(0);
-  const [t] = useTranslation();
+  const [ t ] = useTranslation();
   const toggleRef = useRef(null);
   const menuRef = useRef(null);
+  const location = useLocation();
+  const history = useHistory();
 
   const languages = ['en', 'ru', 'ua'];
 
@@ -18,21 +27,28 @@ export default function LanguageButton() {
 
     if (target.matches('button img')) {
       let language = target.parentElement.getAttribute('data-lang');
+
       changeLanguage(language);
     } else if (target.matches('button')) {
       let language = target.getAttribute('data-lang');
+
       changeLanguage(language);
     }
   };
 
   const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng).catch((error) => console.log(error));
+    const pathname = location.pathname.split('/');
+
+    pathname[1] = lng;
+    i18n.changeLanguage(lng).catch((error) => logError(error));
+    history.push({ pathname: pathname.join('/') });
   };
 
   function useToggleListener(refOfMenu, refOfToggle) {
     useEffect(() => {
       function handleClickOutside(event) {
-        if (refOfMenu.current && !(refOfMenu.current.contains(event.target) || refOfToggle.current && refOfToggle.current.contains(event.target))) {
+        if (refOfMenu.current && !(refOfMenu.current.contains(event.target)
+          || refOfToggle.current && refOfToggle.current.contains(event.target))) {
           setClicksCount(0);
           setToggle(false);
         }
@@ -49,8 +65,8 @@ export default function LanguageButton() {
 
   return (
     <React.Fragment>
-      <Button className='button-primary button-icon Dropdown-Toggle' type='button'
-              onClick={() => {
+      <Button className="Btn-P Btn-I D-T" type="button"
+        onClick={() => {
                 if (clicksCount !== 0) {
                   setToggle(!(clicksCount % 2));
                 } else {
@@ -58,18 +74,41 @@ export default function LanguageButton() {
                 }
                 setClicksCount(clicksCount + 1);
               }} buttonRef={toggleRef} aria-label={t('navbar-menu.ariaLabel.langButton')}>
-        <img src='http://localhost:3000/img/icons/world.svg' alt='' className='icon'/>
+        <img src={world} alt="" className="Icon"/>
       </Button>
 
-      <div className={toggle ? 'Dropdown-Menu Flex J-C-C A-I-C F-F-C-N' : 'Dropdown-Menu none'} ref={menuRef}>
-        {languages.map((item, index) =>
-          <button key={index} className='Dropdown-Item Flex J-C-C A-I-C button-secondary button-icon-dropdown' type='button' data-lang={item}
-                  onClick={(event) => setLanguageCookie(event)}
-                  aria-label={t(`navbar-menu.ariaLabel.langButton.${item}`)}>
-            <img src={`http://localhost:3000/img/icons/${item}.svg`}
-                 alt='' className='icon-flag'/>
-          </button>
+      <div className={`D-M ${toggle ? 'Flex J-C-C A-I-C F-F-C-N' : 'None'}`} ref={menuRef}>
+        {languages.map((item, index) => {
+            let flag;
+
+            switch (item) {
+              case 'en':
+                flag = enFlag;
+                break;
+              case 'ru':
+                flag = ruFlag;
+                break;
+              case 'ua':
+                flag = uaFlag;
+                break;
+              default:
+                flag = enFlag;
+                break;
+            }
+
+            return (
+              <button key={index} className="D-I Flex J-C-C A-I-C Btn-S Btn-I-D"
+                type="button" data-lang={item}
+                onClick={(event) => setLanguageCookie(event)}
+                aria-label={t(`navbar-menu.ariaLabel.langButton.${item}`)}>
+                <img src={flag}
+                  alt="" className="Icon-Flag"
+                />
+              </button>
+            );
+          }
         )}
       </div>
-    </React.Fragment>);
+    </React.Fragment>
+  );
 }

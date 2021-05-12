@@ -17,14 +17,15 @@ export const publicLinks = {
 };
 
 export const clientLinks = {
+  addDeliveryAddress: 'http://localhost:5000/api/protected/client/auth/add-delivery-address',
   cart: 'http://localhost:5000/api/protected/client/auth/order/proceed',
   contactUs: 'http://localhost:5000/api/protected/client/auth/contact',
   order: 'http://localhost:5000/api/protected/client/auth/add-contact-data',
-  addDeliveryAddress: 'http://localhost:5000/api/protected/client/auth/add-delivery-address',
   subscribe: 'http://localhost:5000/api/protected/client/auth/subscribe'
 };
 
 export const userLinks = {
+  error: 'http://localhost:5000/api/protected/user/error/',
   cart: 'http://localhost:5000/api/protected/user/auth/order/proceed',
   contactUs: 'http://localhost:5000/api/protected/client/auth/contact',
   addDeliveryAddress: 'http://localhost:5000/api/protected/user/auth/addresses/add',

@@ -5,41 +5,41 @@
   row-gap: calc(#{$standard} * 2);
   padding: 10px;
 
-  .Form-Button {
+  .Form-B {
     @extend %flex;
     @extend %flex__center;
   }
 
-  .Form-Row {
+  .Form-R {
     grid-template-columns: minmax(10px, 1fr);
 
-    &-Double {
+    &-D {
       @extend %grid;
       grid-template-columns: repeat(2, minmax(10px, 1fr));
       grid-template-rows: minmax(10px, 1fr);
       grid-column-gap: calc(#{$standard} * 4);
 
-      .Cell-First {
+      .C-F {
         grid-area: 1/1/2/2;
         grid-template-columns: minmax(10px, 1fr);
       }
 
-      .Cell-Second {
+      .C-S {
         grid-area: 1/2/2/3;
         grid-template-columns: minmax(10px, 1fr);
       }
     }
   }
 
-  .Form-TextareaRow {
+  .Form-Ta-R {
     grid-template-columns: minmax(10px, 1fr);
     grid-template-rows: 30px 200px 30px;
   }
 
-  .Form-Label {
+  .Form-L {
     grid-area: 1/1/2/2;
 
-    &-Error {
+    &-E {
       grid-area: 3/1/4/2;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -78,7 +78,7 @@
   }
 }
 
-.SVG__Container {
+.SVG-С {
   position: absolute;
   top: 0;
   left: 0;
@@ -86,7 +86,7 @@
   @include animation(800ms, container__success, ease-in-out, forwards);
 }
 
-.Success-Tick {
+.Su-T {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -96,7 +96,7 @@
   }
 }
 
-.Success-Tick__Circle {
+.Su-T__C {
   opacity: 0;
   -moz-opacity: 0;
   stroke-dasharray: 130;
@@ -109,7 +109,7 @@
   stroke-miterlimit: 10;
 }
 
-.Success-Tick__Check {
+.Su-T__Ch {
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
   -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
@@ -125,16 +125,16 @@
 }
 
 @media only screen and (min-width: 1400px) {
-  .Form-Row {
+  .Form-R {
     grid-template-rows: 30px 46px 30px;
 
     &-Double {
 
-      .Cell-First {
+      .C-F {
         grid-template-rows: 30px 46px 30px;
       }
 
-      .Cell-Second {
+      .C-S {
         grid-template-rows: 30px 46px 30px;
       }
     }
@@ -142,16 +142,16 @@
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .Form-Row {
+  .Form-R {
     grid-template-rows: 30px 42px 30px;
 
     &-Double {
 
-      .Cell-First {
+      .C-F {
         grid-template-rows: 30px 42px 30px;
       }
 
-      .Cell-Second {
+      .C-S {
         grid-template-rows: 30px 42px 30px;
       }
     }
@@ -159,16 +159,16 @@
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .Form-Row {
+  .Form-R {
     grid-template-rows: 30px 40px 30px;
 
     &-Double {
 
-      .Cell-First {
+      .C-F {
         grid-template-rows: 30px 40px 30px;
       }
 
-      .Cell-Second {
+      .C-S {
         grid-template-rows: 30px 40px 30px;
       }
     }
@@ -176,16 +176,16 @@
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .Form-Row {
+  .Form-R {
     grid-template-rows: 30px 38px 30px;
 
     &-Double {
 
-      .Cell-First {
+      .C-F {
         grid-template-rows: 30px 38px 30px;
       }
 
-      .Cell-Second {
+      .C-S {
         grid-template-rows: 30px 38px 30px;
       }
     }
@@ -193,16 +193,16 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .Form-Row {
+  .Form-R {
     grid-template-rows: 30px 36px 30px;
 
     &-Double {
 
-      .Cell-First {
+      .C-F {
         grid-template-rows: 30px 36px 30px;
       }
 
-      .Cell-Second {
+      .C-S {
         grid-template-rows: 30px 36px 30px;
       }
     }
@@ -210,16 +210,16 @@
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .Form-Row {
+  .Form-R {
     grid-template-rows: 30px 34px 30px;
 
     &-Double {
 
-      .Cell-First {
+      .C-F {
         grid-template-rows: 30px 34px 30px;
       }
 
-      .Cell-Second {
+      .C-S {
         grid-template-rows: 30px 34px 30px;
       }
     }
@@ -227,16 +227,16 @@
 }
 
 @media only screen and (max-width: 320px) {
-  .Form-Row {
+  .Form-R {
     grid-template-rows: 30px 32px 30px;
 
     &-Double {
 
-      .Cell-First {
+      .C-F {
         grid-template-rows: 30px 32px 30px;
       }
 
-      .Cell-Second {
+      .C-S {
         grid-template-rows: 30px 32px 30px;
       }
     }

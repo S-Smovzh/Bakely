@@ -1,4 +1,4 @@
-.InfoPage .MiddleBlock p {
+.Info-Page .B-M p {
   text-align: justify;
   text-align: -moz-justify;
   text-align: -webkit-justify;
@@ -6,20 +6,20 @@
   text-align: -o-justify;
 }
 
-.InfoPage {
+.Info-Page {
   row-gap: calc(42px);
 }
-.InfoPage .TopBlock {
+.Info-Page .B-T {
   grid-area: 2/2/3/3;
 }
-.InfoPage .MiddleBlock {
+.Info-Page .B-M {
   grid-area: 3/2/4/3;
   row-gap: 50px;
 }
-.InfoPage .MiddleBlock p {
+.Info-Page .B-M p {
   padding: 0;
 }
-.InfoPage .MiddleBlock .Policy-List li {
+.Info-Page .B-M .Po-L li {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -29,10 +29,10 @@
   list-style-type: circle;
   padding: 0;
 }
-.InfoPage .MiddleBlock ul {
+.Info-Page .B-M ul {
   row-gap: 45px;
 }
-.InfoPage .MiddleBlock ul li {
+.Info-Page .B-M ul li {
   row-gap: 21px;
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
@@ -42,79 +42,79 @@
   color: #000000;
   border-radius: 8px;
 }
-.InfoPage .MiddleBlock ul li h2 {
+.Info-Page .B-M ul li h2 {
   background: linear-gradient(180deg, #ff8771 50%, #f0f0f0 50%);
 }
 
 @media only screen and (min-width: 1200px) {
-  .InfoPage {
+  .Info-Page {
     grid-template-rows: calc(28px) 40px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
-  .InfoPage li {
+  .Info-Page li {
     padding: calc(14px) calc(35px);
   }
-  .InfoPage li h2 {
+  .Info-Page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .InfoPage {
+  .Info-Page {
     grid-template-rows: calc(28px) 40px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(49px) minmax(10px, 1fr) calc(49px);
   }
-  .InfoPage li {
+  .Info-Page li {
     padding: calc(14px) calc(28px);
   }
-  .InfoPage li h2 {
+  .Info-Page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .InfoPage {
+  .Info-Page {
     grid-template-rows: calc(28px) 100px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(35px) minmax(10px, 1fr) calc(35px);
   }
-  .InfoPage li {
+  .Info-Page li {
     padding: 7px calc(21px);
   }
-  .InfoPage li h2 {
+  .Info-Page li h2 {
     background-position-y: 50px !important;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .InfoPage {
+  .Info-Page {
     grid-template-rows: calc(28px) 100px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(28px) minmax(10px, 1fr) calc(28px);
   }
-  .InfoPage li {
+  .Info-Page li {
     padding: 7px calc(14px);
   }
-  .InfoPage li h2 {
+  .Info-Page li h2 {
     background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .InfoPage {
+  .Info-Page {
     grid-template-rows: calc(28px) 130px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(21px) minmax(10px, 1fr) calc(21px);
   }
-  .InfoPage li {
+  .Info-Page li {
     padding: 7px;
   }
-  .InfoPage li h2 {
+  .Info-Page li h2 {
     background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
   }
 }
 @media only screen and (max-width: 320px) {
-  .InfoPage {
+  .Info-Page {
     grid-template-rows: calc(28px) 130px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(14px) minmax(10px, 1fr) calc(14px);
   }
-  .InfoPage li {
+  .Info-Page li {
     padding: 7px;
   }
-  .InfoPage li h2 {
+  .Info-Page li h2 {
     background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
   }
 }

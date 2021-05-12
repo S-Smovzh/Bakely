@@ -1,29 +1,29 @@
 .Registration-Page {
   grid-template-rows: calc(7px * 10) 440px 120px calc(7px * 10);
 }
-.Registration-Page .MiddleBlock {
+.Registration-Page .B-M {
   grid-area: 2/2/3/3;
   grid-template-rows: minmax(10px, 1fr);
 }
-.Registration-Page .MiddleBlock .LeftRow {
+.Registration-Page .B-M .F-C {
   grid-area: 1/1/2/2;
 }
-.Registration-Page .MiddleBlock .RightRow {
+.Registration-Page .B-M .S-C {
   grid-area: 1/2/2/3;
   grid-template-rows: 100px 340px;
 }
-.Registration-Page .MiddleBlock .RightRow .Header {
+.Registration-Page .B-M .S-C .Header {
   grid-area: 1/2/2/3;
 }
-.Registration-Page .MiddleBlock .RightRow .Form {
+.Registration-Page .B-M .S-C .Form {
   grid-area: 2/2/3/3;
   grid-template-columns: minmax(10px, 1fr);
   grid-template-rows: repeat(3, 100px);
 }
-.Registration-Page .MiddleBlock .RightRow .Form .NavigationButtons {
+.Registration-Page .B-M .S-C .Form .Nav-Btns {
   grid-area: 3/1/4/2;
 }
-.Registration-Page .BottomBlock {
+.Registration-Page .B-B {
   grid-area: 3/2/4/3;
 }
 
@@ -31,10 +31,10 @@
   .Registration-Page {
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
-  .Registration-Page .MiddleBlock {
+  .Registration-Page .B-M {
     grid-template-columns: 500px minmax(10px, 1fr);
   }
-  .Registration-Page .MiddleBlock .RightRow {
+  .Registration-Page .B-M .S-C {
     grid-template-columns: calc(7px * 12) minmax(10px, 1fr) calc(7px * 12);
   }
 }
@@ -42,10 +42,10 @@
   .Registration-Page {
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
-  .Registration-Page .MiddleBlock {
+  .Registration-Page .B-M {
     grid-template-columns: 400px minmax(10px, 1fr);
   }
-  .Registration-Page .MiddleBlock .RightRow {
+  .Registration-Page .B-M .S-C {
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
 }
@@ -53,10 +53,10 @@
   .Registration-Page {
     grid-template-columns: calc(7px * 4) minmax(10px, 1fr) calc(7px * 4);
   }
-  .Registration-Page .MiddleBlock {
+  .Registration-Page .B-M {
     grid-template-columns: 300px minmax(10px, 1fr);
   }
-  .Registration-Page .MiddleBlock .RightRow {
+  .Registration-Page .B-M .S-C {
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
 }
@@ -64,10 +64,10 @@
   .Registration-Page {
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
   }
-  .Registration-Page .MiddleBlock {
+  .Registration-Page .B-M {
     grid-template-columns: minmax(10px, 1fr);
   }
-  .Registration-Page .MiddleBlock .RightRow {
+  .Registration-Page .B-M .S-C {
     grid-area: 1/1/2/2;
     grid-template-columns: 15% minmax(10px, 1fr) 15%;
   }
@@ -76,14 +76,14 @@
   .Registration-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .Registration-Page .MiddleBlock {
+  .Registration-Page .B-M {
     grid-template-columns: minmax(10px, 1fr);
   }
-  .Registration-Page .MiddleBlock .RightRow {
+  .Registration-Page .B-M .S-C {
     grid-area: 1/1/2/2;
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .Registration-Page .MiddleBlock .RightRow .button-small {
+  .Registration-Page .B-M .S-C .Btn-Sm {
     word-break: break-word;
   }
 }
@@ -91,14 +91,14 @@
   .Registration-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .Registration-Page .MiddleBlock {
+  .Registration-Page .B-M {
     grid-template-columns: minmax(10px, 1fr);
   }
-  .Registration-Page .MiddleBlock .RightRow {
+  .Registration-Page .B-M .S-C {
     grid-area: 1/1/2/2;
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
-  .Registration-Page .MiddleBlock .RightRow .button-small {
+  .Registration-Page .B-M .S-C .Btn-Sm {
     word-break: break-word;
   }
 }

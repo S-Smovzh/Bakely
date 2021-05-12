@@ -1,11 +1,11 @@
 @import "Extensions";
 
-.base {
+.Base {
+  grid-template-rows: minmax(10px, 1fr);
   position: relative;
   gap: 0 0;
 
-  .Page-Wrapper {
-    @extend %grid;
+  .P-W {
     grid-template-columns: minmax(10px, 1fr);
     @include transition(0.6);
     @include transform-origin(0);
@@ -15,11 +15,6 @@
 main, .Cart-Page {
   background: $layout-200;
   @include pageMainPartShadow;
-}
-
-.Image_200_300 {
-  width: 300px;
-  height: 380px;
 }
 
 .Quote {
@@ -52,11 +47,6 @@ main, .Cart-Page {
   }
 }
 
-.Image_200_300 {
-  width: 300px;
-  height: 380px;
-}
-
 .Cart-Item-Image {
   width: 80px;
   height: 80px;
@@ -64,6 +54,28 @@ main, .Cart-Page {
   border-radius: 8px;
   background: $text-inverted;
   border: 1px solid $text;
+}
+
+.Image-P {
+  padding: 4px;
+  border-radius: 8px;
+  background: $text-inverted;
+  border: 1px solid $text;
+  @include transition(0.4);
+
+  &:hover {
+    filter: drop-shadow(0 0 6px $primary-700);
+    -webkit-filter: drop-shadow(0 0 6px $primary-700);
+    -ms-filter: drop-shadow(0 0 6px $primary-700);
+  }
+}
+
+.Icon-Flag {
+  border: 1px solid $tertiary-800;
+}
+
+[class$="Con"], .SVG, .SVG-Pop-Up {
+  height: auto;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -107,12 +119,10 @@ main, .Cart-Page {
 }
 
 @media only screen and (min-width: 1400px) {
-  .base {
-    @include grid;
+  .Base {
     grid-template-columns: minmax(10px, 1fr) 1400px minmax(10px, 1fr);
-    grid-template-rows: minmax(10px, 1fr);
 
-    .Page-Wrapper {
+    .P-W {
       grid-area: 1/2/2/3;
       grid-template-rows: 130px minmax(10px, 1fr) 390px;
     }
@@ -138,27 +148,15 @@ main, .Cart-Page {
 
   .Quote {
     padding: 10px 30px 10px 75px;
-    border-left: 8px solid $primary-700;
-
-    &::before {
-      font-size: 4em;
-      left: 10px;
-      top: -10px;
-    }
-
-    cite {
-      margin-top: 0.5em;
-    }
   }
 
-  .icon {
+  .Icon {
     width: 28px;
     height: 28px;
   }
 
-  .icon-flag {
+  .Icon-Flag {
     width: 28px;
-    border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
@@ -166,96 +164,53 @@ main, .Cart-Page {
     height: 46px;
   }
 
-  .logo-icon {
+  .Icon-Logo {
     width: 70px;
     height: 50px;
   }
 
-  .Main-Page_Horizontal-Image {
+  .M-P_Image-H {
     width: 600px;
     height: 350px;
   }
 
-  .Main-Page_Vertical-Image {
+  .M-P_Image-V {
     width: 375px;
     height: 710px;
   }
 
-  .categoryImage {
-    width: 650px;
-    height: 650px;
-  }
-
-  .categoryImageContainer {
-    width: 650px;
-    height: auto;
-  }
-
-  .listImage {
+  .Image-L {
     width: 400px;
     height: 400px;
   }
 
-  .listImageContainer {
+  .Image-L-Con {
     width: 400px;
-    height: auto;
   }
 
-  .productImage {
-    width: 400px;
-    height: 400px;
-    padding: 4px;
-    border-radius: 8px;
-    background: $text-inverted;
-    border: 1px solid $text;
-    @include transition(0.4);
-
-    &:hover {
-      filter: drop-shadow(0 0 6px $primary-700);
-    }
-  }
-
-  .productImageContainer {
-    width: 400px;
-    height: auto;
-  }
-
-  .similarProductImage {
+  .Image-S-P {
     width: 250px;
     height: 250px;
   }
 
-  .similarProductImageContainer {
+  .Image-S-P-Con {
     width: 250px;
-    height: auto;
   }
 
-  .Image-Width300-Height400 {
-    width: 300px;
-    height: 400px;
-  }
-
-  .Image-400-400 {
-    width: 400px;
-    height: 400px;
-  }
-
-  .SVG-Image {
+  .SVG {
     width: 500px;
-    height: auto;
 
     &-Pop-Up {
       width: 260px;
-      height: auto;
     }
   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .base {
+  .Base {
     grid-template-columns: minmax(1200px, 1399px);
 
-    .Page-Wrapper {
+    .P-W {
       grid-area: 1/1/2/2;
       grid-template-columns: minmax(10px, 1399px);
       grid-template-rows: 130px minmax(10px, 1fr) 390px;
@@ -266,14 +221,13 @@ main, .Cart-Page {
     padding: 10px 10px 10px 45px;
   }
 
-  .icon {
+  .Icon {
     width: 26px;
     height: 26px;
   }
 
-  .icon-flag {
+  .Icon-Flag {
     width: 26px;
-    border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
@@ -281,101 +235,53 @@ main, .Cart-Page {
     height: 42px;
   }
 
-  .logo-icon {
+  .Icon-Logo {
     width: 66px;
     height: 46px;
   }
 
-  .Main-Page_Horizontal-Image {
+  .M-P_Image-H {
     width: 520px;
     height: 310px;
   }
 
-  .Main-Page_Vertical-Image {
+  .M-P_Image-V {
     width: 300px;
     height: 630px;
   }
 
-  .categoryImage {
-    width: 590px;
-    height: 590px;
-  }
-
-  .categoryImageContainer {
-    width: 590px;
-    height: auto;
-  }
-
-  .listImage {
+  .Image-L {
     width: 360px;
     height: 360px;
   }
 
-  .Image_200_300 {
-    width: 300px;
-    height: 380px;
-  }
-
-  .listImageContainer {
+  .Image-L-Con {
     width: 360px;
-    height: auto;
   }
 
-  .productImage {
-    width: 360px;
-    height: 360px;
-    padding: 4px;
-    border-radius: 8px;
-    background: $text-inverted;
-    border: 1px solid $text;
-    @include transition(0.4);
-
-    &:hover {
-      filter: drop-shadow(0 0 6px $primary-700);
-    }
-  }
-
-  .productImageContainer {
-    width: 360px;
-    height: auto;
-  }
-
-  .similarProductImage {
+  .Image-S-P {
     width: 230px;
     height: 230px;
   }
 
-  .similarProductImageContainer {
+  .Image-S-P-Con {
     width: 230px;
-    height: auto;
   }
 
-  .Image-Width300-Height400 {
-    width: 300px;
-    height: 400px;
-  }
-
-  .Image-400-400 {
-    width: 400px;
-    height: 400px;
-  }
-
-  .SVG-Image {
+  .SVG {
     width: 450px;
-    height: auto;
 
     &-Pop-Up {
       width: 230px;
-      height: auto;
     }
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .base {
+  .Base {
     grid-template-columns: minmax(992px, 1199px);
 
-    .Page-Wrapper {
+    .P-W {
       grid-template-rows: 124px minmax(10px, 1fr) 390px;
     }
   }
@@ -384,14 +290,13 @@ main, .Cart-Page {
     padding: 10px 10px 10px 45px;
   }
 
-  .icon {
+  .Icon {
     width: 25px;
     height: 25px;
   }
 
-  .icon-flag {
+  .Icon-Flag {
     width: 25px;
-    border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
@@ -399,101 +304,53 @@ main, .Cart-Page {
     height: 40px;
   }
 
-  .logo-icon {
+  .Icon-Logo {
     width: 64px;
     height: 44px;
   }
 
-  .Main-Page_Horizontal-Image {
+  .M-P_Image-H {
     width: 780px;
     height: 300px;
   }
 
-  .Main-Page_Vertical-Image {
+  .M-P_Image-V {
     width: 380px;
     height: 610px;
   }
 
-  .categoryImage {
-    width: 500px;
-    height: 500px;
-  }
-
-  .categoryImageContainer {
-    width: 500px;
-    height: auto;
-  }
-
-  .listImage {
+  .Image-L {
     width: 320px;
     height: 320px;
   }
 
-  .Image_200_300 {
-    width: 300px;
-    height: 380px;
-  }
-
-  .listImageContainer {
+  .Image-L-Con {
     width: 320px;
-    height: auto;
   }
 
-  .productImage {
-    width: 320px;
-    height: 320px;
-    padding: 4px;
-    border-radius: 8px;
-    background: $text-inverted;
-    border: 1px solid $text;
-    @include transition(0.4);
-
-    &:hover {
-      filter: drop-shadow(0 0 6px $primary-700);
-    }
-  }
-
-  .productImageContainer {
-    width: 320px;
-    height: auto;
-  }
-
-  .similarProductImage {
+  .Image-S-P {
     width: 200px;
     height: 200px;
   }
 
-  .similarProductImageContainer {
+  .Image-S-P-Con {
     width: 200px;
-    height: auto;
   }
 
-  .Image-Width300-Height400 {
-    width: 300px;
-    height: 400px;
-  }
-
-  .Image-400-400 {
+  .SVG {
     width: 400px;
-    height: 400px;
-  }
-
-  .SVG-Image {
-    width: 400px;
-    height: auto;
 
     &-Pop-Up {
       width: 215px;
-      height: auto;
     }
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .base {
-    grid-template-columns: minmax(10px, 1fr) minmax(700px, 800px) minmax(10px, 1fr);
+  .Base {
+    grid-template-columns: minmax(700px, 800px);
 
-    .Page-Wrapper {
+    .P-W {
       grid-template-rows: 120px minmax(10px, 1fr) 390px;
     }
   }
@@ -502,14 +359,13 @@ main, .Cart-Page {
     padding: 10px 10px 10px 45px;
   }
 
-  .icon {
+  .Icon {
     width: 24px;
     height: 24px;
   }
 
-  .icon-flag {
+  .Icon-Flag {
     width: 24px;
-    border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
@@ -517,101 +373,53 @@ main, .Cart-Page {
     height: 38px;
   }
 
-  .logo-icon {
+  .Icon-Logo {
     width: 62px;
     height: 42px;
   }
 
-  .Main-Page_Horizontal-Image {
+  .M-P_Image-H {
     width: 600px;
     height: 240px;
   }
 
-  .Main-Page_Vertical-Image {
+  .M-P_Image-V {
     width: 290px;
     height: 400px;
   }
 
-  .categoryImage {
-    width: 420px;
-    height: 420px;
-  }
-
-  .categoryImageContainer {
-    width: 420px;
-    height: auto;
-  }
-
-  .listImage {
+  .Image-L {
     width: 300px;
     height: 300px;
   }
 
-  .Image_200_300 {
+  .Image-L-Con {
     width: 300px;
-    height: 380px;
   }
 
-  .listImageContainer {
-    width: 300px;
-    height: auto;
-  }
-
-  .productImage {
-    width: 300px;
-    height: 300px;
-    padding: 4px;
-    border-radius: 8px;
-    background: $text-inverted;
-    border: 1px solid $text;
-    @include transition(0.4);
-
-    &:hover {
-      filter: drop-shadow(0 0 6px $primary-700);
-    }
-  }
-
-  .productImageContainer {
-    width: 300px;
-    height: auto;
-  }
-
-  .similarProductImage {
+  .Image-S-P {
     width: 180px;
     height: 180px;
   }
 
-  .similarProductImageContainer {
+  .Image-S-P-Con {
     width: 180px;
-    height: auto;
   }
 
-  .Image-Width300-Height400 {
+  .SVG {
     width: 300px;
-    height: 400px;
-  }
-
-  .Image-400-400 {
-    width: 400px;
-    height: 400px;
-  }
-
-  .SVG-Image {
-    width: 300px;
-    height: auto;
 
     &-Pop-Up {
       width: 200px;
-      height: auto;
     }
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .base {
+  .Base {
     grid-template-columns: minmax(481px, 768px);
 
-    .Page-Wrapper {
+    .P-W {
       grid-template-rows: 110px minmax(10px, 1fr) 390px;
     }
   }
@@ -620,14 +428,13 @@ main, .Cart-Page {
     padding: 10px 10px 10px 45px;
   }
 
-  .icon {
+  .Icon {
     width: 23px;
     height: 23px;
   }
 
-  .icon-flag {
+  .Icon-Flag {
     width: 23px;
-    border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
@@ -635,101 +442,53 @@ main, .Cart-Page {
     height: 36px;
   }
 
-  .logo-icon {
+  .Icon-Logo {
     width: 60px;
     height: 40px;
   }
 
-  .Main-Page_Horizontal-Image {
+  .M-P_Image-H {
     width: 420px;
     height: 240px;
   }
 
-  .Main-Page_Vertical-Image {
+  .M-P_Image-V {
     width: 200px;
     height: 410px;
   }
 
-  .categoryImage {
-    width: 350px;
-    height: 350px;
-  }
-
-  .categoryImageContainer {
-    width: 350px;
-    height: auto;
-  }
-
-  .listImage {
+  .Image-L {
     width: 270px;
     height: 270px;
   }
 
-  .Image_200_300 {
-    width: 300px;
-    height: 380px;
-  }
-
-  .listImageContainer {
+  .Image-L-Con {
     width: 270px;
-    height: auto;
   }
 
-  .productImage {
-    width: 270px;
-    height: 270px;
-    padding: 4px;
-    border-radius: 8px;
-    background: $text-inverted;
-    border: 1px solid $text;
-    @include transition(0.4);
-
-    &:hover {
-      filter: drop-shadow(0 0 6px $primary-700);
-    }
-  }
-
-  .productImageContainer {
-    width: 270px;
-    height: auto;
-  }
-
-  .similarProductImage {
+  .Image-S-P {
     width: 180px;
     height: 180px;
   }
 
-  .similarProductImageContainer {
+  .Image-S-P-Con {
     width: 180px;
-    height: auto;
   }
 
-  .Image-Width300-Height400 {
-    width: 300px;
-    height: 400px;
-  }
-
-  .Image-400-400 {
-    width: 400px;
-    height: 400px;
-  }
-
-  .SVG-Image {
+  .SVG {
     width: 280px;
-    height: auto;
 
     &-Pop-Up {
       width: 185px;
-      height: auto;
     }
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .base {
+  .Base {
     grid-template-columns: minmax(321px, 480px);
 
-    .Page-Wrapper {
+    .P-W {
       grid-template-rows: 100px minmax(10px, 1fr) minmax(390px, auto);
     }
   }
@@ -738,14 +497,13 @@ main, .Cart-Page {
     padding: 10px 10px 10px 45px;
   }
 
-  .icon {
+  .Icon {
     width: 22px;
     height: 22px;
   }
 
-  .icon-flag {
+  .Icon-Flag {
     width: 22px;
-    border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
@@ -753,128 +511,68 @@ main, .Cart-Page {
     height: 34px;
   }
 
-  .logo-icon {
+  .Icon-Logo {
     width: 56px;
     height: 36px;
   }
 
-  .Main-Page_Horizontal-Image {
+  .M-P_Image-H {
     width: 310px;
     height: 200px;
   }
 
-  .Main-Page_Vertical-Image {
+  .M-P_Image-V {
     width: 145px;
     height: 310px;
   }
 
-  .categoryImage {
-    width: 290px;
-    height: 290px;
-  }
-
-  .categoryImageContainer {
-    width: 290px;
-    height: auto;
-  }
-
-  .listImage {
+  .Image-L {
     width: 250px;
     height: 250px;
   }
 
-  .Image_200_300 {
-    width: 300px;
-    height: 380px;
-  }
-
-  .listImageContainer {
+  .Image-L-Con {
     width: 250px;
-    height: auto;
   }
 
-  .productImage {
-    width: 250px;
-    height: 250px;
-    padding: 4px;
-    border-radius: 8px;
-    background: $text-inverted;
-    border: 1px solid $text;
-    @include transition(0.4);
-
-    &:hover {
-      filter: drop-shadow(0 0 6px $primary-700);
-    }
-  }
-
-  .productImageContainer {
-    width: 250px;
-    height: auto;
-  }
-
-  .similarProductImage {
+  .Image-S-P {
     width: 140px;
     height: 140px;
   }
 
-  .similarProductImageContainer {
+  .Image-S-P-Con {
     width: 140px;
-    height: auto;
   }
 
-  .Image-Width300-Height400 {
-    width: 300px;
-    height: 400px;
-  }
-
-  .Image-400-400 {
-    width: 400px;
-    height: 400px;
-  }
-
-  .SVG-Image {
+  .SVG {
     width: 250px;
-    height: auto;
 
     &-Pop-Up {
       width: 170px;
-      height: auto;
     }
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .base {
+  .Base {
     grid-template-columns: minmax(10px, 320px);
 
-    .Page-Wrapper {
+    .P-W {
       grid-template-rows: 90px minmax(10px, 1fr) minmax(390px, auto);
     }
   }
 
   .Quote {
     padding: 10px 10px 10px 45px;
-    border-left: 8px solid $primary-700;
-
-    &::before {
-      font-size: 4em;
-      left: 10px;
-      top: -10px;
-    }
-
-    cite {
-      margin-top: 0.5em;
-    }
   }
 
-  .icon {
+  .Icon {
     width: 21px;
     height: 21px;
   }
 
-  .icon-flag {
+  .Icon-Flag {
     width: 21px;
-    border: 1px solid $tertiary-800;
   }
 
   .Icon-Tooltip {
@@ -882,92 +580,44 @@ main, .Cart-Page {
     height: 32px;
   }
 
-  .logo-icon {
+  .Icon-Logo {
     width: 56px;
     height: 36px;
   }
 
-  .Main-Page_Horizontal-Image {
+  .M-P_Image-H {
     width: 300px;
     height: 170px;
   }
 
-  .Main-Page_Vertical-Image {
+  .M-P_Image-V {
     width: 140px;
     height: 280px;
   }
 
-  .categoryImage {
-    width: 280px;
-    height: 280px;
-  }
-
-  .categoryImageContainer {
-    width: 280px;
-    height: auto;
-  }
-
-  .listImage {
+  .Image-L {
     width: 220px;
     height: 220px;
   }
 
-  .Image_200_300 {
-    width: 300px;
-    height: 380px;
-  }
-
-  .listImageContainer {
+  .Image-L-Con {
     width: 220px;
-    height: auto;
   }
 
-  .productImage {
-    width: 220px;
-    height: 220px;
-    padding: 4px;
-    border-radius: 8px;
-    background: $text-inverted;
-    border: 1px solid $text;
-    @include transition(0.4);
-
-    &:hover {
-      filter: drop-shadow(0 0 6px $primary-700);
-    }
-  }
-
-  .productImageContainer {
-    width: 220px;
-    height: auto;
-  }
-
-  .similarProductImage {
+  .Image-S-P {
     width: 135px;
     height: 135px;
   }
 
-  .similarProductImageContainer {
+  .Image-S-P-Con {
     width: 135px;
-    height: auto;
   }
 
-  .Image-Width300-Height400 {
-    width: 300px;
-    height: 400px;
-  }
-
-  .Image-400-400 {
-    width: 400px;
-    height: 400px;
-  }
-
-  .SVG-Image {
+  .SVG {
     width: 250px;
-    height: auto;
 
     &-Pop-Up {
       width: 155px;
-      height: auto;
     }
   }
 }

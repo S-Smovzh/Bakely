@@ -23,15 +23,15 @@
     row-gap: calc(#{$standard} * 6);
   }
 
-  .Form-Row-Double.Optional {
+  .Form-R-D.Optional {
     grid-template-columns: minmax(10px, 1fr) 80px minmax(10px, 1fr);
 
-    &.Without-Ruler {
-      .Form-Row:first-child {
+    &.Wout-R {
+      .Form-R:first-child {
         grid-area: 1/1/2/2;
       }
 
-      .Form-Row:last-child {
+      .Form-R:last-child {
         grid-area: 1/3/2/4;
       }
     }
@@ -49,7 +49,7 @@
   }
 }
 
-.Tab-Container {
+.Tab-C {
   @include columnGap(calc(#{$standard} * 3));
 
   .Tab {
@@ -60,7 +60,7 @@
   }
 }
 
-.Radio-Row {
+.Radio-R {
   @include columnGap(20px);
 
   button {
@@ -95,7 +95,8 @@
   row-gap: calc(#{$standard} * 4);
 
   header {
-    @include columnGap(calc(#{$standard} * 2))
+    @include columnGap(calc(#{$standard} * 2));
+    margin-bottom: 10px;
   }
 
   form {
@@ -110,11 +111,11 @@
     grid-area: 1/1/2/3;
   }
 
-  .RightCol {
+  .S-C {
     row-gap: calc(#{$standard} * 2);
     padding: 0;
 
-    .Textarea {
+    .Ta {
       resize: none;
     }
   }
@@ -147,7 +148,7 @@
   }
 }
 
-.NavigationButtons {
+.Nav-Btns {
   margin-bottom: 5px;
 }
 
@@ -155,19 +156,19 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        width: 45vw;
+        width: 600px;
       }
     }
 
     &.Contact {
       .modal-content, .modal-dialog {
-        width: 70vw;
+        width: 800px;
       }
     }
 
     &.Option {
       .modal-content, .modal-dialog {
-        width: 40vw;
+        width: 610px;
       }
 
       .Options-Page > .Flex {
@@ -182,7 +183,7 @@
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        width: 40vw;
+        width: 600px;
 
         .Select-Page {
           select {
@@ -195,13 +196,13 @@
 
     &.Delivery {
       .modal-content, .modal-dialog {
-        width: 40vw;
+        width: 700px;
       }
     }
 
     &.Success {
       .modal-content, .modal-dialog {
-        width: 50vw;
+        width: 800px;
       }
     }
   }
@@ -211,19 +212,19 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        width: 45vw;
+        width: 600px;
       }
     }
 
     &.Contact {
       .modal-content, .modal-dialog {
-        width: 70vw;
+        width: 800px;
       }
     }
 
     &.Option {
       .modal-content, .modal-dialog {
-        width: 50vw;
+        width: 610px;
       }
 
       .Options-Page > .Flex {
@@ -238,7 +239,7 @@
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        width: 40vw;
+        width: 600px;
 
         .Select-Page {
           select {
@@ -251,13 +252,13 @@
 
     &.Delivery {
       .modal-content, .modal-dialog {
-        width: 50vw;
+        width: 700px;
       }
     }
 
     &.Success {
       .modal-content, .modal-dialog {
-        width: 60vw;
+        width: 800px;
       }
     }
   }
@@ -267,19 +268,19 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        width: 50vw;
+        width: 600px;
       }
     }
 
     &.Contact {
       .modal-content, .modal-dialog {
-        width: 70vw;
+        width: 800px;
       }
     }
 
     &.Option {
       .modal-content, .modal-dialog {
-        width: 60vw;
+        width: 610px;
       }
 
       .Options-Page > .Flex {
@@ -294,7 +295,7 @@
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        width: 50vw;
+        width: 600px;
 
         .Select-Page {
           select {
@@ -307,13 +308,13 @@
 
     &.Delivery {
       .modal-content, .modal-dialog {
-        width: 60vw;
+        width: 700px;
       }
     }
 
     &.Success {
       .modal-content, .modal-dialog {
-        width: 70vw;
+        width: 800px;
       }
     }
   }
@@ -323,7 +324,7 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        width: 60vw;
+        width: 500px;
       }
     }
 
@@ -335,7 +336,7 @@
 
     &.Option {
       .modal-content, .modal-dialog {
-        width: 75vw;
+        width: 610px;
       }
 
       .Options-Page > .Flex {
@@ -350,7 +351,7 @@
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        width: 65vw;
+        width: 600px;
 
         .Select-Page {
           select {
@@ -363,13 +364,13 @@
 
     &.Delivery {
       .modal-content, .modal-dialog {
-        width: 80vw;
+        width: 700px;
       }
     }
 
     &.Success {
       .modal-content, .modal-dialog {
-        width: 71vw;
+        width: 700px;
       }
     }
   }
@@ -377,8 +378,30 @@
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .Order-Form {
+    .carousel-control-prev, .carousel-control-next {
+      bottom: auto;
+      top: -30px;
+      height: 40px;
+
+      & > .Btn-I {
+        height: 40px;
+      }
+    }
+
     .carousel-item {
-      height: 300px;
+      height: 220px;
+
+      .Form-R {
+        padding-inline: 10px;
+      }
+
+      & > div {
+        padding-block: 30px;
+      }
+    }
+
+    .carousel-indicators {
+      display: none;
     }
   }
 
@@ -392,29 +415,6 @@
     &.Contact {
       .modal-content, .modal-dialog {
         width: 80vw;
-
-        .carousel-control-prev, .carousel-control-next {
-          bottom: auto;
-          top: -30px;
-
-          & > .button-icon {
-            height: 40px;
-          }
-        }
-
-        .carousel-item {
-          .Form-Row {
-            padding-inline: 10px;
-          }
-
-          & > div {
-            padding-block: 30px;
-          }
-        }
-
-        .carousel-indicators {
-          display: none;
-        }
       }
     }
 
@@ -462,8 +462,30 @@
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   .Order-Form {
+    .carousel-control-prev, .carousel-control-next {
+      bottom: auto;
+      top: -30px;
+      height: 40px;
+
+      & > .Btn-I {
+        height: 40px;
+      }
+    }
+
     .carousel-item {
-      height: 260px;
+      height: 220px;
+
+      .Form-R {
+        padding-inline: 10px;
+      }
+
+      & > div {
+        padding-block: 30px;
+      }
+    }
+
+    .carousel-indicators {
+      display: none;
     }
   }
 
@@ -477,29 +499,6 @@
     &.Contact {
       .modal-content, .modal-dialog {
         width: 90vw;
-
-        .carousel-control-prev, .carousel-control-next {
-          bottom: auto;
-          top: -30px;
-
-          & > .button-icon {
-            height: 40px;
-          }
-        }
-
-        .carousel-item {
-          .Form-Row {
-            padding-inline: 10px;
-          }
-
-          & > div {
-            padding-block: 30px;
-          }
-        }
-
-        .carousel-indicators {
-          display: none;
-        }
       }
     }
 
@@ -547,8 +546,30 @@
 
 @media only screen and (max-width: 320px) {
   .Order-Form {
+    .carousel-control-prev, .carousel-control-next {
+      bottom: auto;
+      top: -30px;
+      height: 40px;
+
+      & > .Btn-I {
+        height: 40px;
+      }
+    }
+
     .carousel-item {
       height: 220px;
+
+      .Form-R {
+        padding-inline: 10px;
+      }
+
+      & > div {
+        padding-block: 30px;
+      }
+    }
+
+    .carousel-indicators {
+      display: none;
     }
   }
 
@@ -562,29 +583,6 @@
     &.Contact {
       .modal-content, .modal-dialog {
         width: 90vw;
-
-        .carousel-control-prev, .carousel-control-next {
-          bottom: auto;
-          top: -30px;
-
-          & > .button-icon {
-            height: 40px;
-          }
-        }
-
-        .carousel-item {
-          .Form-Row {
-            padding-inline: 10px;
-          }
-
-          & > div {
-            padding-block: 30px;
-          }
-        }
-
-        .carousel-indicators {
-          display: none;
-        }
       }
     }
 
@@ -634,37 +632,37 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        height: 40vh;
+        height: 400px;
       }
     }
 
     &.Contact {
       .modal-content, .modal-dialog {
-        height: 55vh;
+        height: 510px;
       }
     }
 
     &.Option {
       .modal-content, .modal-dialog {
-        height: 50vh;
+        height: 360px;
       }
     }
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        height: 30vh;
+        height: 310px;
       }
     }
 
     &.Delivery {
       .modal-content, .modal-dialog {
-        height: 45vh;
+        height: 440px;
       }
     }
 
     &.Success {
       .modal-content, .modal-dialog {
-        height: 550px;
+        height: 520px;
       }
     }
   }
@@ -674,37 +672,37 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        height: 50vh;
+        height: 400px;
       }
     }
 
     &.Contact {
       .modal-content, .modal-dialog {
-        height: 68vh;
+        height: 510px;
       }
     }
 
     &.Option {
       .modal-content, .modal-dialog {
-        height: 60vh;
+        height: 360px;
       }
     }
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        height: 35vh;
+        height: 310px;
       }
     }
 
     &.Delivery {
       .modal-content, .modal-dialog {
-        height: 55vh;
+        height: 440px;
       }
     }
 
     &.Success {
       .modal-content, .modal-dialog {
-        height: 550px;
+        height: 520px;
       }
     }
   }
@@ -714,37 +712,37 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        height: 50vh;
+        height: 400px;
       }
     }
 
     &.Contact {
       .modal-content, .modal-dialog {
-        height: 75vh;
+        height: 510px;
       }
     }
 
     &.Option {
       .modal-content, .modal-dialog {
-        height: 65vh;
+        height: 360px;
       }
     }
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        height: 45vh;
+        height: 310px;
       }
     }
 
     &.Delivery {
       .modal-content, .modal-dialog {
-        height: 65vh;
+        height: 440px;
       }
     }
 
     &.Success {
       .modal-content, .modal-dialog {
-        height: 550px;
+        height: 520px;
       }
     }
   }
@@ -754,7 +752,7 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        height: 75vh;
+        height: 390px;
       }
     }
 
@@ -766,13 +764,13 @@
 
     &.Option {
       .modal-content, .modal-dialog {
-        height: 75vh;
+        height: 360px;
       }
     }
 
     &.SelfPickUp {
       .modal-content, .modal-dialog {
-        height: 70vh;
+        height: 310px;
       }
     }
 
@@ -794,7 +792,7 @@
   .Modal {
     &.Introduction {
       .modal-content, .modal-dialog {
-        height: 90vh;
+        height: 95vh;
       }
     }
 

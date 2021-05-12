@@ -25,11 +25,11 @@ export const loadDeliveryAddresses = (loadedAddresses) => ({
   type: LOAD_DELIVERY_ADDRESSES, addresses: loadedAddresses
 });
 
-export const addDeliveryAddress = (address) => ({
+export const addDeliveryAddress = () => ({
   type: ADD_DELIVERY_ADDRESS
 });
 
-export const removeDeliveryAddress = (id, event) => ({
+export const removeDeliveryAddress = () => ({
   type: REMOVE_DELIVERY_ADDRESS
 });
 

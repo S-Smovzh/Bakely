@@ -13,17 +13,17 @@
   height: 100vh;
   background: $layout-100;
 
-  .TopBlock {
+  .B-T {
     grid-area: 1/1/2/2;
     background: $secondary-1000;
     color: $text-inverted;
   }
 
-  .MiddleBlock {
+  .B-M {
     grid-area: 2/1/3/2;
     row-gap: $standard;
 
-    .Cart-Products {
+    .Cart-Pr {
       row-gap: calc(#{$standard} * 2);
       overflow-y: auto;
       -ms-overflow-y: auto;
@@ -33,72 +33,72 @@
       padding-block: calc(#{$standard} * 4);
       padding-inline: 4px;
 
-      .Cart-Product {
+      .Cart-It {
         @include box-shadow(0px 4px 14px rgba(78, 34, 16, 0.15));
         border-radius: 10px;
-      }
 
-      .Cart-Product .Product-Data-Wrapper {
-        grid-area: 1/2/2/3;
-        @extend %grid;
-
-        .Product-Data {
-          grid-area: 1/1/2/2;
-
-          & > ::-webkit-scrollbar {
-            width: 6px !important;
-          }
-
-          span:nth-child(1) {
-            overflow-y: auto;
-            overflow-x: hidden;
-            max-height: 52px;
-          }
-        }
-
-        .Remove-Button {
-          grid-area: 1/3/2/4;
-          justify-self: flex-end;
-        }
-
-        .Product-Image {
-          grid-area: 1/1/2/2;
-        }
-
-        .Product_Quantity {
+        & > div.Grid {
           grid-area: 1/2/2/3;
+          @include columnGap(calc(#{$standard} * 2));
 
-          & > #quantity {
-            height: 30px;
-            width: 32px;
-            background: $text-inverted;
-            border: 1px inset $text;
+          .Item-D {
+            grid-area: 1/1/2/2;
+
+            & > ::-webkit-scrollbar {
+              width: 6px !important;
+            }
+
+            span:nth-child(1) {
+              overflow-y: auto;
+              overflow-x: hidden;
+              max-height: 52px;
+            }
           }
 
-          & > button {
-            height: 32px;
-            width: 32px;
-            box-shadow: none;
+          .Btn-Rem {
+            grid-area: 1/3/2/4;
+            justify-self: flex-end;
+          }
 
-            &:nth-child(1) {
-              border-radius: 8px 8px 0 0;
+          .Item-Im {
+            grid-area: 1/1/2/2;
+          }
 
-              img {
-                transform: rotateX(180deg);
+          .Item-Qu {
+            grid-area: 1/2/2/3;
+
+            & > #qu {
+              height: 30px;
+              width: 32px;
+              background: $text-inverted;
+              border: 1px inset $text;
+            }
+
+            & > button {
+              height: 32px;
+              width: 32px;
+              box-shadow: none;
+
+              &:nth-child(1) {
+                border-radius: 8px 8px 0 0;
+
+                img {
+                  transform: rotateX(180deg);
+                }
+              }
+
+              &:nth-child(3) {
+                border-radius: 0 0 8px 8px;
               }
             }
-
-            &:nth-child(3) {
-              border-radius: 0 0 8px 8px;
-            }
           }
-        }
 
-        .H-Ruler {
-          grid-area: 2/1/3/3;
-          background: $primary-700;
-          opacity: 0.8;
-          border-radius: 30px;
+          .H-Ruler {
+            grid-area: 2/1/3/3;
+            background: $primary-700;
+            opacity: 0.8;
+            border-radius: 30px;
+          }
         }
       }
     }
@@ -158,19 +158,19 @@
     row-gap: calc(#{$standard} * 4);
     padding-inline: calc(#{$standard} * 3);
 
-    .TopBlock {
+    .B-T {
       margin-inline: calc(-#{$standard} * 3);
       @include flex__center;
     }
 
-    .Cart-Product {
-      grid-template-rows: 110px 4px;
+    .Cart-It {
+      grid-template-rows: 110px;
       grid-template-columns: 80px auto;
       column-gap: 10px;
       padding: 4px 10px;
       width: 100%;
 
-      .Product-Data-Wrapper {
+      .Item-D {
         grid-template-rows: minmax(10px, 1fr);
         grid-template-columns: 140px 75px auto;
       }
@@ -185,19 +185,19 @@
     row-gap: calc(#{$standard} * 4);
     padding-inline: calc(#{$standard} * 3);
 
-    .TopBlock {
+    .B-T {
       margin-inline: calc(-#{$standard} * 3);
       @include flex__center;
     }
 
-    .Cart-Product {
-      grid-template-rows: 110px 4px;
+    .Cart-It {
+      grid-template-rows: 110px;
       grid-template-columns: 80px auto;
       column-gap: 10px;
       padding: 4px 10px;
       width: 100%;
 
-      .Product-Data-Wrapper {
+      .Item-D {
         grid-template-rows: minmax(10px, 1fr);
         grid-template-columns: 140px 75px auto;
       }
@@ -212,19 +212,19 @@
     row-gap: calc(#{$standard} * 4);
     padding-inline: calc(#{$standard} * 2);
 
-    .TopBlock {
+    .B-T {
       margin-inline: calc(-#{$standard} * 2);
       @include flex__center;
     }
 
-    .Cart-Product {
-      grid-template-rows: 110px 4px;
+    .Cart-It {
+      grid-template-rows: 110px;
       grid-template-columns: 80px auto;
       column-gap: 10px;
       padding: 4px 10px;
       width: 100%;
 
-      .Product-Data-Wrapper {
+      .Item-D {
         grid-template-rows: minmax(10px, 1fr);
         grid-template-columns: 140px 75px auto;
       }
@@ -239,7 +239,7 @@
     row-gap: calc(#{$standard} * 4);
     padding-inline: calc(#{$standard} * 2);
 
-    .TopBlock {
+    .B-T {
       margin-inline: calc(-#{$standard} * 2);
 
       &.Small-Device {
@@ -252,13 +252,13 @@
       }
     }
 
-    .Cart-Product {
+    .Cart-It {
       grid-template-rows: 110px;
       grid-template-columns: 80px auto;
       column-gap: 10px;
       padding: 4px 10px;
 
-      .Product-Data-Wrapper {
+      .Item-D {
         grid-template-rows: minmax(10px, 1fr);
         grid-template-columns: 240px 75px auto;
       }
@@ -273,7 +273,7 @@
     row-gap: calc(#{$standard} * 4);
     padding-inline: $standard;
 
-    .TopBlock {
+    .B-T {
       margin-inline: calc(-#{$standard});
 
       &.Small-Device {
@@ -286,13 +286,13 @@
       }
     }
 
-    .Cart-Product {
-      grid-template-rows: 110px 4px;
+    .Cart-It {
+      grid-template-rows: 110px;
       grid-template-columns: 80px auto;
       column-gap: 10px;
       padding: 4px 10px;
 
-      .Product-Data-Wrapper {
+      .Item-D {
         grid-template-rows: minmax(10px, 1fr);
         grid-template-columns: 140px 75px auto;
       }
@@ -307,7 +307,7 @@
     row-gap: calc(#{$standard} * 4);
     padding-inline: $standard;
 
-    .TopBlock {
+    .B-T {
       margin-inline: calc(-#{$standard});
 
       &.Small-Device {
@@ -320,15 +320,18 @@
       }
     }
 
-    .Cart-Product {
-      grid-template-rows: 110px 4px;
+    .Cart-It {
+      grid-template-rows: 130px;
       grid-template-columns: 80px auto;
       column-gap: 10px;
-      padding: 4px 10px;
+      padding: 4px;
 
-      .Product-Data-Wrapper {
+      .Item-D {
         grid-template-rows: minmax(10px, 1fr);
         grid-template-columns: 120px 55px auto;
+        column-gap: 0 !important;
+        -webkit-column-gap: 0 !important;
+        -moz-column-gap: 0 !important;
       }
     }
   }

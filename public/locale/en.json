@@ -14,9 +14,20 @@
   "about.feedbacks.third.author": "Sherry S.",
   "about.feedbacks.third": "I stumbled across this cute bakery one day and was so pleasantly surprised by the wide selection of baked goods this little shop carries! They have a large variety of cupcakes and cakes as well as pies. I tried the banana pudding which I thought was very creamy, but not the type of creamy that makes You feel sick after.",
 
+  "about.seo.title" : "Bakely - About Us",
+  "about.seo.description" : "It all began in 2007 with two friends from business school who shared a sweet tooth and a dream of baking. 14 years later, we bake all of our products on-site, filling our 1940s-style stores with the delicious smells of fresh cakes and pies to bring back that delightful, warm feeling of Grandma’s kitchen.",
+
+  "attribution.header": "Attribution Page",
+  "attribution.main": "If you see that I used your photos, icons or anything else and your aren't attributed, please email me",
+
   "careers.header": "Bakely Vacancies",
   "careers.label.select": "Select address:",
   "careers.select.all": "All",
+
+  "careers.seo.title": "Bakely - Careers",
+  "careers.seo.description": "At Bakely, we’re proud to employ great people who are passionate about their jobs. But they’re all different. Some want to improve their prospects. Others want a job that fits round their family life. And some just want to earn a bit of extra cash working with good, friendly people at a place where they can grow.",
+  "careers.seo.cardDescription": "At Bakely, we’re proud to employ great people who are passionate about their jobs. But they’re all different. Some want to improve their prospects. Others want a job that fits round their family life. And some just want to earn a bit of extra cash working with good, friendly people at a place where they can grow. Everyone who works here wants and needs different things.",
+  "careers.seo.imgAlt": "Our team.",
 
   "cart.header.empty": "Your cart is empty",
   "cart.header.filled": "Your cart",
@@ -39,10 +50,17 @@
   "catering.gallery.modal.date": "Date:",
   "catering.gallery.modal.guests": "Guests quantity:",
 
+  "catering.gallery.seo.title": "Bakely - Catering Gallery",
+
+  "catering.seo.title": "Bakely - Catering",
+  "catering.seo.description": "Order cakes, pies or other pastry for a crowd with Bakely! We offer catering delivery for large orders and group catering purchases.",
+  "catering.seo.cardDescription": "Order cakes, pies or other pastry for a crowd with Bakely! We offer catering delivery for large orders and group catering purchases.",
+  "catering.seo.imgAlt": "Example of a catering provided by Bakely.",
+
   "contactUs.header": "Contact from",
   "contactUs.option.choose": "Choose subject",
   "contactUs.option.catering": "Catering",
-  "contactUs.option.careers": "Career",
+  "contactUs.option.careers": "Careers",
   "contactUs.option.productInfo": "Products information",
   "contactUs.option.support": "Support",
   "contactUs.option.marketingAndPR": "Marketing & PR",
@@ -59,8 +77,19 @@
   "contactUs.location.Kharkov": "Kharkov, 7th Floor, Capitalist business centre, 27b Nauky avenue, Kharkov 61000",
   "contactUs.location.Kharkov.city": "Kharkov",
 
+  "contactUs.seo.title" : "Bakely - Contact Us",
+  "contactUs.seo.description" : "Bakely - Contact Us.",
+
   "error.header": "The page you were looking for doesn't exist.",
   "error.button": "To the main page",
+
+  "error.seo.title" : "Bakely - Error 404 | Not Found",
+  "error.seo.description" : "Error 404. Page not found.",
+
+  "errorBoundary.header": "The page you were looking for doesn't exist.",
+
+  "errorBoundary.seo.title" : "Bakely - Internal Error",
+  "errorBoundary.seo.description" : "Internal error.",
 
   "infoPages.cookies.header": "Cookie Policy",
   "infoPages.privacy.header": "Privacy Policy for Bakely LLC",
@@ -69,6 +98,24 @@
   "infoPages.delivery.header": "Delivery information",
   "infoPages.faq.header": "Frequently asked questions Information",
   "infoPages.orders.header": "Orders information",
+
+  "infoPages.delivery.seo.title" : "Bakely - Delivery Information",
+  "infoPages.delivery.seo.description" : "Frequently asked questions about delivering process with Bakely.",
+
+  "infoPages.faq.seo.title" : "Bakely - Frequently Asked Questions",
+  "infoPages.faq.seo.description" : "Bakely - Frequently Asked Questions.",
+
+  "infoPages.orders.seo.title" : "Bakely - Orders Information",
+  "infoPages.orders.seo.description" : "Frequently asked questions about ordering process with Bakely.",
+
+  "infoPages.cookies.seo.title" : "Bakely - Cookie Policy",
+  "infoPages.cookies.seo.description" : "Find more information and read Bakely’s Cookie Policy here.",
+
+  "infoPages.privacy.seo.title" : "Bakely - Privacy Policy",
+  "infoPages.privacy.seo.description" : "We take your privacy seriously. We are as honest about what we do with your personal information as we are about the ingredients that go into the food we serve.",
+
+  "infoPages.terms.seo.title" : "Bakely - Terms and Conditions",
+  "infoPages.terms.seo.description" : "Find more information and read Bakely’s Terms and Conditions here.",
 
   "infoPages.delivery" : [
     {
@@ -163,6 +210,11 @@
 
   "locations.header": "Bakely Locations",
 
+  "locations.seo.title": "Bakely - Locations | Kyiv",
+  "locations.seo.description": "Find the nearest Bakely’s and get information on bakery hours, services, and more.",
+  "locations.seo.cardDescription": "Find the nearest Bakely’s and get information on bakery hours, services, and more.",
+  "locations.seo.imgAlt": "Our bakery on Mezhihirska street 10.",
+
   "main.slide.first.alt": "Bakely`s special cream-chocolate cake.",
   "main.slide.first.title": "Chocolate pleasure",
   "main.slide.first.description": "For the last decade Bakely has been the home of all local sweet tooths. Try one of our the most well-known specialities.",
@@ -178,14 +230,24 @@
 
   "main.ourStory.text": "It all began in 2007 with two friends from business school who shared a sweet tooth and a dream of baking. 14 years later, we bake all of our products on-site, filling our 1940s-style stores with the delicious smells of fresh cakes and pies to bring back that delightful, warm feeling of Grandma’s kitchen.",
   "main.ourStory.button": "Read our story",
+
   "main.catering.text": "Our catering is not just all about delicious food. It’s about excellent service as well.",
   "main.catering.button": "Catering",
+  "main.catering.alt": "An example of catering with Bakely.",
   "main.joinTeam.text": "Engage. Produce. Grow. Join our Team!",
   "main.joinTeam.button": "Join team",
+  "main.joinTeam.alt": "Our workers.",
   "main.shopAll.text": "Satisfy Your sweet tooth! Order online for pickup or delivery.",
   "main.shopAll.button": "Shop all",
+  "main.shopAll.alt": "Our sweets and bakery which you can order online.",
   "main.locations.text": "Come celebrate homemade at one of our bakeries!",
   "main.locations.button": "Locations",
+  "main.locations.alt": "Our bakery on Tumanyana street.",
+
+  "main.seo.title": "Bakely - Cakes, Pies, Cupcakes and more",
+  "main.seo.description": "Welcome to the official website of Bakely. For all the latest news, updates and initiatives to help continue supporting local communities.",
+  "main.seo.cardDescription": "Welcome to the official website of Bakely. For all the latest news, updates and initiatives to help continue supporting local communities.",
+  "main.seo.imgAlt": "Bakely’s logo.",
 
   "modal.activation.notActive.header": "Your account is inactive",
   "modal.activation.notActive.body": "You must activate your account to sign in. Check your email and follow the link which is sent to you.",
@@ -193,6 +255,9 @@
   "modal.activation.activate.body": "We've sent you an email with an activation link. Follow it and then you'll be able to sign in.",
 
   "news.header": "Press Releases",
+
+  "news.seo.title": "Bakely - News",
+  "news.seo.description": "Bakely - News",
 
   "orderForm.introduction.header": "We need Your contact data.",
   "orderForm.introduction.delivery": "If you also want us to deliver your bakery, you need to provide your delivery address.",
@@ -214,9 +279,18 @@
   "shopAll.pies": "Pies",
   "shopAll.giftBoxes": "Gift boxes",
 
+  "shopAll.seo.title": "Bakely - Locations | Kyiv",
+  "shopAll.seo.description": "Discover the Bakely’s Menu, with every one of our cakes, pies, cupcakes, and more.",
+  "shopAll.seo.cardDescription": "Discover the Bakely’s Menu, with every one of our cakes, pies, cupcakes, and more.",
+  "shopAll.seo.imgAlt": "Bakely’s logo.",
+
   "productsList.price": "For only {{price}}$",
   "productsList.priceDiscounted": "NOW for only {{price}}$",
   "productsList.oldPrice": "Was {{price}}$",
+
+  "productsList.seo.title": "| Bakely",
+  "productsList.seo.description": "Now you can treat and surprise yourself with even more items from our menu.",
+  "productsList.seo.cardDescription": "Now you can treat and surprise yourself with even more items from our menu.",
 
   "productPage.orders": "Orders require up to 12 hours",
   "productPage.deliveryInfo": "Delivery Information",
@@ -228,16 +302,21 @@
   "productPage.addToCart": "Add To Cart",
   "productPage.header": "Choose Category",
 
+  "productPage.seo.title": "| Bakely",
+
   "signUp.header": "Sign Up",
   "signUp.success.message": "Congrats, now You have an account! All You need ",
   "signUp.link": "Already have an account? Log in!",
+
+  "signUp.seo.title": "Bakely - Sign Up",
+  "signUp.seo.description": "Create an account and get full access to all the features.",
 
   "login.header": "Login",
   "login.button": "Log in",
   "login.link": "Don`t have an account yet? Create one!",
 
-  "seo.homepage.title": "Homepage",
-  "seo.homepage.description": "Register an account or log in if you have one to access all features.",
+  "login.seo.title": "Bakely - Log In",
+  "login.seo.description": "Access all the features by logging in with your user account.",
 
   "homepage.orders.header": "Your orders",
 
@@ -251,8 +330,10 @@
   "homepage.passwordChange.header": "Password change",
   "homepage.telNumChange.header": "Tel. num. change",
 
-
   "homepage.selectCity": "-- Select city",
+
+  "homepage.seo.title": "Bakely - Homepage",
+  "homepage.seo.description": "Register an account or log in if you have one.",
 
   "label.firstName": "First name:",
   "label.lastName": "Last name:",
@@ -318,6 +399,7 @@
   "button.prev": "Previous",
   "button.next": "Next",
   "button.submit": "Submit",
+  "button.tooltip": "Tooltip",
   "button.subscribe": "Subscribe",
   "button.orderForm.delivery": "Delivery",
   "button.orderForm.selfPickUp": "Self-pick-up",
@@ -342,6 +424,10 @@
   "flat": "flat",
   "date": "Date",
   "products": "Products",
-  "price": "Price"
+  "price": "Price",
+  "icons": "Icons",
+  "photos": "Photos",
+  "open": "Open",
+  "closed": "Closed"
 }
 

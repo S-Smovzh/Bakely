@@ -2,15 +2,55 @@
 
 $spinnerSize: 86;
 
-.showOverlay {
+.Ov-Show {
   @include transition(1);
   animation: 300ms fadeIn forwards;
   @include animation(fadeIn, 300ms, ease-in-out, forwards)
 }
 
-.hideOverlay {
+.Ov-Hide {
   @include transition(.8);
   @include animation(fadeOut, 800ms, ease-in-out, forwards)
+}
+
+.Load-Ov-C {
+  position: relative;
+
+  .Sp {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    font-size: 1.2em;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 4;
+
+    p, span, h1, h2, h3, h4, h5, h6 {
+      color: $text-inverted !important;
+      @extend %textCenter;
+      margin: 1rem;
+    }
+
+    svg.sp {
+      width: $spinnerSize + px;
+      height: $spinnerSize + px;
+      x: 0px;
+      y: 0px;
+      viewBox: 0 0 $spinnerSize $spinnerSize;
+
+      circle {
+        fill: transparent;
+        stroke: #fff;
+        stroke-width: 9;
+        stroke-linecap: round;
+        stroke-dasharray: (3.14 * $spinnerSize);
+        @include transform-origin((0.5px * $spinnerSize) (0.5px * $spinnerSize) 0);
+        @include animation(spinner, 2000ms, linear, infinite);
+      }
+    }
+  }
 }
 
 @include keyframes(fadeIn) {
@@ -105,46 +145,6 @@ $spinnerSize: 86;
   100% {
     opacity: 0;
     display: none;
-  }
-}
-
-.Loading-Overlay-Container {
-  position: relative;
-
-  .Spinner {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    font-size: 1.2em;
-    color: #FFF;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 4;
-
-    p, span, h1, h2, h3, h4, h5, h6 {
-      color: $text-inverted !important;
-      @extend %textCenter;
-      margin: 1rem;
-    }
-
-    svg.spinner {
-      width: $spinnerSize + px;
-      height: $spinnerSize + px;
-      x: 0px;
-      y: 0px;
-      viewBox: 0 0 $spinnerSize $spinnerSize;
-
-      circle {
-        fill: transparent;
-        stroke: #fff;
-        stroke-width: 9;
-        stroke-linecap: round;
-        stroke-dasharray: (3.14 * $spinnerSize);
-        @include transform-origin((0.5px * $spinnerSize) (0.5px * $spinnerSize) 0);
-        @include animation(spinner, 2000ms, linear, infinite);
-      }
-    }
   }
 }
 

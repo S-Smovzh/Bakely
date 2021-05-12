@@ -1,55 +1,59 @@
 @import "../css/base/Extensions";
 
-.ErrorPage {
+.Error-Page {
   row-gap: calc(#{$standard} * 6);
 
-  .TopBlock {
+  .B-T {
     grid-area: 2/2/3/3;
   }
 
-  & > .MiddleBlock {
+  & > .B-M {
     grid-area: 3/2/4/3;
     row-gap: calc(#{$standard} * 6);
+
+    img {
+      height: 350px;
+    }
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(#{$standard} * 4) 50px 480px $mainPadding;
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(#{$standard} * 4) 50px 440px $mainPadding;
     grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(#{$standard} * 4) 100px 360px $mainPadding;
     grid-template-columns: calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(#{$standard} * 4) 100px 340px $mainPadding;
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(#{$standard} * 4) 130px 340px $mainPadding;
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .ErrorPage {
+  .Error-Page {
     grid-template-rows: calc(#{$standard} * 4) 130px 340px $mainPadding;
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }

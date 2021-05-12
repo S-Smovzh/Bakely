@@ -212,9 +212,10 @@
   cursor: not-allowed;
 }
 
-.BlockScroll {
+.Block-Scrolling {
   overflow-y: hidden;
   overflow-y: -moz-hidden-unscrollable;
+  -ms-overflow-y: hidden;
 }
 
 .Active {
@@ -245,7 +246,7 @@ img {
   @include user-select(none);
 }
 
-.MainBlock {
+.Page {
   grid-area: 2/1/3/2;
 }
 
@@ -309,7 +310,7 @@ ul, li {
   list-style-type: none;
 }
 
-.crossed {
+.Crossed {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
   color: $tertiary-700;
@@ -375,33 +376,29 @@ a, button {
   outline: none;
 }
 
-.flex {
-  @extend %flex;
-}
-
-.none {
+.None {
   display: none !important;
 }
 
-.fill-height {
+.F-H {
   @extend %avaHeight;
 }
 
-.fill-width {
+.F-W {
   @extend %avaWidth;
 }
 
 #root {
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
+  //overflow-x: hidden;
 }
 
 video {
   object-fit: fill;
 }
 
-.Navbar, h1, h2, h3, h4, h5, h6, .Footer {
+.Nav, h1, h2, h3, h4, h5, h6, .Footer {
   @include user-select(none);
 }
 

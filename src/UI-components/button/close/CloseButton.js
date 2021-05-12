@@ -1,27 +1,32 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import {Animation} from "../../../animation/Animation";
+import { useTranslation } from 'react-i18next';
+import { Animation } from '../../../animation/Animation';
+import cross from '../../../images/icons/cross.svg';
+import { Button } from '../Button';
 import './CloseButton.css';
-import {Button} from "../Button";
 
-export default function CloseButton({animate, onClick, ariaLabel}) {
+export default function CloseButton({ animate, onClick, ariaLabel }) {
+  const [ t ] = useTranslation();
 
   CloseButton.propTypes = {
     animate: PropTypes.bool.isRequired,
-    ariaLabel: PropTypes.string.isRequired,
+    ariaLabel: PropTypes.string,
     onClick: PropTypes.func.isRequired
-  }
+  };
 
   CloseButton.defaultProps = {
     animate: true,
     onClick: null,
-    ariaLabel: ''
-  }
+    ariaLabel: t('button.close')
+  };
 
   return (
-    <Animation infinite={false} onHover={animate} onClick={animate} type='skew'>
-      <Button ariaLabel={ariaLabel} onClick={onClick} type='button' className='button-error Button__Close'>
-        <img src='http://localhost:3000/img/icons/cross.svg' alt=''/>
+    <Animation infinite={false} onHover={animate} onClick={animate}
+      type="skew">
+      <Button ariaLabel={ariaLabel} onClick={onClick} type="button"
+        className="Btn-E Btn-C">
+        <img src={cross} alt=""/>
       </Button>
     </Animation>
   );

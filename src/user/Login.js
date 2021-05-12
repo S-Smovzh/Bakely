@@ -1,21 +1,26 @@
-import React, {useContext, useState} from 'react';
-import './Login.css';
-import './../UI-components/form/Form.css';
+import React, { useContext, useState } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import FingerprintJS from '@fingerprintjs/fingerprintjs';
+import { useTranslation } from 'react-i18next';
+import { timer } from 'rxjs';
+import i18n from 'i18next';
 import axios from 'axios';
-import {Link, useHistory, useLocation} from 'react-router-dom';
-import {Input} from '../UI-components/input/Input';
-import {useTranslation} from 'react-i18next';
-import errorHandler from '../utils/errorHandler';
-import {ModalContext} from '../context/modal/ModalContext';
+import ConfirmButton from '../UI-components/button/ConfirmButton';
+import { ModalContext } from '../context/modal/ModalContext';
+import useWindowDimensions from '../utils/isTouchDevice';
+import { clientConfig } from '../utils/restApiConfigs';
 import AuthContext from '../context/auth/AuthContext';
-import {Form} from "../UI-components/form/Form";
-import ConfirmButton from "../UI-components/button/ConfirmButton";
-import useWindowDimensions from "../utils/isTouchDevice";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import {userLinks} from "../utils/restLinks";
-import {clientConfig} from "../utils/restApiConfigs";
-import {timer} from "rxjs";
-import {logError} from "../error/errorHandler";
+import { Input } from '../UI-components/input/Input';
+import { Form } from '../UI-components/form/Form';
+import errorHandler from '../utils/errorHandler';
+import { logError } from '../error/errorHandler';
+import { userLinks } from '../utils/restLinks';
+import login from '../images/svg/login.svg';
+import './../UI-components/form/Form.css';
+import Head from '../head/Head';
+import './Login.css';
+
+import (/* webpackChunkName: "homepage", webpackPrefetch: true */ './Homepage');
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -24,10 +29,10 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState('');
   const [animate, setAnimate] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [t] = useTranslation();
+  const [ t ] = useTranslation();
 
-  const {width} = useWindowDimensions();
-  const {modal, setModal} = useContext(ModalContext);
+  const { width } = useWindowDimensions();
+  const { modal, setModal } = useContext(ModalContext);
   const history = useHistory();
   const authContext = useContext(AuthContext);
   const location = useLocation();
@@ -46,7 +51,8 @@ export default function Login() {
         fingerprint: result.visitorId
       }, clientConfig)
       .then((response) => {
-        const {success, errors, body} = response.data;
+        const { success, errors, body } = response.data;
+
         if (!success && errors) {
           setAnimate(true);
           timer(400).subscribe(() => setAnimate(false));
@@ -59,6 +65,11 @@ export default function Login() {
           } else if (errors.code === 10) {
             setEmailError(errorHandler(errors.code));
             setPasswordError(errorHandler(errors.code));
+          } else if (errors.code === 40) {
+            setModal({
+              ...modal,
+              notActivated: true
+            });
           } else if (errors.code === 50) {
             setModal({
               ...modal,
@@ -90,11 +101,11 @@ export default function Login() {
           })));
           authContext.loadDeliveryAddresses();
 
-          timer(800).subscribe(() => {
+          timer(500).subscribe(() => {
             authContext.login();
-            if (location.pathname === '/user/login') {
+            if (location.pathname === `/${i18n.language}/user/login`) {
               history.push({
-                pathname: '/user/homepage',
+                pathname: `/${i18n.language}/user/homepage`,
                 isLoggedIn: true
               });
             }
@@ -105,47 +116,52 @@ export default function Login() {
   }
 
   return (
-    <div className='Login-Page Nunito Grid'>
-      <section className='MiddleBlock Grid'>
+    <div className="Login-Page Nunito Grid">
+      <Head title={t('login.seo.title')} description={t('login.seo.description')}/>
+      <section className="B-M Grid">
         {
-          width > 768 &&
-          <div className='LeftRow Flex J-C-C A-I-C'>
-            <img src='http://localhost:3000/img/svg/login.svg' alt='' className='SVG-Image'/>
-          </div>
-        }
-        <div className='RightRow Grid'>
-          <header className='Login-Header T-C Playfair'>
+          width > 768 && (
+            <div className="F-C Flex J-C-C A-I-C">
+              <img src={login} alt="" className="SVG"/>
+            </div>
+          )}
+        <div className="S-C Grid">
+          <header className="Lo-H T-C Playfair">
             <h1>{t('login.header')}</h1>
           </header>
           <Form success={success}>
-            <div className='Form-Row'>
+            <div className="Form-R">
               <Input errorIdentifier={emailError} labelText={t('label.email')} errorLabelText={emailError}
-                     inputId='email' inputType='email' inputName='email' minLength={6} maxLength={254} inputMode='email'
-                     inputOnBlur={(event) => setEmail(event.target.value)}
-                     inputOnChange={(event) => setEmail(event.target.value)} inputRequired='required'
-                     autoComplete='email'
-                     tooltipId={t('label.header.email')} tooltipText={t('tooltip.email')} value={email}/>
+                inputId="email" inputType="email" inputName="email"
+                minLength={6} maxLength={254} inputMode="email"
+                inputOnBlur={(event) => setEmail(event.target.value)}
+                inputOnChange={(event) => setEmail(event.target.value)} inputRequired="required"
+                autoComplete="email"
+                tooltipId={t('label.header.email')} tooltipText={t('tooltip.email')} value={email}
+              />
             </div>
-            <div className='Form-Row'>
+            <div className="Form-R">
               <Input errorIdentifier={passwordError} labelText={t('label.password')}
-                     errorLabelText={passwordError}
-                     inputId='password' inputType='password' inputName='password'
-                     inputOnBlur={(event) => setPassword(event.target.value)} minLength={8} maxLength={30}
-                     inputMode='verbatim'
-                     inputOnChange={(event) => setPassword(event.target.value)} inputRequired='required'
-                     autoComplete='current-password' tooltipId={t('label.header.password')}
-                     tooltipText={t('tooltip.password')}
-                     value={password}/>
+                errorLabelText={passwordError}
+                inputId="password" inputType="password" inputName="password"
+                inputOnBlur={(event) => setPassword(event.target.value)} minLength={8} maxLength={30}
+                inputMode="verbatim"
+                inputOnChange={(event) => setPassword(event.target.value)} inputRequired="required"
+                autoComplete="current-password" tooltipId={t('label.header.password')}
+                tooltipText={t('tooltip.password')}
+                value={password}
+              />
             </div>
-            <div className='Form-Button'>
+            <div className="Form-B">
               <ConfirmButton onClick={() => handleLogin()} disabled={!email || !password}
-                             text={t('login.button')} error={animate}/>
+                text={t('login.button')} error={animate}
+              />
             </div>
           </Form>
         </div>
       </section>
-      <section className='BottomBlock Flex J-C-C A-I-C'>
-        <Link to='/user/registration' className='h6-size font-weight_300'>
+      <section className="B-B Flex J-C-C A-I-C">
+        <Link to={`/${i18n.language}/user/registration`} className="h6-size font-weight_300">
           {t('signUp.link')}
         </Link>
       </section>

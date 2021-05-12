@@ -1,21 +1,20 @@
+import { fromBinary } from '../../utils/base64encoder';
 import {
   LOAD_PRODUCTS,
   ADD_PRODUCT,
   REMOVE_PRODUCT,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
-  CLEAR_CART, SHOW_CART, CART_BUTTON_CLICKED
+  CLEAR_CART, SHOW_CART
 } from './actionTypes';
 import {
   addProductToCart,
-  cartButtonInteraction,
   clearCart,
   decreaseQuantity,
   increaseQuantity,
   loadProducts,
   removeProductFromCart, showCart
 } from './dispatcher';
-import {fromBinary} from "../../utils/base64encoder";
 
 const initialState = {
   show: false,
@@ -29,8 +28,6 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case SHOW_CART:
       return showCart(action.show, state);
-    case CART_BUTTON_CLICKED:
-      return cartButtonInteraction(action.cartButtonClick, state);
     case LOAD_PRODUCTS:
       return loadProducts(state);
     case DECREASE_QUANTITY:

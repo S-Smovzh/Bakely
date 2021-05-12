@@ -4,9 +4,9 @@ button:focus-within, button:focus, button:active {
   outline: none;
 }
 
-.button, .Button {
-  &-primary, &-secondary, &-tertiary,
-  &-success, &-warning, &-error {
+.Btn {
+  &-P, &-S, &-T,
+  &-Su, &-W, &-E {
     @extend %flex;
     @extend %flex__center;
     @include transition(0.6);
@@ -15,7 +15,7 @@ button:focus-within, button:focus, button:active {
     @include box-shadow(0 4px 2px rgba(0, 0, 0, 0.4));
   }
 
-  &-primary {
+  &-P {
     color: $text-inverted;
     background: $primary-700;
 
@@ -48,7 +48,7 @@ button:focus-within, button:focus, button:active {
     }
   }
 
-  &-secondary {
+  &-S {
     color: $text;
     background: $layout-100;
     border: 1px solid $secondary-1000;
@@ -82,7 +82,7 @@ button:focus-within, button:focus, button:active {
     }
   }
 
-  &-tertiary {
+  &-T {
     color: $text-inverted;
     background: $tertiary-700;
 
@@ -115,7 +115,7 @@ button:focus-within, button:focus, button:active {
     }
   }
 
-  &-success {
+  &-Su {
     color: $text;
     background: $success-300;
 
@@ -145,7 +145,7 @@ button:focus-within, button:focus, button:active {
     }
   }
 
-  &-warning {
+  &-W {
     color: $text;
     background: $warning-300;
 
@@ -177,7 +177,7 @@ button:focus-within, button:focus, button:active {
     }
   }
 
-  &-error {
+  &-E {
     color: $text-inverted;
     background: $error-300;
 
@@ -215,36 +215,32 @@ button:focus-within, button:focus, button:active {
 }
 
 @media only screen and (min-width: 1200px) {
-  .button {
-    &-icon {
+  .Btn {
+    &-I {
       width: 60px;
       height: 60px;
 
-      &-footer {
+      &-F {
         width: 40px;
         height: 40px;
       }
 
-      &-dropdown {
+      &-D {
         width: 52px;
         height: 52px;
       }
     }
 
-    &-small {
+    &-Sm {
       width: 120px;
       height: 60px;
 
-      &-thin{
-        height: 40px;
-      }
-
-      &-x-wide {
+      &-X-W {
         width: 200px;
         height: 60px;
       }
 
-      &-auto-wide {
+      &-A-W {
         height: 60px;
         padding: 10px;
         @include flex-flow(column nowrap);
@@ -252,11 +248,11 @@ button:focus-within, button:focus, button:active {
       }
     }
 
-    &-large {
+    &-L {
       width: 180px;
       height: 80px;
 
-      &-x-wide {
+      &-X-W {
         width: 260px;
         height: 80px;
       }
@@ -265,36 +261,32 @@ button:focus-within, button:focus, button:active {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .button {
-    &-icon {
+  .Btn {
+    &-I {
       width: 57px;
       height: 57px;
 
-      &-footer {
+      &-F {
         width: 38px;
         height: 38px;
       }
 
-      &-dropdown {
+      &-D {
         width: 49px;
         height: 49px;
       }
     }
 
-    &-small {
+    &-Sm {
       width: 114px;
       height: 57px;
 
-      &-thin{
-        height: 36px;
-      }
-
-      &-x-wide {
+      &-X-W {
         width: 190px;
         height: 57px;
       }
 
-      &-auto-wide {
+      &-A-W {
         height: 57px;
         padding: 9px;
         @include flex-flow(column nowrap);
@@ -302,11 +294,11 @@ button:focus-within, button:focus, button:active {
       }
     }
 
-    &-large {
+    &-L {
       width: 170px;
       height: 76px;
 
-      &-x-wide {
+      &-X-W {
         width: 245px;
         height: 76px;
       }
@@ -315,36 +307,32 @@ button:focus-within, button:focus, button:active {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .button {
-    &-icon {
+  .Btn {
+    &-I {
       width: 54px;
       height: 54px;
 
-      &-footer {
+      &-F {
         width: 36px;
         height: 36px;
       }
 
-      &-dropdown {
+      &-D {
         width: 46px;
         height: 46px;
       }
     }
 
-    &-small {
+    &-Sm {
       width: 108px;
       height: 54px;
 
-      &-thin{
-        height: 28px;
-      }
-
-      &-x-wide {
+      &-X-W {
         width: 180px;
         height: 54px;
       }
 
-      &-auto-wide {
+      &-A-W {
         height: 54px;
         padding: 10px;
         @include flex-flow(column nowrap);
@@ -352,11 +340,11 @@ button:focus-within, button:focus, button:active {
       }
     }
 
-    &-large {
+    &-L {
       width: 160px;
       height: 72px;
 
-      &-x-wide {
+      &-X-W {
         width: 230px;
         height: 72px;
       }
@@ -365,36 +353,32 @@ button:focus-within, button:focus, button:active {
 }
 
 @media only screen and (max-width: 768px) {
-  .button {
-    &-icon {
+  .Btn {
+    &-I {
       width: 51px;
       height: 51px;
 
-      &-footer {
+      &-F {
         width: 34px;
         height: 34px;
       }
 
-      &-dropdown {
+      &-D {
         width: 43px;
         height: 43px;
       }
     }
 
-    &-small {
+    &-Sm {
       width: 102px;
       height: 51px;
 
-      &-thin{
-        height: 22px;
-      }
-
-      &-x-wide {
+      &-X-W {
         width: 170px;
         height: 51px;
       }
 
-      &-auto-wide {
+      &-A-W {
         height: 51px;
         padding: 7px;
         @include flex-flow(column nowrap);
@@ -402,11 +386,11 @@ button:focus-within, button:focus, button:active {
       }
     }
 
-    &-large {
+    &-L {
       width: 150px;
       height: 68px;
 
-      &-x-wide {
+      &-X-W {
         width: 215px;
         height: 68px;
       }
@@ -415,36 +399,32 @@ button:focus-within, button:focus, button:active {
 }
 
 @media only screen and (max-width: 480px) {
-  .button {
-    &-icon {
+  .Btn {
+    &-I {
       width: 48px;
       height: 48px;
 
-      &-footer {
+      &-F {
         width: 32px;
         height: 32px;
       }
 
-      &-dropdown {
+      &-D {
         width: 40px;
         height: 40px;
       }
     }
 
-    &-small {
+    &-Sm {
       width: 96px;
       height: 48px;
 
-      &-thin{
-        height: 24px;
-      }
-
-      &-x-wide {
+      &-X-W {
         width: 160px;
         height: 48px;
       }
 
-      &-auto-wide {
+      &-A-W {
         height: 48px;
         padding: 10px;
         @include flex-flow(column nowrap);
@@ -452,11 +432,11 @@ button:focus-within, button:focus, button:active {
       }
     }
 
-    &-large {
+    &-L {
       width: 146px;
       height: 64px;
 
-      &-x-wide {
+      &-X-W {
         width: 200px;
         height: 64px;
       }
@@ -465,32 +445,32 @@ button:focus-within, button:focus, button:active {
 }
 
 @media only screen and (max-width: 320px) {
-  .button {
-    &-icon {
+  .Btn {
+    &-I {
       width: 45px;
       height: 45px;
 
-      &-footer {
+      &-F {
         width: 30px;
         height: 30px;
       }
 
-      &-dropdown {
+      &-D {
         width: 37px;
         height: 37px;
       }
     }
 
-    &-small {
+    &-Sm {
       width: 90px;
       height: 45px;
 
-      &-x-wide {
+      &-X-W {
         width: 150px;
         height: 45px;
       }
 
-      &-auto-wide {
+      &-A-W {
         height: 45px;
         padding: 10px;
         @include flex-flow(column nowrap);
@@ -498,11 +478,11 @@ button:focus-within, button:focus, button:active {
       }
     }
 
-    &-large {
+    &-L {
       width: 130px;
       height: 60px;
 
-      &-x-wide {
+      &-X-W {
         width: 185px;
         height: 60px;
       }

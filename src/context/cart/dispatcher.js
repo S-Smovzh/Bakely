@@ -1,18 +1,14 @@
-import {fromBinary, toBinary} from "../../utils/base64encoder";
+import { fromBinary, toBinary } from '../../utils/base64encoder';
 
 export const showCart = (show, state) => {
-  return {...state, show: show};
-};
-
-export const cartButtonInteraction = (cartButtonClick, state) => {
-  return {...state, cartButtonClick: cartButtonClick};
+  return { ...state, show: show };
 };
 
 export const addProductToCart = (product, state) => {
-
   let tempMap = new Map([]);
   const options = product.options;
   const maxPerOrder = product.maxPerOrder;
+
   for (let i = 0; i < options.length; i++) {
     tempMap.set(options[i], maxPerOrder[i]);
   }
@@ -32,7 +28,7 @@ export const addProductToCart = (product, state) => {
 
   let updatedItemIndex;
 
-  const updatedCart = state.cart ? [...state.cart] : [];
+  const updatedCart = state.cart ? [ ...state.cart ] : [];
 
   let updatedItem = updatedCart.find((item) => {
     if (item.productId === productData.productId && item.selectedOption === productData.selectedOption) {
@@ -43,27 +39,28 @@ export const addProductToCart = (product, state) => {
 
   if (updatedItem) {
     const maximum = new Map(productData.maxPerOrder).get(productData.selectedOption);
+
     if (updatedItem.quantity + productData.quantity < maximum) {
       updatedItem.quantity += productData.quantity;
     } else {
       updatedItem.quantity = maximum;
     }
-    updatedItem.total = updatedItem.price * (100 - updatedItem.discount) / 100 * updatedItem.selectedOption.split(' ')[0] * updatedItem.quantity;
+    updatedItem.total = updatedItem.price * (100 - updatedItem.discount)
+      / 100 * updatedItem.selectedOption.split(' ')[0] * updatedItem.quantity;
     updatedCart[updatedItemIndex] = updatedItem;
   } else {
-    updatedCart.push({...productData});
+    updatedCart.push({ ...productData });
   }
 
   localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
 
-  return {...state, cart: updatedCart};
+  return { ...state, cart: updatedCart };
 };
 
 export const removeProductFromCart = (product, state) => {
-
   let updatedItemIndex;
 
-  const updatedCart = state.cart ? [...state.cart] : [];
+  const updatedCart = state.cart ? [ ...state.cart ] : [];
 
   updatedCart.find((item) => {
     if (item.productId === product.productId && item.selectedOption === product.selectedOption) {
@@ -75,14 +72,13 @@ export const removeProductFromCart = (product, state) => {
 
   localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
 
-  return {...state, cart: updatedCart};
+  return { ...state, cart: updatedCart };
 };
 
 export const decreaseQuantity = (product, state) => {
-
   let updatedItemIndex;
 
-  const updatedCart = state.cart ? [...state.cart] : [];
+  const updatedCart = state.cart ? [ ...state.cart ] : [];
 
   let updatedItem = updatedCart.find((item) => {
     if (item.productId === product.productId && item.selectedOption === product.selectedOption) {
@@ -95,19 +91,19 @@ export const decreaseQuantity = (product, state) => {
     updatedItem.quantity--;
   }
 
-  updatedItem.total = updatedItem.price * (100 - updatedItem.discount) / 100 * updatedItem.selectedOption.split(' ')[0] * updatedItem.quantity;
+  updatedItem.total = updatedItem.price * (100 - updatedItem.discount)
+    / 100 * updatedItem.selectedOption.split(' ')[0] * updatedItem.quantity;
 
   updatedCart[updatedItemIndex] = updatedItem;
 
   localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
-  return {...state, cart: updatedCart};
+  return { ...state, cart: updatedCart };
 };
 
 export const increaseQuantity = (product, state) => {
-
   let updatedItemIndex;
 
-  const updatedCart = state.cart ? [...state.cart] : [];
+  const updatedCart = state.cart ? [ ...state.cart ] : [];
 
   let updatedItem = updatedCart.find((item) => {
     if (item.productId === product.productId && item.selectedOption === product.selectedOption) {
@@ -122,7 +118,8 @@ export const increaseQuantity = (product, state) => {
     updatedItem.quantity++;
   }
 
-  updatedItem.total = updatedItem.price * (100 - updatedItem.discount) / 100 * updatedItem.selectedOption.split(' ')[0] * updatedItem.quantity;
+  updatedItem.total = updatedItem.price * (100 - updatedItem.discount)
+    / 100 * updatedItem.selectedOption.split(' ')[0] * updatedItem.quantity;
 
   if (updatedItem.quantity <= 0) {
     updatedCart.splice(updatedItemIndex, 1);
@@ -131,17 +128,18 @@ export const increaseQuantity = (product, state) => {
   }
 
   localStorage.setItem(btoa('cartItems'), toBinary(JSON.stringify(updatedCart)));
-  return {...state, cart: updatedCart};
+  return { ...state, cart: updatedCart };
 };
 
 export const loadProducts = (state) => {
   const loadedCart = localStorage.getItem(btoa('cartItems')) ?
     JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems'))))
     : [];
-  return {...state, cart: loadedCart};
+
+  return { ...state, cart: loadedCart };
 };
 
 export const clearCart = (state) => {
   localStorage.removeItem(btoa('cartItems'));
-  return {...state, cart: []};
+  return { ...state, cart: [] };
 };

@@ -65,13 +65,13 @@
   }
 }
 
-.Homepage {
+.Home-Page {
   grid-template-columns: minmax(10px, 1fr);
 
-  .TopBlock {
+  .B-T {
     grid-area: 1/1/2/2;
 
-    .LeftCol {
+    & .F-C {
       background: $primary-700;
       overflow-y: auto;
       -ms-overflow-y: auto;
@@ -81,40 +81,16 @@
         grid-area: 1/2/2/3;
         color: $text-inverted;
         row-gap: calc(#{$standard} * 2);
-
-        .Form-Row {
-          width: 280px;
-        }
-
-        .Form-Input {
-          border-radius: 8px 0 0 8px;
-          border: none !important;
-
-          &::-webkit-search-cancel-button {
-            position: relative;
-            right: 20px;
-
-            -webkit-appearance: none;
-            height: 20px;
-            width: 20px;
-            border-radius: 10px;
-            background: red;
-          }
-        }
-
-        button {
-          border-radius: 0 8px 8px 0;
-        }
       }
 
-      .Orders-List {
+      .Orders-L {
         grid-area: 2/2/3/3;
         border: 6px inset $text-inverted;
         background: $layout-100;
         overflow-y: auto;
         -ms-overflow-y: auto;
 
-        .Orders-Cell, .Orders-Header {
+        .Orders-C, .Orders-H {
           grid-template-rows: minmax(10px, 1fr);
 
           & > * {
@@ -125,72 +101,72 @@
             overflow: hidden;
           }
 
-          & > .Products {
+          & > .Prods {
             grid-area: 1/2/2/3;
           }
         }
 
-        .Orders-Header span {
+        .Orders-H span {
           background: $tertiary-1000;
           color: $text-inverted;
         }
 
         &.Even > .Order {
-          &:nth-of-type(odd) > .Orders-Cell {
+          &:nth-of-type(odd) > .Orders-C {
             @extend %odd;
           }
 
-          &:nth-of-type(even) > .Orders-Cell {
+          &:nth-of-type(even) > .Orders-C {
             @extend %even;
           }
         }
 
         &.Odd > .Order {
-          &:nth-of-type(odd) > .Orders-Cell {
+          &:nth-of-type(odd) > .Orders-C {
             @extend %even;
           }
 
-          &:nth-of-type(even) > .Orders-Cell {
+          &:nth-of-type(even) > .Orders-C {
             @extend %odd;
           }
         }
       }
     }
 
-    .RightCol {
+    & .S-C {
       overflow-y: auto;
       -ms-overflow-y: auto;
 
-      .Order-Data-Table {
+      .Order-D-T {
         border: 4px solid $tertiary-500;
 
-        & > .OrderDate-Row {
+        & > .Order-Date-R {
           grid-area: 1/1/2/3;
           border-bottom: 1px solid $tertiary-500;
         }
 
-        & > .Products-Column {
+        & > .Prods-Col {
           grid-area: 2/1/3/2;
           border-right: 1px solid $tertiary-500;
           overflow-y: auto;
           -ms-overflow-y: auto;
 
-          & > .Products-List {
+          & > .Prods-L {
             grid-area: 2/1/3/2;
           }
         }
 
-        & > .Comment-Column {
+        & > .Com-C {
           grid-area: 2/2/3/3;
           padding-bottom: 0;
 
-          .Order-Comment {
+          .O-Com {
             grid-area: 1/1/2/2;
             overflow-y: auto;
             -ms-overflow-y: auto;
           }
 
-          .Order-Total {
+          .O-Tot {
             grid-area: 2/1/3/2;
             background: $success-100;
           }
@@ -199,12 +175,12 @@
     }
   }
 
-  .MiddleBlock {
+  .B-M {
     grid-area: 2/1/3/2;
     background: $tertiary-100;
     z-index: 2;
 
-    .LeftCol {
+    & > .F-C {
       .Form {
         grid-template-columns: repeat(2, minmax(10px, 1fr));
         grid-template-rows: minmax(10px, 1fr) 100px;
@@ -214,11 +190,11 @@
           grid-template-columns: minmax(10px, 1fr);
           grid-template-rows: repeat(2, minmax(10px, 1fr));
 
-          &.Col-First {
+          &.F-C {
             grid-area: 1/1/2/2;
           }
 
-          &.Col-Second {
+          &.S-C {
             grid-area: 1/2/2/3;
           }
         }
@@ -230,7 +206,8 @@
       }
     }
 
-    .RightCol {
+    & > .S-C {
+      grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
       background: $primary-700;
 
       & > .Flex {
@@ -238,8 +215,8 @@
         color: $text-inverted;
       }
 
-      .Addresses {
-        &-Table {
+      .Addr {
+        &-T {
           grid-area: 2/2/3/3;
           grid-template-columns: minmax(10px, 1fr);
           border: 6px inset $text-inverted;
@@ -248,32 +225,32 @@
           -ms-overflow-y: auto;
 
           &.Even {
-            .Addresses-Cell:nth-of-type(odd) {
+            .Addr-C:nth-of-type(odd) {
               background: $layout-600;
             }
 
-            .Addresses-Cell:nth-of-type(even) {
+            .Addr-C:nth-of-type(even) {
               background: $layout-100;
             }
           }
 
           &.Odd {
-            .Addresses-Cell:nth-of-type(odd) {
+            .Addr-C:nth-of-type(odd) {
               background: $layout-100;
             }
 
-            .Addresses-Cell:nth-of-type(even) {
+            .Addr-C:nth-of-type(even) {
               background: $layout-600;
             }
           }
         }
 
-        &-Cell {
+        &-C {
           grid-template-columns: minmax(10px, 1fr) 40px;
           grid-template-rows: minmax(10px, 1fr);
           padding: $standard;
 
-          .Remove-Button {
+          .Btn-Rem {
             grid-area: 1/2/2/3;
             justify-self: flex-end;
           }
@@ -282,7 +259,7 @@
     }
   }
 
-  .BottomBlock {
+  .B-B {
     grid-area: 3/1/4/2;
     @include columnGap($mainPadding);
 
@@ -300,34 +277,34 @@
     }
   }
 
-.Form{
-  row-gap: calc(#{$standard} * 5);
-}
+  .Form, .Form-Col {
+    row-gap: calc(#{$standard} * 5);
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-  .Homepage {
-    grid-template-rows: 660px 780px 500px $mainPadding;
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px $mainPadding;
 
-    .TopBlock {
+    .B-T {
       grid-template-rows: minmax(10px, 1fr);
       grid-template-columns: $mainPadding 350px minmax(10px, 1fr)  $mainPadding;
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/2/3;
         grid-template-rows: calc(#{$mainPadding} * 3) 420px minmax(10px, 1fr);
         grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
 
-        .Orders-Cell, .Orders-Header {
+        .Orders-C, .Orders-H {
           grid-template-columns: 110px minmax(10px, 1fr) 60px;
           grid-template-rows: minmax(10px, 1fr);
         }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 1/3/2/4;
 
-        .Order-Data-Table {
+        .Order-D-T {
           grid-template-columns: 200px 340px;
           grid-template-rows: $mainPadding 400px;
           padding: calc(#{$standard} * 2);
@@ -336,12 +313,12 @@
             padding: 12px;
           }
 
-          & > .Products-Column {
+          & > .Prods-Col {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: $mainPadding minmax(10px, 1fr);
           }
 
-          & > .Comment-Column {
+          & > .Com-C {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows:minmax(10px, 1fr) 70px;
           }
@@ -349,126 +326,55 @@
       }
     }
 
-    .MiddleBlock {
-      grid-area: 2/1/3/2;
+    .B-M {
       grid-template-columns: $mainPadding repeat(2, minmax(10px, 1fr)) $mainPadding minmax(10px, 1fr) $mainPadding;
       grid-template-rows: 100px minmax(10px, 1fr);
-      background: $tertiary-100;
-      z-index: 2;
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/3/4;
-
-        .Form {
-          //@extend %grid;
-          grid-template-columns: repeat(2, minmax(10px, 1fr));
-          grid-template-rows: minmax(10px, 1fr) 100px;
-          grid-column-gap: $mainPadding;
-
-          &-Col {
-            //@extend %grid;
-            grid-template-columns: minmax(10px, 1fr);
-            grid-template-rows: repeat(2, minmax(10px, 1fr));
-
-            &.Col-First {
-              grid-area: 1/1/2/2;
-            }
-
-            &.Col-Second {
-              grid-area: 1/2/2/3;
-            }
-          }
-
-          &-Button {
-            @include justify-content(flex-start);
-            @include align-items(flex-start);
-          }
-        }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 1/5/3/6;
-        grid-template-columns: 15px minmax(10px, 1fr) 15px;
-        grid-template-rows: minmax(10px, 1fr) 100px 420px minmax(10px, 1fr);
-        background: $primary-700;
-
-        & > .Flex {
-          grid-area: 2/2/3/3;
-          color: $text-inverted;
-        }
+        grid-template-rows: 100px 420px;
 
         .Addresses {
           &-Table {
-            grid-area: 3/2/4/3;
-            grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: repeat(3, minmax(10px, 1fr));
-            border: 6px inset $text-inverted;
-            background: $layout-100;
-
-            &.Even {
-              .Addresses-Cell:nth-of-type(odd) {
-                background: $layout-600;
-              }
-
-              .Addresses-Cell:nth-of-type(even) {
-                background: $layout-100;
-              }
-            }
-
-            &.Odd {
-              .Addresses-Cell:nth-of-type(odd) {
-                background: $layout-100;
-              }
-
-              .Addresses-Cell:nth-of-type(even) {
-                background: $layout-600;
-              }
-            }
-          }
-
-          &-Cell {
-            grid-template-columns: minmax(10px, 1fr) 40px;
-            grid-template-rows: minmax(10px, 1fr);
-            padding: 10px;
-
-            .Remove-Button {
-              grid-area: 1/2/2/3;
-              justify-self: flex-end;
-            }
           }
         }
       }
     }
 
-    .BottomBlock {
+    .B-B {
       padding-inline: $mainPadding;
     }
   }
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1199px) {
-  .Homepage {
-    grid-template-rows: 660px 780px 500px $mainPadding;
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px $mainPadding;
 
-    .TopBlock {
+    .B-T {
       grid-template-rows: minmax(10px, 1fr);
       grid-template-columns: calc(#{$standard} * 7) 350px minmax(10px, 1fr)  calc(#{$standard} * 7);
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/2/3;
         grid-template-rows: calc(#{$mainPadding} * 3) 420px minmax(10px, 1fr);
         grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
 
-        .Orders-Cell, .Orders-Header {
+        .Orders-C, .Orders-H {
           grid-template-columns: 110px minmax(10px, 1fr) 60px;
           grid-template-rows: minmax(10px, 1fr);
         }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 1/3/2/4;
 
-        .Order-Data-Table {
+        .Order-D-T {
           grid-template-columns: 150px 240px;
           grid-template-rows: $mainPadding 400px;
           padding: $standard;
@@ -477,12 +383,12 @@
             padding: 12px;
           }
 
-          & > .Products-Column {
+          & > .Prods-Col {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: $mainPadding minmax(10px, 1fr);
           }
 
-          & > .Comment-Column {
+          & > .Com-C {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows:minmax(10px, 1fr) 70px;
           }
@@ -490,126 +396,55 @@
       }
     }
 
-    .MiddleBlock {
-      grid-area: 2/1/3/2;
-      grid-template-columns: $mainPadding repeat(2, minmax(10px, 1fr)) $mainPadding minmax(10px, 1fr) $mainPadding;
+    .B-M {
+      grid-template-columns: calc(#{$standard} * 5) repeat(2, minmax(10px, 1fr)) calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
       grid-template-rows: 100px minmax(10px, 1fr);
-      background: $tertiary-100;
-      z-index: 2;
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/3/4;
-
-        .Form {
-          //@extend %grid;
-          grid-template-columns: repeat(2, minmax(10px, 1fr));
-          grid-template-rows: minmax(10px, 1fr) 100px;
-          grid-column-gap: $mainPadding;
-
-          &-Col {
-            //@extend %grid;
-            grid-template-columns: minmax(10px, 1fr);
-            grid-template-rows: repeat(2, minmax(10px, 1fr));
-
-            &.Col-First {
-              grid-area: 1/1/2/2;
-            }
-
-            &.Col-Second {
-              grid-area: 1/2/2/3;
-            }
-          }
-
-          &-Button {
-            @include justify-content(flex-start);
-            @include align-items(flex-start);
-          }
-        }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 1/5/3/6;
-        grid-template-columns: 15px minmax(10px, 1fr) 15px;
-        grid-template-rows: minmax(10px, 1fr) 100px 420px minmax(10px, 1fr);
-        background: $primary-700;
-
-        & > .Flex {
-          grid-area: 2/2/3/3;
-          color: $text-inverted;
-        }
+        grid-template-rows: 100px 420px;
 
         .Addresses {
           &-Table {
-            grid-area: 3/2/4/3;
-            grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: repeat(3, minmax(10px, 1fr));
-            border: 6px inset $text-inverted;
-            background: $layout-100;
-
-            &.Even {
-              .Addresses-Cell:nth-of-type(odd) {
-                background: $layout-600;
-              }
-
-              .Addresses-Cell:nth-of-type(even) {
-                background: $layout-100;
-              }
-            }
-
-            &.Odd {
-              .Addresses-Cell:nth-of-type(odd) {
-                background: $layout-100;
-              }
-
-              .Addresses-Cell:nth-of-type(even) {
-                background: $layout-600;
-              }
-            }
-          }
-
-          &-Cell {
-            grid-template-columns: minmax(10px, 1fr) 40px;
-            grid-template-rows: minmax(10px, 1fr);
-            padding: 10px;
-
-            .Remove-Button {
-              grid-area: 1/2/2/3;
-              justify-self: flex-end;
-            }
           }
         }
       }
     }
 
-    .BottomBlock {
+    .B-B {
       padding-inline: calc(#{$standard} * 7);
     }
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 999px) {
-  .Homepage {
-    grid-template-rows: 660px 780px 500px $mainPadding;
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px $mainPadding;
 
-    .TopBlock {
+    .B-T {
       grid-template-rows: minmax(10px, 1fr);
       grid-template-columns: calc(#{$standard} * 4) 300px minmax(10px, 1fr)  calc(#{$standard} * 4);
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/2/3;
         grid-template-rows: calc(#{$mainPadding} * 3) 420px minmax(10px, 1fr);
         grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
 
-        .Orders-Cell, .Orders-Header {
+        .Orders-C, .Orders-H {
           grid-template-columns: 60px minmax(10px, 1fr) 60px;
           grid-template-rows: minmax(10px, 1fr);
         }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 1/3/2/4;
 
-        .Order-Data-Table {
+        .Order-D-T {
           grid-template-columns: 150px 200px;
           grid-template-rows: $mainPadding 400px;
           padding: $standard;
@@ -618,12 +453,12 @@
             padding: 12px;
           }
 
-          & > .Products-Column {
+          & > .Prods-Col {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: $mainPadding minmax(10px, 1fr);
           }
 
-          & > .Comment-Column {
+          & > .Com-C {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows:minmax(10px, 1fr) 70px;
           }
@@ -631,98 +466,27 @@
       }
     }
 
-    .MiddleBlock {
-      grid-area: 2/1/3/2;
-      grid-template-columns: $mainPadding repeat(2, minmax(10px, 1fr)) $mainPadding minmax(10px, 1fr) $mainPadding;
+    .B-M {
+      grid-template-columns: calc(#{$standard} * 3) repeat(2, minmax(10px, 1fr)) calc(#{$standard} * 3) minmax(240px, 1fr) calc(#{$standard} * 3);
       grid-template-rows: 100px minmax(10px, 1fr);
-      background: $tertiary-100;
-      z-index: 2;
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/3/4;
-
-        .Form {
-          //@extend %grid;
-          grid-template-columns: repeat(2, minmax(10px, 1fr));
-          grid-template-rows: minmax(10px, 1fr) 100px;
-          grid-column-gap: $mainPadding;
-
-          &-Col {
-            //@extend %grid;
-            grid-template-columns: minmax(10px, 1fr);
-            grid-template-rows: repeat(2, minmax(10px, 1fr));
-
-            &.Col-First {
-              grid-area: 1/1/2/2;
-            }
-
-            &.Col-Second {
-              grid-area: 1/2/2/3;
-            }
-          }
-
-          &-Button {
-            @include justify-content(flex-start);
-            @include align-items(flex-start);
-          }
-        }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 1/5/3/6;
-        grid-template-columns: 15px minmax(10px, 1fr) 15px;
-        grid-template-rows: minmax(10px, 1fr) 100px 420px minmax(10px, 1fr);
-        background: $primary-700;
-
-        & > .Flex {
-          grid-area: 2/2/3/3;
-          color: $text-inverted;
-        }
+        grid-template-rows: 100px 420px;
 
         .Addresses {
           &-Table {
-            grid-area: 3/2/4/3;
-            grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: repeat(3, minmax(10px, 1fr));
-            border: 6px inset $text-inverted;
-            background: $layout-100;
-
-            &.Even {
-              .Addresses-Cell:nth-of-type(odd) {
-                background: $layout-600;
-              }
-
-              .Addresses-Cell:nth-of-type(even) {
-                background: $layout-100;
-              }
-            }
-
-            &.Odd {
-              .Addresses-Cell:nth-of-type(odd) {
-                background: $layout-100;
-              }
-
-              .Addresses-Cell:nth-of-type(even) {
-                background: $layout-600;
-              }
-            }
-          }
-
-          &-Cell {
-            grid-template-columns: minmax(10px, 1fr) 40px;
-            grid-template-rows: minmax(10px, 1fr);
-            padding: 10px;
-
-            .Remove-Button {
-              grid-area: 1/2/2/3;
-              justify-self: flex-end;
-            }
           }
         }
       }
     }
 
-    .BottomBlock {
+    .B-B {
       padding-inline: calc(#{$standard} * 3);
 
       .carousel {
@@ -737,14 +501,14 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .Homepage {
-    grid-template-rows: 800px 940px 500px $mainPadding;
+  .Home-Page {
+    grid-template-rows: 800px 1000px 500px $mainPadding;
 
-    .TopBlock {
+    .B-T {
       grid-template-rows: 420px 380px;
       grid-template-columns: minmax(10px, 1fr);
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/1/2/2;
         grid-template-rows: 100px minmax(10px, 1fr);
         grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
@@ -755,20 +519,20 @@
           margin-top: calc(#{$standard} * 3);
         }
 
-        .Orders-Cell, .Orders-Header {
+        .Orders-C, .Orders-H {
           grid-template-columns: 110px minmax(10px, 1fr) 60px;
           grid-template-rows: minmax(10px, 1fr);
         }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 2/1/3/2;
 
         & > div div.Flex {
           padding: calc(#{$standard} * 3) $standard;
         }
 
-        .Order-Data-Table {
+        .Order-D-T {
           grid-template-columns: minmax(120px, 2fr) minmax(10px, 3fr);
           grid-template-rows: $mainPadding 240px;
           padding: $standard;
@@ -777,12 +541,12 @@
             padding: $standard;
           }
 
-          & > .Products-Column {
+          & > .Prods-Col {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: $mainPadding minmax(10px, 1fr);
           }
 
-          & > .Comment-Column {
+          & > .Com-C {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows:minmax(10px, 1fr) 40px;
           }
@@ -790,13 +554,13 @@
       }
     }
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
       grid-template-rows: repeat(2, minmax(10px, 1fr));
       row-gap: calc(#{$standard} * 8);
       padding-block: calc(#{$standard} * 6);
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/2/3;
 
         & > Form {
@@ -804,9 +568,8 @@
         }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 2/2/3/3;
-        grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
         grid-template-rows: 100px 270px;
 
         .Addresses-Table {
@@ -815,7 +578,7 @@
       }
     }
 
-    .BottomBlock {
+    .B-B {
       padding-inline: calc(#{$standard} * 3);
 
       .carousel {
@@ -830,14 +593,14 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .Homepage {
+  .Home-Page {
     grid-template-rows: 800px 940px 400px $mainPadding;
 
-    .TopBlock {
+    .B-T {
       grid-template-rows: 420px 380px;
       grid-template-columns: minmax(10px, 1fr);
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/1/2/2;
         grid-template-rows: 100px minmax(10px, 1fr);
         grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
@@ -848,20 +611,20 @@
           margin-top: calc(#{$standard} * 3);
         }
 
-        .Orders-Cell, .Orders-Header {
+        .Orders-C, .Orders-H {
           grid-template-columns: 110px minmax(10px, 1fr) 60px;
           grid-template-rows: minmax(10px, 1fr);
         }
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 2/1/3/2;
 
         & > div div.Flex {
           padding: calc(#{$standard} * 3) $standard;
         }
 
-        .Order-Data-Table {
+        .Order-D-T {
           grid-template-columns: minmax(140px, 1fr) minmax(10px, 1fr);
           grid-template-rows: $mainPadding 240px;
           padding: $standard;
@@ -870,12 +633,12 @@
             padding: $standard;
           }
 
-          & > .Products-Column {
+          & > .Prods-Col {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows: $mainPadding minmax(10px, 1fr);
           }
 
-          & > .Comment-Column {
+          & > .Com-C {
             grid-template-columns: minmax(10px, 1fr);
             grid-template-rows:minmax(10px, 1fr) 40px;
           }
@@ -883,19 +646,18 @@
       }
     }
 
-    .MiddleBlock {
+    .B-M {
       grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
       grid-template-rows: repeat(2, minmax(10px, 1fr));
       row-gap: calc(#{$standard} * 8);
       padding-block: calc(#{$standard} * 6);
 
-      .LeftCol {
+      .F-C {
         grid-area: 1/2/2/3;
       }
 
-      .RightCol {
+      .S-C {
         grid-area: 2/2/3/3;
-        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
         grid-template-rows: 100px 270px;
 
         .Addresses-Table {
@@ -904,7 +666,7 @@
       }
     }
 
-    .BottomBlock {
+    .B-B {
       padding-inline: calc(#{$standard} * 2);
 
       .carousel {

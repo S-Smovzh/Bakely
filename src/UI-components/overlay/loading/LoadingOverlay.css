@@ -1,4 +1,4 @@
-.Loading-Overlay-Container .Spinner p, .Loading-Overlay-Container .Spinner span, .Loading-Overlay-Container .Spinner h1, .Loading-Overlay-Container .Spinner h2, .Loading-Overlay-Container .Spinner h3, .Loading-Overlay-Container .Spinner h4, .Loading-Overlay-Container .Spinner h5, .Loading-Overlay-Container .Spinner h6 {
+.Load-Ov-C .Sp p, .Load-Ov-C .Sp span, .Load-Ov-C .Sp h1, .Load-Ov-C .Sp h2, .Load-Ov-C .Sp h3, .Load-Ov-C .Sp h4, .Load-Ov-C .Sp h5, .Load-Ov-C .Sp h6 {
   text-align: center;
   text-align: -moz-center;
   text-align: -webkit-center;
@@ -6,7 +6,7 @@
   text-align: -o-center;
 }
 
-.showOverlay {
+.Ov-Show {
   transition: all 1s ease-in-out !important;
   -webkit-transition: all 1s ease-in-out !important;
   -moz-transition: all 1s ease-in-out !important;
@@ -19,7 +19,7 @@
   -o-animation: fadeIn 300ms ease-in-out forwards;
 }
 
-.hideOverlay {
+.Ov-Hide {
   transition: all 0.8s ease-in-out !important;
   -webkit-transition: all 0.8s ease-in-out !important;
   -moz-transition: all 0.8s ease-in-out !important;
@@ -29,6 +29,48 @@
   -webkit-animation: fadeOut 800ms ease-in-out forwards;
   -moz-animation: fadeOut 800ms ease-in-out forwards;
   -o-animation: fadeOut 800ms ease-in-out forwards;
+}
+
+.Load-Ov-C {
+  position: relative;
+}
+.Load-Ov-C .Sp {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-size: 1.2em;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 4;
+}
+.Load-Ov-C .Sp p, .Load-Ov-C .Sp span, .Load-Ov-C .Sp h1, .Load-Ov-C .Sp h2, .Load-Ov-C .Sp h3, .Load-Ov-C .Sp h4, .Load-Ov-C .Sp h5, .Load-Ov-C .Sp h6 {
+  color: #ffffff !important;
+  margin: 1rem;
+}
+.Load-Ov-C .Sp svg.sp {
+  width: 86px;
+  height: 86px;
+  x: 0px;
+  y: 0px;
+  viewBox: 0 0 86 86;
+}
+.Load-Ov-C .Sp svg.sp circle {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 270.04;
+  transform-origin: 43px 43px 0;
+  -webkit-transform-origin: 43px 43px 0;
+  -moz-transform-origin: 43px 43px 0;
+  -o-transform-origin: 43px 43px 0;
+  -ms-transform-origin: 43px 43px 0;
+  animation: spinner 2000ms linear infinite;
+  -webkit-animation: spinner 2000ms linear infinite;
+  -moz-animation: spinner 2000ms linear infinite;
+  -o-animation: spinner 2000ms linear infinite;
 }
 
 @keyframes fadeIn {
@@ -583,48 +625,6 @@
     display: none;
   }
 }
-.Loading-Overlay-Container {
-  position: relative;
-}
-.Loading-Overlay-Container .Spinner {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  font-size: 1.2em;
-  color: #FFF;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 4;
-}
-.Loading-Overlay-Container .Spinner p, .Loading-Overlay-Container .Spinner span, .Loading-Overlay-Container .Spinner h1, .Loading-Overlay-Container .Spinner h2, .Loading-Overlay-Container .Spinner h3, .Loading-Overlay-Container .Spinner h4, .Loading-Overlay-Container .Spinner h5, .Loading-Overlay-Container .Spinner h6 {
-  color: #ffffff !important;
-  margin: 1rem;
-}
-.Loading-Overlay-Container .Spinner svg.spinner {
-  width: 86px;
-  height: 86px;
-  x: 0px;
-  y: 0px;
-  viewBox: 0 0 86 86;
-}
-.Loading-Overlay-Container .Spinner svg.spinner circle {
-  fill: transparent;
-  stroke: #fff;
-  stroke-width: 9;
-  stroke-linecap: round;
-  stroke-dasharray: 270.04;
-  transform-origin: 43px 43px 0;
-  -webkit-transform-origin: 43px 43px 0;
-  -moz-transform-origin: 43px 43px 0;
-  -o-transform-origin: 43px 43px 0;
-  -ms-transform-origin: 43px 43px 0;
-  animation: spinner 2000ms linear infinite;
-  -webkit-animation: spinner 2000ms linear infinite;
-  -moz-animation: spinner 2000ms linear infinite;
-  -o-animation: spinner 2000ms linear infinite;
-}
-
 @keyframes spinner {
   0% {
     transform: rotate(0deg);

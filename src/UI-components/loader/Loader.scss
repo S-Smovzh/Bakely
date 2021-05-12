@@ -19,10 +19,8 @@
   justify-content: -o-center;
 }
 
-.loading-spinner {
+.Spinner {
   grid-area: 1/2/2/3;
-  @extend %flex;
-  @extend %flex__center;
   background: #f8f7de;
   margin: 0 260px;
   height: 100vh;

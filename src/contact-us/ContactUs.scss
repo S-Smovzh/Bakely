@@ -1,31 +1,31 @@
 @import "../css/base/Extensions";
 
-.ContactPage {
+.Contact-Page {
   .Cell {
     row-gap: calc(#{$standard} * 3);
   }
 
-  .LeftCol {
+  .F-C {
     grid-template-columns: minmax(10px, 1fr);
     row-gap: calc(#{$standard * 5});
 
-    .MiddleBlock {
+    .B-M {
       row-gap: calc(#{$standard * 5});
     }
   }
 
-  .RightCol {
+  .S-C {
     grid-area: 1/4/4/5;
     grid-template-columns: calc(#{$standard * 5}) minmax(10px, 1fr) calc(#{$standard * 5});
     grid-template-rows: $mainPadding $mainPadding minmax(10px, 1fr);
-    background: url("http://localhost:3000/img/pattern.png") repeat;
+    background-repeat: repeat;
     row-gap: calc(#{$standard} * 5);
 
-    .TopBlock {
+    .B-T {
       grid-area: 2/2/3/3;
     }
 
-    .MiddleBlock {
+    .B-M {
       grid-area: 3/2/4/3;
       grid-template-columns: minmax(10px, 1fr);
       grid-template-rows: 201px minmax(10px, 1fr);
@@ -59,79 +59,79 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .ContactPage {
+  .Contact-Page {
     grid-template-rows: $mainPadding minmax(800px, 1fr) $mainPadding;
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding minmax(10px, 1fr) $mainPadding;
 
-    .LeftCol {
+    .F-C {
       grid-area: 1/2/3/3;
       grid-template-rows: $mainPadding $mainPadding minmax(10px, 1fr);
 
-      .TopBlock {
+      .B-T {
         grid-area: 2/1/3/2;
       }
 
-      .MiddleBlock {
+      .B-M {
         grid-area: 3/1/4/3;
       }
     }
 
-    .RightCol {
+    .S-C {
       grid-area: 1/4/4/5;
     }
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .ContactPage {
+  .Contact-Page {
     grid-template-rows: $mainPadding minmax(800px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
 
-    .LeftCol {
+    .F-C {
       grid-area: 1/2/3/3;
       grid-template-rows: $mainPadding $mainPadding minmax(10px, 1fr);
 
-      .TopBlock {
+      .B-T {
         grid-area: 2/1/3/2;
       }
 
-      .MiddleBlock {
+      .B-M {
         grid-area: 3/1/4/3;
       }
     }
 
-    .RightCol {
+    .S-C {
       grid-area: 1/4/4/5;
     }
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .ContactPage {
+  .Contact-Page {
     grid-template-rows: $mainPadding minmax(800px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4);
 
-    .LeftCol {
+    .F-C {
       grid-area: 1/2/3/3;
       grid-template-rows: $mainPadding $mainPadding minmax(10px, 1fr);
 
-      .TopBlock {
+      .B-T {
         grid-area: 2/1/3/2;
       }
 
-      .MiddleBlock {
+      .B-M {
         grid-area: 3/1/4/3;
       }
     }
 
-    .RightCol {
+    .S-C {
       grid-area: 1/4/4/5;
     }
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .ContactPage {
+  .Contact-Page {
     grid-template-rows: $standard 840px 920px $mainPadding;
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
     row-gap: $mainPadding;
@@ -140,70 +140,70 @@
       padding-inline: 10%;
     }
 
-    .LeftCol {
+    .F-C {
       grid-area: 2/2/3/3;
       grid-template-rows: $mainPadding minmax(10px, 1fr);
 
-      .TopBlock {
+      .B-T {
         grid-area: 1/1/2/2;
       }
 
-      .MiddleBlock {
+      .B-M {
         grid-area: 2/1/3/3;
       }
     }
 
-    .RightCol {
+    .S-C {
       grid-area: 3/2/4/3;
     }
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  .ContactPage {
+  .Contact-Page {
     grid-template-rows: $standard 740px 920px $mainPadding;
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
     row-gap: $mainPadding;
 
-    .LeftCol {
+    .F-C {
       grid-area: 2/2/3/3;
       grid-template-rows: $mainPadding minmax(10px, 1fr);
 
-      .TopBlock {
+      .B-T {
         grid-area: 1/1/2/2;
       }
 
-      .MiddleBlock {
+      .B-M {
         grid-area: 2/1/3/3;
       }
     }
 
-    .RightCol {
+    .S-C {
       grid-area: 3/2/4/3;
     }
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .ContactPage {
+  .Contact-Page {
     grid-template-rows: $standard 740px 960px $mainPadding;
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
     row-gap: $mainPadding;
 
-    .LeftCol {
+    .F-C {
       grid-area: 2/2/3/3;
       grid-template-rows: $mainPadding minmax(10px, 1fr);
 
-      .TopBlock {
+      .B-T {
         grid-area: 1/1/2/2;
       }
 
-      .MiddleBlock {
+      .B-M {
         grid-area: 2/1/3/3;
       }
     }
 
-    .RightCol {
+    .S-C {
       grid-area: 3/2/4/3;
     }
   }

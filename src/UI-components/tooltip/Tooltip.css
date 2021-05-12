@@ -2,12 +2,12 @@
   grid-area: 3/2/4/3;
   width: 100px;
   height: 100px;
-  background: #ff8771;
+  right: 60px;
   border-radius: 16px;
-  color: #000000;
   position: fixed;
   position: -ms-device-fixed;
-  right: 60px;
+  background: #ff8771;
+  color: #000000;
   z-index: 1000;
 }
 

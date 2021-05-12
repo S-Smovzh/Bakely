@@ -2,13 +2,13 @@
   grid-template-rows: calc(7px * 3) 84px minmax(10px, 1fr) calc(7px * 10);
   row-gap: calc(7px * 10);
 }
-.Shop-All > .TopBlock {
+.Shop-All > .B-T {
   grid-area: 2/2/3/3;
 }
-.Shop-All > .MiddleBlock {
+.Shop-All > .B-M {
   grid-area: 3/2/4/3;
 }
-.Shop-All > .MiddleBlock > .Categories {
+.Shop-All > .B-M > .Categories {
   width: 100%;
   gap: calc(7px * 3);
 }

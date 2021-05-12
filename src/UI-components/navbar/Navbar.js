@@ -1,19 +1,25 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import i18n from 'i18next';
+import { NavbarMenuContext } from '../../context/navbar-menu/NavbarMenuContext';
+import useWindowDimensions, { isTouchDevice } from '../../utils/isTouchDevice';
 import LanguageButton from '../button/language/LanguageButton';
+import shopCart from '../../images/icons/shopping-cart.svg';
 import CartContext from '../../context/cart/CartContext';
-import AuthContext from "../../context/auth/AuthContext";
-import {Link} from "react-router-dom";
-import {useTranslation} from "react-i18next";
-import useWindowDimensions, {isTouchDevice} from "../../utils/isTouchDevice";
-import {NavbarMenuContext} from "../../context/navbar-menu/NavbarMenuContext";
-import {timer} from "rxjs";
+import AuthContext from '../../context/auth/AuthContext';
+import homepage from '../../images/icons/homepage.svg';
+import logout from '../../images/icons/logout.svg';
+import logo from '../../images/icons/logo.svg';
+import user from '../../images/icons/user.svg';
+import list from '../../images/icons/list.svg';
 
 export const Navbar = () => {
-  const [t] = useTranslation();
+  const [ t ] = useTranslation();
   const authContext = useContext(AuthContext);
   const cartContext = useContext(CartContext);
   const navbarMenuContext = useContext(NavbarMenuContext);
-  const {height, width} = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
   const [isTouch, setIsTouch] = useState(false);
 
   useEffect(() => {
@@ -21,81 +27,83 @@ export const Navbar = () => {
   }, [height, width]);
 
   return (
-    <header className='Navbar Grid'>
-      <nav role='navigation' className='Navbar-Top Grid'>
-        {!isTouch ?
+    <header className="Nav Grid">
+      <nav role="navigation" className="Nav-T Grid">
+        {!isTouch ? (
           <React.Fragment>
-            <a className='Link helper SkipLink Flex J-C-C A-I-C' href='#main' tabIndex='1000'>Skip to main section</a>
-            <a className='Link helper SkipLink Flex J-C-C A-I-C' href='#footer' tabIndex='1000'>Skip to footer section</a>
+            <a className="Link helper SkipLink Flex J-C-C A-I-C" href="#main" tabIndex="1000">Skip to main section</a>
+            <a className="Link helper SkipLink Flex J-C-C A-I-C" href="#footer" tabIndex="1000">Skip to footer section</a>
           </React.Fragment>
+          )
           : null}
       </nav>
-      <nav role='navigation' className='Navbar-Bottom Grid'>
-        {width > 768 ?
+      <nav role="navigation" className="Nav-B Grid">
+        {width > 768 ? (
           <React.Fragment>
-            <div className='Navbar-LeftRow Flex J-C-C A-I-C'>
-              <ul className='fill-width fill-height Flex J-C-S-B A-I-C'>
-                <li className='button-small'>
-                  <Link to='/' className='button-primary fill-height fill-width'
-                        aria-label={t('navbar.ariaLabel.main')}>
-                    <img src='http://localhost:3000/img/icons/logo.svg' alt='' className='logo-icon'/>
+            <div className="Nav-L-R Flex J-C-C A-I-C">
+              <ul className="F-W F-H Flex J-C-S-B A-I-C">
+                <li className="Btn-Sm">
+                  <Link to={`/${i18n.language}/`} className="Btn-P F-H F-W"
+                    aria-label={t('navbar.ariaLabel.main')}>
+                    <img src={logo} alt="" className="Icon-Logo"/>
                   </Link>
                 </li>
-                <li className='button-small'>
-                  <Link to='/shop' className='button-primary fill-height fill-width h6-size'>
+                <li className="Btn-Sm">
+                  <Link to={`/${i18n.language}/shop`} className="Btn-P F-H F-W h6-size">
                     {t('navbar.order')}
                   </Link>
                 </li>
-                <li className='button-small'>
-                  <Link to='/catering' className='button-primary fill-height fill-width h6-size'>
+                <li className="Btn-Sm">
+                  <Link to={`/${i18n.language}/catering`} className="Btn-P F-H F-W h6-size">
                     {t('navbar.catering')}
                   </Link>
                 </li>
-                <li className='button-small'>
-                  <Link to='/locations' className='button-primary fill-height fill-width h6-size'>
+                <li className="Btn-Sm">
+                  <Link to={`/${i18n.language}/locations`} className="Btn-P F-H F-W h6-size">
                     {t('navbar.locations')}
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className='Navbar-RightRow Flex J-C-C A-I-C'>
-              <ul className='fill-width fill-height Flex J-C-S-B A-I-C'>
+            <div className="Nav-R-R Flex J-C-C A-I-C">
+              <ul className="F-W F-H Flex J-C-S-B A-I-C">
                 <li>
                   {authContext.logged
-                    ?
-                    <button className='button-primary button-icon' onClick={() => authContext.logout()}
-                            aria-label={t('navbar.ariaLabel.logOut')}>
-                      <img src='http://localhost:3000/img/icons/logout.svg' alt='' className='icon'/>
-                    </button>
-                    :
-                    <Link to='/user/login' className='button-primary button-icon'
+                      ? (
+                        <button className="Btn-P Btn-I" onClick={() => authContext.logout()}
+                          aria-label={t('navbar.ariaLabel.logOut')}>
+                          <img src={logout} alt="" className="Icon"/>
+                        </button>
+                      )
+                      : (
+                        <Link to={`/${i18n.language}/user/login`} className="Btn-P Btn-I"
                           aria-label={t('navbar.ariaLabel.login')}>
-                      <img src='http://localhost:3000/img/icons/user.svg' alt='' className='icon'/>
-                    </Link>}
+                          <img src={user} alt="" className="Icon"/>
+                        </Link>
+                      )}
                 </li>
                 {authContext.logged
-                  ?
-                  <li>
-                    <Link to='/user/homepage' className='button-primary button-icon'
+                    ? (
+                      <li>
+                        <Link to={`/${i18n.language}/user/homepage`} className="Btn-P Btn-I"
                           aria-label={t('navbar.ariaLabel.homepage')}>
-                      <img src='http://localhost:3000/img/icons/homepage.svg' alt='\' className='icon'/>
-                    </Link>
-                  </li>
-                  :
-                  null}
+                          <img src={homepage} alt="\" className="Icon"/>
+                        </Link>
+                      </li>
+                    )
+                    :
+                    null}
                 <li>
-                  <button id='cart-button'
-                          className={'button button-primary button-icon ' + (cartContext.show ? 'Active' : '')}
-                          onClick={() => {
-                            cartContext.cartButtonInteraction(true);
-                            cartContext.showCart(!cartContext.show);
-                            cartContext.loadProducts();
-                            timer(300).subscribe(() => cartContext.cartButtonInteraction(false));
-                          }} aria-label={t('navbar.ariaLabel.cart')}>
+                  <button id="cart-button"
+                    className={`'Btn Btn-P Btn-I ${(cartContext.show ? 'Active' : '')}`}
+                    onClick={() => {
+                              cartContext.showCart(!cartContext.show);
+                              cartContext.loadProducts();
+                            }} aria-label={t('navbar.ariaLabel.cart')}>
                     <div>
                       {cartContext.cart && cartContext.cart.length}
                     </div>
-                    <img src='http://localhost:3000/img/icons/shopping-cart.svg' alt='' className='icon'/>
+                    <img src={shopCart} alt="" className="Icon"/>
                   </button>
                 </li>
                 <li>
@@ -104,88 +112,65 @@ export const Navbar = () => {
               </ul>
             </div>
           </React.Fragment>
-          :
-          <React.Fragment>
-            <div className='fill-width'>
-              <ul className='fill-width fill-height Flex J-C-S-A A-I-C'>
-                <li>
-                  <button id='menu'
-                          className={'button button-primary button-icon ' + (navbarMenuContext.show ? 'Active' : '')}
-                          onClick={() => navbarMenuContext.setNavbar({show: true})}
-                          aria-label={t('navbar.ariaLabel.openMenu')}>
-                    <img src='http://localhost:3000/img/icons/list.svg' alt='' className='icon'/>
-                  </button>
-                </li>
-                <li>
-                  {authContext.logged
-                    ?
-                    <button className='button-primary button-icon' onClick={() => authContext.logout()}
-                            aria-label={t('navbar.ariaLabel.logOut')}>
-                      <img src='http://localhost:3000/img/icons/logout.svg' alt='' className='icon'/>
-                    </button>
-                    :
-                    <Link to='/user/login' className='button-primary button-icon'
-                          aria-label={t('navbar.ariaLabel.login')}>
-                      <img src='http://localhost:3000/img/icons/user.svg' alt='' className='icon'/>
-                    </Link>}
-                </li>
-                {authContext.logged
-                  ?
+          )
+          : (
+            <React.Fragment>
+              <div className="F-W">
+                <ul className="F-W F-H Flex J-C-S-A A-I-C">
                   <li>
-                    <Link to='/user/homepage' className='button-primary button-icon'
-                          aria-label={t('navbar.ariaLabel.homepage')}>
-                      <img src='http://localhost:3000/img/icons/homepage.svg' alt='\' className='icon'/>
-                    </Link>
+                    <button id="menu"
+                      className={`Btn Btn-P Btn-I ${(navbarMenuContext.show ? 'Active' : '')}`}
+                      onClick={() => navbarMenuContext.setNavbar({ show: true })}
+                      aria-label={t('navbar.ariaLabel.openMenu')}>
+                      <img src={list} alt="" className="Icon"/>
+                    </button>
                   </li>
-                  :
-                  null}
-                <li>
-                  <button id='cart-button'
-                          className={'button button-primary button-icon ' + (cartContext.show ? 'Active' : '')}
-                          onClick={() => {
-                            cartContext.cartButtonInteraction(true);
-                            cartContext.showCart(!cartContext.show);
-                            cartContext.loadProducts();
-                            timer(300).subscribe(() => cartContext.cartButtonInteraction(false));
-                          }} aria-label={t('navbar.ariaLabel.cart')}>
-                    <div>
-                      {cartContext.cart && cartContext.cart.length}
-                    </div>
-                    <img src='http://localhost:3000/img/icons/shopping-cart.svg' alt='' className='icon'/>
-                  </button>
-                </li>
-                <li>
-                  <LanguageButton/>
-                </li>
-              </ul>
-            {/*  <button id='menu'*/}
-            {/*          className={'button button-primary button-icon ' + (navbarMenuContext.show ? 'Active' : '')}*/}
-            {/*          onClick={() => navbarMenuContext.setNavbar({show: true})}*/}
-            {/*          aria-label={t('navbar.ariaLabel.openMenu')}>*/}
-            {/*    <img src='http://localhost:3000/img/icons/list.svg' alt='' className='icon'/>*/}
-            {/*  </button>*/}
-            {/*</div>*/}
-            {/*<div className='Navbar-RightRow'>*/}
-            {/*  <ul>*/}
-            {/*    <li>*/}
-            {/*      <button id='cart-button'*/}
-            {/*              className={'button button-primary button-icon ' + (cartContext.show ? 'Active' : '')}*/}
-            {/*              onClick={() => {*/}
-            {/*                cartContext.showCart(!cartContext.show);*/}
-            {/*                cartContext.loadProducts();*/}
-            {/*              }} aria-label={t('navbar.ariaLabel.cart')}>*/}
-            {/*        <div>*/}
-            {/*          {cartContext.cart && cartContext.cart.length}*/}
-            {/*        </div>*/}
-            {/*        <img src='http://localhost:3000/img/icons/shopping-cart.svg' alt='' className='icon'/>*/}
-            {/*      </button>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*      <LanguageButton/>*/}
-            {/*    </li>*/}
-            {/*  </ul>*/}
-            </div>
-          </React.Fragment>}
+                  <li>
+                    {authContext.logged
+                      ? (
+                        <button className="Btn-P Btn-I" onClick={() => authContext.logout()}
+                          aria-label={t('navbar.ariaLabel.logOut')}>
+                          <img src={logout} alt="" className="Icon"/>
+                        </button>
+                      )
+                      : (
+                        <Link to={`/${i18n.language}/user/login`} className="Btn-P Btn-I"
+                          aria-label={t('navbar.ariaLabel.login')}>
+                          <img src={user} alt="" className="Icon"/>
+                        </Link>
+                      )}
+                  </li>
+                  {authContext.logged
+                    ? (
+                      <li>
+                        <Link to={`/${i18n.language}/user/homepage`} className="Btn-P Btn-I"
+                          aria-label={t('navbar.ariaLabel.homepage')}>
+                          <img src={homepage} alt="\" className="Icon"/>
+                        </Link>
+                      </li>
+                    )
+                    :
+                    null}
+                  <li>
+                    <button id="cart-button"
+                      className={`Btn Btn-P Btn-I ${(cartContext.show ? 'Active' : '')}`}
+                      onClick={() => {
+                              cartContext.showCart(!cartContext.show);
+                              cartContext.loadProducts();
+                            }} aria-label={t('navbar.ariaLabel.cart')}>
+                      <div>
+                        {cartContext.cart && cartContext.cart.length}
+                      </div>
+                      <img src={shopCart} alt="" className="Icon"/>
+                    </button>
+                  </li>
+                  <li>
+                    <LanguageButton/>
+                  </li>
+                </ul>
+              </div>
+            </React.Fragment>
+          )}
       </nav>
     </header>
   );

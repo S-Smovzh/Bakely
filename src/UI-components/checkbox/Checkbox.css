@@ -1,13 +1,13 @@
-.Checkbox-Container {
+.Checkbox-C {
   display: inline-block;
   vertical-align: middle;
 }
-.Checkbox-Container .Icon {
+.Checkbox-C .Icon {
   fill: none;
   stroke: white;
   stroke-width: 3px;
 }
-.Checkbox-Container .Hidden-Checkbox {
+.Checkbox-C .H-Checkbox {
   border: 0;
   clip: rect(0 0 0 0);
   clippath: inset(50%);
@@ -19,7 +19,7 @@
   white-space: nowrap;
   width: 1px;
 }
-.Checkbox-Container .Styled-Checkbox {
+.Checkbox-C .S-Checkbox {
   border: 1px inset #000000;
   background: #ffffff;
   width: 24px;

@@ -1,25 +1,25 @@
 @import "../../css/base/Extensions";
 
-.GalleryPage {
+.Gallery-Page {
   grid-area: 2/2/3/3;
   grid-template-rows: $standard 40px minmax(10px, 1fr) $standard;
   row-gap: calc(#{$standard * 9});
 
-  & > .TopBlock {
+  & > .B-T {
     grid-area: 2/2/3/3;
   }
 
-  & > .MiddleBlock {
+  & > .B-M {
     grid-area: 3/2/4/3;
 
-    & > .Event_List {
+    & > .Ev-L {
       row-gap: calc(#{$standard * 8});
       @include columnGap(calc(#{$standard * 4}));
 
-      & > .Event .Card {
+      & > .Ev .Card {
         row-gap: calc(#{$standard} * 2);
 
-        .Event-Details {
+        .Ev-Det {
           row-gap: calc(#{$standard} * 2);
           padding-block: calc(#{$standard} * 2);
         }
@@ -29,70 +29,70 @@
 }
 
 @media only screen and (min-width: 1400px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
 
-    .Event-Details {
+    .Ev-Det {
       height: 140px
     }
   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(#{$standard} * 8) minmax(10px, 1fr) calc(#{$standard} * 8);
 
-    .Event-Details {
+    .Ev-Det {
       height: 140px
     }
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
 
-    .Event-Details {
+    .Ev-Det {
       height: 140px
     }
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
 
-    .Event-Details {
+    .Ev-Det {
       height: 140px
     }
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
 
-    .Event-Details {
+    .Ev-Det {
       height: 140px
     }
   }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 599px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
 
-    .Event-Details {
+    .Ev-Det {
       height: 140px
     }
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .GalleryPage {
+  .Gallery-Page {
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
 
-    .Event-Details {
+    .Ev-Det {
       height: 140px
     }
   }

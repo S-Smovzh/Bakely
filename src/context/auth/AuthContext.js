@@ -12,12 +12,12 @@ export default React.createContext({
   },
   loadDeliveryAddresses: () => {
   },
-  addDeliveryAddress: (address) => {
+  addDeliveryAddress: () => {
   },
-  removeDeliveryAddress: (id) => {
+  removeDeliveryAddress: () => {
   },
   clearAddressesList: () => {
   },
-  saveName: (name) => {
+  saveName: () => {
   }
 });

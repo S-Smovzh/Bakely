@@ -1,6 +1,6 @@
 @import '../../../css/base/Extensions';
 
-.Button-Notification + .Overlay {
+.Btn-N + .Ov {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -9,9 +9,10 @@
   bottom: 0;
   @include transform(translate3d(100%, 100%, 0));
   opacity: 0;
+  -moz-opacity: 0;
 }
 
-.Button-Notification {
+.Btn-N {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -24,7 +25,7 @@
     transform-origin: 50% 2px;
   }
 
-  .Notification-Count {
+  .N-C {
     position: absolute;
     top: -5px;
     right: -5px;
@@ -46,17 +47,17 @@
 
 .Toast-Stack-Reveal {
   @include transition(0.6);
-  @include animation(toast-stack-reveal, 600ms, ease-in-out, forwards);
+  @include animation(toast-stack-reveal, 400ms, ease-in-out, forwards);
 }
 
 .Toast-Stack-Disappear {
   @include transition(0.6);
-  @include animation(toast-stack-disappear, 600ms, ease-in-out, forwards);
+  @include animation(toast-stack-disappear, 400ms, ease-in-out, forwards);
 }
 
 .BellRing {
   @include transition(0.6);
-  @include animation(bellRing, 600ms, ease-in-out, forwards);
+  @include animation(bellRing, 400ms, ease-in-out, forwards);
 }
 
 @include keyframes(toast-stack-reveal) {

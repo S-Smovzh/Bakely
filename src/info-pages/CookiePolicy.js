@@ -1,20 +1,22 @@
 import React from 'react';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import Head from '../head/Head';
 
 export default function CookiePolicy() {
-  const [t] = useTranslation();
+  const [ t ] = useTranslation();
 
   return (
-    <div className='InfoPage Grid'>
-      <section className='TopBlock Flex J-C-C A-I-C T-C'>
+    <div className="Info-Page Grid">
+      <Head title={t('infoPages.cookies.seo.title')} description={t('infoPages.cookies.seo.description')}/>
+      <section className="B-T Flex J-C-C A-I-C T-C">
         <h1>
           {t('infoPages.cookies.header')}
         </h1>
       </section>
-      <article className='MiddleBlock Nunito Flex J-C-S-B A-I-F-S F-F-C-N'>
+      <article className="B-M Nunito Flex J-C-S-B A-I-F-S F-F-C-N">
         <p>
           This cookie policy (&quot;Policy&quot;) describes what cookies are and how and they&#039;re
-          being used by the <a target="_blank" rel="nofollow" href="http://www.bakely.com">bakely.com</a> website
+          being used by the <a target="_blank" rel="nofollow noreferrer" href="https://www.bakely.com">bakely.com</a> website
           (&quot;Website&quot; or &quot;Service&quot;) and any of its related products and services
           (collectively, &quot;Services&quot;). This Policy is a legally binding agreement between you
           (&quot;User&quot;, &quot;you&quot; or &quot;your&quot;) and this Website operator
@@ -25,7 +27,7 @@ export default function CookiePolicy() {
           It also describes the choices available to you regarding accepting or declining the use of cookies. For
           further
           information on how we use, store and keep your personal data secure,
-          see our <a target="_blank" rel="nofollow" href="http://www.bakely.com/privacy-policy">Privacy Policy</a>.
+          see our <a target="_blank" rel="nofollow noreferrer" href="https://www.bakely.com/en/privacy-policy">Privacy Policy</a>.
         </p>
         <h2>What are cookies?</h2>
         <p>
@@ -93,7 +95,7 @@ export default function CookiePolicy() {
           delete
           cookies that have already been set and to not accept new cookies. To learn more about how to do this or to
           learn
-          more about cookies, visit <a target="_blank" href="https://www.internetcookies.org">internetcookies.org</a>
+          more about cookies, visit <a target="_blank" href="https://www.internetcookies.org" rel="noreferrer">internetcookies.org</a>
         </p>
         <p>
           Please note, however, that if you delete cookies or do not accept them, you might not be able to use all of
@@ -109,7 +111,7 @@ export default function CookiePolicy() {
           you. Continued use of the Website and Services after any such changes shall constitute your consent to such
           changes.
           Policy was created with <a target="_blank"
-                                     href="https://www.websitepolicies.com/blog/sample-cookie-policy-template">WebsitePolicies</a>.
+            href="https://www.websitepolicies.com/blog/sample-cookie-policy-template" rel="noreferrer">WebsitePolicies</a>.
         </p>
         <h2>Acceptance of this policy</h2>
         <p>
@@ -124,9 +126,9 @@ export default function CookiePolicy() {
         <p>
           If you would like to contact us to understand more about this Policy or wish to contact us concerning any
           matter
-          relating to our use of cookies, you may do so via the <a target="_blank" rel="nofollow"
-                                                                   href="http://www.bakely.com/contact-us">contact
-          form</a> or
+          relating to our use of cookies, you may do so via the <a target="_blank" rel="nofollow noreferrer"
+            href="https://www.bakely.com/en/contact-us">contact
+            form</a> or
           send an email to &#98;a&#107;&#101;&#108;&#121;&#46;&#117;kr&#64;gm&#97;il.&#99;&#111;m
         </p>
         <p>This document was last updated on December 31, 2020</p>
