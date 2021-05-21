@@ -1,0 +1,34 @@
+@import '../../css/base/Extensions';
+
+.Checkbox-C {
+  display: inline-block;
+  vertical-align: middle;
+
+  .Icon {
+    fill: none;
+    stroke: white;
+    stroke-width: 3px;
+  }
+
+  .H-Checkbox {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clippath: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .S-Checkbox {
+    border: 1px inset $text;
+    background: $text-inverted;
+    width: 24px;
+    height: 24px;
+    @include border-radius(4px);
+    @include transition(0.15);
+  }
+}

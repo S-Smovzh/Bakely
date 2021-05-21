@@ -1,0 +1,346 @@
+@import "../css/base/Extensions";
+
+.Product_Page {
+  row-gap: calc(#{$mainPadding} * 2);
+
+  .dropdown-toggle{
+    background: #F0F0F0FF !important;
+  }
+
+  .dropdown-item {
+    padding: 0;
+  }
+
+  .B-M {
+    grid-area: 1/2/2/3;
+    margin-top: $mainPadding;
+    grid-column-gap: $mainPadding;
+    row-gap: calc(#{$standard} * 4);
+
+    .Col-F {
+      row-gap: calc(#{$standard} * 4);
+
+      & > .Flex {
+        gap: (calc(#{$standard} * 3));
+      }
+    }
+
+    .Col-S {
+      grid-template-columns: minmax(10px, 1fr);
+      row-gap: calc(#{$standard} * 2);
+
+      .It-Inf, .Item-Ingr {
+        row-gap: calc(#{$standard} * 2);
+      }
+
+      & > .It-Inf {
+        grid-area: 1/1/2/2;
+      }
+
+      & > .Item-Ingr {
+        grid-area: 2/1/3/2;
+        grid-template-columns: minmax(10px, 1fr);
+
+        h3 {
+          grid-area: 1/1/2/2;
+        }
+
+        .Ingr-L {
+          grid-area: 2/1/3/2;
+          gap: $standard;
+        }
+      }
+
+      & > .Item-D {
+        grid-area: 3/1/4/2;
+        @include columnGap(calc(#{$standard} * 3));
+        row-gap: calc(#{$standard} * 5);
+
+        .Item-O {
+          grid-area: 1/1/2/2;
+          row-gap: calc(#{$standard} * 4);
+
+          .Wrapper {
+            @include columnGap(calc(#{$standard} * 6));
+
+            select {
+              height: 32px;
+              min-width: calc(#{$mainPadding} * 2);
+            }
+
+            .Qu {
+              h5 {
+                line-height: 1.5;
+              }
+
+              & > #qu {
+                height: 32px;
+                width: 32px;
+                background: $text-inverted;
+                border: 1px inset $text;
+              }
+
+              & > button {
+                height: 32px;
+                width: 32px;
+                box-shadow: none;
+
+                &:nth-child(1) {
+                  @include border-radius(8px 0 0 8px);
+                }
+
+                &:nth-child(3) {
+                  @include border-radius(0 8px 8px 0);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .B-B {
+    grid-area: 2/2/3/3;
+    grid-template-rows: 60px minmax(10px, 1fr);
+    grid-template-columns: minmax(10px, 1fr);
+    gap: calc(#{$standard} * 6);
+    margin-bottom: $mainPadding;
+
+    & > .Items-L {
+      grid-area: 2/1/3/2;
+
+      a[href] {
+        text-decoration: none;
+      }
+
+      .Card {
+        grid-template-rows: minmax(10px, 1fr) 110px;
+        grid-template-columns: minmax(10px, 1fr);
+        row-gap: 14px;
+        color: $text;
+
+        .Ov-C {
+          grid-area: 1/1/2/2;
+        }
+
+        .It-Inf {
+          grid-area: 2/1/3/2;
+          grid-template-rows: 50px 60px;
+          grid-template-columns: minmax(10px, 1fr);
+        }
+      }
+    }
+  }
+}
+
+.HR-C > hr {
+  width: 100%;
+  border-color: $text;
+  border-width: 3px;
+  @include border-radius(50%);
+}
+
+@media only screen and (min-width: 1200px) {
+  .Product_Page {
+    grid-template-rows: 560px minmax(10px, 1fr);
+    grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+    .B-M {
+      grid-template-rows: minmax(10px, 1fr);
+      grid-template-columns: 400px minmax(10px, 1fr);
+
+      .Col-F {
+        grid-area: 1/1/2/2;
+      }
+
+      .Col-S {
+        grid-area: 1/2/2/3;
+        grid-template-rows: 130px 220px 100px;
+
+        & > .Item-Ingr {
+          grid-template-rows: 40px 100px 40px;
+        }
+
+        & > .Item-D {
+          grid-template-columns: 320px minmax(10px, 1fr);
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+    }
+
+    .Items-L {
+      gap: calc(#{$standard} * 5);
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Product_Page {
+    grid-template-rows: 740px minmax(10px, 1fr);
+    grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+
+    .B-M {
+      grid-template-rows: minmax(10px, 1fr);
+      grid-template-columns: 320px minmax(10px, 1fr);
+
+      .Col-F {
+        grid-area: 1/1/2/2;
+      }
+
+      .Col-S {
+        grid-area: 1/2/2/3;
+        grid-template-rows: 170px 300px 140px;
+
+        & > .Item-Ingr {
+          grid-template-rows: 40px 180px 40px;
+        }
+
+        & > .Item-D {
+          grid-template-columns: 320px minmax(10px, 1fr);
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+    }
+
+    .Items-L {
+      gap: calc(#{$standard} * 3);
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Product_Page {
+    grid-template-rows: 870px minmax(10px, 1fr);
+    grid-template-columns: calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4);
+
+    .B-M {
+      grid-template-rows: minmax(10px, 1fr);
+      grid-template-columns: 300px minmax(10px, 1fr);
+
+      .Col-F {
+        grid-area: 1/1/2/2;
+      }
+
+      .Col-S {
+        grid-area: 1/2/2/3;
+        grid-template-rows: 200px 320px 210px;
+
+        & > .Item-Ingr {
+          grid-template-rows: 40px 212px 40px;
+        }
+
+        & > .Item-D {
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows: minmax(10px, 1fr) 60px;
+        }
+      }
+    }
+
+    .Items-L {
+      gap: calc(#{$standard} * 6);
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Product_Page {
+    grid-template-rows: 1100px minmax(10px, 1fr);
+    grid-template-columns: calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4);
+
+    .B-M {
+      grid-template-rows: 400px minmax(10px, 1fr);
+      grid-template-columns: minmax(10px, 1fr);
+
+      .Col-F {
+        grid-area: 1/1/2/2;
+      }
+
+      .Col-S {
+        grid-area: 2/1/3/2;
+        grid-template-rows: 170px 280px 110px;
+
+        & > .Item-Ingr {
+          grid-template-rows: 40px 172px 40px;
+        }
+
+        & > .Item-D {
+          grid-template-columns: 290px minmax(10px, 1fr);
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+    }
+
+    .Items-L {
+      gap: calc(#{$standard} * 6);
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Product_Page {
+    grid-template-rows: 1400px minmax(10px, 1fr);
+    grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+
+    .B-M {
+      grid-template-rows: 490px minmax(10px, 1fr);
+      grid-template-columns: minmax(10px, 1fr);
+
+      .Col-F {
+        grid-area: 1/1/2/2;
+      }
+
+      .Col-S {
+        grid-area: 2/1/3/2;
+        grid-template-rows: 250px 320px 220px;
+
+        & > .Item-Ingr {
+          grid-template-rows: 40px 212px 40px;
+        }
+
+        & > .Item-D {
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows: minmax(10px, 1fr) 60px;
+        }
+      }
+    }
+
+    .Items-L {
+      gap: calc(#{$standard} * 6);
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Product_Page {
+    grid-template-rows: 1400px minmax(10px, 1fr);
+    grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+    .B-M {
+      grid-template-rows: 450px minmax(10px, 1fr);
+      grid-template-columns: minmax(10px, 1fr);
+
+      .Col-F {
+        grid-area: 1/1/2/2;
+      }
+
+      .Col-S {
+        grid-area: 2/1/3/2;
+        grid-template-rows: 250px 320px 220px;
+
+        & > .Item-Ingr {
+          grid-template-rows: 40px 212px 40px;
+        }
+
+        & > .Item-D {
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows: minmax(10px, 1fr) 60px;
+        }
+      }
+    }
+
+    .Items-L {
+      gap: calc(#{$standard} * 6);
+    }
+  }
+}

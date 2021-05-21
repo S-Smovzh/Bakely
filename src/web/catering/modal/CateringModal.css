@@ -1,0 +1,87 @@
+.Modal.Catering {
+  display: flex !important;
+}
+.Modal.Catering .modal-body {
+  row-gap: calc(21px);
+}
+.Modal.Catering .modal-body > p {
+  column-gap: calc(7px * 6);
+  -webkit-column-gap: calc(7px * 6);
+  -moz-column-gap: calc(7px * 6);
+}
+.Modal.Catering .modal-body .Feedbacks {
+  row-gap: calc(7px * 3);
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.Modal.Catering > * {
+  border: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    width: 600px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    width: 70vw;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    width: 70vw;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    width: 75vw;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    width: 90vw;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    width: 90vw;
+  }
+}
+@media only screen and (min-height: 769px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    height: 660px;
+  }
+  .Modal.Catering .modal-content .Feedbacks, .Modal.Catering .modal-dialog .Feedbacks {
+    max-height: 360px;
+  }
+}
+@media only screen and (min-height: 481px) and (max-height: 768px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    height: 440px;
+  }
+  .Modal.Catering .modal-content .Feedbacks, .Modal.Catering .modal-dialog .Feedbacks {
+    max-height: 190px;
+  }
+}
+@media only screen and (min-height: 321px) and (max-height: 480px) {
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    height: 310px;
+  }
+  .Modal.Catering .modal-content .Feedbacks, .Modal.Catering .modal-dialog .Feedbacks {
+    max-height: 110px;
+  }
+}
+@media only screen and (max-height: 320px) {
+  .Modal.Catering .modal-body {
+    row-gap: 7px;
+  }
+  .Modal.Catering .modal-content, .Modal.Catering .modal-dialog {
+    height: 270px;
+  }
+  .Modal.Catering .modal-content .Feedbacks, .Modal.Catering .modal-dialog .Feedbacks {
+    max-height: 100px;
+  }
+}
+
+/*# sourceMappingURL=CateringModal.css.map */

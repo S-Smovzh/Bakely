@@ -1,0 +1,19 @@
+@import "../../css/base/Extensions";
+
+.Hover-Tooltip{
+  grid-area: 3/2/4/3;
+  width: 100px;
+  height: 100px;
+  right: 60px;
+  @include border-radius(16px);
+  position: fixed;
+  position: -ms-device-fixed;
+  background: $primary-100;
+  color: $text;
+  z-index: 900;
+}
+
+.Image-100-50{
+  width: 100px;
+  height: 50px;
+}

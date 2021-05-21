@@ -1,0 +1,374 @@
+@import "../css/base/Extensions";
+
+.Cart-Page {
+  top: 0;
+  right: 0;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-x: -moz-hidden-unscrollable;
+  -ms-overflow-x: hidden;
+  z-index: 1000;
+  transition: transform 200ms ease-out;
+  transform-origin: 0 0;
+  height: 100vh;
+  background: $layout-100;
+
+  .B-T {
+    grid-area: 1/1/2/2;
+    background: $secondary-1000;
+    color: $text-inverted;
+  }
+
+  .B-M {
+    grid-area: 2/1/3/2;
+    row-gap: $standard;
+
+    .Cart-Pr {
+      row-gap: calc(#{$standard} * 2);
+      overflow-y: auto;
+      -ms-overflow-y: auto;
+      overflow-x: hidden;
+      overflow-x: -moz-hidden-unscrollable;
+      -ms-overflow-x: hidden;
+      padding-block: calc(#{$standard} * 4);
+      padding-inline: 4px;
+
+      .Cart-It {
+        @include box-shadow(0px 4px 14px rgba(78, 34, 16, 0.15));
+        @include border-radius(10px);
+
+        & > div.Grid {
+          grid-area: 1/2/2/3;
+          @include columnGap(calc(#{$standard} * 2));
+
+          .Item-D {
+            grid-area: 1/1/2/2;
+
+            & > ::-webkit-scrollbar {
+              width: 6px !important;
+            }
+
+            span:nth-child(1) {
+              overflow-y: auto;
+              overflow-x: hidden;
+              max-height: 52px;
+            }
+          }
+
+          .Btn-Rem {
+            grid-area: 1/3/2/4;
+            justify-self: flex-end;
+          }
+
+          .Item-Im {
+            grid-area: 1/1/2/2;
+          }
+
+          .Item-Qu {
+            grid-area: 1/2/2/3;
+
+            & > #qu {
+              height: 30px;
+              width: 32px;
+              background: $text-inverted;
+              border: 1px inset $text;
+            }
+
+            & > button {
+              height: 32px;
+              width: 32px;
+              box-shadow: none;
+
+              &:nth-child(1) {
+                @include border-radius(8px 8px 0 0);
+
+                img {
+                  transform: rotateX(180deg);
+                }
+              }
+
+              &:nth-child(3) {
+                @include border-radius(0 0 8px 8px);
+              }
+            }
+          }
+
+          .H-Ruler {
+            grid-area: 2/1/3/3;
+            background: $primary-700;
+            opacity: 0.8;
+            border-radius: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.Show-C {
+  @include animation(cart-reveal, 400ms, ease-in, forwards);
+}
+
+.Hide-C {
+  @include animation(cart-hide, 400ms, ease-in, forwards);
+}
+
+.Remove {
+  @include animation(remove, 400ms, ease-in, forwards);
+}
+
+@include keyframes(cart-reveal) {
+  from {
+    @include transform(translateX(100%));
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+
+  to {
+    @include transform(translateX(0));
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+
+@include keyframes(cart-hide) {
+  from {
+    @include transform(translateX(0));
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+
+  to {
+    @include transform(translateX(100%));
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+
+@include keyframes(remove) {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  15% {
+    opacity: 0.8;
+    transform: translateX(100px);
+  }
+
+  30% {
+    opacity: 0.6;
+    transform: translateX(150px);
+  }
+
+  45% {
+    opacity: 0.5;
+    transform: translateX(200px);
+  }
+
+  60% {
+    opacity: 0.4;
+    transform: translateX(250px);
+  }
+
+  75% {
+    opacity: 0.3;
+    transform: translateX(300px);
+  }
+
+  90% {
+    opacity: 0.2;
+    transform: translateX(350px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Cart-Page {
+    grid-template-rows: 130px minmax(10px, calc(100vh - 170px)) 115px;
+    grid-template-columns: 400px;
+    row-gap: calc(#{$standard} * 4);
+    padding-inline: calc(#{$standard} * 3);
+
+    .B-T {
+      margin-inline: calc(-#{$standard} * 3);
+      @include flex__center;
+    }
+
+    .Cart-It {
+      grid-template-rows: 110px;
+      grid-template-columns: 80px auto;
+      column-gap: 10px;
+      padding: 4px 10px;
+      width: 100%;
+
+      .Item-D {
+        grid-template-rows: minmax(10px, 1fr);
+        grid-template-columns: 140px 75px auto;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Cart-Page {
+    grid-template-rows: 124px minmax(10px, calc(100vh - 170px)) 115px;
+    grid-template-columns: 400px;
+    row-gap: calc(#{$standard} * 4);
+    padding-inline: calc(#{$standard} * 3);
+
+    .B-T {
+      margin-inline: calc(-#{$standard} * 3);
+      @include flex__center;
+    }
+
+    .Cart-It {
+      grid-template-rows: 110px;
+      grid-template-columns: 80px auto;
+      column-gap: 10px;
+      padding: 4px 10px;
+      width: 100%;
+
+      .Item-D {
+        grid-template-rows: minmax(10px, 1fr);
+        grid-template-columns: 140px 75px auto;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Cart-Page {
+    grid-template-rows: 120px minmax(10px, calc(100vh - 170px)) 115px;
+    grid-template-columns: 400px;
+    row-gap: calc(#{$standard} * 4);
+    padding-inline: calc(#{$standard} * 2);
+
+    .B-T {
+      margin-inline: calc(-#{$standard} * 2);
+      @include flex__center;
+    }
+
+    .Cart-It {
+      grid-template-rows: 110px;
+      grid-template-columns: 80px auto;
+      column-gap: 10px;
+      padding: 4px 10px;
+      width: 100%;
+
+      .Item-D {
+        grid-template-rows: minmax(10px, 1fr);
+        grid-template-columns: 140px 75px auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .Cart-Page {
+    grid-template-rows: 110px minmax(10px, calc(100vh - 170px)) 100px;
+    grid-template-columns: calc(100vw - (#{$standard} * 4));
+    row-gap: calc(#{$standard} * 4);
+    padding-inline: calc(#{$standard} * 2);
+
+    .B-T {
+      margin-inline: calc(-#{$standard} * 2);
+
+      &.Small-Device {
+        @include justify-content(space-around);
+        @include align-items(center);
+
+        button {
+          box-shadow: 0 4px 2px rgba(255, 255, 255, 0.25);
+        }
+      }
+    }
+
+    .Cart-It {
+      grid-template-rows: 110px;
+      grid-template-columns: 80px auto;
+      column-gap: 10px;
+      padding: 4px 10px;
+
+      .Item-D {
+        grid-template-rows: minmax(10px, 1fr);
+        grid-template-columns: 240px 75px auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Cart-Page {
+    grid-template-rows: 100px minmax(10px, calc(100vh - 260px)) 105px;
+    grid-template-columns: calc(100vw - calc(#{$standard} * 2));
+    row-gap: calc(#{$standard} * 4);
+    padding-inline: $standard;
+
+    .B-T {
+      margin-inline: calc(-#{$standard});
+
+      &.Small-Device {
+        @include justify-content(space-around);
+        @include align-items(center);
+
+        button {
+          box-shadow: 0 4px 2px rgba(255, 255, 255, 0.25);
+        }
+      }
+    }
+
+    .Cart-It {
+      grid-template-rows: 110px;
+      grid-template-columns: 80px auto;
+      column-gap: 10px;
+      padding: 4px 10px;
+
+      .Item-D {
+        grid-template-rows: minmax(10px, 1fr);
+        grid-template-columns: 140px 75px auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .Cart-Page {
+    grid-template-rows: 90px minmax(10px, calc(100vh - 260px)) 115px;
+    grid-template-columns: calc(100vw - calc(#{$standard} * 2));
+    row-gap: calc(#{$standard} * 4);
+    padding-inline: $standard;
+
+    .B-T {
+      margin-inline: calc(-#{$standard});
+
+      &.Small-Device {
+        @include justify-content(space-around);
+        @include align-items(center);
+
+        button {
+          box-shadow: 0 4px 2px rgba(255, 255, 255, 0.25);
+        }
+      }
+    }
+
+    .Cart-It {
+      grid-template-rows: 130px;
+      grid-template-columns: 80px auto;
+      column-gap: 10px;
+      padding: 4px;
+
+      .Item-D {
+        grid-template-rows: minmax(10px, 1fr);
+        grid-template-columns: 120px 55px auto;
+        column-gap: 0 !important;
+        -webkit-column-gap: 0 !important;
+        -moz-column-gap: 0 !important;
+      }
+    }
+  }
+}

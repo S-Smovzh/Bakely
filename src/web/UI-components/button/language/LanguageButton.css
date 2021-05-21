@@ -1,0 +1,69 @@
+.D-T {
+  position: relative;
+}
+
+.D-M {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  padding-block: 8px;
+  background: #DBDDDC;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+.D-M .D-I {
+  margin-block: 4px;
+}
+
+@media only screen and (min-width: 1400px) {
+  .D-M {
+    width: 60px;
+    top: 116px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .D-M {
+    width: 60px;
+    top: 115px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .D-M {
+    width: 57px;
+    top: 112px;
+    padding-block: 8px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .D-M {
+    width: 54px;
+    top: 109px;
+    margin-top: -1px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .D-M {
+    width: 51px;
+    top: 106px;
+    margin-top: -5px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .D-M {
+    width: 48px;
+    top: 103px;
+    margin-top: -8px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .D-M {
+    width: 45px;
+    top: 100px;
+    margin-top: -17px;
+  }
+}
+
+/*# sourceMappingURL=LanguageButton.css.map */

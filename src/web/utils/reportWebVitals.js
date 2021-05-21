@@ -1,0 +1,24 @@
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+function sendToAnalytics(metric) {
+  const body = JSON.stringify(metric);
+  const url = 'https://example.com/analytics';
+
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(url, body);
+  } else {
+    fetch(url, { body, method: 'POST', keepalive: true });
+  }
+}
+
+reportWebVitals(sendToAnalytics);

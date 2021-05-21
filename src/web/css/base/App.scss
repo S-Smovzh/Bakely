@@ -1,0 +1,621 @@
+@import "Extensions";
+
+.Base {
+  grid-template-rows: minmax(10px, 1fr);
+  position: relative;
+  gap: 0 0;
+
+  .P-W {
+    grid-template-columns: minmax(10px, 1fr);
+    @include transition(0.6);
+    @include transform-origin(0);
+  }
+}
+
+main, .Cart-Page {
+  background: $layout-200;
+  @include pageMainPartShadow;
+}
+
+.Quote {
+  color: #555555;
+  position: relative;
+  background: $tertiary-100;
+  border-left: 8px solid $primary-700;
+
+  &::before {
+    content: "\201C";
+    color: $primary-700;
+    font-size: 4em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+  }
+
+  &::after {
+    content: '';
+  }
+
+  cite {
+    display: block;
+    color: #333333;
+    font-weight: 600;
+    @include textRight;
+    margin-top: 0.5em;
+  }
+}
+
+.Cart-Item-Image {
+  width: 80px;
+  height: 80px;
+  padding: 4px;
+  @include border-radius(8px);
+  background: $text-inverted;
+  border: 1px solid $text;
+}
+
+.Image-P {
+  padding: 4px;
+  @include border-radius(8px);
+  background: $text-inverted;
+  border: 1px solid $text;
+  @include transition(0.4);
+
+  &:hover {
+    filter: drop-shadow(0 0 6px $primary-700);
+    -webkit-filter: drop-shadow(0 0 6px $primary-700);
+    -ms-filter: drop-shadow(0 0 6px $primary-700);
+  }
+}
+
+.Icon-Flag {
+  border: 1px solid $tertiary-800;
+}
+
+[class$="Con"], .SVG, .SVG-Pop-Up {
+  height: auto;
+}
+
+@media only screen and (max-width: 1400px) {
+  .Playfair {
+    font-family: 'Playfair Display', serif;
+
+    p, a, label, button, input, blockquote {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  .Nunito {
+    font-family: 'Nunito', sans-serif;
+
+    p, a, label, button, input, blockquote {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .Playfair {
+    font-family: 'Playfair Display', serif;
+
+    p, a, label, button, input, blockquote {
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+
+  .Nunito {
+    font-family: 'Nunito', sans-serif;
+
+    p, a, label, button, input, blockquote {
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .Base {
+    grid-template-columns: minmax(10px, 1fr) 1400px minmax(10px, 1fr);
+
+    .P-W {
+      grid-area: 1/2/2/3;
+      grid-template-rows: 130px minmax(10px, 1fr) 390px;
+    }
+  }
+
+  .Playfair {
+    font-family: 'Playfair Display', serif;
+
+    p, a, label, button, input, blockquote {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+
+  .Nunito {
+    font-family: 'Nunito', sans-serif;
+
+    p, a, label, button, input, blockquote {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+
+  .Quote {
+    padding: 10px 30px 10px 75px;
+  }
+
+  .Icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .Icon-Flag {
+    width: 28px;
+  }
+
+  .Icon-Tooltip {
+    width: 46px;
+    height: 46px;
+  }
+
+  .Icon-Logo {
+    width: 70px;
+    height: 50px;
+  }
+
+  .M-P_Image-H {
+    width: 600px;
+    height: 350px;
+  }
+
+  .M-P_Image-V {
+    width: 375px;
+    height: 710px;
+  }
+
+  .Image-L {
+    width: 400px;
+    height: 400px;
+  }
+
+  .Image-L-Con {
+    width: 400px;
+  }
+
+  .Image-S-P {
+    width: 250px;
+    height: 250px;
+  }
+
+  .Image-S-P-Con {
+    width: 250px;
+  }
+
+  .SVG {
+    width: 500px;
+
+    &-Pop-Up {
+      width: 260px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .Base {
+    grid-template-columns: minmax(1200px, 1399px);
+
+    .P-W {
+      grid-area: 1/1/2/2;
+      grid-template-columns: minmax(10px, 1399px);
+      grid-template-rows: 130px minmax(10px, 1fr) 390px;
+    }
+  }
+
+  .Quote {
+    padding: 10px 10px 10px 45px;
+  }
+
+  .Icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .Icon-Flag {
+    width: 26px;
+  }
+
+  .Icon-Tooltip {
+    width: 42px;
+    height: 42px;
+  }
+
+  .Icon-Logo {
+    width: 66px;
+    height: 46px;
+  }
+
+  .M-P_Image-H {
+    width: 520px;
+    height: 310px;
+  }
+
+  .M-P_Image-V {
+    width: 300px;
+    height: 630px;
+  }
+
+  .Image-L {
+    width: 360px;
+    height: 360px;
+  }
+
+  .Image-L-Con {
+    width: 360px;
+  }
+
+  .Image-S-P {
+    width: 230px;
+    height: 230px;
+  }
+
+  .Image-S-P-Con {
+    width: 230px;
+  }
+
+  .SVG {
+    width: 450px;
+
+    &-Pop-Up {
+      width: 230px;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Base {
+    grid-template-columns: minmax(992px, 1199px);
+
+    .P-W {
+      grid-template-rows: 124px minmax(10px, 1fr) 390px;
+    }
+  }
+
+  .Quote {
+    padding: 10px 10px 10px 45px;
+  }
+
+  .Icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .Icon-Flag {
+    width: 25px;
+  }
+
+  .Icon-Tooltip {
+    width: 40px;
+    height: 40px;
+  }
+
+  .Icon-Logo {
+    width: 64px;
+    height: 44px;
+  }
+
+  .M-P_Image-H {
+    width: 780px;
+    height: 300px;
+  }
+
+  .M-P_Image-V {
+    width: 380px;
+    height: 610px;
+  }
+
+  .Image-L {
+    width: 320px;
+    height: 320px;
+  }
+
+  .Image-L-Con {
+    width: 320px;
+  }
+
+  .Image-S-P {
+    width: 200px;
+    height: 200px;
+  }
+
+  .Image-S-P-Con {
+    width: 200px;
+  }
+
+  .SVG {
+    width: 400px;
+
+    &-Pop-Up {
+      width: 215px;
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Base {
+    grid-template-columns: minmax(700px, 1fr);
+
+    .P-W {
+      grid-template-rows: 120px minmax(10px, 1fr) 390px;
+    }
+  }
+
+  .Quote {
+    padding: 10px 10px 10px 45px;
+  }
+
+  .Icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .Icon-Flag {
+    width: 24px;
+  }
+
+  .Icon-Tooltip {
+    width: 38px;
+    height: 38px;
+  }
+
+  .Icon-Logo {
+    width: 62px;
+    height: 42px;
+  }
+
+  .M-P_Image-H {
+    width: 600px;
+    height: 240px;
+  }
+
+  .M-P_Image-V {
+    width: 290px;
+    height: 400px;
+  }
+
+  .Image-L {
+    width: 300px;
+    height: 300px;
+  }
+
+  .Image-L-Con {
+    width: 300px;
+  }
+
+  .Image-S-P {
+    width: 180px;
+    height: 180px;
+  }
+
+  .Image-S-P-Con {
+    width: 180px;
+  }
+
+  .SVG {
+    width: 300px;
+
+    &-Pop-Up {
+      width: 200px;
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Base {
+    grid-template-columns: minmax(481px, 768px);
+
+    .P-W {
+      grid-template-rows: 110px minmax(10px, 1fr) 390px;
+    }
+  }
+
+  .Quote {
+    padding: 10px 10px 10px 45px;
+  }
+
+  .Icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .Icon-Flag {
+    width: 23px;
+  }
+
+  .Icon-Tooltip {
+    width: 36px;
+    height: 36px;
+  }
+
+  .Icon-Logo {
+    width: 60px;
+    height: 40px;
+  }
+
+  .M-P_Image-H {
+    width: 420px;
+    height: 240px;
+  }
+
+  .M-P_Image-V {
+    width: 200px;
+    height: 410px;
+  }
+
+  .Image-L {
+    width: 270px;
+    height: 270px;
+  }
+
+  .Image-L-Con {
+    width: 270px;
+  }
+
+  .Image-S-P {
+    width: 180px;
+    height: 180px;
+  }
+
+  .Image-S-P-Con {
+    width: 180px;
+  }
+
+  .SVG {
+    width: 280px;
+
+    &-Pop-Up {
+      width: 185px;
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Base {
+    grid-template-columns: minmax(321px, 480px);
+
+    .P-W {
+      grid-template-rows: 100px minmax(10px, 1fr) minmax(390px, auto);
+    }
+  }
+
+  .Quote {
+    padding: 10px 10px 10px 45px;
+  }
+
+  .Icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .Icon-Flag {
+    width: 22px;
+  }
+
+  .Icon-Tooltip {
+    width: 34px;
+    height: 34px;
+  }
+
+  .Icon-Logo {
+    width: 56px;
+    height: 36px;
+  }
+
+  .M-P_Image-H {
+    width: 310px;
+    height: 200px;
+  }
+
+  .M-P_Image-V {
+    width: 145px;
+    height: 310px;
+  }
+
+  .Image-L {
+    width: 250px;
+    height: 250px;
+  }
+
+  .Image-L-Con {
+    width: 250px;
+  }
+
+  .Image-S-P {
+    width: 140px;
+    height: 140px;
+  }
+
+  .Image-S-P-Con {
+    width: 140px;
+  }
+
+  .SVG {
+    width: 250px;
+
+    &-Pop-Up {
+      width: 170px;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Base {
+    grid-template-columns: minmax(10px, 320px);
+
+    .P-W {
+      grid-template-rows: 90px minmax(10px, 1fr) minmax(390px, auto);
+    }
+  }
+
+  .Quote {
+    padding: 10px 10px 10px 45px;
+  }
+
+  .Icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .Icon-Flag {
+    width: 21px;
+  }
+
+  .Icon-Tooltip {
+    width: 32px;
+    height: 32px;
+  }
+
+  .Icon-Logo {
+    width: 56px;
+    height: 36px;
+  }
+
+  .M-P_Image-H {
+    width: 300px;
+    height: 170px;
+  }
+
+  .M-P_Image-V {
+    width: 140px;
+    height: 280px;
+  }
+
+  .Image-L {
+    width: 220px;
+    height: 220px;
+  }
+
+  .Image-L-Con {
+    width: 220px;
+  }
+
+  .Image-S-P {
+    width: 135px;
+    height: 135px;
+  }
+
+  .Image-S-P-Con {
+    width: 135px;
+  }
+
+  .SVG {
+    width: 250px;
+
+    &-Pop-Up {
+      width: 155px;
+    }
+  }
+}

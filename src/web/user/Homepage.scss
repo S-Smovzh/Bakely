@@ -1,0 +1,680 @@
+@import "../css/base/Extensions";
+
+%odd {
+  background: $layout-600;
+
+  &:hover {
+    color: $text-inverted;
+    background: $secondary-800;
+  }
+
+  &:active {
+    color: $text;
+    background: $secondary-300;
+  }
+
+  &:focus {
+    background: $secondary-600;
+  }
+
+  &:focus-visible {
+    background: $secondary-600;
+  }
+
+  &:-moz-focusring {
+    background: $secondary-600;
+  }
+
+  &:disabled {
+    color: $text;
+    opacity: 0.5;
+  }
+}
+
+%even {
+  background: $tertiary-100;
+
+  &:hover {
+    color: $text-inverted;
+    background: $primary-700;
+  }
+
+  &:active {
+    color: $text-inverted;
+    background: $primary-300;
+  }
+
+  &:focus {
+    color: $text-inverted;
+    background: $primary-500;
+  }
+
+  &:focus-visible {
+    color: $text-inverted;
+    background: $primary-500;
+  }
+
+  &:-moz-focusring {
+    color: $text-inverted;
+    background: $primary-500;
+  }
+
+  &:disabled {
+    color: $text;
+    opacity: 0.5;
+  }
+}
+
+.Home-Page {
+  grid-template-columns: minmax(10px, 1fr);
+
+  .B-T {
+    grid-area: 1/1/2/2;
+
+    & .F-C {
+      background: $primary-700;
+      overflow-y: auto;
+      -ms-overflow-y: auto;
+      row-gap: calc(#{$standard} * 2);
+
+      header.Flex {
+        grid-area: 1/2/2/3;
+        color: $text-inverted;
+        row-gap: calc(#{$standard} * 2);
+      }
+
+      .Orders-L {
+        grid-area: 2/2/3/3;
+        border: 6px inset $text-inverted;
+        background: $layout-100;
+        overflow-y: auto;
+        -ms-overflow-y: auto;
+
+        .Orders-C, .Orders-H {
+          grid-template-rows: minmax(10px, 1fr);
+
+          & > * {
+            border: 1px solid $text;
+            padding: 10px 2px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+
+          & > .Prods {
+            grid-area: 1/2/2/3;
+          }
+        }
+
+        .Orders-H span {
+          background: $tertiary-1000;
+          color: $text-inverted;
+        }
+
+        &.Even > .Order {
+          &:nth-of-type(odd) > .Orders-C {
+            @extend %odd;
+          }
+
+          &:nth-of-type(even) > .Orders-C {
+            @extend %even;
+          }
+        }
+
+        &.Odd > .Order {
+          &:nth-of-type(odd) > .Orders-C {
+            @extend %even;
+          }
+
+          &:nth-of-type(even) > .Orders-C {
+            @extend %odd;
+          }
+        }
+      }
+    }
+
+    & .S-C {
+      overflow-y: auto;
+      -ms-overflow-y: auto;
+
+      .Order-D-T {
+        border: 4px solid $tertiary-500;
+
+        & > .Order-Date-R {
+          grid-area: 1/1/2/3;
+          border-bottom: 1px solid $tertiary-500;
+        }
+
+        & > .Prods-Col {
+          grid-area: 2/1/3/2;
+          border-right: 1px solid $tertiary-500;
+          overflow-y: auto;
+          -ms-overflow-y: auto;
+
+          & > .Prods-L {
+            grid-area: 2/1/3/2;
+          }
+        }
+
+        & > .Com-C {
+          grid-area: 2/2/3/3;
+          padding-bottom: 0;
+
+          .O-Com {
+            grid-area: 1/1/2/2;
+            overflow-y: auto;
+            -ms-overflow-y: auto;
+          }
+
+          .O-Tot {
+            grid-area: 2/1/3/2;
+            background: $success-100;
+          }
+        }
+      }
+    }
+  }
+
+  .B-M {
+    grid-area: 2/1/3/2;
+    background: $tertiary-100;
+    z-index: 2;
+
+    & > .F-C {
+      .Form {
+        grid-template-columns: repeat(2, minmax(10px, 1fr));
+        grid-template-rows: minmax(10px, 1fr) 100px;
+        grid-column-gap: $mainPadding;
+
+        &-Col {
+          grid-template-columns: minmax(10px, 1fr);
+          grid-template-rows: repeat(2, minmax(10px, 1fr));
+
+          &.F-C {
+            grid-area: 1/1/2/2;
+          }
+
+          &.S-C {
+            grid-area: 1/2/2/3;
+          }
+        }
+
+        &-Button {
+          @include justify-content(flex-start);
+          @include align-items(flex-start);
+        }
+      }
+    }
+
+    & > .S-C {
+      grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+      background: $primary-700;
+
+      & > .Flex {
+        grid-area: 1/2/2/3;
+        color: $text-inverted;
+      }
+
+      .Addr {
+        &-T {
+          grid-area: 2/2/3/3;
+          grid-template-rows: repeat(3, minmax(10px, 1fr));
+          grid-template-columns: minmax(10px, 1fr);
+          border: 6px inset $text-inverted;
+          background: $layout-100;
+          overflow-y: auto;
+          -ms-overflow-y: auto;
+
+          &.Even {
+            .Addr-C:nth-of-type(odd) {
+              background: $layout-600;
+            }
+
+            .Addr-C:nth-of-type(even) {
+              background: $layout-100;
+            }
+          }
+
+          &.Odd {
+            .Addr-C:nth-of-type(odd) {
+              background: $layout-100;
+            }
+
+            .Addr-C:nth-of-type(even) {
+              background: $layout-600;
+            }
+          }
+        }
+
+        &-C {
+          grid-template-columns: minmax(10px, 1fr) 40px;
+          grid-template-rows: minmax(10px, 1fr);
+          padding: $standard;
+
+          .Btn-Rem {
+            grid-area: 1/2/2/3;
+            justify-self: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  .B-B {
+    grid-area: 3/1/4/2;
+    @include columnGap($mainPadding);
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    grid-template-rows: minmax(10px, 1fr);
+
+    & > .Flex {
+      row-gap: $mainPadding;
+    }
+
+    .carousel-control-next, .carousel-control-prev {
+      top: auto;
+      bottom: 0;
+    }
+
+    .carousel-indicators {
+      display: none;
+    }
+  }
+
+  .Form, .Form-Col {
+    row-gap: calc(#{$standard} * 5);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px $mainPadding;
+
+    .B-T {
+      grid-template-rows: minmax(10px, 1fr);
+      grid-template-columns: $mainPadding 350px minmax(10px, 1fr)  $mainPadding;
+
+      .F-C {
+        grid-area: 1/2/2/3;
+        grid-template-rows: calc(#{$mainPadding} * 3) 420px minmax(10px, 1fr);
+        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+        .Orders-C, .Orders-H {
+          grid-template-columns: 110px minmax(10px, 1fr) 60px;
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+
+      .S-C {
+        grid-area: 1/3/2/4;
+
+        .Order-D-T {
+          grid-template-columns: 200px 340px;
+          grid-template-rows: $mainPadding 400px;
+          padding: calc(#{$standard} * 2);
+
+          & > * {
+            padding: 12px;
+          }
+
+          & > .Prods-Col {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows: $mainPadding minmax(10px, 1fr);
+          }
+
+          & > .Com-C {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows:minmax(10px, 1fr) 70px;
+          }
+        }
+      }
+    }
+
+    .B-M {
+      grid-template-columns: $mainPadding repeat(2, minmax(10px, 1fr)) $mainPadding minmax(10px, 1fr) $mainPadding;
+      grid-template-rows: 100px minmax(10px, 1fr);
+
+      .F-C {
+        grid-area: 1/2/3/4;
+      }
+
+      .S-C {
+        grid-area: 1/5/3/6;
+        grid-template-rows: 100px 420px;
+
+        .Addresses {
+          &-Table {
+            grid-template-rows: repeat(3, minmax(10px, 1fr));
+          }
+        }
+      }
+    }
+
+    .B-B {
+      padding-inline: $mainPadding;
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1199px) {
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px $mainPadding;
+
+    .B-T {
+      grid-template-rows: minmax(10px, 1fr);
+      grid-template-columns: calc(#{$standard} * 7) 350px minmax(10px, 1fr)  calc(#{$standard} * 7);
+
+      .F-C {
+        grid-area: 1/2/2/3;
+        grid-template-rows: calc(#{$mainPadding} * 3) 420px minmax(10px, 1fr);
+        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+        .Orders-C, .Orders-H {
+          grid-template-columns: 110px minmax(10px, 1fr) 60px;
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+
+      .S-C {
+        grid-area: 1/3/2/4;
+
+        .Order-D-T {
+          grid-template-columns: 150px 240px;
+          grid-template-rows: $mainPadding 400px;
+          padding: $standard;
+
+          & > * {
+            padding: 12px;
+          }
+
+          & > .Prods-Col {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows: $mainPadding minmax(10px, 1fr);
+          }
+
+          & > .Com-C {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows:minmax(10px, 1fr) 70px;
+          }
+        }
+      }
+    }
+
+    .B-M {
+      grid-template-columns: calc(#{$standard} * 5) repeat(2, minmax(10px, 1fr)) calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
+      grid-template-rows: 100px minmax(10px, 1fr);
+
+      .F-C {
+        grid-area: 1/2/3/4;
+      }
+
+      .S-C {
+        grid-area: 1/5/3/6;
+        grid-template-rows: 100px 420px;
+
+        .Addresses {
+          &-Table {
+            grid-template-rows: repeat(3, minmax(10px, 1fr));
+          }
+        }
+      }
+    }
+
+    .B-B {
+      padding-inline: calc(#{$standard} * 7);
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 999px) {
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px $mainPadding;
+
+    .B-T {
+      grid-template-rows: minmax(10px, 1fr);
+      grid-template-columns: calc(#{$standard} * 4) 300px minmax(10px, 1fr)  calc(#{$standard} * 4);
+
+      .F-C {
+        grid-area: 1/2/2/3;
+        grid-template-rows: calc(#{$mainPadding} * 3) 420px minmax(10px, 1fr);
+        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+        .Orders-C, .Orders-H {
+          grid-template-columns: 60px minmax(10px, 1fr) 60px;
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+
+      .S-C {
+        grid-area: 1/3/2/4;
+
+        .Order-D-T {
+          grid-template-columns: 150px 200px;
+          grid-template-rows: $mainPadding 400px;
+          padding: $standard;
+
+          & > * {
+            padding: 12px;
+          }
+
+          & > .Prods-Col {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows: $mainPadding minmax(10px, 1fr);
+          }
+
+          & > .Com-C {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows:minmax(10px, 1fr) 70px;
+          }
+        }
+      }
+    }
+
+    .B-M {
+      grid-template-columns: calc(#{$standard} * 3) repeat(2, minmax(10px, 1fr)) calc(#{$standard} * 3) minmax(240px, 1fr) calc(#{$standard} * 3);
+      grid-template-rows: 100px minmax(10px, 1fr);
+
+      .F-C {
+        grid-area: 1/2/3/4;
+      }
+
+      .S-C {
+        grid-area: 1/5/3/6;
+        grid-template-rows: 100px 420px;
+
+        .Addresses {
+          &-Table {
+            grid-template-rows: repeat(3, minmax(10px, 1fr));
+          }
+        }
+      }
+    }
+
+    .B-B {
+      padding-inline: calc(#{$standard} * 3);
+
+      .carousel {
+        height: 350px;
+
+        .Form {
+          width: 400px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Home-Page {
+    grid-template-rows: 800px 1000px 500px $mainPadding;
+
+    .B-T {
+      grid-template-rows: 420px 380px;
+      grid-template-columns: minmax(10px, 1fr);
+
+      .F-C {
+        grid-area: 1/1/2/2;
+        grid-template-rows: 100px minmax(10px, 1fr);
+        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+        padding-block: $standard;
+        background: $secondary-1000;
+
+        header.Flex {
+          margin-top: calc(#{$standard} * 3);
+        }
+
+        .Orders-C, .Orders-H {
+          grid-template-columns: 110px minmax(10px, 1fr) 60px;
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+
+      .S-C {
+        grid-area: 2/1/3/2;
+
+        & > div div.Flex {
+          padding: calc(#{$standard} * 3) $standard;
+        }
+
+        .Order-D-T {
+          grid-template-columns: minmax(120px, 2fr) minmax(10px, 3fr);
+          grid-template-rows: $mainPadding 240px;
+          padding: $standard;
+
+          & > * {
+            padding: $standard;
+          }
+
+          & > .Prods-Col {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows: $mainPadding minmax(10px, 1fr);
+          }
+
+          & > .Com-C {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows:minmax(10px, 1fr) 40px;
+          }
+        }
+      }
+    }
+
+    .B-M {
+      grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+      grid-template-rows: repeat(2, minmax(10px, 1fr));
+      row-gap: calc(#{$standard} * 8);
+      padding-block: calc(#{$standard} * 6);
+
+      .F-C {
+        grid-area: 1/2/2/3;
+
+        & > Form {
+          width: 400px;
+        }
+      }
+
+      .S-C {
+        grid-area: 2/2/3/3;
+        grid-template-rows: 100px 270px;
+
+        .Addresses-Table {
+          grid-template-rows: repeat(3, minmax(80px, 1fr));
+        }
+      }
+    }
+
+    .B-B {
+      padding-inline: calc(#{$standard} * 3);
+
+      .carousel {
+        height: 350px;
+
+        .Form {
+          width: 400px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Home-Page {
+    grid-template-rows: 800px 940px 400px $mainPadding;
+
+    .B-T {
+      grid-template-rows: 420px 380px;
+      grid-template-columns: minmax(10px, 1fr);
+
+      .F-C {
+        grid-area: 1/1/2/2;
+        grid-template-rows: 100px minmax(10px, 1fr);
+        grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+        padding-block: $standard;
+        background: $secondary-1000;
+
+        header.Flex {
+          margin-top: calc(#{$standard} * 3);
+        }
+
+        .Orders-C, .Orders-H {
+          grid-template-columns: 110px minmax(10px, 1fr) 60px;
+          grid-template-rows: minmax(10px, 1fr);
+        }
+      }
+
+      .S-C {
+        grid-area: 2/1/3/2;
+
+        & > div div.Flex {
+          padding: calc(#{$standard} * 3) $standard;
+        }
+
+        .Order-D-T {
+          grid-template-columns: minmax(140px, 1fr) minmax(10px, 1fr);
+          grid-template-rows: $mainPadding 240px;
+          padding: $standard;
+
+          & > * {
+            padding: $standard;
+          }
+
+          & > .Prods-Col {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows: $mainPadding minmax(10px, 1fr);
+          }
+
+          & > .Com-C {
+            grid-template-columns: minmax(10px, 1fr);
+            grid-template-rows:minmax(10px, 1fr) 40px;
+          }
+        }
+      }
+    }
+
+    .B-M {
+      grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+      grid-template-rows: repeat(2, minmax(10px, 1fr));
+      row-gap: calc(#{$standard} * 8);
+      padding-block: calc(#{$standard} * 6);
+
+      .F-C {
+        grid-area: 1/2/2/3;
+      }
+
+      .S-C {
+        grid-area: 2/2/3/3;
+        grid-template-rows: 100px 270px;
+
+        .Addresses-Table {
+          grid-template-rows: repeat(3, minmax(140px, 1fr));
+        }
+      }
+    }
+
+    .B-B {
+      padding-inline: calc(#{$standard} * 2);
+
+      .carousel {
+        height: 350px;
+      }
+    }
+  }
+}

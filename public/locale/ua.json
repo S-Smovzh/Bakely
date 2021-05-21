@@ -8,9 +8,11 @@
   "about.appeal.sixthPart": "Із повагою, власники Володимир та Анна.",
   "about.feedbacks.header": "Відгуки клієнтів",
 
-  "careers.header": "Bakely вакансії",
-  "careers.label.select": "Виберіть адресу:",
-  "careers.select.all": "Усі",
+  "about.seo.title" : "Bakely - Про нас",
+  "about.seo.description": "Все почалося в 2007 році з двох друзів із бізнес-школи, які були великими ласунами й мріяли відкрити власну пекарню. 14 років по тому наші пекарні, оформлені в американському стилі 40-х років, наповнюються чудовими ароматами свіжих тортів і пирогів, аби кожен міг насолодитися тим чудовим, теплим відчуттям бабусиної кухні.",
+
+  "attribution.header": "Посилання на використані матеріали",
+  "attribution.main": "Якщо я використав фото, іконку або що-небудь інше, що належить Вам, і не зазначив Вас, то будьте ласкаві, напишіть мені",
 
   "cart.header.empty": "Ваш кошик порожній",
   "cart.header.filled": "Ваш кошик",
@@ -33,6 +35,13 @@
   "catering.gallery.modal.date": "Дата:",
   "catering.gallery.modal.guests": "Кількість гостей:",
 
+  "catering.gallery.seo.title": "Bakely - Галерея Кейтерингу",
+
+  "catering.seo.title": "Bakely - Кейтеринг",
+  "catering.seo.description": "Замовляйте торти, пироги або іншу випічку для великої кількості людей в Bakely! Ми пропонуємо кейтеринговое обслуговування для великих замовлень.",
+  "catering.seo.cardDescription": "Замовляйте торти, пироги або іншу випічку для великої кількості людей в Bakely! Ми пропонуємо кейтеринговое обслуговування для великих замовлень.",
+  "catering.seo.imgAlt": "Приклад кейтерингового обслуговування від Bakely.",
+
   "contactUs.header": "Контактна форма",
   "contactUs.option.choose": "Виберіть тему",
   "contactUs.option.catering": "Кейтеринг",
@@ -53,54 +62,249 @@
   "contactUs.location.Kharkov.city": "Харків",
   "contactUs.location.Kharkov": "Харків, 7-й поверх, бізнес центр Капіталіст, проспект Науки, 27б, Харків 61000",
 
+  "contactUs.seo.title" : "Bakely - Зв'яжіться з нами",
+  "contactUs.seo.description" : "Bakely - Зв'яжіться з нами.",
+
+  "error.header.login": "Сесія вичерпана",
+  "error.header.internal": "Непередбачувана помилка",
+  "error.header.tooManyLogins": "Забагато спроб",
+
   "error.header": "Сторінка, яку Ви шукали, не існує.",
   "error.button": "На головну",
 
-  "main.slide.first.alt": "Example of the Bakely`s special cake",
-  "main.slide.first.title": "PLEASE YOUR DEAR PEOPLE WITH OUR GIFT BOXES",
-  "main.slide.first.link": "OUR CAKES",
-  "main.slide.first.description": "For the last decade Bakely has been the home of all local sweet tooths. Try one of our the most well-known dishes.",
-  "main.slide.second.alt": "Catering example",
-  "main.slide.second.title": "BAKELY CATERING",
-  "main.slide.second.link": "CATERING",
-  "main.slide.second.description": "If you like what we have done with our cakes, you’ll love what we do with our catering. Make it memorable with our delicious specialities.",
-  "main.slide.third.alt": "Gift Box example",
-  "main.slide.third.title": "JOIN TEAM",
-  "main.slide.third.link": "SHOP NOW",
-  "main.slide.third.description": "We have a tradition of baking bread for generations to enjoy. Order sourdough bread and gifts delivered right to your door.",
+  "error.seo.title" : "Bakely - Помилка 404 | Шукана сторінка не знайдена",
+  "error.seo.description" : "Помилка 404. Шукана сторінка не знайдена.",
 
+  "errorBoundary.header": "Непередбачувана помилка",
 
-  "main.our_story": "Все почалося в 2003 році з двох друзів із бізнес-школи, які були великими ласунами й мріяли відкрити власну пекарню. 17 років по тому наші пекарні, оформлені в американському стилі 40-х років, наповнюються чудовими ароматами свіжих тортів і пирогів, аби кожен міг насолодитися тим чудовим, теплим відчуттям бабусиної кухні.",
-  "main.catering": "Наш кейтеринг - це не тільки смачна їжа. Це також сервіс високої якості.",
-  "main.join_team.slogan": "Залучайся. Виробляй. Рости.",
-  "main.join_team.appeal": "Приєднуйся до нашої команди!",
-  "main.shop_all.satisfy": "Принесіть задоволення ласунам.",
-  "main.shop_all.order": "Замовте онлайн із доставкою або самовивозои.",
-  "main.locations": "Насолодіться домашньою випічкою в одній із наших пекарен!",
-  "main.button.read_our_story": "Наша історія",
-  "main.button.catering": "Кейтеринг",
-  "main.button.join_team": "Приєднатися",
-  "main.button.shop_all": "Товари",
-  "main.button.locations": "Місцезнаходження",
+  "errorBoundary.seo.title" : "Bakely - Непередбачувана Помилка",
+  "errorBoundary.seo.description" : "Непередбачувана Помилка.",
+
+  "infoPages.cookies.header": "Політика Використання Файлів Сookie",
+  "infoPages.privacy.header": "Політика Конфіденційності",
+  "infoPages.terms.header": "Умови та Положення",
+
+  "infoPages.delivery.header": "Інформація про Доставку",
+  "infoPages.faq.header": "Поширені Запитання",
+  "infoPages.orders.header": "Інформація про Замовлення",
+
+  "infoPages.delivery.seo.title" : "Bakely - Інформація про Доставку",
+  "infoPages.delivery.seo.description" : "Поширені запитання про процес доставки товарів Bakely.",
+
+  "infoPages.faq.seo.title" : "Bakely - Поширені Запитання",
+  "infoPages.faq.seo.description" : "Bakely - Поширені Запитання.",
+
+  "infoPages.orders.seo.title" : "Bakely - Інформація про Замовлення",
+  "infoPages.orders.seo.description" : "Поширені запитання про процесс замовлення товарів у Bakely.",
+
+  "infoPages.cookies.seo.title" : "Bakely - Політика Використання Файлів Сookie",
+  "infoPages.cookies.seo.description" : "Отримайте більше інформації про політику використання файлів Cookie, якої притримується Bakely.",
+
+  "infoPages.privacy.seo.title" : "Bakely - Політика Конфіденційності",
+  "infoPages.privacy.seo.description" : "Ми серйозно відносимося до дотримання Вашої конфіденційності. Ми так само щирі по відношенню дій з Вашою особистою інформацією, як й у відношенні інгредієнтів у складі страв, які ми подаємо.",
+
+  "infoPages.terms.seo.title" : "Bakely - Условия и Положения",
+  "infoPages.terms.seo.description" : "Отримайте більше інформації про умови та положення, яких притримується Bakely.",
+
+  "infoPages.delivery" : [
+    {
+      "question": "Ви пропонуєте доставку в той же день?",
+      "answer": "Так, ми доставляємо в найближчу годину після отримання замовлення."
+    },
+    {
+      "question": "Чи можу я оплатити замовлення при доставці?",
+      "answer": "Так, оплата можлива як при оформленні замовлення, так і при доставці."
+    },
+    {
+      "question": "Ви стягуєте плату за доставку?",
+      "answer": "Доставка здійснюється з 10:00 до 19:00 щодня, вона безкоштовна для замовлень від 15 $. Приносимо свої вибачення, проте ми не можемо гарантувати ТОЧНИЙ час доставки, тільки проміжки, зазначені в процесі оформлення замовлення. Доставка за межі визначених зон і годин здійснюється за додаткову плату кур'єрською службою."
+    },
+    {
+      "question": "Що робити, якщо я не можу отримати свою доставку?",
+      "answer": "Усі наші доставки повинні бути підписані при отриманні, тому хтось повинен бути присутнім, щоб прийняти її. Якщо це неможливо, то Ваше замовлення буде повернене в пекарню, і може знадобитися плата за повторну доставку."
+    }],
+
+  "infoPages.faq" : [
+    {
+      "question": "Ви використовуєте горіхи у своїх продуктах?",
+      "answer": "Деякі з наших продуктів, наприклад, горіхові і гарбузове батончики, містять горіхи. Крім того, у кожної пекарні є лише одна кухня, тому можливий перехресний контакт різних продуктів. Через це наша продукція може не підходити для людей, які страждають алергією на горіхи."
+    },
+    {
+      "question": "Ви пропонуєте продукти без глютену?",
+      "answer": "Ми пропонуємо кілька «безглютенових» страв, однак у кожної пекарні є лише одна кухня, тому можливий перехресний контакт різних продуктів. Через це наша продукція може не підходити для людей, які страждають непереносимістю глютену. Наші «безглютенові» продукти призначені для людей із незначною чутливістю до глютену або для тих, хто вважає за краще уникати глютену з міркувань харчування. Наша команда не має в своєму розпорядженні достатніх знань про непереносимість глютену, тому від них не можна очікувати надання рекомендацій або інших порад."
+    },
+    {
+      "question": "Чи варто охолоджувати капкейкі?",
+      "answer": "Намагайтеся з'їсти капкейкі якомога швидше - так вони будуть найсвіжішими. Якщо Ви не можете з'їсти їх всі за один день, то краще за все зберігати іх у герметичному контейнері при кімнатній температурі. Звичайно, чизкейки, торти й холодні пироги слід зберігати в холодильнику!"
+    },
+    {
+      "question": "Ви шукаєте працівників?",
+      "answer": "Ми завжди шукаємо доброзичливих і працьовитих людей, які приєднаються до нашої команди. Якщо Ви зацікавлені, зв'яжіться з нами через контактну форму, яку Ви можете знайти на нашому сайті."
+    },
+    {
+      "question": "Ви приймаєте кредитні картки?",
+      "answer": "Так! Ми приймаємо картки Visa, MasterCard, American Express та Discover."
+    },
+    {
+      "question": "У вас є електронна розсилка?",
+      "answer": "Так, аби підписатися на нашу розсилку новин, введіть адресу електронної пошти в спливаючому вікні підписки."
+    },
+    {
+      "question": "У чому полягає політика повернення?",
+      "answer": "Якщо Ви незадоволені своєю покупкою, негайно повідомте нам (при отриманні доставки або купівлі в одній з наших пекарень) про це і поверніть товар. Ми відшкодуємо Вам вартість продукту. Ви повинні надати оригінал чека про покупку."
+    },
+    {
+      "question": "Що використовується у ваших продуктах?",
+      "answer": "У нашій випічці ми використовуємо тільки найсвіжіші й найбільш високоякісні інгредієнти, включаючи справжнє масло, яйця, свіжі фрукти й горіхи. Ми не використовуємо консерванти в жодному продукті."
+    }
+  ],
+
+  "infoPages.orders" : [
+    {
+      "question": "Як зробити замовлення?",
+      "answer": "Зателефонуйте в будь-яку з наших пекарень або зробіть замовлення онлайн."
+    },
+    {
+      "question": "Ви доставляєте товари?",
+      "answer": "Так, ми доставляємо товари в усіх напрямках, зазначених у процесі онлайн-замовлення. Можливі обмежені поставки за межі цих регіонів; ставки варіюються в залежності від часу / дати / відстані."
+    },
+    {
+      "question": "Чи буде мій торт виглядати точно так само, як на зображенні на вашому сайті?",
+      "answer": "Оскільки вся наша продукція виготовляється вручну, кожна страва є індивідуальним витвором і може виглядати не так, як на фотографіях."
+    },
+    {
+      "question": "Можу я приготувати свій власний торт, якого зараз немає у вашому меню?",
+      "answer": "Bakely пропонує фірмову випічку, яка вказана в нашому меню. Якщо у Вас є конкретний запит, звертайтеся в пекарню."
+    },
+    {
+      "question": "Ви пропонуєте спеціальні пакети для бізнесу, вечірок або заходів?",
+      "answer": "Так! Дивіться на нашій сторінці кейтерингу."
+    },
+    {
+      "question": "Ви робите весільні торти?",
+      "answer": "Ми пропонуємо традиційні багатоярусні і листові весільні торти. Для отримання додаткової інформації або консультації, будь ласка, зв'яжіться з нами через контактну форму."
+    }],
+
+  "locations.header": "Пекарні Bakely",
+
+  "locations.seo.title": "Bakely - Пекарні | Київ",
+  "locations.seo.description": "Знайдіть найближчу пекарню й дізнайтеся її години роботи та багато іншого.",
+  "locations.seo.cardDescription": "Знайдіть найближчу пекарню й дізнайтеся її години роботи та багато іншого.",
+  "locations.seo.imgAlt": "Наша пекарня за адресою: вулиця Межигорская 10.",
+
+  "main.slide.first.alt": "Особливий кремово-шоколадний торт Bakely.",
+  "main.slide.first.title": "Шоколадна насолода",
+  "main.slide.first.description": "Останнє десятиліття Bakely була домівкою всіх місцевих ласунів. Спробуйте нашу особливу випічку.",
+  "main.slide.first.link": "Наші торти",
+  "main.slide.second.alt": "Приклад кейтерингу",
+  "main.slide.second.title": "Кейтеринг від Bakely",
+  "main.slide.second.description": "Якщо Вам подобається наша випічка, тоді Вам сподобається й наш кейтеринг. Зробіть Ваше свято незабутнім завдяки нашим смаколикам.",
+  "main.slide.second.link": "Галерея кейтерингу",
+  "main.slide.third.alt": "Подарунковий набір капкейків",
+  "main.slide.third.title": "Подарункові набори",
+  "main.slide.third.description": "Спробуйте наші подарункові набори. Закажіть капкейки, печиво або батончики й ми запакуємо їх у подарункову обгортку.",
+  "main.slide.third.link": "До товарів",
+
+  "main.ourStory.text": "Все почалося в 2007 році з двох друзів із бізнес-школи, які були великими ласунами й мріяли відкрити власну пекарню. 14 років по тому наші пекарні, оформлені в американському стилі 40-х років, наповнюються чудовими ароматами свіжих тортів і пирогів, аби кожен міг насолодитися тим чудовим, теплим відчуттям бабусиної кухні.",
+  "main.ourStory.button": "Наша історія",
+
+  "main.catering.text": "Наш кейтеринг - це не тільки смачна їжа. Це також сервіс високої якості.",
+  "main.catering.button": "Кейтеринг",
+  "main.catering.alt": "Пример кейтерингового обслуживания от Bakely.",
+  "main.joinTeam.text": "Залучайся. Виробляй. Рости. Приєднуйся до нашої команди!",
+  "main.joinTeam.button": "Приєднатися",
+  "main.joinTeam.alt": "Наші робітники.",
+  "main.shopAll.text": "Задовольніть свою пристрасть до солодкого! Замовте онлайн із доставкою або самовивозои.",
+  "main.shopAll.button": "Меню",
+  "main.shopAll.alt": "Наша випічка, яку Ви можете замовити прямо на сайті.",
+  "main.locations.text": "Приходьте насолодитися домашньою випічкою в одній із наших пекарень!",
+  "main.locations.button": "Наші пекарні",
+  "main.locations.alt": "Наша пекарня по вулиці Туманяна.",
+
+  "main.seo.title": "Bakely - Торти, Пироги, Капкейки й багато іншого",
+  "main.seo.description": "Ласкаво просимо на офіційний сайт Bakely. Спробуйте нашу чудову випічку! Ми пропонуємо торти, пироги, капкейки, чизкейки та інше в широкому асортименті.",
+  "main.seo.cardDescription": "Ласкаво просимо на офіційний сайт Bakely. Спробуйте нашу чудову випічку! Ми пропонуємо торти, пироги, капкейки, чизкейки та інше в широкому асортименті.",
+  "main.seo.imgAlt": "Лого Bakely.",
+
+  "modal.activation.notActive.header": "Ваш акаунт не було активовано",
+  "modal.activation.notActive.body": "Перед тим як увійти в профіль, Ви повинні його активувати. Перевіпте пошту, Вам мав надійти лист, дотримуйтесь вказівок.",
+  "modal.activation.activate.header": "Активуйте свій акаунт",
+  "modal.activation.activate.body": "Ми відправили Вам на пошту лист із посиланням для активації облікового запису. Перейдіть по ньому й Ви зможете увійти в свій обліковий запис.",
+
+  "news.header": "Новини",
+
+  "news.seo.title": "Bakely - Новини",
+  "news.seo.description": "Bakely - Новини.",
+
+  "orderForm.introduction.header": "Введіть Ваші контактні дані",
+  "orderForm.introduction.delivery": "Якщо Ви хочете, аби ми доставили Вашу випічку, то виберіть відповідний варіант й укажіть адресу доставки.",
+  "orderForm.contact.header": "Додайте контактні дані.",
+  "orderForm.contact.or": "Або",
+  "orderForm.delivery.client.header": "Додайте адрес доставки.",
+  "orderForm.selfPickUp.header": "Виберіть пекарню для самовивозу.",
+  "orderForm.success.header": "Успіх!",
+  "orderForm.success.message.selfPickUp": "Дорогий {{name}}, Ваше замовлення буде готове протягом 30 хвилин. Ми чекаємо Вас із 8:00 по 21:00 по {{date}} за адресою: {{bakery}}! Хорошого дня)",
+  "orderForm.success.message.delivery": "Дорогий {{name}}, Ваше замовлення буде доставлене протягом години. Хорошого дня)",
+
+  "shopAll.header": "Виберіть Категорію",
+  "shopAll.bars": "Батончики",
+  "shopAll.cakes": "Торти",
+  "shopAll.cheesecakes": "Чизкейки",
+  "shopAll.cookies": "Печиво",
+  "shopAll.cupcakes": "Капкейки",
+  "shopAll.pies": "Пироги",
+  "shopAll.giftBoxes": "Подарункові набори",
+
+  "shopAll.seo.title": "Bakely - Категорії Товарів",
+  "shopAll.seo.description": "Ознайомтеся з меню Bakely, воно включає в себе торти, пироги, батончики та багато іншого.",
+  "shopAll.seo.cardDescription": "Ознайомтеся з меню Bakely, воно включає в себе торти, пироги, батончики та багато іншого.",
+  "shopAll.seo.imgAlt": "Лого Bakely.",
+
+  "productsList.price": "Усього за {{price}}$",
+  "productsList.oldPrice": "Було {{price}}$",
+
+  "productsList.seo.title": "Bakely - {{category}}",
+  "productsList.seo.description": "Тепер Ви можете побалувати себе ще більшою кількістю страв із нашого меню.",
+  "productsList.seo.cardDescription": "Тепер Ви можете побалувати себе ще більшою кількістю страв із нашого меню.",
+
+  "productPage.orders": "Замовлення обробляються протягом півгодини.",
+  "productPage.deliveryInfo": "Інформація про доставку.",
+  "productPage.contactUs": "Потрібно більше? Зв'яжіться з нами!",
+  "productPage.ingredients": "Інгрідієнти:",
+  "productPage.total": "Усього:",
+  "productPage.similar": "Схожі товари:",
+
+  "productPage.addToCart": "Додати в корзину",
 
   "signUp.header": "Реєстрація",
-  "signUp.label.firstName": "Ім'я:",
-  "signUp.label.lastName": "Прізвище:",
-  "signUp.label.email": "Єлектронна пошта:",
-  "signUp.label.telNum": "Номер Телефону.:",
-  "signUp.label.password": "Пароль:",
-  "signUp.label.passwordVerification": "Підтвердження пароля:",
-  "signUp.success.message": "Вітаємо, Ви зареєстровані! Все, що Вам залишилося зробити - ",
-  "signUp.success.link": "уввійти в акаунт.",
-  "signUp.button.previous": "Назад",
-  "signUp.button.next": "Далі",
-  "signUp.button.signUp": "Зареєструватися",
+  "signUp.link.login": "Вже є обліковий запис? Увійдіть в нього!",
+
+  "signUp.seo.title": "Bakely - Реєстрація",
+  "signUp.seo.description": "Створіть обліковий запис та отримайте доступ до повного функціоналу.",
 
   "login.header": "Вхід в акаунт",
-  "login.label.email": "Електронна Пошта:",
-  "login.label.password": "Пароль:",
   "login.button": "Увійти",
-  "login.link": "Ще не маєте облікового запису? Створіть його!",
+  "login.link.signUp": "Ще не маєте облікового запису? Створіть його!",
+
+  "login.seo.title": "Bakely - Вхід в обліковий запис",
+  "login.seo.description": "Отримайте повний доступ до функціоналу увійшовши в обліковий запис.",
+
+  "homepage.orders.header": "Ваші замовлення",
+
+  "homepage.orders.orderData.time": "Замовлено",
+  "homepage.orders.orderData.products": "Продукти",
+  "homepage.orders.orderData.comment": "Ваш коментар",
+  "homepage.orders.orderData.total": "Усього:",
+  "homepage.addAddress.header": "Додати адресу доставки",
+  "homepage.deliveryAddresses.header": "Ваші адреси доставки",
+  "homepage.emailChange.header": "Зміна електронної пошти",
+  "homepage.passwordChange.header": "Зміна пароля",
+  "homepage.telNumChange.header": "Зміна номеру телефону",
+
+  "homepage.selectCity": "-- Оберіть місто",
+
+  "homepage.seo.title": "Bakely - Кабінет користувача",
+  "homepage.seo.description": "Зареєструйтеся або увійдіть в обліковий запис.",
 
   "label.firstName": "Ім'я:",
   "label.lastName": "Прізвище:",
@@ -120,5 +324,103 @@
   "label.flatNum": "Номер квартири:",
   "label.subject": "Про що Ви би хотіли поговорити?",
   "label.message": "Повідомлення:",
-  "label.comment": "Коментар:"
+  "label.comment": "Коментар:",
+
+  "tooltip.header": "Підказка",
+  "tooltip.name": "Використовуйте лише кирилицю, латиницю, дефіси та пробіли.",
+  "tooltip.email": "Використовуйте дійсну адресу електронної пошти. Ім'я поштової скриньки не має перевищувати 63 символи, а ім'я домену - 190.",
+  "tooltip.oldEmail": "Введіть свою попередню адресу електронної пошти.",
+  "tooltip.password": "Використовуйте мінімум по 1 символу верхнього та нижнього регістрів, 1 цифру и 1 спеціальний символ (%@?№$^). Мінімальна довжина - 8 символів, максимальна - 30 символів.",
+  "tooltip.passwordVerification": "Повторіть свій пароль.",
+  "tooltip.oldPassword": "Введіть свій попередній пароль.",
+  "tooltip.telNumOrHouseOrFlatNum": "Використовуйте лише цифри.",
+  "tooltip.oldTel": "Введіть свій попередній номер телефону.",
+  "tooltip.city": "Виберіть місто зі списку.",
+  "tooltip.street": "Використовуйте лише кирилицю, латиницю, дефіси та пробіли.",
+  "tooltip.message": "Напишіть повідомлення для нас.",
+  "tooltip.comment": "Додайте будь-яку інформацію, яку вважаєте корисною для нас.",
+
+  "overlay.sending": "Відправка даних...",
+  "overlay.loading": "Завантаження даних...",
+
+  "ariaLabel.close": "Закрити",
+  "ariaLabel.prev": "Попередня сторінка",
+  "ariaLabel.next": "Наступна сторінка",
+  "ariaLabel.login": "Вхід в обліковий запис",
+  "ariaLabel.orderForm.delivery": "Доставка.",
+  "ariaLabel.orderForm.selfPickUp": "Самовивіз.",
+
+  "button.close": "Закрити",
+  "button.prev": "Назад",
+  "button.next": "Вперед",
+  "button.submit": "Підтвердити",
+  "button.top": "Прокрутити до початку сторінки",
+  "button.tooltip": "Підказка",
+  "button.subscribe": "Підписатися",
+  "button.orderForm.delivery": "Доставка",
+  "button.orderForm.selfPickUp": "Самовивіз",
+  "button.orderForm.selectAddress": "Обрати адресу",
+  "button.orderForm.addAddress": "Додати адресу",
+
+  "navbar.order": "Меню",
+  "navbar.catering": "Кейтеринг",
+  "navbar.locations": "Пекарні",
+
+  "navbar.ariaLabel.main": "На головну.",
+  "navbar.ariaLabel.logOut": "Вийти з облікового запису.",
+  "navbar.ariaLabel.login": "Перейти на сторінку входу в обліковий запис.",
+  "navbar.ariaLabel.homepage": "Перейти в особистий кабінет.",
+  "navbar.ariaLabel.cart": "Показати корзину.",
+  "navbar.ariaLabel.langButton": "Оберіть бажану мову.",
+  "navbar.ariaLabel.langButton.en": "Англійська мова.",
+  "navbar.ariaLabel.langButton.ru": "Російська мова.",
+  "navbar.ariaLabel.langButton.ua": "Українська мова.",
+
+  "footer.header.legal": "Правила",
+  "footer.header.info": "Інформація",
+  "footer.header.about": "Про Bakely",
+  "footer.header.social": "Слідкуйте за Bakely",
+
+  "footer.links.cooPol": "Політика Cookie",
+  "footer.links.privPol": "Політика конфіденційності",
+  "footer.links.termsCond": "Умови та положення",
+
+  "footer.links.faq": "FAQ",
+  "footer.links.orders": "Замовлення",
+  "footer.links.delivery": "Доставка",
+  "footer.links.attr": "Attribution",
+  "footer.links.news": "Новини",
+  "footer.links.history": "Історія",
+  "footer.links.gallery": "Галерея",
+  "footer.links.contacts": "Контакти",
+
+  "footer.social.ariaLabel.facebook": "Наша сторінка у Facebook",
+  "footer.social.ariaLabel.instagram": "Наша сторінка в Instagram",
+  "footer.social.ariaLabel.telegram": "Наш канал у Telegram",
+  "footer.social.ariaLabel.twitter": "Наша сторінка в Twitter",
+
+  "footer.rights": "Усі права захищено 2007-2021",
+
+  "customer": "клієнте",
+  "city": "Місто",
+  "street": "вулиця",
+  "flat": "квартира",
+  "date": "Дата",
+  "products": "Продукти",
+  "price": "Ціна",
+  "icons": "Іконки",
+  "photos": "Фотографії",
+  "open": "Відчинено",
+  "closed": "Зачинено",
+  "item": "шт.",
+  "items": "шт.",
+  "click": "Натисніть",
+  "hover": "Наведіть мишу",
+  "select.bakery": "-- Оберіть пекарню",
+  "remaining.characters": "Символи, що залишилися:",
+  "placeOrder": "Оформити замовлення",
+  "workingHours": "Робочий Час",
+
+  "verification.header": "Успішна верифікація",
+  "verification.text": "Ваш обліковий запис було успішно верифіковано! Тепер Ви можете увійти в нього."
 }

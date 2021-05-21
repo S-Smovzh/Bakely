@@ -1,0 +1,126 @@
+.Info-Page .B-M p {
+  text-align: justify;
+  text-align: -moz-justify;
+  text-align: -webkit-justify;
+  text-align: -ms-justify;
+  text-align: -o-justify;
+}
+
+.Info-Page {
+  row-gap: calc(42px);
+}
+.Info-Page .B-T {
+  grid-area: 2/2/3/3;
+}
+.Info-Page .B-M {
+  grid-area: 3/2/4/3;
+  row-gap: 50px;
+}
+.Info-Page .B-M p {
+  padding: 0;
+}
+.Info-Page .B-M .Po-L li {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  background: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  list-style-type: circle;
+  padding: 0;
+}
+.Info-Page .B-M ul {
+  row-gap: 45px;
+}
+.Info-Page .B-M ul li {
+  row-gap: 21px;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  background: #f0f0f0;
+  color: #000000;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+.Info-Page .B-M ul li h2 {
+  background: linear-gradient(180deg, #ff8771 100%, #f0f0f0 100%);
+}
+
+@media only screen and (min-width: 1200px) {
+  .Info-Page {
+    grid-template-rows: calc(28px) 40px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
+  }
+  .Info-Page li {
+    padding: calc(14px) calc(35px);
+  }
+  .Info-Page li h2 {
+    background-position-y: 50px !important;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Info-Page {
+    grid-template-rows: calc(28px) 40px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-columns: calc(49px) minmax(10px, 1fr) calc(49px);
+  }
+  .Info-Page li {
+    padding: calc(14px) calc(28px);
+  }
+  .Info-Page li h2 {
+    background-position-y: 50px !important;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Info-Page {
+    grid-template-rows: calc(28px) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-columns: calc(35px) minmax(10px, 1fr) calc(35px);
+  }
+  .Info-Page li {
+    padding: 7px calc(21px);
+  }
+  .Info-Page li h2 {
+    background-position-y: 50px !important;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Info-Page {
+    grid-template-rows: calc(28px) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-columns: calc(28px) minmax(10px, 1fr) calc(28px);
+  }
+  .Info-Page li {
+    padding: 7px calc(14px);
+  }
+  .Info-Page li h2 {
+    background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Info-Page {
+    grid-template-rows: calc(28px) 130px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-columns: calc(21px) minmax(10px, 1fr) calc(21px);
+  }
+  .Info-Page li {
+    padding: 7px;
+  }
+  .Info-Page li h2 {
+    background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .Info-Page {
+    grid-template-rows: calc(28px) 130px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-columns: calc(14px) minmax(10px, 1fr) calc(14px);
+  }
+  .Info-Page li {
+    padding: 7px;
+  }
+  .Info-Page li h2 {
+    background: linear-gradient(200deg, #ff8771 0%, #f0f0f0 100%) !important;
+  }
+}
+
+/*# sourceMappingURL=InfoPage.css.map */

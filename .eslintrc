@@ -1,11 +1,7 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": [
     "react"
-  ],
-  "extends": [
-    "react-app",
-    "react-app/jest"
   ],
   "env": {
     "browser": true,

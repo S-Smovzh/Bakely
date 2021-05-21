@@ -1,0 +1,115 @@
+@import '../../css/base/Extensions';
+
+.Toasts-Stack {
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-x: -moz-hidden-unscrollable;
+  -ms-overflow-x: hidden;
+  overflow-y: hidden;
+  overflow-y: -moz-hidden-unscrollable;
+  -ms-overflow-y: hidden;
+  z-index: 1000;
+  transition: transform 200ms ease-out;
+  transform-origin: 0 0;
+}
+
+.Toast-Wrapper {
+  margin-bottom: 20px;
+  width: 100%;
+
+  .toast {
+    flex-basis: 100%;
+    max-width: 100%;
+    -webkit-flex-basis: 100%;
+    border: 1px inset $text;
+    background: $layout-100;
+
+    &-header {
+      padding: 10px 5px;
+      background: $warning-200;
+      color: $text;
+    }
+
+    &-body {
+      & > * {
+        font-size: 16px !important;
+        @extend %textLeft;
+      }
+
+      .Form {
+        row-gap: 10px;
+      }
+
+      .Form-R {
+        grid-template-columns: minmax(10px, 1fr);
+        grid-template-rows: 44px 42px 40px;
+
+        .Form-I-R {
+          @extend %grid;
+          grid-template-columns: minmax(10px, 1fr) 42px;
+          grid-template-rows: minmax(10px, 42px);
+
+          .Icon-Tooltip {
+            width: 42px !important;
+            height: 42px !important;
+
+            .Icon {
+              width: 24px !important;
+              height: 24px !important;
+            }
+          }
+
+          .Form-I {
+            grid-area: 1/1/2/2;
+            height: 42px;
+            border: 1px inset $text;
+            padding: 10px;
+            @include box-shadow(none);
+            color: $text;
+            background: $text-inverted;
+            font-size: 18px;
+
+            &:disabled {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Rem-T{
+  @include animation(rem-t, 400ms, ease-in-out, forwards);
+}
+
+@include keyframes(rem-t) {
+  from {
+    opacity: 1;
+    -moz-opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -moz-opacity: 0;
+  }
+}
+
+@media only screen and (min-width: 1851px) {
+  .Toasts-Stack {
+    grid-area: 1/1/2/2;
+    display: block;
+    position: sticky;
+    height: 100vh;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 1850px) {
+  .Toasts-Stack {
+    @include flex;
+    @include flex__center;
+    @include flex-flow(column nowrap);
+  }
+}

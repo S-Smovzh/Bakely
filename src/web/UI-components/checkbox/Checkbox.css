@@ -1,0 +1,37 @@
+.Checkbox-C {
+  display: inline-block;
+  vertical-align: middle;
+}
+.Checkbox-C .Icon {
+  fill: none;
+  stroke: white;
+  stroke-width: 3px;
+}
+.Checkbox-C .H-Checkbox {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clippath: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.Checkbox-C .S-Checkbox {
+  border: 1px inset #000000;
+  background: #ffffff;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  transition: all 0.15s ease-in-out !important;
+  -webkit-transition: all 0.15s ease-in-out !important;
+  -moz-transition: all 0.15s ease-in-out !important;
+  -ms-transition: all 0.15s ease-in-out !important;
+  -o-transition: all 0.15s ease-in-out !important;
+}
+
+/*# sourceMappingURL=Checkbox.css.map */

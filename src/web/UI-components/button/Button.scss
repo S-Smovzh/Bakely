@@ -1,0 +1,491 @@
+@import "../../css/base/Extensions";
+
+button:focus-within, button:focus, button:active {
+  outline: none;
+}
+
+.Btn {
+  &-P, &-S, &-T,
+  &-Su, &-W, &-E {
+    @extend %flex;
+    @extend %flex__center;
+    @include transition(0.6);
+    @include border-radius(8px);
+    outline: none;
+    @include box-shadow(0 4px 2px rgba(0, 0, 0, 0.4));
+  }
+
+  &-P {
+    color: $text-inverted;
+    background: $primary-700;
+
+    &:hover {
+      color: $text;
+      background: $primary-200;
+    }
+
+    &:active {
+      color: $text;
+      background: $primary-100;
+    }
+
+    &:focus {
+      background: $primary-500;
+    }
+
+    &:focus-visible {
+      background: $primary-500;
+    }
+
+    &:-moz-focusring {
+      background: $primary-500;
+    }
+
+    &:disabled {
+      background: $primary-700;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+
+  &-S {
+    color: $text;
+    background: $layout-100;
+    border: 1px solid $secondary-1000;
+
+    &:hover {
+      color: $text;
+      background: $secondary-100;
+    }
+
+    &:active {
+      color: $text;
+      background: $secondary-200;
+    }
+
+    &:focus {
+      background: $secondary-500;
+    }
+
+    &:focus-visible {
+      background: $secondary-500;
+    }
+
+    &:-moz-focusring {
+      background: $secondary-500;
+    }
+
+    &:disabled {
+      background: $layout-100;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+
+  &-T {
+    color: $text-inverted;
+    background: $tertiary-700;
+
+    &:hover {
+      color: $text;
+      background: $tertiary-300;
+    }
+
+    &:active {
+      color: $text;
+      background: $tertiary-200;
+    }
+
+    &:focus {
+      background: $tertiary-400;
+    }
+
+    &:focus-visible {
+      background: $tertiary-400;
+    }
+
+    &:-moz-focusring {
+      background: $tertiary-400;
+    }
+
+    &:disabled {
+      background: $tertiary-700;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+
+  &-Su {
+    color: $text;
+    background: $success-300;
+
+    &:hover {
+      background: $success-200;
+    }
+
+    &:active {
+      background: $success-100;
+    }
+
+    &:focus {
+      background: $success-400;
+    }
+
+    &:focus-visible {
+      background: $success-400;
+    }
+
+    &:-moz-focusring {
+      background: $success-400;
+    }
+
+    &:disabled {
+      background: $success-300;
+      opacity: 0.5;
+    }
+  }
+
+  &-W {
+    color: $text;
+    background: $warning-300;
+
+    &:hover {
+      color: $text;
+      background: $warning-200;
+    }
+
+    &:active {
+      color: $text;
+      background: $warning-100;
+    }
+
+    &:focus {
+      background: $warning-400;
+    }
+
+    &:focus-visible {
+      background: $warning-400;
+    }
+
+    &:-moz-focusring {
+      background: $warning-400;
+    }
+
+    &:disabled {
+      background: $warning-300;
+      opacity: 0.5;
+    }
+  }
+
+  &-E {
+    color: $text-inverted;
+    background: $error-300;
+
+    &:hover {
+      color: $text;
+      background: $error-200;
+    }
+
+    &:active {
+      color: $text;
+      background: $error-100;
+    }
+
+    &:focus {
+      background: $error-400;
+      @include box-shadow(0 0 4px 8px $secondary-800);
+    }
+
+    &:focus-visible {
+      background: $error-400;
+      @include box-shadow(0 0 4px 8px $secondary-800);
+    }
+
+    &:-moz-focusring {
+      background: $error-400;
+      @include box-shadow(0 0 4px 8px $secondary-800);
+    }
+
+    &:disabled {
+      background: $error-300;
+      color: $text;
+      opacity: 0.5;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Btn {
+    &-I {
+      width: 60px;
+      height: 60px;
+
+      &-F {
+        width: 40px;
+        height: 40px;
+      }
+
+      &-D {
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    &-Sm {
+      width: 120px;
+      height: 60px;
+
+      &-X-W {
+        width: 200px;
+        height: 60px;
+      }
+
+      &-A-W {
+        height: 60px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-L {
+      width: 180px;
+      height: 80px;
+
+      &-X-W {
+        width: 260px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Btn {
+    &-I {
+      width: 57px;
+      height: 57px;
+
+      &-F {
+        width: 38px;
+        height: 38px;
+      }
+
+      &-D {
+        width: 49px;
+        height: 49px;
+      }
+    }
+
+    &-Sm {
+      width: 114px;
+      height: 57px;
+
+      &-X-W {
+        width: 190px;
+        height: 57px;
+      }
+
+      &-A-W {
+        height: 57px;
+        padding: 9px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-L {
+      width: 170px;
+      height: 76px;
+
+      &-X-W {
+        width: 245px;
+        height: 76px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Btn {
+    &-I {
+      width: 54px;
+      height: 54px;
+
+      &-F {
+        width: 36px;
+        height: 36px;
+      }
+
+      &-D {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    &-Sm {
+      width: 108px;
+      height: 54px;
+
+      &-X-W {
+        width: 180px;
+        height: 54px;
+      }
+
+      &-A-W {
+        height: 54px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-L {
+      width: 160px;
+      height: 72px;
+
+      &-X-W {
+        width: 230px;
+        height: 72px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .Btn {
+    &-I {
+      width: 51px;
+      height: 51px;
+
+      &-F {
+        width: 34px;
+        height: 34px;
+      }
+
+      &-D {
+        width: 43px;
+        height: 43px;
+      }
+    }
+
+    &-Sm {
+      width: 102px;
+      height: 51px;
+
+      &-X-W {
+        width: 170px;
+        height: 51px;
+      }
+
+      &-A-W {
+        height: 51px;
+        padding: 7px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-L {
+      width: 150px;
+      height: 68px;
+
+      &-X-W {
+        width: 215px;
+        height: 68px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Btn {
+    &-I {
+      width: 48px;
+      height: 48px;
+
+      &-F {
+        width: 32px;
+        height: 32px;
+      }
+
+      &-D {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-Sm {
+      width: 96px;
+      height: 48px;
+
+      &-X-W {
+        width: 160px;
+        height: 48px;
+      }
+
+      &-A-W {
+        height: 48px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-L {
+      width: 146px;
+      height: 64px;
+
+      &-X-W {
+        width: 200px;
+        height: 64px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Btn {
+    &-I {
+      width: 45px;
+      height: 45px;
+
+      &-F {
+        width: 30px;
+        height: 30px;
+      }
+
+      &-D {
+        width: 37px;
+        height: 37px;
+      }
+    }
+
+    &-Sm {
+      width: 90px;
+      height: 45px;
+
+      &-X-W {
+        width: 150px;
+        height: 45px;
+      }
+
+      &-A-W {
+        height: 45px;
+        padding: 10px;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-around);
+      }
+    }
+
+    &-L {
+      width: 130px;
+      height: 60px;
+
+      &-X-W {
+        width: 185px;
+        height: 60px;
+      }
+    }
+  }
+}

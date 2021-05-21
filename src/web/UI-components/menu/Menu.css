@@ -1,0 +1,69 @@
+.Menu {
+  top: 0;
+  left: 0;
+  position: fixed;
+  padding-top: 40px;
+  padding-inline: 20px;
+  overflow-x: hidden;
+  overflow-x: -moz-hidden-unscrollable;
+  -ms-overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+  z-index: 1000;
+  background: #fffcf9;
+  transition: all 0.2s ease-in-out !important;
+  -webkit-transition: all 0.2s ease-in-out !important;
+  -moz-transition: all 0.2s ease-in-out !important;
+  -ms-transition: all 0.2s ease-in-out !important;
+  -o-transition: all 0.2s ease-in-out !important;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+.Menu .Ct {
+  max-height: 90%;
+  overflow-y: auto;
+  padding: 8px 2px;
+}
+.Menu .Ct ul {
+  padding: 8px;
+}
+.Menu-Item {
+  min-height: 0;
+  width: 100%;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Menu {
+    width: 60%;
+    padding-inline: calc(7px * 4);
+    padding-bottom: calc(7px * 6);
+  }
+  .Menu ul {
+    row-gap: calc(7px * 8);
+  }
+  .Menu-Item > * {
+    height: 50px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Menu {
+    width: 100%;
+    padding-inline: calc(7px * 2);
+    padding-bottom: calc(7px * 3);
+  }
+  .Menu ul {
+    row-gap: calc(7px * 6);
+  }
+  .Menu-Item > * {
+    height: 40px;
+  }
+}
+
+/*# sourceMappingURL=Menu.css.map */

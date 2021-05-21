@@ -1,0 +1,46 @@
+@import '../../css/base/Extensions';
+
+.P-M {
+  padding: 0;
+  min-width: unset !important;
+}
+
+.dropdown-menu {
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+
+  &.T-M {
+    max-height: 100px;
+    min-width: 60px;
+    max-width: 60px;
+    row-gap: $standard;
+
+    &.show {
+      display: flex;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -o-flex;
+      display: -ms-flex;
+    }
+
+    & > * {
+      padding: 0;
+    }
+  }
+
+  .dropdown-item {
+    @include box-shadow(0 0px 2px rgb(0 0 0 / 40%));
+
+    &:active {
+      background: $layout-500;
+    }
+
+    &:focus {
+      background: $tertiary-200;
+    }
+
+    &::-moz-focus-outer {
+      background: $tertiary-200;
+    }
+  }
+}

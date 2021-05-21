@@ -1,0 +1,523 @@
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(even) > .Orders-C, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(odd) > .Orders-C {
+  background: #FFE1C2;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(even) > .Orders-C:hover, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(odd) > .Orders-C:hover {
+  color: #ffffff;
+  background: #4e2210;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(even) > .Orders-C:active, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(odd) > .Orders-C:active {
+  color: #000000;
+  background: #DC9E6E;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(even) > .Orders-C:focus, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(odd) > .Orders-C:focus {
+  background: #965430;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(even) > .Orders-C:focus-visible, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(odd) > .Orders-C:focus-visible {
+  background: #965430;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(even) > .Orders-C:-moz-focusring, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(odd) > .Orders-C:-moz-focusring {
+  background: #965430;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(even) > .Orders-C:disabled, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(odd) > .Orders-C:disabled {
+  color: #000000;
+  opacity: 0.5;
+}
+
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(odd) > .Orders-C, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(even) > .Orders-C {
+  background: #f0f0f0;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(odd) > .Orders-C:hover, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(even) > .Orders-C:hover {
+  color: #ffffff;
+  background: #711604;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(odd) > .Orders-C:active, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(even) > .Orders-C:active {
+  color: #ffffff;
+  background: #E74A2B;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(odd) > .Orders-C:focus, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(even) > .Orders-C:focus {
+  color: #ffffff;
+  background: #BD2608;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(odd) > .Orders-C:focus-visible, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(even) > .Orders-C:focus-visible {
+  color: #ffffff;
+  background: #BD2608;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(odd) > .Orders-C:-moz-focusring, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(even) > .Orders-C:-moz-focusring {
+  color: #ffffff;
+  background: #BD2608;
+}
+.Home-Page .B-T .F-C .Orders-L.Odd > .Order:nth-of-type(odd) > .Orders-C:disabled, .Home-Page .B-T .F-C .Orders-L.Even > .Order:nth-of-type(even) > .Orders-C:disabled {
+  color: #000000;
+  opacity: 0.5;
+}
+
+.Home-Page {
+  grid-template-columns: minmax(10px, 1fr);
+}
+.Home-Page .B-T {
+  grid-area: 1/1/2/2;
+}
+.Home-Page .B-T .F-C {
+  background: #711604;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+  row-gap: calc(7px * 2);
+}
+.Home-Page .B-T .F-C header.Flex {
+  grid-area: 1/2/2/3;
+  color: #ffffff;
+  row-gap: calc(7px * 2);
+}
+.Home-Page .B-T .F-C .Orders-L {
+  grid-area: 2/2/3/3;
+  border: 6px inset #ffffff;
+  background: #fffcf9;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.Home-Page .B-T .F-C .Orders-L .Orders-C, .Home-Page .B-T .F-C .Orders-L .Orders-H {
+  grid-template-rows: minmax(10px, 1fr);
+}
+.Home-Page .B-T .F-C .Orders-L .Orders-C > *, .Home-Page .B-T .F-C .Orders-L .Orders-H > * {
+  border: 1px solid #000000;
+  padding: 10px 2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.Home-Page .B-T .F-C .Orders-L .Orders-C > .Prods, .Home-Page .B-T .F-C .Orders-L .Orders-H > .Prods {
+  grid-area: 1/2/2/3;
+}
+.Home-Page .B-T .F-C .Orders-L .Orders-H span {
+  background: #49504C;
+  color: #ffffff;
+}
+.Home-Page .B-T .S-C {
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.Home-Page .B-T .S-C .Order-D-T {
+  border: 4px solid #979d9a;
+}
+.Home-Page .B-T .S-C .Order-D-T > .Order-Date-R {
+  grid-area: 1/1/2/3;
+  border-bottom: 1px solid #979d9a;
+}
+.Home-Page .B-T .S-C .Order-D-T > .Prods-Col {
+  grid-area: 2/1/3/2;
+  border-right: 1px solid #979d9a;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.Home-Page .B-T .S-C .Order-D-T > .Prods-Col > .Prods-L {
+  grid-area: 2/1/3/2;
+}
+.Home-Page .B-T .S-C .Order-D-T > .Com-C {
+  grid-area: 2/2/3/3;
+  padding-bottom: 0;
+}
+.Home-Page .B-T .S-C .Order-D-T > .Com-C .O-Com {
+  grid-area: 1/1/2/2;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.Home-Page .B-T .S-C .Order-D-T > .Com-C .O-Tot {
+  grid-area: 2/1/3/2;
+  background: #95E8AB;
+}
+.Home-Page .B-M {
+  grid-area: 2/1/3/2;
+  background: #f0f0f0;
+  z-index: 2;
+}
+.Home-Page .B-M > .F-C .Form {
+  grid-template-columns: repeat(2, minmax(10px, 1fr));
+  grid-template-rows: minmax(10px, 1fr) 100px;
+  grid-column-gap: calc(7px * 10);
+}
+.Home-Page .B-M > .F-C .Form-Col {
+  grid-template-columns: minmax(10px, 1fr);
+  grid-template-rows: repeat(2, minmax(10px, 1fr));
+}
+.Home-Page .B-M > .F-C .Form-Col.F-C {
+  grid-area: 1/1/2/2;
+}
+.Home-Page .B-M > .F-C .Form-Col.S-C {
+  grid-area: 1/2/2/3;
+}
+.Home-Page .B-M > .F-C .Form-Button {
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+.Home-Page .B-M > .S-C {
+  grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  background: #711604;
+}
+.Home-Page .B-M > .S-C > .Flex {
+  grid-area: 1/2/2/3;
+  color: #ffffff;
+}
+.Home-Page .B-M > .S-C .Addr-T {
+  grid-area: 2/2/3/3;
+  grid-template-rows: repeat(3, minmax(10px, 1fr));
+  grid-template-columns: minmax(10px, 1fr);
+  border: 6px inset #ffffff;
+  background: #fffcf9;
+  overflow-y: auto;
+  -ms-overflow-y: auto;
+}
+.Home-Page .B-M > .S-C .Addr-T.Even .Addr-C:nth-of-type(odd) {
+  background: #FFE1C2;
+}
+.Home-Page .B-M > .S-C .Addr-T.Even .Addr-C:nth-of-type(even) {
+  background: #fffcf9;
+}
+.Home-Page .B-M > .S-C .Addr-T.Odd .Addr-C:nth-of-type(odd) {
+  background: #fffcf9;
+}
+.Home-Page .B-M > .S-C .Addr-T.Odd .Addr-C:nth-of-type(even) {
+  background: #FFE1C2;
+}
+.Home-Page .B-M > .S-C .Addr-C {
+  grid-template-columns: minmax(10px, 1fr) 40px;
+  grid-template-rows: minmax(10px, 1fr);
+  padding: 7px;
+}
+.Home-Page .B-M > .S-C .Addr-C .Btn-Rem {
+  grid-area: 1/2/2/3;
+  justify-self: flex-end;
+}
+.Home-Page .B-B {
+  grid-area: 3/1/4/2;
+  column-gap: calc(7px * 10);
+  -webkit-column-gap: calc(7px * 10);
+  -moz-column-gap: calc(7px * 10);
+  grid-template-columns: repeat(3, minmax(10px, 1fr));
+  grid-template-rows: minmax(10px, 1fr);
+}
+.Home-Page .B-B > .Flex {
+  row-gap: calc(7px * 10);
+}
+.Home-Page .B-B .carousel-control-next, .Home-Page .B-B .carousel-control-prev {
+  top: auto;
+  bottom: 0;
+}
+.Home-Page .B-B .carousel-indicators {
+  display: none;
+}
+.Home-Page .Form, .Home-Page .Form-Col {
+  row-gap: calc(7px * 5);
+}
+
+@media only screen and (min-width: 1200px) {
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px calc(7px * 10);
+  }
+  .Home-Page .B-T {
+    grid-template-rows: minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 10) 350px minmax(10px, 1fr) calc(7px * 10);
+  }
+  .Home-Page .B-T .F-C {
+    grid-area: 1/2/2/3;
+    grid-template-rows: calc(calc(7px * 10) * 3) 420px minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+  .Home-Page .B-T .F-C .Orders-C, .Home-Page .B-T .F-C .Orders-H {
+    grid-template-columns: 110px minmax(10px, 1fr) 60px;
+    grid-template-rows: minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C {
+    grid-area: 1/3/2/4;
+  }
+  .Home-Page .B-T .S-C .Order-D-T {
+    grid-template-columns: 200px 340px;
+    grid-template-rows: calc(7px * 10) 400px;
+    padding: calc(7px * 2);
+  }
+  .Home-Page .B-T .S-C .Order-D-T > * {
+    padding: 12px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Prods-Col {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: calc(7px * 10) minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Com-C {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: minmax(10px, 1fr) 70px;
+  }
+  .Home-Page .B-M {
+    grid-template-columns: calc(7px * 10) repeat(2, minmax(10px, 1fr)) calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: 100px minmax(10px, 1fr);
+  }
+  .Home-Page .B-M .F-C {
+    grid-area: 1/2/3/4;
+  }
+  .Home-Page .B-M .S-C {
+    grid-area: 1/5/3/6;
+    grid-template-rows: 100px 420px;
+  }
+  .Home-Page .B-M .S-C .Addresses-Table {
+    grid-template-rows: repeat(3, minmax(10px, 1fr));
+  }
+  .Home-Page .B-B {
+    padding-inline: calc(7px * 10);
+  }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1199px) {
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px calc(7px * 10);
+  }
+  .Home-Page .B-T {
+    grid-template-rows: minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 7) 350px minmax(10px, 1fr) calc(7px * 7);
+  }
+  .Home-Page .B-T .F-C {
+    grid-area: 1/2/2/3;
+    grid-template-rows: calc(calc(7px * 10) * 3) 420px minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+  .Home-Page .B-T .F-C .Orders-C, .Home-Page .B-T .F-C .Orders-H {
+    grid-template-columns: 110px minmax(10px, 1fr) 60px;
+    grid-template-rows: minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C {
+    grid-area: 1/3/2/4;
+  }
+  .Home-Page .B-T .S-C .Order-D-T {
+    grid-template-columns: 150px 240px;
+    grid-template-rows: calc(7px * 10) 400px;
+    padding: 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > * {
+    padding: 12px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Prods-Col {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: calc(7px * 10) minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Com-C {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: minmax(10px, 1fr) 70px;
+  }
+  .Home-Page .B-M {
+    grid-template-columns: calc(7px * 5) repeat(2, minmax(10px, 1fr)) calc(7px * 5) minmax(10px, 1fr) calc(7px * 5);
+    grid-template-rows: 100px minmax(10px, 1fr);
+  }
+  .Home-Page .B-M .F-C {
+    grid-area: 1/2/3/4;
+  }
+  .Home-Page .B-M .S-C {
+    grid-area: 1/5/3/6;
+    grid-template-rows: 100px 420px;
+  }
+  .Home-Page .B-M .S-C .Addresses-Table {
+    grid-template-rows: repeat(3, minmax(10px, 1fr));
+  }
+  .Home-Page .B-B {
+    padding-inline: calc(7px * 7);
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 999px) {
+  .Home-Page {
+    grid-template-rows: 660px 560px 500px calc(7px * 10);
+  }
+  .Home-Page .B-T {
+    grid-template-rows: minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 4) 300px minmax(10px, 1fr) calc(7px * 4);
+  }
+  .Home-Page .B-T .F-C {
+    grid-area: 1/2/2/3;
+    grid-template-rows: calc(calc(7px * 10) * 3) 420px minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+  .Home-Page .B-T .F-C .Orders-C, .Home-Page .B-T .F-C .Orders-H {
+    grid-template-columns: 60px minmax(10px, 1fr) 60px;
+    grid-template-rows: minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C {
+    grid-area: 1/3/2/4;
+  }
+  .Home-Page .B-T .S-C .Order-D-T {
+    grid-template-columns: 150px 200px;
+    grid-template-rows: calc(7px * 10) 400px;
+    padding: 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > * {
+    padding: 12px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Prods-Col {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: calc(7px * 10) minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Com-C {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: minmax(10px, 1fr) 70px;
+  }
+  .Home-Page .B-M {
+    grid-template-columns: calc(7px * 3) repeat(2, minmax(10px, 1fr)) calc(7px * 3) minmax(240px, 1fr) calc(7px * 3);
+    grid-template-rows: 100px minmax(10px, 1fr);
+  }
+  .Home-Page .B-M .F-C {
+    grid-area: 1/2/3/4;
+  }
+  .Home-Page .B-M .S-C {
+    grid-area: 1/5/3/6;
+    grid-template-rows: 100px 420px;
+  }
+  .Home-Page .B-M .S-C .Addresses-Table {
+    grid-template-rows: repeat(3, minmax(10px, 1fr));
+  }
+  .Home-Page .B-B {
+    padding-inline: calc(7px * 3);
+  }
+  .Home-Page .B-B .carousel {
+    height: 350px;
+  }
+  .Home-Page .B-B .carousel .Form {
+    width: 400px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Home-Page {
+    grid-template-rows: 800px 1000px 500px calc(7px * 10);
+  }
+  .Home-Page .B-T {
+    grid-template-rows: 420px 380px;
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .F-C {
+    grid-area: 1/1/2/2;
+    grid-template-rows: 100px minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+    padding-block: 7px;
+    background: #2a0800;
+  }
+  .Home-Page .B-T .F-C header.Flex {
+    margin-top: calc(7px * 3);
+  }
+  .Home-Page .B-T .F-C .Orders-C, .Home-Page .B-T .F-C .Orders-H {
+    grid-template-columns: 110px minmax(10px, 1fr) 60px;
+    grid-template-rows: minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C {
+    grid-area: 2/1/3/2;
+  }
+  .Home-Page .B-T .S-C > div div.Flex {
+    padding: calc(7px * 3) 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T {
+    grid-template-columns: minmax(120px, 2fr) minmax(10px, 3fr);
+    grid-template-rows: calc(7px * 10) 240px;
+    padding: 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > * {
+    padding: 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Prods-Col {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: calc(7px * 10) minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Com-C {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: minmax(10px, 1fr) 40px;
+  }
+  .Home-Page .B-M {
+    grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
+    grid-template-rows: repeat(2, minmax(10px, 1fr));
+    row-gap: calc(7px * 8);
+    padding-block: calc(7px * 6);
+  }
+  .Home-Page .B-M .F-C {
+    grid-area: 1/2/2/3;
+  }
+  .Home-Page .B-M .F-C > Form {
+    width: 400px;
+  }
+  .Home-Page .B-M .S-C {
+    grid-area: 2/2/3/3;
+    grid-template-rows: 100px 270px;
+  }
+  .Home-Page .B-M .S-C .Addresses-Table {
+    grid-template-rows: repeat(3, minmax(80px, 1fr));
+  }
+  .Home-Page .B-B {
+    padding-inline: calc(7px * 3);
+  }
+  .Home-Page .B-B .carousel {
+    height: 350px;
+  }
+  .Home-Page .B-B .carousel .Form {
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .Home-Page {
+    grid-template-rows: 800px 940px 400px calc(7px * 10);
+  }
+  .Home-Page .B-T {
+    grid-template-rows: 420px 380px;
+    grid-template-columns: minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .F-C {
+    grid-area: 1/1/2/2;
+    grid-template-rows: 100px minmax(10px, 1fr);
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+    padding-block: 7px;
+    background: #2a0800;
+  }
+  .Home-Page .B-T .F-C header.Flex {
+    margin-top: calc(7px * 3);
+  }
+  .Home-Page .B-T .F-C .Orders-C, .Home-Page .B-T .F-C .Orders-H {
+    grid-template-columns: 110px minmax(10px, 1fr) 60px;
+    grid-template-rows: minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C {
+    grid-area: 2/1/3/2;
+  }
+  .Home-Page .B-T .S-C > div div.Flex {
+    padding: calc(7px * 3) 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T {
+    grid-template-columns: minmax(140px, 1fr) minmax(10px, 1fr);
+    grid-template-rows: calc(7px * 10) 240px;
+    padding: 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > * {
+    padding: 7px;
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Prods-Col {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: calc(7px * 10) minmax(10px, 1fr);
+  }
+  .Home-Page .B-T .S-C .Order-D-T > .Com-C {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-rows: minmax(10px, 1fr) 40px;
+  }
+  .Home-Page .B-M {
+    grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+    grid-template-rows: repeat(2, minmax(10px, 1fr));
+    row-gap: calc(7px * 8);
+    padding-block: calc(7px * 6);
+  }
+  .Home-Page .B-M .F-C {
+    grid-area: 1/2/2/3;
+  }
+  .Home-Page .B-M .S-C {
+    grid-area: 2/2/3/3;
+    grid-template-rows: 100px 270px;
+  }
+  .Home-Page .B-M .S-C .Addresses-Table {
+    grid-template-rows: repeat(3, minmax(140px, 1fr));
+  }
+  .Home-Page .B-B {
+    padding-inline: calc(7px * 2);
+  }
+  .Home-Page .B-B .carousel {
+    height: 350px;
+  }
+}
+
+/*# sourceMappingURL=Homepage.css.map */

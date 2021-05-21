@@ -1,0 +1,424 @@
+@import "../css/base/Extensions";
+
+.Main-Page {
+  grid-template-columns: minmax(10px, 1fr);
+  row-gap: calc(#{$standard} * 7);
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .carousel {
+    @include user-select(none);
+
+    .carousel-indicators {
+      z-index: 3;
+
+      & > li {
+        background-color: $layout-100;
+      }
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+      margin-inline: 20px;
+      width: 10%;
+    }
+  }
+
+  .B-M {
+    background-repeat: no-repeat;
+    background-position: center right;
+
+    & > div {
+      row-gap: $mainPadding;
+
+      p {
+        text-indent: calc(#{$standard} * 5);
+        line-height: 2;
+      }
+    }
+  }
+
+  .B-B {
+    grid-area: 4/1/5/2;
+    @include user-select(none);
+
+    .Ov-C > .Ov {
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .Main-Page {
+    grid-template-rows: 800px 850px 650px $mainPadding;
+
+    .B-T {
+      grid-area: 1/1/2/2;
+    }
+
+    .B-B {
+      grid-area: 3/1/4/2;
+    }
+
+    .carousel {
+      height: 750px;
+    }
+
+    .B-M {
+      padding: $mainPadding;
+      grid-area: 2/1/3/2;
+      background-size: 800px auto;
+      -webkit-background-size: 800px auto;
+      -moz-background-size: 800px auto;
+      -o-background-size: 800px auto;
+
+      & > div {
+        width: 400px;
+      }
+    }
+
+    .GridWrapper {
+      grid-template-columns: 375px 600px 375px;
+      grid-template-rows: repeat(2, 350px);
+      grid-gap: 10px;
+
+      & > #catering {
+        grid-area: 1/1/3/2;
+      }
+
+      & > #join_team {
+        grid-area: 1/2/2/3;
+      }
+
+      & > #shop_all {
+        grid-area: 2/2/3/3;
+      }
+
+      & > #locations {
+        grid-area: 1/3/3/4;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .Main-Page {
+    grid-template-rows: 800px 850px 610px $mainPadding;
+
+    .B-T {
+      grid-area: 1/1/2/2;
+    }
+
+    .B-B {
+      grid-area: 3/1/4/2;
+    }
+
+    .carousel {
+      height: 750px;
+    }
+
+    .B-M {
+      padding: $mainPadding;
+      grid-area: 2/1/3/2;
+      background-size: 800px auto;
+      -webkit-background-size: 800px auto;
+      -moz-background-size: 800px auto;
+      -o-background-size: 800px auto;
+
+      & > div {
+        width: 400px;
+      }
+    }
+
+    .GridWrapper {
+      grid-template-columns: 300px 520px 300px;
+      grid-template-rows: repeat(2, 310px);
+      grid-gap: 10px;
+
+      & > #catering {
+        grid-area: 1/1/3/2;
+      }
+
+      & > #join_team {
+        grid-area: 1/2/2/3;
+      }
+
+      & > #shop_all {
+        grid-area: 2/2/3/3;
+      }
+
+      & > #locations {
+        grid-area: 1/3/3/4;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .Main-Page {
+    grid-template-rows: 800px 850px 1250px $mainPadding;
+
+    .B-T {
+      grid-area: 1/1/2/2;
+    }
+
+    .B-B {
+      grid-area: 3/1/4/2;
+    }
+
+    .carousel {
+      height: 750px;
+    }
+
+    .B-M {
+      padding: $mainPadding;
+      grid-area: 2/1/3/2;
+      background-size: 660px auto;
+      -webkit-background-size: 660px auto;
+      -moz-background-size: 660px auto;
+      -o-background-size: 660px auto;
+
+      & > div {
+        width: 400px;
+      }
+    }
+
+    .GridWrapper {
+      grid-template-columns: repeat(2, 380px);
+      grid-template-rows: 300px 610px 300px;
+      grid-gap: 20px;
+
+      & > #catering {
+        grid-area: 2/1/3/2;
+      }
+
+      & > #join_team {
+        grid-area: 1/1/2/3;
+      }
+
+      & > #shop_all {
+        grid-area: 3/1/4/3;
+      }
+
+      & > #locations {
+        grid-area: 2/2/3/3;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .Main-Page {
+    grid-template-rows: 800px 850px 880px $mainPadding;
+
+    .B-T {
+      grid-area: 1/1/2/2;
+    }
+
+    .B-B {
+      grid-area: 3/1/4/2;
+    }
+
+    .carousel {
+      height: 750px;
+    }
+
+    .B-M {
+      padding: $mainPadding;
+      grid-area: 2/1/3/2;
+      background-size: 500px auto;
+      -webkit-background-size: 500px auto;
+      -moz-background-size: 500px auto;
+      -o-background-size: 500px auto;
+
+      & > div {
+        width: 400px;
+      }
+    }
+
+    .GridWrapper {
+      grid-template-columns: repeat(2, 290px);
+      grid-template-rows: 240px 400px 240px;
+      grid-gap: 20px;
+
+      & > #catering {
+        grid-area: 2/1/3/2;
+      }
+
+      & > #join_team {
+        grid-area: 1/1/2/3;
+      }
+
+      & > #shop_all {
+        grid-area: 3/1/4/3;
+      }
+
+      & > #locations {
+        grid-area: 2/2/3/3;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Main-Page {
+    grid-template-rows: 800px 880px 920px $mainPadding;
+
+    .B-T {
+      grid-area: 1/1/2/2;
+    }
+
+    .B-B {
+      grid-area: 3/1/4/2;
+    }
+
+    .carousel {
+      height: 750px;
+    }
+
+    .B-M {
+      padding: calc(#{$standard} * 5);
+      grid-area: 2/1/3/2;
+      background-size: 660px auto;
+      -webkit-background-size: 660px auto;
+      -moz-background-size: 660px auto;
+      -o-background-size: 660px auto;
+
+      & > div {
+        width: 300px;
+        @include align-self(flex-end);
+      }
+    }
+
+    .GridWrapper {
+      grid-template-columns: repeat(2, 200px);
+      grid-template-rows: 240px 400px 240px;
+      grid-gap: 20px;
+
+      & > #catering {
+        grid-area: 2/1/3/2;
+      }
+
+      & > #join_team {
+        grid-area: 1/1/2/3;
+      }
+
+      & > #shop_all {
+        grid-area: 3/1/4/3;
+      }
+
+      & > #locations {
+        grid-area: 2/2/3/3;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  .Main-Page {
+    grid-template-rows: 800px 850px 730px $mainPadding;
+
+    .B-T {
+      grid-area: 1/1/2/2;
+    }
+
+    .B-M {
+      padding: calc(#{$standard} * 5);
+      grid-area: 2/1/3/2;
+      background-size: 660px auto;
+      -webkit-background-size: 660px auto;
+      -moz-background-size: 660px auto;
+      -o-background-size: 660px auto;
+
+      & > div {
+        width: 230px;
+        @include align-self(flex-end);
+      }
+    }
+
+    .B-B {
+      grid-area: 3/1/4/2;
+    }
+
+    .carousel {
+      height: 750px;
+    }
+
+    .GridWrapper {
+      grid-template-columns: repeat(2, 145px);
+      grid-template-rows: 200px 310px 200px;
+      grid-gap: 20px;
+
+      & > #catering {
+        grid-area: 2/1/3/2;
+      }
+
+      & > #join_team {
+        grid-area: 1/1/2/3;
+      }
+
+      & > #shop_all {
+        grid-area: 3/1/4/3;
+      }
+
+      & > #locations {
+        grid-area: 2/2/3/3;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Main-Page {
+    grid-template-rows: 800px 850px 640px $mainPadding;
+
+    .B-T {
+      grid-area: 1/1/2/2;
+    }
+
+    .B-M {
+      padding: calc(#{$standard} * 5);
+      grid-area: 2/1/3/2;
+      background-size: 660px auto;
+      -webkit-background-size: 660px auto;
+      -moz-background-size: 660px auto;
+      -o-background-size: 660px auto;
+
+      & > div {
+        width: 200px;
+        @include align-self(flex-end);
+      }
+    }
+
+    .B-B {
+      grid-area: 3/1/4/2;
+    }
+
+    .carousel {
+      height: 750px;
+    }
+
+    .GridWrapper {
+      grid-template-columns: repeat(2, 140px);
+      grid-template-rows: 170px 280px 170px;
+      grid-gap: 20px;
+
+      & > #catering {
+        grid-area: 2/1/3/2;
+      }
+
+      & > #join_team {
+        grid-area: 1/1/2/3;
+      }
+
+      & > #shop_all {
+        grid-area: 3/1/4/3;
+      }
+
+      & > #locations {
+        grid-area: 2/2/3/3;
+      }
+    }
+  }
+}

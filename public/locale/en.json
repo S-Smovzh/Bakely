@@ -4,30 +4,21 @@
   "about.appeal.secondPart": "Thank You so much for fourteen years of love and support. We truly cherish our neighborhoods and it’s hard to believe we’ve already been here fourteen years! It means everything to us that You’ve embraced Bakely and made us a part of the local fabric.",
   "about.appeal.thirdPart": "As many of You know, we met in school about 25 years ago (but who’s counting) with a pretty simple idea—to provide delicious moments and treats from Your local neighborhood bakery.",
   "about.appeal.fourthPart": "Each day at Bakely, everything is still made from scratch. From our (pretty well known) Icebox Cake to our (pretty darn well known) Red Velvet Cupcakes—it’s as real as our grandmothers used to make. For us, that smell when You walk into a real local bakery is almost as important as the taste. And we’re never going to lose that. For Bakely, it's all about real ingredients, authentic recipes, and real people making it happen.",
-  "about.appeal.fifthPart": "Stop by our shops in Poshtova, Levoberezhna or Polytechnick — and let us take care of You. Join us, as we Celebrate Homemade.",
+  "about.appeal.fifthPart": "Stop by our shops in Poshtova, Levoberezhna or Polytechnic — and let us take care of You. Join us, as we Celebrate Homemade.",
   "about.appeal.sixthPart": "Sincerely, Co-Founders Vladimir & Anna.",
   "about.feedbacks.header": "Customer Testimonials",
   "about.feedbacks.first.author": "Kelly E.",
-  "about.feedbacks.first": "Dude, I love Bakely. I know there's a ton of other bakeries nearby, but how can You resist the overwhelmingly cute seating area, amazingly perfect cupcakes, AND their delicious and NOT overly sweet cookies? I think Bakely has some of the best cupcakes in Chelsea, plus I like that it's a small business with bakers that seem to really care about the quality of their desserts.",
+  "about.feedbacks.first": "Dude, I love Bakely. I know there's a ton of other bakeries nearby, but how can You resist the overwhelmingly cute seating area, amazingly perfect cupcakes, AND their delicious and NOT overly sweet cookies? I think Bakely has some of the best cupcakes in Kyiv, plus I like that it's a small business with bakers that seem to really care about the quality of their desserts.",
   "about.feedbacks.second.author": "Dove C.",
-  "about.feedbacks.second": "Every time I come to Bakely I find something new to love! The staff is friendly and accommodating, and it always feels cozy in this shop. I especially love the apple pie, although it's only seasonal. I also love the lemon cupcakes, and the butterscotch ginger cookies. All thumbs up!",
+  "about.feedbacks.second": "Every time I come to Bakely I find something new to love! The staff is friendly and accommodating, and it always feels cozy in this shop. I especially love the apple pie, although it's only seasonal. I also love the lemon cupcakes and the butterscotch ginger cookies. All thumbs up!",
   "about.feedbacks.third.author": "Sherry S.",
   "about.feedbacks.third": "I stumbled across this cute bakery one day and was so pleasantly surprised by the wide selection of baked goods this little shop carries! They have a large variety of cupcakes and cakes as well as pies. I tried the banana pudding which I thought was very creamy, but not the type of creamy that makes You feel sick after.",
 
-  "about.seo.title" : "Bakely - About Us",
-  "about.seo.description" : "It all began in 2007 with two friends from business school who shared a sweet tooth and a dream of baking. 14 years later, we bake all of our products on-site, filling our 1940s-style stores with the delicious smells of fresh cakes and pies to bring back that delightful, warm feeling of Grandma’s kitchen.",
+  "about.seo.title": "Bakely - About Us",
+  "about.seo.description": "It all began in 2007 with two friends from business school who shared a sweet tooth and a dream of baking. 14 years later, we bake all of our products on-site, filling our 1940s-style stores with the delicious smells of fresh cakes and pies to bring back that delightful, warm feeling of Grandma’s kitchen.",
 
   "attribution.header": "Attribution Page",
-  "attribution.main": "If you see that I used your photos, icons or anything else and your aren't attributed, please email me",
-
-  "careers.header": "Bakely Vacancies",
-  "careers.label.select": "Select address:",
-  "careers.select.all": "All",
-
-  "careers.seo.title": "Bakely - Careers",
-  "careers.seo.description": "At Bakely, we’re proud to employ great people who are passionate about their jobs. But they’re all different. Some want to improve their prospects. Others want a job that fits round their family life. And some just want to earn a bit of extra cash working with good, friendly people at a place where they can grow.",
-  "careers.seo.cardDescription": "At Bakely, we’re proud to employ great people who are passionate about their jobs. But they’re all different. Some want to improve their prospects. Others want a job that fits round their family life. And some just want to earn a bit of extra cash working with good, friendly people at a place where they can grow. Everyone who works here wants and needs different things.",
-  "careers.seo.imgAlt": "Our team.",
+  "attribution.main": "If You see that I used Your photos, icons or anything else and You aren't attributed, please email me",
 
   "cart.header.empty": "Your cart is empty",
   "cart.header.filled": "Your cart",
@@ -35,7 +26,7 @@
   "cart.link.shop": "Let`s shop!",
 
   "catering.header": "Catering Options",
-  "catering.wedding.header": "Wedding Cakes",
+  "catering.wedding.header": "Weddings",
   "catering.wedding.description": "Let Bakely make Your wedding day extra sweet. From traditional tiered wedding cakes to wedding-appropriate cupcakes, Bakely is a delicious and elegant addition to Your wedding. Let our designers create the perfect dessert package for Your big day.",
   "catering.birthday.header": "Celebrations",
   "catering.birthday.description": "Whatever the celebration, we have the perfect treat for Your gathering, from apple pie to adorable pastel-frosted cupcakes. Let us customize a sweets package for Your next celebration.",
@@ -53,8 +44,8 @@
   "catering.gallery.seo.title": "Bakely - Catering Gallery",
 
   "catering.seo.title": "Bakely - Catering",
-  "catering.seo.description": "Order cakes, pies or other pastry for a crowd with Bakely! We offer catering delivery for large orders and group catering purchases.",
-  "catering.seo.cardDescription": "Order cakes, pies or other pastry for a crowd with Bakely! We offer catering delivery for large orders and group catering purchases.",
+  "catering.seo.description": "Order cakes, pies, or other pastry for a crowd with Bakely! We offer catering delivery for large orders and group catering purchases.",
+  "catering.seo.cardDescription": "Order cakes, pies, or other pastry for a crowd with Bakely! We offer catering delivery for large orders and group catering purchases.",
   "catering.seo.imgAlt": "Example of a catering provided by Bakely.",
 
   "contactUs.header": "Contact from",
@@ -64,7 +55,6 @@
   "contactUs.option.productInfo": "Products information",
   "contactUs.option.support": "Support",
   "contactUs.option.marketingAndPR": "Marketing & PR",
-  "contactUs.characters": "Remaining characters:",
   "contactUs.button": "Send",
   "contactUs.header.addresses": "Get in touch",
   "contactUs.label.Europe": "Europe",
@@ -80,23 +70,27 @@
   "contactUs.seo.title" : "Bakely - Contact Us",
   "contactUs.seo.description" : "Bakely - Contact Us.",
 
+  "error.header.login": "Session expired",
+  "error.header.internal": "Unexpected error",
+  "error.header.tooManyLogins": "Too many attempts",
+
   "error.header": "The page you were looking for doesn't exist.",
   "error.button": "To the main page",
 
   "error.seo.title" : "Bakely - Error 404 | Not Found",
   "error.seo.description" : "Error 404. Page not found.",
 
-  "errorBoundary.header": "The page you were looking for doesn't exist.",
+  "errorBoundary.header": "Unexpected error",
 
   "errorBoundary.seo.title" : "Bakely - Internal Error",
   "errorBoundary.seo.description" : "Internal error.",
 
   "infoPages.cookies.header": "Cookie Policy",
-  "infoPages.privacy.header": "Privacy Policy for Bakely LLC",
+  "infoPages.privacy.header": "Privacy Policy",
   "infoPages.terms.header": "Terms and Conditions",
 
   "infoPages.delivery.header": "Delivery information",
-  "infoPages.faq.header": "Frequently asked questions Information",
+  "infoPages.faq.header": "Frequently asked questions",
   "infoPages.orders.header": "Orders information",
 
   "infoPages.delivery.seo.title" : "Bakely - Delivery Information",
@@ -112,7 +106,7 @@
   "infoPages.cookies.seo.description" : "Find more information and read Bakely’s Cookie Policy here.",
 
   "infoPages.privacy.seo.title" : "Bakely - Privacy Policy",
-  "infoPages.privacy.seo.description" : "We take your privacy seriously. We are as honest about what we do with your personal information as we are about the ingredients that go into the food we serve.",
+  "infoPages.privacy.seo.description" : "We take Your privacy seriously. We are as honest about what we do with Your personal information as we are about the ingredients that go into the food we serve.",
 
   "infoPages.terms.seo.title" : "Bakely - Terms and Conditions",
   "infoPages.terms.seo.description" : "Find more information and read Bakely’s Terms and Conditions here.",
@@ -120,37 +114,37 @@
   "infoPages.delivery" : [
     {
       "question": "Do you offer same-day deliveries?",
-      "answer": "Yes, we deliver in the next 2 hours after the order being received."
+      "answer": "Yes, we deliver in the next hour after the order being received."
     },
     {
       "question": "Can I pay for my order upon delivery?",
-      "answer": "Yes, You can pay both upon placement of order or delivery."
+      "answer": "Yes, You can pay both upon placement of an order or a delivery."
     },
     {
       "question": "Do you charge for deliveries?",
-      "answer": "Deliveries are available from 10AM-7PM daily, they are free for orders with minimum of 15$. We apologize however we cannot guarantee an EXACT time of delivery, only windows specified in the checkout process. Deliveries outside of specific zones and times are subject to additional charges for courier service."
+      "answer": "Deliveries are available from 10 AM - 7 PM daily, they are free for orders with a minimum of 15$. We apologize however we cannot guarantee an EXACT time of delivery, only windows specified in the checkout process. Deliveries outside of specific zones and times are subject to additional charges for courier service."
     },
     {
       "question": "What if I am not available to receive my delivery?",
-      "answer": "All of our deliveries must be signed for, so someone must be present to receive the delivery. If You have a doorman, please verify that they will accept your delivery if You are not there. If no one is available to receive the delivery, Your order will be brought back to the bakery and a re-delivery fee may apply."
+      "answer": "All of our deliveries must be signed for, so someone must be present to receive the delivery. If no one is available to receive the delivery, Your order will be brought back to the bakery and a re-delivery fee may apply."
     }],
 
   "infoPages.faq" : [
     {
       "question": "Do you use nuts in your products?",
-      "answer": "Some of our products, like our carrot cake, pumpkin bars do contain nuts. Additionally, all of our baked goods are made in the same kitchen, so they may not be suitable for those with nut allergies."
+      "answer": "Some of our products, like our nut an pumpkin bars do contain nuts. Additionally, every bakery has only one kitchen, so cross-contact of ingredients is highly possible."
     },
     {
       "question": "Do you offer Gluten-Free items?",
-      "answer": "We offer a few 'gluten-friendly' items on our menu, however all of our foods are prepared in a common kitchen so we cannot guarantee that cross contact with other gluten-containing products will not occur. As a result, we do not recommend our 'gluten-friendly' items for persons with Celiac Disease. Our 'gluten-friendly' offerings are designed for those with minor gluten sensitivities or those who prefer to avoid gluten for nutritional reasons. Our management team and service staff are not trained on the intricacies of celiac disease or gluten intolerance and cannot be expected to provide recommendations or other advice."
+      "answer": "We offer a few 'gluten-friendly' items on our menu, however all of our foods are prepared in a common kitchen so we cannot guarantee that cross-contact with other gluten-containing products will not occur. As a result, we do not recommend our 'gluten-friendly' items for persons with Celiac Disease. Our 'gluten-friendly' offerings are designed for those with minor gluten sensitivities or those who prefer to avoid gluten for nutritional reasons. Our management team and service staff are not trained on the intricacies of celiac disease or gluten intolerance and cannot be expected to provide recommendations or other advice."
     },
     {
       "question": "Should I refrigerate my cupcakes?",
-      "answer": "Try to eat your cupcakes as soon as possible — they’ll taste freshest that way. In the event You can’t eat them all in one day, they keep best in an airtight container at room temperature. Of course, cheesecakes, icebox cakes, and cold pies should be refrigerated!"
+      "answer": "Try to eat Your cupcakes as soon as possible — they’ll taste freshest that way. In the event You can’t eat them all in one day, they keep best in an airtight container at room temperature. Of course, cheesecakes, icebox cakes, and cold pies should be refrigerated!"
     },
     {
       "question": "Are you hiring?",
-      "answer": "We’re always looking for friendly, hardworking people to join our team. If You’re interested, please contact us through a contac form that You can find on our website"
+      "answer": "We’re always looking for friendly, hardworking people to join our team. If You’re interested, please contact us through a contact form that You can find on our website"
     },
     {
       "question": "Do you accept credit cards?",
@@ -158,11 +152,11 @@
     },
     {
       "question": "Do you have a mailing list?",
-      "answer": "We do. To sign up for our e-newsletters, fill in e-mail address in our subscription pop-up."
+      "answer": "We do. To sign up for our e-newsletters, fill in the e-mail address in our subscription pop-up."
     },
     {
       "question": "What is your return policy?",
-      "answer": "We take pride in our desserts. If You are unhappy with Your order and/or purchase, immediately notify us (when accepting delivery or purchasing in one of our bakeries) of Your concern and return your dessert to us. We will give you credit for the amount returned upon receipt of the merchandise. You must bring the original receipt of purchase with you."
+      "answer": "If You are unhappy with Your order, immediately notify us (when accepting delivery or purchasing in one of our bakeries) of Your concern and return Your dessert to us. We will reimburse You for the cost of the product. You must bring the original receipt of purchase with You."
     },
     {
       "question": "What do you use in your products?",
@@ -173,31 +167,19 @@
   "infoPages.orders" : [
     {
       "question": "How do I place an order?",
-      "answer": "Call any of our locations to place an order with one of our friendly, knowledgeable staff members or order online."
-    },
-    {
-      "question": "What is your cancellation policy?",
-      "answer": "Orders changed or canceled prior to 72 hours of event date are refunded in full via the original method of payment. Orders changed or canceled within less than 72 hours of event date are non-refundable. If You are unable to use/accept Your non-refunded order, consider donating to charity, we'll deliver it for free!"
+      "answer": "Call any of our bakeries or order online."
     },
     {
       "question": "Do you deliver?",
-      "answer": "Yes, we deliver throughout areas mentioned in online order process ($15 purchase minimum). Limited deliveries outside of those areas are available; rates vary by time/date/distance."
-    },
-    {
-      "question": "What sort of decorations can I get on my cake?",
-      "answer": "Our cake decorators can create several common designs: polka dots, flowers, and stripes are our standard choices. If You’d like something specific, call us or use contact form, we may ask You to provide us with a picture of what You’d like to make sure we create a cake that will meet Your expectations. Unfortunately, we don’t do photo cakes or color matching."
+      "answer": "Yes, we deliver throughout areas mentioned in the online order process. Limited deliveries outside of those areas are available; rates vary by time/date/distance."
     },
     {
       "question": "Will my cake look exactly like the one in the picture on your website?",
-      "answer": "Since all of our cakes are frosted and decorated by hand, each one is an individual creation and may not appear exactly as it does in our example photos."
+      "answer": "Since all of our cakes are made by hand, each one is an individual creation and may not appear exactly as it does in our example photos."
     },
     {
       "question": "Can I create my own cake that’s not currently on your menu?",
-      "answer": "Bakely offers signature baked goods, which are listed on our menu. If You have a specific request, please contact the bakery. Please note that we do not alter our recipes."
-    },
-    {
-      "question": "Do you have a minimum requirement for cupcake orders?",
-      "answer": "Certain specialty cupcakes, we require a one-dozen minimum. For most other cupcakes, we have no minimum. At least two dozen cupcakes are generally available on a walk-in basis without an order, but if You’d like to guarantee a specific kind of cupcake or frosting color, or if You plan on stopping in during one of our busiest times (weekends, particularly weekend evenings), it is always best to place an order."
+      "answer": "Bakely offers signature baked goods, which are listed on our menu. If You have a specific request, please contact the bakery."
     },
     {
       "question": "Do you offer special packages for businesses, parties, or events?",
@@ -205,14 +187,14 @@
     },
     {
       "question": "Do you make wedding cakes?",
-      "answer": "We offer traditional tiered wedding cakes, sheet cakes for grooms, as well as wedding-appropriate cupcakes! For further information or a wedding consultation, please contact us through contact form."
+      "answer": "We offer traditional tiered and sheet wedding cakes. For further information or consultation, please contact us through the contact form."
     }],
 
   "locations.header": "Bakely Locations",
 
   "locations.seo.title": "Bakely - Locations | Kyiv",
-  "locations.seo.description": "Find the nearest Bakely’s and get information on bakery hours, services, and more.",
-  "locations.seo.cardDescription": "Find the nearest Bakely’s and get information on bakery hours, services, and more.",
+  "locations.seo.description": "Find the nearest bakery and get information on working hours, services, and more.",
+  "locations.seo.cardDescription": "Find the nearest bakery and get information on working hours, services, and more.",
   "locations.seo.imgAlt": "Our bakery on Mezhihirska street 10.",
 
   "main.slide.first.alt": "Bakely`s special cream-chocolate cake.",
@@ -221,11 +203,11 @@
   "main.slide.first.link": "Our cakes",
   "main.slide.second.alt": "Catering example",
   "main.slide.second.title": "Bakely catering",
-  "main.slide.second.description": "If You like our pastry, You’ll definitely love our catering. Make your event memorable with our delicious specialities.",
+  "main.slide.second.description": "If You like our pastry, You’ll love our catering. Make Your event memorable with our delicious specialties.",
   "main.slide.second.link": "Catering gallery",
   "main.slide.third.alt": "Cupcake gift box",
   "main.slide.third.title": "Gift Boxes",
-  "main.slide.third.description": "Try our gift boxes. Order cupcakes, cookies or bars and we will wrap it in a gift package.",
+  "main.slide.third.description": "Try our gift boxes. Order cupcakes, cookies, or bars and we will wrap it in a gift package.",
   "main.slide.third.link": "Shop now",
 
   "main.ourStory.text": "It all began in 2007 with two friends from business school who shared a sweet tooth and a dream of baking. 14 years later, we bake all of our products on-site, filling our 1940s-style stores with the delicious smells of fresh cakes and pies to bring back that delightful, warm feeling of Grandma’s kitchen.",
@@ -238,37 +220,36 @@
   "main.joinTeam.button": "Join team",
   "main.joinTeam.alt": "Our workers.",
   "main.shopAll.text": "Satisfy Your sweet tooth! Order online for pickup or delivery.",
-  "main.shopAll.button": "Shop all",
-  "main.shopAll.alt": "Our sweets and bakery which you can order online.",
+  "main.shopAll.button": "Menu",
+  "main.shopAll.alt": "Our pastry which You can order online.",
   "main.locations.text": "Come celebrate homemade at one of our bakeries!",
   "main.locations.button": "Locations",
   "main.locations.alt": "Our bakery on Tumanyana street.",
 
   "main.seo.title": "Bakely - Cakes, Pies, Cupcakes and more",
-  "main.seo.description": "Welcome to the official website of Bakely. For all the latest news, updates and initiatives to help continue supporting local communities.",
-  "main.seo.cardDescription": "Welcome to the official website of Bakely. For all the latest news, updates and initiatives to help continue supporting local communities.",
+  "main.seo.description": "Welcome to the official website of Bakely. Try our wonderful pastries! We offer a wide range of cakes, pies, cupcakes, cheesecakes, and more.",
+  "main.seo.cardDescription": "Welcome to the official website of Bakely. Try our wonderful pastries! We offer a wide range of cakes, pies, cupcakes, cheesecakes, and more.",
   "main.seo.imgAlt": "Bakely’s logo.",
 
   "modal.activation.notActive.header": "Your account is inactive",
-  "modal.activation.notActive.body": "You must activate your account to sign in. Check your email and follow the link which is sent to you.",
-  "modal.activation.activate.header": "Activate your account",
-  "modal.activation.activate.body": "We've sent you an email with an activation link. Follow it and then you'll be able to sign in.",
+  "modal.activation.notActive.body": "You must activate Your account to sign in. Check Your email and follow the link which is sent to You.",
+  "modal.activation.activate.header": "Activate Your account",
+  "modal.activation.activate.body": "We've sent You an email with an activation link. Follow it and then You'll be able to sign in.",
 
   "news.header": "Press Releases",
 
   "news.seo.title": "Bakely - News",
-  "news.seo.description": "Bakely - News",
+  "news.seo.description": "Bakely - News.",
 
-  "orderForm.introduction.header": "We need Your contact data.",
-  "orderForm.introduction.delivery": "If you also want us to deliver your bakery, you need to provide your delivery address.",
+  "orderForm.introduction.header": "Enter Your contact data",
+  "orderForm.introduction.delivery": "If You also want us to deliver Your pastry, You need to provide Your delivery address.",
   "orderForm.contact.header": "Add Your contact data.",
   "orderForm.contact.or": "OR",
-  "orderForm.delivery.client.header": "Add your delivery info.",
+  "orderForm.delivery.client.header": "Add Your delivery info.",
   "orderForm.selfPickUp.header": "Choose a bakery for sef-pick-up.",
   "orderForm.success.header": "Success!",
-  "orderForm.success.message.delivery": "Dear {{name}}, Your order will be prepared in next hour. We are waiting for you from 8am to 9pm until {{date}} at {{bakery}}! Have a nice day)",
-  "orderForm.success.message.selfPickUp": "Dear {{name}}, Your order will be delivered in next 2 hours. Have a nice day)",
-  "orderForm.success.comment.characters": "Remaining characters:",
+  "orderForm.success.message.delivery": "Dear {{name}}, Your order will be prepared in 30 minutes. We are waiting for You from 8am to 9pm until {{date}} at {{bakery}}! Have a nice day)",
+  "orderForm.success.message.selfPickUp": "Dear {{name}}, Your order will be delivered in next hour. Have a nice day)",
 
   "shopAll.header": "Choose Category",
   "shopAll.bars": "Bars",
@@ -279,20 +260,19 @@
   "shopAll.pies": "Pies",
   "shopAll.giftBoxes": "Gift boxes",
 
-  "shopAll.seo.title": "Bakely - Locations | Kyiv",
+  "shopAll.seo.title": "Bakely - Categories",
   "shopAll.seo.description": "Discover the Bakely’s Menu, with every one of our cakes, pies, cupcakes, and more.",
   "shopAll.seo.cardDescription": "Discover the Bakely’s Menu, with every one of our cakes, pies, cupcakes, and more.",
   "shopAll.seo.imgAlt": "Bakely’s logo.",
 
   "productsList.price": "For only {{price}}$",
-  "productsList.priceDiscounted": "NOW for only {{price}}$",
   "productsList.oldPrice": "Was {{price}}$",
 
-  "productsList.seo.title": "| Bakely",
-  "productsList.seo.description": "Now you can treat and surprise yourself with even more items from our menu.",
-  "productsList.seo.cardDescription": "Now you can treat and surprise yourself with even more items from our menu.",
+  "productsList.seo.title": "Bakely - {{category}}",
+  "productsList.seo.description": "Now You can treat and surprise yourself with even more items from our menu.",
+  "productsList.seo.cardDescription": "Now You can treat and surprise yourself with even more items from our menu.",
 
-  "productPage.orders": "Orders require up to 12 hours",
+  "productPage.orders": "Orders are processed up to one hour",
   "productPage.deliveryInfo": "Delivery Information",
   "productPage.contactUs": "Need more? Contact us!",
   "productPage.ingredients": "Ingredients:",
@@ -300,23 +280,19 @@
   "productPage.similar": "Similar products:",
 
   "productPage.addToCart": "Add To Cart",
-  "productPage.header": "Choose Category",
-
-  "productPage.seo.title": "| Bakely",
 
   "signUp.header": "Sign Up",
-  "signUp.success.message": "Congrats, now You have an account! All You need ",
-  "signUp.link": "Already have an account? Log in!",
+  "signUp.link.login": "Already have an account? Log in!",
 
   "signUp.seo.title": "Bakely - Sign Up",
   "signUp.seo.description": "Create an account and get full access to all the features.",
 
   "login.header": "Login",
   "login.button": "Log in",
-  "login.link": "Don`t have an account yet? Create one!",
+  "login.link.signUp": "Don`t have an account yet? Create one!",
 
   "login.seo.title": "Bakely - Log In",
-  "login.seo.description": "Access all the features by logging in with your user account.",
+  "login.seo.description": "Access all the features by logging in with Your user account.",
 
   "homepage.orders.header": "Your orders",
 
@@ -333,7 +309,7 @@
   "homepage.selectCity": "-- Select city",
 
   "homepage.seo.title": "Bakely - Homepage",
-  "homepage.seo.description": "Register an account or log in if you have one.",
+  "homepage.seo.description": "Register an account or log in if You have one.",
 
   "label.firstName": "First name:",
   "label.lastName": "Last name:",
@@ -355,50 +331,35 @@
   "label.message": "Message:",
   "label.comment": "Comment:",
 
-  "tooltip.header.firstName": "First name tooltip.",
-  "tooltip.header.lastName": "Last name tooltip.",
-  "tooltip.header.email": "Email tooltip.",
-  "tooltip.header.oldEmail": "Old email tooltip.",
-  "tooltip.header.tel": "Telephone number tooltip.",
-  "tooltip.header.oldTel": "Old telephone number tooltip.",
-  "tooltip.header.password": "Password tooltip.",
-  "tooltip.header.oldPassword": "Old password tooltip.",
-  "tooltip.header.passwordVerification": "Password verification tooltip.",
-  "tooltip.header.telNum": "Telephone number tooltip.",
-  "tooltip.header.city": "City tooltip.",
-  "tooltip.header.street": "Street tooltip.",
-  "tooltip.header.houseNum": "House number tooltip.",
-  "tooltip.header.flatNum": "Flat number tooltip.",
-  "tooltip.header.message": "Message tooltip.",
-  "tooltip.header.comment": "Comment tooltip.",
-  "tooltip.name": "Use only latin or cyrillic alphabet, hyphens and spaces.",
-  "tooltip.email": "Use any valid email. Local part mustn't be longer than 63 characters, domain mustn't be longer than 190 characters.",
-  "tooltip.oldEmail": "Enter your previous email.",
+  "tooltip.header": "Tooltip.",
+  "tooltip.name": "Use only Latin, Cyrillic, hyphens and spaces.",
+  "tooltip.email": "Use any valid email. Local part mustn't be longer than 63 characters, the domain mustn't be longer than 190 characters.",
+  "tooltip.oldEmail": "Enter Your previous email.",
   "tooltip.password": "Use at least 1 uppercase and 1 lowercase letter, 1 digit and 1 special symbol (%@?№$^). Minimum length - 8 characters, maximum - 30 characters.",
   "tooltip.passwordVerification": "Repeat Your password.",
-  "tooltip.oldPassword": "Enter your previous password.",
+  "tooltip.oldPassword": "Enter Your previous password.",
   "tooltip.telNumOrHouseOrFlatNum": "Use only digits.",
-  "tooltip.oldTel": "Enter your previous telephone number.",
+  "tooltip.oldTel": "Enter Your previous telephone number.",
   "tooltip.city": "Choose one from the list of served cities.",
-  "tooltip.street": "Use only latin or cyrillic alphabet, hyphens and spaces.",
+  "tooltip.street": "Use only Latin, Cyrillic, hyphens and spaces.",
   "tooltip.message": "Type Your message to us.",
   "tooltip.comment": "Type any information that we should know.",
 
-  "overlay.getting": "Loading content...",
   "overlay.sending": "Sending Your data...",
+  "overlay.loading": "Loading content...",
 
   "ariaLabel.close": "Close",
-  "ariaLabel.showProductImage": "Show product image",
   "ariaLabel.prev": "Previous page",
   "ariaLabel.next": "Next page",
   "ariaLabel.login": "Log in button",
-  "ariaLabel.orderForm.delivery": "Delivery option.",
-  "ariaLabel.orderForm.selfPickUp": "Self-pick-up option.",
+  "ariaLabel.orderForm.delivery": "Delivery.",
+  "ariaLabel.orderForm.selfPickUp": "Self-pick-up.",
 
   "button.close": "Close",
   "button.prev": "Previous",
   "button.next": "Next",
   "button.submit": "Submit",
+  "button.top": "Scroll to the top",
   "button.tooltip": "Tooltip",
   "button.subscribe": "Subscribe",
   "button.orderForm.delivery": "Delivery",
@@ -406,19 +367,46 @@
   "button.orderForm.selectAddress": "Select address",
   "button.orderForm.addAddress": "Add address",
 
-  "navbar.order": "Order Online",
+  "navbar.order": "Menu",
   "navbar.catering": "Catering",
-  "navbar.locations": "Locations",
+  "navbar.locations": "Bakeries",
 
   "navbar.ariaLabel.main": "Link to the main page.",
   "navbar.ariaLabel.logOut": "Log out.",
   "navbar.ariaLabel.login": "Link to login page.",
   "navbar.ariaLabel.homepage": "Link to the homepage.",
   "navbar.ariaLabel.cart": "Show cart.",
-  "navbar.ariaLabel.langButton": "Select your preferred language.",
+  "navbar.ariaLabel.langButton": "Select Your preferred language.",
   "navbar.ariaLabel.langButton.en": "English language.",
   "navbar.ariaLabel.langButton.ru": "Russian language.",
   "navbar.ariaLabel.langButton.ua": "Ukrainian language.",
+
+  "footer.header.legal": "Trust",
+  "footer.header.info": "Information",
+  "footer.header.about": "About Us",
+  "footer.header.social": "Follow Bakely",
+
+  "footer.links.cooPol": "Cookie Policy",
+  "footer.links.privPol": "Privacy Policy",
+  "footer.links.termsCond": "Terms & Conditions",
+
+  "footer.links.faq": "FAQ",
+  "footer.links.orders": "Orders",
+  "footer.links.delivery": "Delivery",
+  "footer.links.attr": "Attribution",
+  "footer.links.news": "News",
+  "footer.links.history": "History",
+  "footer.links.gallery": "Gallery",
+  "footer.links.contacts": "Contacts",
+
+  "footer.social.ariaLabel.facebook": "Our Facebook page",
+  "footer.social.ariaLabel.instagram": "Our Instagram page",
+  "footer.social.ariaLabel.telegram": "Our Telegram channel",
+  "footer.social.ariaLabel.twitter": "Our Twitter page",
+
+  "footer.rights": "All rights reserved 2007-2021",
+
+  "customer": "customer",
   "city": "City",
   "street": "street",
   "flat": "flat",
@@ -428,6 +416,16 @@
   "icons": "Icons",
   "photos": "Photos",
   "open": "Open",
-  "closed": "Closed"
-}
+  "closed": "Closed",
+  "item": "item",
+  "items": "items",
+  "click": "Click it",
+  "hover": "Hover it",
+  "select.bakery": "-- Select a bakery",
+  "remaining.characters": "Remaining characters:",
+  "placeOrder": "Place order",
+  "workingHours": "Working Hours",
 
+  "verification.header": "Successful Verification",
+  "verification.text": "Your account was successfully verified! Now you can log in."
+}
