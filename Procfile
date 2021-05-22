@@ -2,4 +2,4 @@ web: webpack --mode production --config webpack.prod.config.js && webpack --mode
 
 heroku ps:scale web=0
 heroku ps:scale worker=1
-worker: node src/index.js
+worker: node dist/server.js
