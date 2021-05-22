@@ -27,6 +27,8 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+console.log(process.env.PORT);
+
 app.listen(process.env.PORT, () => {
   console.log(`Server is listening on port ${(process.env.PORT)}`);
 });
