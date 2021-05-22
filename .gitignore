@@ -10,7 +10,7 @@ public/img/*
 /node_modules
 /.pnp
 .pnp.js
-.rar
+/.rar
 # testing
 /coverage
 
