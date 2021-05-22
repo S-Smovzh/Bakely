@@ -22,42 +22,42 @@
 
 @media only screen and (min-width: 1200px) {
   .Attr-Page {
-    grid-template-rows: $mainPadding 300px minmax(10px, 1fr) $mainPadding;
+    grid-template-rows: $mainPadding 200px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .Attr-Page {
-    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-rows: $mainPadding 200px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .Attr-Page {
-    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-rows: $mainPadding 200px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 5) minmax(10px, 1fr) calc(#{$standard} * 5);
   }
 }
 
 @media only screen and (max-width: 768px) {
   .Attr-Page {
-    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-rows: $mainPadding 300px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
   }
 }
 
 @media only screen and (max-width: 480px) {
   .Attr-Page {
-    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-rows: $mainPadding 350px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }
 }
 
 @media only screen and (max-width: 320px) {
   .Attr-Page {
-    grid-template-rows: $mainPadding 100px minmax(10px, 1fr) $mainPadding;
+    grid-template-rows: $mainPadding 400px minmax(10px, 1fr) $mainPadding;
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
   }
 }

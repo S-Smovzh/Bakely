@@ -17,37 +17,37 @@
 
 @media only screen and (min-width: 1200px) {
   .Attr-Page {
-    grid-template-rows: calc(7px * 10) 300px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: calc(7px * 10) 200px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .Attr-Page {
-    grid-template-rows: calc(7px * 10) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: calc(7px * 10) 200px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .Attr-Page {
-    grid-template-rows: calc(7px * 10) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: calc(7px * 10) 200px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 5) minmax(10px, 1fr) calc(7px * 5);
   }
 }
 @media only screen and (max-width: 768px) {
   .Attr-Page {
-    grid-template-rows: calc(7px * 10) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: calc(7px * 10) 300px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
   }
 }
 @media only screen and (max-width: 480px) {
   .Attr-Page {
-    grid-template-rows: calc(7px * 10) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: calc(7px * 10) 350px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
 }
 @media only screen and (max-width: 320px) {
   .Attr-Page {
-    grid-template-rows: calc(7px * 10) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: calc(7px * 10) 400px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
 }

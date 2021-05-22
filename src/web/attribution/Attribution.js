@@ -9,7 +9,7 @@ export default function Attribution() {
   return (
     <div className="Attr-Page Grid Nunito">
       <header className="B-T T-C Flex J-C-C A-I-C F-F-C-N F-W">
-        <h1>
+        <h1 className="h3-size">
           {t('attribution.header')}
         </h1>
         <h2 className="h5-size">
