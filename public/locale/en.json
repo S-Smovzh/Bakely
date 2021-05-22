@@ -362,6 +362,7 @@
   "button.top": "Scroll to the top",
   "button.tooltip": "Tooltip",
   "button.subscribe": "Subscribe",
+  "button.notification": "Notifications",
   "button.orderForm.delivery": "Delivery",
   "button.orderForm.selfPickUp": "Self-pick-up",
   "button.orderForm.selectAddress": "Select address",
