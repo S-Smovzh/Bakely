@@ -14,7 +14,7 @@ export default function Attribution() {
         </h1>
         <h2 className="h5-size">
           {t('attribution.main')}
-          <a href="mailto:sergiom33033@gmail.com">
+          <a className="h6-size" href="mailto:sergiom33033@gmail.com">
             {' sergiom33033@gmail.com'}
           </a>
         </h2>
