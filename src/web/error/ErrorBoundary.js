@@ -4,7 +4,6 @@ import error from '../../assets/images/svg/internal-error.svg';
 import { Animation } from '../UI-components/animation/Animation';
 import { logError } from './errorHandler';
 import Head from '../head/Head';
-import './Error.css';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {

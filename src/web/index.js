@@ -12,6 +12,7 @@ import './css/bootstrap.min.css';
 import './css/base/Effects.css';
 import './css/base/Colors.css';
 import './css/base/App.css';
+import './error/Error.css';
 import './css/index.css';
 import './utils/i18n';
 import App from './App';

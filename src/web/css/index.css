@@ -57,48 +57,56 @@ a, button, .T-C {
   src: local("Nunito-Black"), url(../../assets/fonts/Nunito/Nunito-Black.woff2) format("woff2");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
   src: local("Nunito-BlackItalic"), url(../../assets/fonts/Nunito/Nunito-BlackItalic.woff2) format("woff2");
   font-weight: 900;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
   src: local("Nunito-SemiBold"), url(../../assets/fonts/Nunito/Nunito-SemiBold.woff2) format("woff2");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
   src: local("Nunito-SemiBoldItalic"), url(../../assets/fonts/Nunito/Nunito-SemiBoldItalic.woff2) format("woff2");
   font-weight: 600;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
   src: local("Nunito-Light"), url(../../assets/fonts/Nunito/Nunito-Light.woff2) format("woff2");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Nunito";
   src: local("Nunito-LightItalic"), url(../../assets/fonts/Nunito/Nunito-LightItalic.woff2) format("woff2");
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Playfair Display";
   src: local("Playfair-Black"), url(../../assets/fonts/Playfair/PlayfairDisplay-Black.woff2) format("woff2");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Playfair Display";
   src: local("Playfair-SemiBold"), url(../../assets/fonts/Playfair/PlayfairDisplay-SemiBold.woff2) format("woff2");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 html {
   scroll-behavior: smooth;

@@ -10,9 +10,9 @@ import user from '../../../assets/images/icons/user.svg';
 import list from '../../../assets/images/icons/list.svg';
 import { NavbarMenuContext } from '../../context/navbar-menu/NavbarMenuContext';
 import useWindowDimensions, { isTouchDevice } from '../../utils/isTouchDevice';
+import LanguageButton from '../button/language/LanguageButton';
 import CartContext from '../../context/cart/CartContext';
 import AuthContext from '../../context/auth/AuthContext';
-import LanguageButton from '../button/language/LanguageButton';
 
 export const Navbar = () => {
   const [ t ] = useTranslation();
@@ -87,7 +87,7 @@ export const Navbar = () => {
                       <li>
                         <Link to={`/${i18n.language}/user/homepage`} className="Btn-P Btn-I"
                           aria-label={t('navbar.ariaLabel.homepage')}>
-                          <img src={homepage} alt="\" className="Icon"/>
+                          <img src={homepage} alt="" className="Icon"/>
                         </Link>
                       </li>
                     )
@@ -99,7 +99,8 @@ export const Navbar = () => {
                     onClick={() => {
                               cartContext.showCart(!cartContext.show);
                               cartContext.loadProducts();
-                            }} aria-label={t('navbar.ariaLabel.cart')}>
+                            }}
+                    aria-label={t('navbar.ariaLabel.cart')}>
                     <div>
                       {cartContext.cart && cartContext.cart.length}
                     </div>
@@ -157,7 +158,8 @@ export const Navbar = () => {
                       onClick={() => {
                               cartContext.showCart(!cartContext.show);
                               cartContext.loadProducts();
-                            }} aria-label={t('navbar.ariaLabel.cart')}>
+                            }}
+                      aria-label={t('navbar.ariaLabel.cart')}>
                       <div>
                         {cartContext.cart && cartContext.cart.length}
                       </div>

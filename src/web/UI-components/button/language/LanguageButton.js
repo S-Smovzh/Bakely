@@ -74,7 +74,8 @@ export default function LanguageButton() {
                   setToggle(true);
                 }
                 setClicksCount(clicksCount + 1);
-              }} buttonRef={toggleRef} aria-label={t('navbar-menu.ariaLabel.langButton')}>
+              }}
+        buttonRef={toggleRef} ariaLabel={t('navbar.ariaLabel.langButton')}>
         <img src={world} alt="" className="Icon"/>
       </Button>
 
@@ -101,7 +102,7 @@ export default function LanguageButton() {
               <button key={index} className="D-I Flex J-C-C A-I-C Btn-S Btn-I-D"
                 type="button" data-lang={item}
                 onClick={(event) => setLanguageCookie(event)}
-                aria-label={t(`navbar-menu.ariaLabel.langButton.${item}`)}>
+                aria-label={t(`navbar.ariaLabel.langButton.${item}`)}>
                 <img src={flag}
                   alt="" className="Icon-Flag"
                 />

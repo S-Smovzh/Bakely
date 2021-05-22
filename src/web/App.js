@@ -104,7 +104,7 @@ export default function App() {
   }
 
   return (
-    <ErrorBoundary handleReturn={() => history.push({ pathname: '/en/' })}>
+    <ErrorBoundary handleReturn={() => history.push({ pathname: `/${i18n.language}` })}>
       <BrowserRouter>
         <CloudinaryContext cloudName={process.env.CLOUDINARY_CLOUD}>
           <I18nextProvider i18n={i18n}>

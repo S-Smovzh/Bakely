@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import notFound from '../../assets/images/svg/internal-error.svg';
 import { Animation } from '../UI-components/animation/Animation';
 import Head from '../head/Head';
-import './Error.css';
 
 export default function PageNotFound() {
   const history = useHistory();

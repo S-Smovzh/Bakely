@@ -35,9 +35,15 @@ export default function NotificationButton({ children }) {
     }
     setToastsCount(Array.from(toastsMap).filter(Boolean).length);
 
+    console.log('toast');
+
     if (Array.from(toastsMap).filter(Boolean).length === 0) {
+      console.log('false');
+
       setShow(false);
     } else {
+      console.log('true');
+
       setShow(true);
     }
   }, [ toastContext ]);
