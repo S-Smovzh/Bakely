@@ -4,7 +4,7 @@ import path from 'path';
 
 const app = express();
 
-dotenv.config({ path: '../../.env' });
+dotenv.config({ path: '.env' });
 
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.br';
