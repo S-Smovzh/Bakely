@@ -5,7 +5,7 @@ module.exports = (api) => {
   return {
     plugins: [
       '@babel/plugin-syntax-dynamic-import',
-      '@loadable/babel-plugin',
+      // '@loadable/babel-plugin',
       ['@babel/plugin-transform-modules-commonjs', {
         'allowTopLevelThis': true
       } ],
