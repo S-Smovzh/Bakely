@@ -2,9 +2,9 @@
 
 /.idea
 /public/img
-!/public/img/logo.svg
-!/public/img/spinner.gif
-!/public/img/manifest-icons
+!public/img/logo.svg
+!public/img/spinner.gif
+!public/img/manifest-icons
 
 # dependencies
 /node_modules
