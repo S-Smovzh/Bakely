@@ -32,13 +32,13 @@ module.exports = (api) => {
       // },
       'production': {
         'plugins': [
-          'transform-react-remove-prop-types',
+          ['transform-react-remove-prop-types',
           {
             'mode': 'wrap',
             'ignoreFilenames': [
               'node_modules'
             ]
-          }
+          } ]
         ]
       }
     }
