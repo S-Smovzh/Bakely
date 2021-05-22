@@ -2,9 +2,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 
+dotenv.config({ path: '../.env' });
+
 const app = express();
 
-dotenv.config();
+const port = process.env.PORT || 80;
 
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.br';
@@ -27,8 +29,6 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-console.log(process.env.PORT);
-
-app.listen(process.env.PORT, '0.0.0.0', () => {
-  console.log(`Server is listening on port ${(process.env.PORT)}`);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
