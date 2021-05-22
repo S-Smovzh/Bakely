@@ -9,7 +9,7 @@
 }
 .Attr-Page .B-M {
   grid-area: 3/2/4/3;
-  row-gap: calc(7px * 8);
+  row-gap: calc(7px * 16);
 }
 .Attr-Page .B-M .Flex {
   row-gap: calc(7px * 6);
@@ -17,7 +17,7 @@
 
 @media only screen and (min-width: 1200px) {
   .Attr-Page {
-    grid-template-rows: calc(7px * 10) 100px minmax(10px, 1fr) calc(7px * 10);
+    grid-template-rows: calc(7px * 10) 300px minmax(10px, 1fr) calc(7px * 10);
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
 }

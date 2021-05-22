@@ -21,7 +21,7 @@
   overflow-y: hidden;
   overflow-y: -moz-hidden-unscrollable;
   -ms-overflow-y: hidden;
-  z-index: 1000;
+  z-index: 899;
   transition: transform 200ms ease-out;
   transform-origin: 0 0;
 }
