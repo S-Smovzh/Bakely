@@ -82,11 +82,12 @@
     "workbox-webpack-plugin": "^6.1.5"
   },
   "scripts": {
-    "run": "node ./dist/server.js",
+    "postinstall": "webpack --mode production --config webpack.prod.config.js &&webpack --mode production --config webpack.server.config.js",
+    "start": "node ./dist/server.js",
     "lint": "eslint --fix --ext .js .",
     "buildServer": "webpack --mode production --config webpack.server.config.js ",
     "buildDev": " webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js && node ./dist/server.js",
-    "start": "webpack --mode production --config webpack.prod.config.js &&webpack --mode production --config webpack.server.config.js && node ./dist/server.js",
+    "buildProd": "webpack --mode production --config webpack.prod.config.js &&webpack --mode production --config webpack.server.config.js && node ./dist/server.js",
     "buildSSRServer": "webpack --mode development --config webpack.server.ssr.config.js ",
     "buildSSRDev": " webpack --mode development --config webpack.server.ssr.config.js && webpack --mode development --config webpack.dev.ssr.config.js",
     "buildSSRProd": "webpack --mode production --config webpack.server.ssr.config.js && webpack --mode production --config webpack.prod.ssr.config.js"
