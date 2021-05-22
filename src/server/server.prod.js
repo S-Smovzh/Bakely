@@ -4,7 +4,7 @@ import path from 'path';
 
 const app = express();
 
-dotenv.config({ path: '../.env' });
+dotenv.config({ path: './../.env' });
 
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.br';
@@ -28,5 +28,5 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(process.env.PORT, '0.0.0.0', () => {
-  console.log(`Server is listening on port ${(process.env.PORT || 3000)}`);
+  console.log(`Server is listening on port ${(process.env.PORT)}`);
 });
