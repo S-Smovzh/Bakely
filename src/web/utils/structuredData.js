@@ -77,7 +77,7 @@ export const structuredDataList = {
         'opens': '08:00',
         'closes': '20:00'
       }
-    ],
+    ]
     // 'sameAs': [process.env.PUBLIC_URL, process.env.PUBLIC_URL_SECURE]
   }),
   product: (name, description, img, price) => ({
