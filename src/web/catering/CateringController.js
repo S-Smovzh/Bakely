@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { lazy, useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import loadable from '@loadable/component';
 import i18n from 'i18next';
 import axios from 'axios';
 import { ModalContext } from '../context/modal/ModalContext';
@@ -10,7 +9,7 @@ import { logError } from '../error/errorHandler';
 import './gallery/CateringGallery.css';
 
 import (/* webpackChunkName: "catering", webpackPrefetch: true */ './Catering');
-const CateringGallery = loadable(() =>
+const CateringGallery = lazy(() =>
   import(/* webpackChunkName: "cateringGallery", webpackPrefetch: true */ './gallery/CateringGallery')
 );
 
