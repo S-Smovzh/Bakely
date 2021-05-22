@@ -8,7 +8,7 @@
     grid-area: 1/1/2/2;
     background: $layout-500;
 
-    h5 {
+    h2 {
       color: $primary-700;
     }
 
@@ -16,7 +16,7 @@
       grid-template-columns: minmax(10px, 1fr);
       row-gap: $standard;
 
-      h5 {
+      h2 {
         grid-area: 1/1/2/2;
       }
 
@@ -54,7 +54,7 @@
         }
       }
 
-      h5 {
+      h2 {
         @extend %textCenter;
       }
 

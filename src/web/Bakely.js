@@ -42,7 +42,7 @@ function Bakely() {
   const [firstRefresh, setFirstRefresh] = useState(true);
   const [translatePixels, setTranslatePixels] = useState(-220);
   const menuContext = useContext(NavbarMenuContext);
-  const toastContext = useContext(ToastContext);
+  const { toast } = useContext(ToastContext);
   const authContext = useContext(AuthContext);
   const cartContext = useContext(CartContext);
   const location = useLocation();
@@ -59,12 +59,13 @@ function Bakely() {
 
   useEffect(() => {
     if (cartContext.show || (width < 481 && menuContext.show)
-      || (width > 768 && (toastContext.showCookie || toastContext.showSubscription || toastContext.verified))) {
+      || (width < 768 && (toast.showCookie || toast.showSubscription || toast.verified)
+        && document.getElementsByClassName('Toast-Stack-Reveal').length > 0)) {
       document.getElementById('root').classList.add('Block-Scrolling');
     } else {
       document.getElementById('root').classList.remove('Block-Scrolling');
     }
-  }, [cartContext, menuContext, toastContext]);
+  }, [cartContext, menuContext, toast]);
 
   useEffect(() => {
     const language = navigator.languages && navigator.languages[0] ||
@@ -169,8 +170,8 @@ function Bakely() {
       {width < 1851 && (
         <NotificationButton>
           {/* eslint-disable-next-line max-len */}
-          <div ref={toastRef} className={`Toasts-Stack ${!toastContext.verified && !toastContext.showCookie && !toastContext.showSubscription ? 'None' : '' }`}>
-            {toastContext.showCookie ?
+          <div ref={toastRef} className="Toasts-Stack">
+            {toast.showCookie ?
               <Cookie/>
               : null}
             {(typeof window !== 'undefined' && localStorage.getItem(btoa('cookies')) &&
@@ -178,7 +179,7 @@ function Bakely() {
               ?
               delay(6000) && <Subscribe/>
               : null}
-            {toastContext.verified ?
+            {toast.verified ?
               <Verification/>
               : null}
           </div>

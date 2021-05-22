@@ -6,7 +6,7 @@
   display: -o-flex;
 }
 
-.Footer > .Footer-T .Social-Media h5 {
+.Footer > .Footer-T .Social-Media h2 {
   text-align: center;
   text-align: -moz-center;
   text-align: -webkit-center;
@@ -25,14 +25,14 @@
   grid-area: 1/1/2/2;
   background: #ffe7ce;
 }
-.Footer > .Footer-T h5 {
+.Footer > .Footer-T h2 {
   color: #711604;
 }
 .Footer > .Footer-T .Legal, .Footer > .Footer-T .Info, .Footer > .Footer-T .About-Us, .Footer > .Footer-T .Social-Media {
   grid-template-columns: minmax(10px, 1fr);
   row-gap: 7px;
 }
-.Footer > .Footer-T .Legal h5, .Footer > .Footer-T .Info h5, .Footer > .Footer-T .About-Us h5, .Footer > .Footer-T .Social-Media h5 {
+.Footer > .Footer-T .Legal h2, .Footer > .Footer-T .Info h2, .Footer > .Footer-T .About-Us h2, .Footer > .Footer-T .Social-Media h2 {
   grid-area: 1/1/2/2;
 }
 .Footer > .Footer-T .Legal .L-L, .Footer > .Footer-T .Info .L-L, .Footer > .Footer-T .About-Us .L-L, .Footer > .Footer-T .Social-Media .L-L {

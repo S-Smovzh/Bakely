@@ -9,26 +9,35 @@ import './NotificationButton.css';
 // eslint-disable-next-line react/prop-types
 export default function NotificationButton({ children }) {
   const [animationActive, setAnimationActive] = useState(false);
+  const [displayToasts, setDisplayToasts] = useState(false);
   const [toastsCount, setToastsCount] = useState(0);
   const [show, setShow] = useState(false);
   const [ t ] = useTranslation();
   const { overlay, setOverlay } = useContext(NotificationOverlayContext);
-  const toastContext = useContext(ToastContext);
+  const { toast } = useContext(ToastContext);
+
+  useEffect(() => {
+    if (toast.verified || toast.showCookie || toast.showSubscription) {
+      timer(100).subscribe(() => setDisplayToasts(true));
+    } else {
+      setDisplayToasts(false);
+    }
+  }, [ toast ]);
 
   useEffect(() => {
     const toastsMap = new Map([]);
 
-    if (toastContext.showCookie) {
+    if (toast.showCookie) {
       toastsMap.set('cookie', true);
     } else {
       toastsMap.delete('cookie');
     }
-    if (toastContext.showSubscription && !toastContext.showCookie) {
+    if (toast.showSubscription && !toast.showCookie) {
       toastsMap.set('subscribe', true);
     } else {
       toastsMap.delete('subscribe');
     }
-    if (toastContext.verified) {
+    if (toast.verified) {
       toastsMap.set('verified', true);
     } else {
       toastsMap.delete('verified');
@@ -38,7 +47,7 @@ export default function NotificationButton({ children }) {
     console.log('toast');
 
     if (Array.from(toastsMap).filter(Boolean).length === 0) {
-      console.log('false');
+      console.log('false', toastsMap);
 
       setShow(false);
     } else {
@@ -46,7 +55,7 @@ export default function NotificationButton({ children }) {
 
       setShow(true);
     }
-  }, [ toastContext ]);
+  }, [ toast ]);
 
   useEffect(() => {
     if (toastsCount > 0) {
@@ -80,10 +89,8 @@ export default function NotificationButton({ children }) {
               <span>{toastsCount}</span>
             </div>
           </Button>
-          <div className={`Ov Flex J-C-C A-I-C F-F-C-N 
-          ${(overlay.show !== 2 && (overlay.show
-              ? 'Toast-Stack-Reveal'
-              : 'Toast-Stack-Disappear'))}`}>
+          {/* eslint-disable-next-line max-len */}
+          <div className={`Ov Flex J-C-C A-I-C F-F-C-N ${displayToasts ? '' : 'None'} ${(overlay.show !== 2 && (overlay.show ? 'Toast-Stack-Reveal' : 'Toast-Stack-Disappear'))}`}>
             {children}
           </div>
         </React.Fragment>

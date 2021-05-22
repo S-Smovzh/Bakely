@@ -2,15 +2,13 @@ global.Promise = require('bluebird');
 const path = require('path');
 const webpack = require('webpack');
 const zlib = require('zlib');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 
 module.exports = {
@@ -34,11 +32,9 @@ module.exports = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
-    // new DuplicatePackageCheckerPlugin(),
     new webpack.ProvidePlugin({
       process: 'process/browser'
     }),
-    new BundleAnalyzerPlugin(),
     new WorkboxPlugin.InjectManifest({
       swSrc: './src/utils/sw.js',
       swDest: 'sw.js'
@@ -47,7 +43,6 @@ module.exports = {
       filename: '[name][ext].br',
       algorithm: 'brotliCompress',
       test: /\.js$|css$/,
-      // include: ,
       compressionOptions: {
         params: {
           [zlib.constants.BROTLI_PARAM_QUALITY]: 11
