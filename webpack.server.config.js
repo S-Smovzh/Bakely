@@ -14,7 +14,7 @@ module.exports = (env, argv) => {
     entry: {
       server: SERVER_PATH
     },
-    mode: 'development',
+    mode: 'production',
     output: {
       path: path.join(__dirname, 'dist'),
       publicPath: '/',

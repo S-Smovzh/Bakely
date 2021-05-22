@@ -38,23 +38,24 @@ module.exports = {
     new webpack.ProvidePlugin({
       process: 'process/browser'
     }),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
     new WorkboxPlugin.InjectManifest({
       swSrc: './src/utils/sw.js',
       swDest: 'sw.js'
     }),
     new CompressionPlugin({
-      filename: '[name][ext].gz',
+      filename: '[name][ext].br',
       algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg|woff2|png)$/,
+      test: /\.js$|css$/,
+      // include: ,
       compressionOptions: {
         params: {
           [zlib.constants.BROTLI_PARAM_QUALITY]: 11
         }
       },
-      threshold: 10240,
+      // threshold: 10240,
       minRatio: 0.8,
-      deleteOriginalAssets: false
+      deleteOriginalAssets: true
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -62,6 +63,7 @@ module.exports = {
         { from: './public/img/spinner.gif', to: 'img/spinner.gif' },
         { from: './public/manifest.json', to: 'manifest.json' },
         { from: './public/locale', to: 'locale' },
+        { from: './public/robots.txt', to: 'robots.txt' },
         { from: './public/img/manifest-icons', to: 'img/manifest-icons' }
       ]
     }),
@@ -111,6 +113,18 @@ module.exports = {
           loader: 'file-loader',
           options: {
             outputPath: 'fonts/',
+            name: '[name].[ext]',
+            emitFile: true
+          }
+        }
+        ]
+      },
+      {
+        test: /\.gif$/,
+        use: [ {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'img/',
             name: '[name].[ext]',
             emitFile: true
           }

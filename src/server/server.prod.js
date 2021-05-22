@@ -1,14 +1,32 @@
-import path from 'path';
 import express from 'express';
+import expressStaticGzip from 'express-static-gzip';
+import path from 'path';
+
+// TODO: делать так, чтобы гзипнулись все файлы и сервер отдавал только гзип
+//  (мб, просто сделать билд, а потом гзипнуть всё в дисте)
 
 const app = express();
+
+// app.use('/*', expressStaticGzip(path.join(__dirname), {}));
+
+app.get('*.js', (req, res, next) => {
+  req.url = req.url + '.br';
+  res.set('content-encoding', 'br');
+  res.set('content-type', 'text/javascript');
+  next();
+});
+
+app.get('*.css', (req, res, next) => {
+  req.url = req.url + '.br';
+  res.set('content-encoding', 'br');
+  res.set('content-type', 'text/css');
+  next();
+});
 
 app.use(express.static(__dirname));
 
 app.get('/*', (req, res) => {
-  // req.url = req.url + '.gz';
-  // res.set('Content-Encoding', 'gzip');
-  res.set('Content-Type', 'text/html');
+  res.set('content-type', 'text/html');
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
