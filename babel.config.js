@@ -16,10 +16,8 @@ module.exports = (api) => {
       '@babel/plugin-transform-classes'
     ],
     presets: [
-      [
-        '@babel/preset-env', { 'targets': { 'node': 'current' } },
-        '@babel/preset-react', { 'targets': { 'node': 'current' } }
-      ]
+      '@babel/preset-env', { 'targets': { 'node': 'current' } },
+      '@babel/preset-react', { 'targets': { 'node': 'current' } }
     ],
     env: {
       // 'development': {
