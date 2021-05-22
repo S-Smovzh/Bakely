@@ -16,29 +16,31 @@ module.exports = (api) => {
       '@babel/plugin-transform-classes'
     ],
     presets: [
-      '@babel/preset-env',
-      '@babel/preset-react'
+        ['@babel/preset-env', { 'targets': { 'node': 'current' } } ],
+        ['@babel/preset-react', { 'targets': { 'node': 'current' } } ]
     ],
     env: {
-      // 'development': {
-      //   'presets': [
-      //     [
-      //       '@babel/preset-react',
-      //       {
-      //         'development': true
-      //       }
-      //     ]
-      //   ]
-      // },
+      'development': {
+        'presets': [
+          [
+            '@babel/preset-react',
+            {
+              'development': true
+            }
+          ]
+        ]
+      },
       'production': {
         'plugins': [
-          ['transform-react-remove-prop-types',
-          {
-            'mode': 'wrap',
-            'ignoreFilenames': [
-              'node_modules'
-            ]
-          } ]
+          [
+            'transform-react-remove-prop-types',
+            {
+              'mode': 'wrap',
+              'ignoreFilenames': [
+                'node_modules'
+              ]
+            }
+          ]
         ]
       }
     }
