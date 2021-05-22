@@ -5,7 +5,10 @@ public/img/*
 !public/img/logo.svg
 !public/img/spinner.gif
 !public/img/manifest-icons
-
+.firebaserc
+/.firebase/*
+/.github/*
+firebase.json
 # dependencies
 /node_modules
 /.pnp
