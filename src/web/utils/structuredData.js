@@ -78,7 +78,7 @@ export const structuredDataList = {
         'closes': '20:00'
       }
     ],
-    'sameAs': [process.env.PUBLIC_URL, process.env.PUBLIC_URL_SECURE, process.env.PUBLIC_URL]
+    // 'sameAs': [process.env.PUBLIC_URL, process.env.PUBLIC_URL_SECURE]
   }),
   product: (name, description, img, price) => ({
     '@context': 'https://schema.org',
