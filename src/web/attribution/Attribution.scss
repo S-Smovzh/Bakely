@@ -1,6 +1,11 @@
 @import "../css/base/Extensions";
 
 .Attr-Page {
+
+  a {
+    word-break: break-all;
+  }
+
   .B-T {
     grid-area: 2/2/3/3;
     grid-template-columns: minmax(10px, 1fr);
@@ -12,7 +17,7 @@
     grid-area: 4/2/5/3;
     row-gap: calc(#{$standard} * 16);
 
-    .Flex{
+    .Flex {
       row-gap: calc(#{$standard} * 6);
     }
   }

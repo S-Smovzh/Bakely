@@ -1,3 +1,6 @@
+.Attr-Page a {
+  word-break: break-all;
+}
 .Attr-Page .B-T {
   grid-area: 2/2/3/3;
   grid-template-columns: minmax(10px, 1fr);
