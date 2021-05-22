@@ -1,8 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 /.idea
-/public/mp4
 /public/img
+!/public/img/logo.svg
+!/public/img/spinner.gif
+!/public/img/manifest-icons
+
 # dependencies
 /node_modules
 /.pnp
