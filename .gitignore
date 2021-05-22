@@ -7,12 +7,12 @@
 /node_modules
 /.pnp
 .pnp.js
-
+.rar
 # testing
 /coverage
 
 # production
-/build
+/dist
 
 # misc
 .DS_Store
