@@ -1,4 +1,5 @@
 global.Promise = require('bluebird');
+const dotenv = require('dotenv');
 const path = require('path');
 const webpack = require('webpack');
 const zlib = require('zlib');
@@ -9,7 +10,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const DotenvPlugin = require('dotenv-webpack');
+// const DotenvPlugin = require('dotenv-webpack');
+
+dotenv.config();
 
 module.exports = {
   mode: 'production',
@@ -66,7 +69,16 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new DotenvPlugin(),
+    // new DotenvPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'CLOUDINARY_CLOUD': JSON.stringify(process.env.CLOUDINARY_CLOUD),
+        'CLOUDINARY_FOLDER': JSON.stringify(process.env.CLOUDINARY_FOLDER),
+        'PORT': JSON.stringify(process.env.PORT),
+        'PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL),
+        'REST_API': JSON.stringify(process.env.REST_API)
+      }
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html'
     })],
