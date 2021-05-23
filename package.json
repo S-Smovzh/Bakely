@@ -4,6 +4,7 @@
   "description": "Front part of Bakely app.",
   "author": "Sergey Smovzh",
   "license": "MIT",
+  "type": "commonjs",
   "main": "dist/server.js",
   "engines": {
     "node": "14.11.0",

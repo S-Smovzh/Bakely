@@ -1,5 +1,4 @@
 global.Promise = require('bluebird');
-const dotenv = require('dotenv');
 const path = require('path');
 const webpack = require('webpack');
 const zlib = require('zlib');
@@ -10,8 +9,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-
-dotenv.config();
 
 module.exports = {
   mode: 'production',
