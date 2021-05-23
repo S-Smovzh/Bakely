@@ -11,7 +11,8 @@ i18n
   .init({
     ns: [ 'common' ],
     defaultNS: 'common',
-    fallbackLng: 'en',
+    supportedLngs: ['en', 'ru', 'ua'],
+    fallbackLng: ['en', 'ru', 'ua'],
     keySeparator: false,
     useLocalStorage: true,
     load: 'languageOnly',
