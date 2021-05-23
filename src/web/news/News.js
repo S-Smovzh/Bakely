@@ -66,7 +66,7 @@ export default function News() {
                   {article.img ? (
                     <div className="Image SVG-Pop-Up Flex J-C-C A-I-C">
                       <CloudinaryImage imageName={article.img} alt={article.imgDescription}
-                        imageHeight={300} folders="press"
+                        imageHeight={300} folders="press" imageWidth="auto:100:500"
                       />
                     </div>
                     )
