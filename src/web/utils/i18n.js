@@ -15,7 +15,7 @@ i18n
     keySeparator: false,
     useLocalStorage: true,
     backend: {
-      loadPath: 'http://localhost:3000/locale/{{lng}}.json',
+      loadPath: '${process.env.PUBLIC_URL}/locale/{{lng}}.json',
       allowMultiLoading: true
     },
     react: {
