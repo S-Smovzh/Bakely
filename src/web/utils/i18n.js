@@ -14,6 +14,7 @@ i18n
     fallbackLng: 'en',
     keySeparator: false,
     useLocalStorage: true,
+    load: 'languageOnly',
     backend: {
       loadPath: 'https://bakkely.herokuapp.com/locale/{{lng}}.json',
       allowMultiLoading: true
