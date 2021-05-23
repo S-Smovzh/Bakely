@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import i18n from 'i18next';
@@ -9,27 +9,24 @@ import logo from '../../../assets/images/icons/logo.svg';
 import user from '../../../assets/images/icons/user.svg';
 import list from '../../../assets/images/icons/list.svg';
 import { NavbarMenuContext } from '../../context/navbar-menu/NavbarMenuContext';
-import useWindowDimensions, { isTouchDevice } from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 import LanguageButton from '../button/language/LanguageButton';
 import CartContext from '../../context/cart/CartContext';
 import AuthContext from '../../context/auth/AuthContext';
+import { useTouchDevice } from '../../utils/useTouchDevice';
 
 export const Navbar = () => {
   const [ t ] = useTranslation();
   const authContext = useContext(AuthContext);
   const cartContext = useContext(CartContext);
   const navbarMenuContext = useContext(NavbarMenuContext);
-  const { height, width } = useWindowDimensions();
-  const [isTouch, setIsTouch] = useState(false);
-
-  useEffect(() => {
-    setIsTouch(isTouchDevice);
-  }, [height, width]);
+  const { width } = useWindowDimensions();
+  const { isTouchDevice } = useTouchDevice();
 
   return (
     <header className="Nav Grid">
       <nav role="navigation" className="Nav-T Grid">
-        {!isTouch ? (
+        {!isTouchDevice ? (
           <React.Fragment>
             <a className="Link helper SkipLink Flex J-C-C A-I-C" href="#main" tabIndex="1000">Skip to main section</a>
             <a className="Link helper SkipLink Flex J-C-C A-I-C" href="#footer" tabIndex="1000">Skip to footer section</a>

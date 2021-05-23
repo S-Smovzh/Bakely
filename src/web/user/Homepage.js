@@ -10,7 +10,7 @@ import CloseButton from '../UI-components/button/close/CloseButton';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
 import { toBinary } from '../utils/base64encoder';
 import { ModalContext } from '../context/modal/ModalContext';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import AuthContext from '../context/auth/AuthContext';
 import errorHandler from '../utils/errorHandler';
 import { logError } from '../error/errorHandler';

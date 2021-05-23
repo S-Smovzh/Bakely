@@ -13,7 +13,7 @@ import emptyCart from '../../assets/images/svg/empty-cart.svg';
 import { ModalContext } from '../context/modal/ModalContext';
 import { clientLinks, userLinks } from '../utils/restLinks';
 import { LoadableOrder } from '../lazy-loaders/LazyLoaders';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { clientConfig } from '../utils/restApiConfigs';
 import useOutsideClick from '../utils/useOutsideClick';
 import CartContext from '../context/cart/CartContext';

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Animation } from '../animation/Animation';
 import ConfirmButton from '../button/ConfirmButton';
 import PropTypes from 'prop-types';
-import useWindowDimensions from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 
 export const Navigation = ({
   confirmAction,

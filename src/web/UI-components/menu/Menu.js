@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { NavbarMenuContext } from '../../context/navbar-menu/NavbarMenuContext';
-import useWindowDimensions from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 import useOutsideClick from '../../utils/useOutsideClick';
 import logo from '../../../assets/images/icons/logo.svg';
 import './Menu.css';

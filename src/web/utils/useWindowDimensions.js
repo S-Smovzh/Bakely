@@ -23,7 +23,3 @@ function _getWindowDimensions() {
     height
   };
 }
-
-export function isTouchDevice() {
-  return matchMedia('(hover: none)').matches;
-}

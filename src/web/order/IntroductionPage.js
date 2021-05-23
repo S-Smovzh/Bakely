@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import CloseButton from '../UI-components/button/close/CloseButton';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { NavigationButtons } from './OrderForm';
 
 // eslint-disable-next-line react/prop-types

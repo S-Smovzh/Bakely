@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import i18n from 'i18next';
-import useWindowDimensions, { isTouchDevice } from '../utils/isTouchDevice';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
-import { Overlay } from '../UI-components/overlay/Overlay';
 import { Animation } from '../UI-components/animation/Animation';
+import { Overlay } from '../UI-components/overlay/Overlay';
+import { useTouchDevice } from '../utils/useTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { Card } from '../UI-components/card/Card';
 import useOnScreen from '../utils/scrollHandler';
 import Head from '../head/Head';
@@ -25,6 +26,7 @@ export default function Catering() {
   }, '35%');
 
   const { width } = useWindowDimensions();
+  const { isTouchDevice } = useTouchDevice();
 
   const cardsData = [
     {
@@ -67,7 +69,7 @@ export default function Catering() {
             {cardsData.map((item, index) => (
               <li key={index} className="F-H">
                 <Card type="no-animation" backType="gray" className="Grid">
-                  <Overlay pictureRef={isTouchDevice() ? null : elementRef}
+                  <Overlay pictureRef={isTouchDevice ? null : elementRef}
                     src={item.src} alt="" imageType="none"
                     link={item.link} linkClassName="Btn Btn-S Btn-Sm-X-W"
                     text={t(item.text)} type="link"
@@ -90,7 +92,7 @@ export default function Catering() {
               {cardsData.map((item, index) => (
                 <Carousel.Item key={index}>
                   <Card type="no-animation" backType="gray" className="Grid">
-                    <Overlay pictureRef={isTouchDevice() ? null : elementRef}
+                    <Overlay pictureRef={isTouchDevice ? null : elementRef}
                       alt="" imageType="none" link={item.link}
                       linkClassName="Btn Btn-S Btn-Sm-X-W" src={item.src}
                       text={t(item.text)} type="link"

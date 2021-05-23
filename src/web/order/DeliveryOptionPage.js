@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { OrderFormContext } from '../context/orderForm/OrderFormContext';
 import CloseButton from '../UI-components/button/close/CloseButton';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import delivery from '../../assets/images/svg/delivery.svg';
 import self from '../../assets/images/svg/self.svg';
 

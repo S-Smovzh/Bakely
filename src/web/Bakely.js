@@ -16,7 +16,7 @@ import { Cookie } from './UI-components/toasts/components/Cookie';
 import { FrameContext } from './context/frame/FrameContext';
 import { ModalContext } from './context/modal/ModalContext';
 import { ToastContext } from './context/toast/ToastContext';
-import useWindowDimensions from './utils/isTouchDevice';
+import useWindowDimensions from './utils/useWindowDimensions';
 import { Navbar } from './UI-components/navbar/Navbar';
 import { Footer } from './UI-components/footer/Footer';
 import AuthContext from './context/auth/AuthContext';

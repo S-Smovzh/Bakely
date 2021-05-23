@@ -9,7 +9,7 @@ import CloseButton from '../UI-components/button/close/CloseButton';
 import { clientConfig } from '../utils/restApiConfigs';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
 import { ModalContext } from '../context/modal/ModalContext';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import AuthContext from '../context/auth/AuthContext';
 import { Input } from '../UI-components/input/Input';
 import errorHandler from '../utils/errorHandler';

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import axios from 'axios';
 import { LoadingOverlay } from '../UI-components/overlay/loading/LoadingOverlay';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { Card } from '../UI-components/card/Card';
 import { publicLinks } from '../utils/restLinks';
 import { logError } from '../error/errorHandler';

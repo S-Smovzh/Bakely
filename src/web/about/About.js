@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-bootstrap';
 import { CloudinaryImage } from '../UI-components/image/CloudinaryImage';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import Head from '../head/Head';
 import './About.css';
 

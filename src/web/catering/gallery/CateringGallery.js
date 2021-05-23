@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { LoadingOverlay } from '../../UI-components/overlay/loading/LoadingOverlay';
 import { ModalContext } from '../../context/modal/ModalContext';
 import { Overlay } from '../../UI-components/overlay/Overlay';
-import { isTouchDevice } from '../../utils/isTouchDevice';
-import useOnScreen from '../../utils/scrollHandler';
+import { useTouchDevice } from '../../utils/useTouchDevice';
 import { Card } from '../../UI-components/card/Card';
+import useOnScreen from '../../utils/scrollHandler';
 import Head from '../../head/Head';
 import './CateringGallery.css';
 
@@ -19,11 +19,12 @@ export default function CateringGallery({ type, data }) {
     data: PropTypes.array.isRequired
   };
 
+  const [ t ] = useTranslation();
   const [events, setEvents] = useState([]);
   const [title, setTitle] = useState(null);
   const { modal, setModal } = useContext(ModalContext);
+  const { isTouchDevice } = useTouchDevice();
   const location = useLocation();
-  const [ t ] = useTranslation();
 
   const [ elementRef ] = useOnScreen({
     root: null,
@@ -76,7 +77,7 @@ export default function CateringGallery({ type, data }) {
           <h1 className="T-C">{title}</h1>
         </section>
         <section id="Overlays" className="B-M Flex A-I-C J-C-C">
-          <ul ref={isTouchDevice() ? null : elementRef} className="Ev-L Flex A-I-F-S J-C-S-A F-F-R-W Nunito">
+          <ul ref={isTouchDevice ? null : elementRef} className="Ev-L Flex A-I-F-S J-C-S-A F-F-R-W Nunito">
             {events && events.map((event) => {
               return (
                 <li key={event.date} className="Event Flex A-I-C J-C-C">

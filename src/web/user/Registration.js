@@ -7,7 +7,7 @@ import axios from 'axios';
 import login from '../../assets/images/svg/login.svg';
 import ConfirmButton from '../UI-components/button/ConfirmButton';
 import { ModalContext } from '../context/modal/ModalContext';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { Input } from '../UI-components/input/Input';
 import { Animation } from '../UI-components/animation/Animation';
 import { Form } from '../UI-components/form/Form';

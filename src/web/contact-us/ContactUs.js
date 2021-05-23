@@ -8,7 +8,7 @@ import ConfirmButton from '../UI-components/button/ConfirmButton';
 import { Textarea } from '../UI-components/textarea/Textarea';
 import { ModalContext } from '../context/modal/ModalContext';
 import { clientLinks, userLinks } from '../utils/restLinks';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { clientConfig } from '../utils/restApiConfigs';
 import AuthContext from '../context/auth/AuthContext';
 import { Input } from '../UI-components/input/Input';

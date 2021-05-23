@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import i18n from 'i18next';
-import useWindowDimensions from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 import instagram from '../../../assets/images/icons/social-media/instagram.svg';
 import facebook from '../../../assets/images/icons/social-media/facebook.svg';
 import telegram from '../../../assets/images/icons/social-media/telegram.svg';

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { CloudinaryImage } from '../image/CloudinaryImage';
-import useWindowDimensions from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 import { imageClasses } from '../../utils/imagesClasses';
 import { Animation } from '../animation/Animation';
 import './Overlay.css';

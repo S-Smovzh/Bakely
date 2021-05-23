@@ -7,10 +7,10 @@ import i18n from 'i18next';
 import axios from 'axios';
 import { LoadingOverlay } from '../UI-components/overlay/loading/LoadingOverlay';
 import mapMarker from '../../assets/images/icons/map-marker.svg';
+import { Animation } from '../UI-components/animation/Animation';
 import { ModalContext } from '../context/modal/ModalContext';
 import { Overlay } from '../UI-components/overlay/Overlay';
-import { isTouchDevice } from '../utils/isTouchDevice';
-import { Animation } from '../UI-components/animation/Animation';
+import { useTouchDevice } from '../utils/useTouchDevice';
 import { Card } from '../UI-components/card/Card';
 import { publicLinks } from '../utils/restLinks';
 import useOnScreen from '../utils/scrollHandler';
@@ -19,15 +19,16 @@ import Head from '../head/Head';
 import './Locations.css';
 
 export default function Locations() {
+  const [ t ] = useTranslation();
   const [locations, setLocations] = useState([]);
   const [map, setMap] = useState(null);
-  const [ t ] = useTranslation();
   const [ elementRef ] = useOnScreen({
     root: null,
     rootMargin: '-30% 0px -40% 0px',
     threshold: 0.1
   }, '40%');
   const { modal, setModal } = useContext(ModalContext);
+  const { isTouchDevice } = useTouchDevice();
   const centreRef = useRef();
   const center = [50.4501811, 30.5299976];
 
@@ -126,7 +127,7 @@ export default function Locations() {
             {t('locations.header')}
           </h1>
         </header>
-        <section ref={isTouchDevice() ? null : elementRef} className="B-M Nunito">
+        <section ref={isTouchDevice ? null : elementRef} className="B-M Nunito">
           <ul className="Loc-L Flex J-C-S-A A-I-C F-F-R-W">
             {locations &&
             locations.map((location) => {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal } from 'react-bootstrap';
 import { handleInternalServerError } from '../../utils/errorHandler';
 import { ModalContext } from '../../context/modal/ModalContext';
-import useWindowDimensions from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 import AuthContext from '../../context/auth/AuthContext';
 import error from '../../../assets/images/svg/internal-error.svg';
 import CloseButton from '../button/close/CloseButton';

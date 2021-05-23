@@ -7,7 +7,7 @@ import axios from 'axios';
 import ConfirmButton from '../../UI-components/button/ConfirmButton';
 import { ModalContext } from '../../context/modal/ModalContext';
 import { publicLinks, userLinks } from '../../utils/restLinks';
-import useWindowDimensions from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 import AuthContext from '../../context/auth/AuthContext';
 import { Input } from '../../UI-components/input/Input';
 import { Form } from '../../UI-components/form/Form';

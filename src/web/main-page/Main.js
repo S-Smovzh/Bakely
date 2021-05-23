@@ -8,7 +8,7 @@ import { HoverTooltip } from '../UI-components/tooltip/HoverTooltip';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
 import { structuredDataList } from '../utils/structuredData';
 import { Overlay } from '../UI-components/overlay/Overlay';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { Animation } from '../UI-components/animation/Animation';
 import Slide from '../UI-components/slide/Slide';
 import Head from '../head/Head';

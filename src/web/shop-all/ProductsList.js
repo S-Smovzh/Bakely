@@ -6,7 +6,7 @@ import axios from 'axios';
 import { LoadingOverlay } from '../UI-components/overlay/loading/LoadingOverlay';
 import { ModalContext } from '../context/modal/ModalContext';
 import { Overlay } from '../UI-components/overlay/Overlay';
-import { isTouchDevice } from '../utils/isTouchDevice';
+import { useTouchDevice } from '../utils/useTouchDevice';
 import { Card } from '../UI-components/card/Card';
 import { publicLinks } from '../utils/restLinks';
 import { logError } from '../error/errorHandler';
@@ -18,12 +18,13 @@ import (/* webpackChunkName: "shopAll", webpackPrefetch: true */ './ShopAll');
 import (/* webpackChunkName: "prodPage", webpackPrefetch: true */ './ProductPage');
 
 export default function ProductsList() {
+  const [ t ] = useTranslation();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState('');
   const [title, setTitle] = useState('');
   const [cardUrl, setCardUrl] = useState('');
-  const [ t ] = useTranslation();
   const { modal, setModal } = useContext(ModalContext);
+  const { isTouchDevice } = useTouchDevice();
   const BARS = 'bars';
   const CAKES = 'cakes';
   const CHEESECAKES = 'cheesecakes';
@@ -124,7 +125,7 @@ export default function ProductsList() {
           <h1>{title}</h1>
         </header>
         <section className="B-M Flex J-C-C A-I-C F-F-C-N">
-          <ul className="Prods Nunito Flex J-C-S-A A-I-F-S F-F-R-W" ref={isTouchDevice() ? null : elementRef}>
+          <ul className="Prods Nunito Flex J-C-S-A A-I-F-S F-F-R-W" ref={isTouchDevice ? null : elementRef}>
             {products && products.map((product) => {
               const isDiscounted = Number.parseInt(product.discount, 10) > 0;
 

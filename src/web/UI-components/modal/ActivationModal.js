@@ -5,7 +5,7 @@ import { timer } from 'rxjs';
 import i18n from 'i18next';
 import activation from '../../../assets/images/svg/activation.svg';
 import { ModalContext } from '../../context/modal/ModalContext';
-import useWindowDimensions from '../../utils/isTouchDevice';
+import useWindowDimensions from '../../utils/useWindowDimensions';
 import CloseButton from '../button/close/CloseButton';
 
 export default function ActivationModal() {

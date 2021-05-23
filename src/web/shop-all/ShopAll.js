@@ -5,7 +5,7 @@ import axios from 'axios';
 import { LoadingOverlay } from '../UI-components/overlay/loading/LoadingOverlay';
 import { ModalContext } from '../context/modal/ModalContext';
 import { Overlay } from '../UI-components/overlay/Overlay';
-import { isTouchDevice } from '../utils/isTouchDevice';
+import { useTouchDevice } from '../utils/useTouchDevice';
 import { Card } from '../UI-components/card/Card';
 import { logError } from '../error/errorHandler';
 import { publicLinks } from '../utils/restLinks';
@@ -17,9 +17,10 @@ import (/* webpackChunkName: "prodList", webpackPrefetch: true */ './ProductsLis
 import (/* webpackChunkName: "prodPage", webpackPrefetch: true */ './ProductPage');
 
 export default function ShopAll() {
-  const { modal, setModal } = useContext(ModalContext);
-  const [categories, setCategories] = useState([]);
   const [ t ] = useTranslation();
+  const [categories, setCategories] = useState([]);
+  const { modal, setModal } = useContext(ModalContext);
+  const { isTouchDevice } = useTouchDevice();
 
   const [ elementRef ] = useOnScreen({
     root: null,
@@ -63,7 +64,7 @@ export default function ShopAll() {
           <h1>{t('shopAll.header')}</h1>
         </header>
         <div className="B-M Flex J-C-C A-I-C F-F-C-N Nunito">
-          <ul className="Categories Flex J-C-S-A A-I-F-S F-F-R-W" ref={isTouchDevice() ? null : elementRef}>
+          <ul className="Categories Flex J-C-S-A A-I-F-S F-F-R-W" ref={isTouchDevice ? null : elementRef}>
             {categories && categories.map((category) => {
               return (
                 <li key={category.name} className="Flex J-C-C A-I-C F-F-C-N T-J">

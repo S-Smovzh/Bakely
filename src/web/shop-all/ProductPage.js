@@ -11,7 +11,7 @@ import { Animation } from '../UI-components/animation/Animation';
 import { ModalContext } from '../context/modal/ModalContext';
 import { structuredDataList } from '../utils/structuredData';
 import { Overlay } from '../UI-components/overlay/Overlay';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import CartContext from '../context/cart/CartContext';
 import { Card } from '../UI-components/card/Card';
 import { publicLinks } from '../utils/restLinks';

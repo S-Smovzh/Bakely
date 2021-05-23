@@ -6,7 +6,7 @@ import axios from 'axios';
 import CloseButton from '../UI-components/button/close/CloseButton';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
 import { ModalContext } from '../context/modal/ModalContext';
-import useWindowDimensions from '../utils/isTouchDevice';
+import useWindowDimensions from '../utils/useWindowDimensions';
 import { clientConfig } from '../utils/restApiConfigs';
 import { Input } from '../UI-components/input/Input';
 import errorHandler from '../utils/errorHandler';
