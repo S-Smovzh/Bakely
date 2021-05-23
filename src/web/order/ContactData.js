@@ -7,7 +7,6 @@ import CloseButton from '../UI-components/button/close/CloseButton';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
 import { ModalContext } from '../context/modal/ModalContext';
 import useWindowDimensions from '../utils/useWindowDimensions';
-import { clientConfig } from '../utils/restApiConfigs';
 import { Input } from '../UI-components/input/Input';
 import errorHandler from '../utils/errorHandler';
 import { logError } from '../error/errorHandler';
@@ -42,7 +41,13 @@ export const ContactDataPage = ({ closeModal, next, page }) => {
       telNum: telNum
     };
 
-    axios.post(clientLinks.order, data, clientConfig)
+    axios.post(clientLinks.order, data, {
+      headers: {
+        'Client-Token': localStorage.getItem(btoa('clientsToken'))
+          ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
+        withCredentials: true
+      }
+    })
       .then((response) => {
         const { success, errors } = response.data;
 

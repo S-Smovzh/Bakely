@@ -4,7 +4,6 @@ import { timer } from 'rxjs';
 import axios from 'axios';
 import { ToastContext } from '../../../context/toast/ToastContext';
 import { ModalContext } from '../../../context/modal/ModalContext';
-import { clientConfig } from '../../../utils/restApiConfigs';
 import { Animation } from '../../animation/Animation';
 import errorHandler from '../../../utils/errorHandler';
 import { logError } from '../../../error/errorHandler';
@@ -25,7 +24,12 @@ export const Subscribe = () => {
   const { modal, setModal } = useContext(ModalContext);
 
   async function performSubscription() {
-    axios.post(clientLinks.subscribe, { email: email }, clientConfig)
+    axios.post(clientLinks.subscribe, { email: email }, {
+      headers: {
+        'Client-Token': localStorage.getItem(btoa('clientsToken')) ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
+        withCredentials: true
+      }
+    })
       .then((response) => {
         const { success, errors } = response.data;
 

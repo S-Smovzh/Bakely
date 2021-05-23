@@ -14,7 +14,6 @@ import { ModalContext } from '../context/modal/ModalContext';
 import { clientLinks, userLinks } from '../utils/restLinks';
 import { LoadableOrder } from '../lazy-loaders/LazyLoaders';
 import useWindowDimensions from '../utils/useWindowDimensions';
-import { clientConfig } from '../utils/restApiConfigs';
 import useOutsideClick from '../utils/useOutsideClick';
 import CartContext from '../context/cart/CartContext';
 import AuthContext from '../context/auth/AuthContext';
@@ -84,7 +83,13 @@ export const Cart = () => {
       switch (type) {
         case 'client':
           url = clientLinks.cart;
-          config = clientConfig;
+          config = {
+            headers: {
+              'Client-Token': localStorage.getItem(btoa('clientsToken'))
+                ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
+              withCredentials: true
+            }
+          };
           break;
         case 'user':
           url = userLinks.cart;
@@ -99,7 +104,13 @@ export const Cart = () => {
           break;
         default:
           url = clientLinks.cart;
-          config = clientConfig;
+          config = {
+            headers: {
+              'Client-Token': localStorage.getItem(btoa('clientsToken'))
+                ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
+              withCredentials: true
+            }
+          };
           break;
       }
 

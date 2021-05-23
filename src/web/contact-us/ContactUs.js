@@ -9,7 +9,6 @@ import { Textarea } from '../UI-components/textarea/Textarea';
 import { ModalContext } from '../context/modal/ModalContext';
 import { clientLinks, userLinks } from '../utils/restLinks';
 import useWindowDimensions from '../utils/useWindowDimensions';
-import { clientConfig } from '../utils/restApiConfigs';
 import AuthContext from '../context/auth/AuthContext';
 import { Input } from '../UI-components/input/Input';
 import { Form } from '../UI-components/form/Form';
@@ -95,7 +94,13 @@ export default function ContactUs() {
       };
       url = userLinks.contactUs;
     } else {
-      config = clientConfig;
+      config = {
+        headers: {
+          'Client-Token': localStorage.getItem(btoa('clientsToken'))
+            ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
+          withCredentials: true
+        }
+      };
       url = clientLinks.contactUs;
     }
 

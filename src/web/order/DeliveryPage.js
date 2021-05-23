@@ -6,7 +6,6 @@ import axios from 'axios';
 import { OrderFormContext } from '../context/orderForm/OrderFormContext';
 import { clientLinks, publicLinks, userLinks } from '../utils/restLinks';
 import CloseButton from '../UI-components/button/close/CloseButton';
-import { clientConfig } from '../utils/restApiConfigs';
 import { NextIcon, PrevIcon } from '../UI-components/icons/Icons';
 import { ModalContext } from '../context/modal/ModalContext';
 import useWindowDimensions from '../utils/useWindowDimensions';
@@ -72,7 +71,13 @@ export const DeliveryPage = ({ closeModal, next, page, prev, type }) => {
 
     if (type === 'client') {
       url = clientLinks.addDeliveryAddress;
-      config = clientConfig;
+      config = {
+        headers: {
+          'Client-Token': localStorage.getItem(btoa('clientsToken'))
+            ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
+          withCredentials: true
+        }
+      };
     } else {
       url = userLinks.addDeliveryAddress;
       config = {

@@ -8,7 +8,6 @@ import axios from 'axios';
 import ConfirmButton from '../UI-components/button/ConfirmButton';
 import { ModalContext } from '../context/modal/ModalContext';
 import useWindowDimensions from '../utils/useWindowDimensions';
-import { clientConfig } from '../utils/restApiConfigs';
 import login from '../../assets/images/svg/login.svg';
 import AuthContext from '../context/auth/AuthContext';
 import { Input } from '../UI-components/input/Input';
@@ -49,7 +48,13 @@ export default function Login() {
         email: email,
         password: password,
         fingerprint: result.visitorId
-      }, clientConfig)
+      }, {
+        headers: {
+          'Client-Token': localStorage.getItem(btoa('clientsToken'))
+            ? atob(localStorage.getItem(btoa('clientsToken'))) : null,
+          withCredentials: true
+        }
+      })
       .then((response) => {
         const { success, errors, body } = response.data;
 
