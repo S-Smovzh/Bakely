@@ -28,7 +28,7 @@ export const CloudinaryImage = ({ alt, folders, imageHeight, imageName, imageWid
 
   if (imageHeight && imageWidth) {
     return (
-      <Image publicId={`${process.env.CLOUDINARY_FOLDER}/${folders}/${imageName}`} secure alt={alt}
+      <Image publicId={`Bakely/${folders}/${imageName}`} secure alt={alt}
         loading="lazy">
         <Transformation rawTransformation={`w_${width ? width : 'auto'},h_${height ? height : 'auto'},c_fill`}/>
         <Placeholder type="blur"/>

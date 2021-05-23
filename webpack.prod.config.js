@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const DotenvPlugin = require('dotenv-webpack');
+// const DotenvPlugin = require('dotenv-webpack');
 
 dotenv.config();
 
@@ -69,7 +69,7 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new DotenvPlugin(),
+    // new DotenvPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html'
     })],

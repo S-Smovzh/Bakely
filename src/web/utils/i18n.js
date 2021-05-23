@@ -15,7 +15,7 @@ i18n
     keySeparator: false,
     useLocalStorage: true,
     backend: {
-      loadPath: '${process.env.PUBLIC_URL}/locale/{{lng}}.json',
+      loadPath: 'https://bakkely.herokuapp.com/locale/{{lng}}.json',
       allowMultiLoading: true
     },
     react: {
