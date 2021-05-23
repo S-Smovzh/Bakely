@@ -1,4 +1,4 @@
-web: PORT=$PORT node dist/server.js
+web: PORT=$PORT npm start
 heroku ps:scale web=0
 heroku ps:scale worker=1
-worker: PORT=$PORT node dist/server.js
+worker: PORT=$PORT npm start

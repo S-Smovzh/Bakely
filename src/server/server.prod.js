@@ -6,7 +6,7 @@ dotenv.config({ path: '../.env' });
 
 const app = express();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 
 console.log(process.env.PORT, port);
 
