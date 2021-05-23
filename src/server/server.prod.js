@@ -6,8 +6,6 @@ dotenv.config({ path: '../.env' });
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
-
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.br';
   res.set('content-encoding', 'br');
@@ -29,6 +27,6 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+app.listen((process.env.PORT || 5000), () => {
+  console.log(`Server is listening on port ${process.env.PORT}`);
 });
