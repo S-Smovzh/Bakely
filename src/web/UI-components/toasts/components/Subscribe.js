@@ -16,13 +16,13 @@ import { ToastMessage } from '../ToastMessage';
 import './Subscribe.css';
 
 export const Subscribe = () => {
-  const { toast, setToast } = useContext(ToastContext);
-  const { modal, setModal } = useContext(ModalContext);
   const [ t ] = useTranslation();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [show, setShow] = useState(true);
   const [remove, setRemove] = useState(false);
+  const { toast, setToast } = useContext(ToastContext);
+  const { modal, setModal } = useContext(ModalContext);
 
   async function performSubscription() {
     axios.post(clientLinks.subscribe, { email: email }, clientConfig)
@@ -73,7 +73,7 @@ export const Subscribe = () => {
   return (
     <ToastMessage
       show={toast.showSubscription}
-      toastHeader="Subscribe to our newsletters!"
+      toastHeader={t('subscription.header')}
       toastText={(
         <React.Fragment>
           <Form className="Sub-F">
@@ -90,7 +90,7 @@ export const Subscribe = () => {
             </div>
             <div className="Form-Checkbox Flex J-C-S-B A-I-C F-W ">
               <label className="h5-size">
-                Do not show again:
+                {t('subscription.text')}
               </label>
               <Checkbox onClick={() => setShow(!show)}/>
             </div>

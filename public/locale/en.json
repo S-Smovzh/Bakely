@@ -427,6 +427,12 @@
   "placeOrder": "Place order",
   "workingHours": "Working Hours",
 
+  "subscription.header": "Subscribe to our newsletters!",
+  "subscription.text": "Do not show again:",
+  "cookie.header": "Cookie",
+  "cookie.sen.fir": "This website uses cookie in order to offer the most relevant information and\n            optimal performance.",
+  "cookie.sen.sec": "For full details read our cookie policy.",
+  "cookie.sen.thi": "*By continuing using this site you accept cookie.",
   "verification.header": "Successful Verification",
   "verification.text": "Your account was successfully verified! Now you can log in."
 }

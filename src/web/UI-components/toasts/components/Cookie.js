@@ -4,26 +4,27 @@ import { timer } from 'rxjs';
 import i18n from 'i18next';
 import { ToastContext } from '../../../context/toast/ToastContext';
 import { ToastMessage } from '../ToastMessage';
+import { useTranslation } from 'react-i18next';
 
 export const Cookie = () => {
   const { toast, setToast } = useContext(ToastContext);
   const [remove, setRemove] = useState(false);
+  const [ t ] = useTranslation();
 
   return (
     <ToastMessage
       show={toast.showCookie}
-      toastHeader="Cookies"
+      toastHeader={t('cookie.header')}
       toastText={(
         <React.Fragment>
           <p className="F-W">
-            This website uses cookie in order to offer the most relevant information and
-            optimal performance.
+            {t('cookie.sen.fir')}
           </p>
           <Link to={`/${i18n.language}/cookie-policy`} className="F-W">
-            For full details read our cookie policy.
+            {t('cookie.sen.sec')}
           </Link>
           <p className="F-W">
-            *By continuing using this site you accept cookie.
+            {t('cookie.sen.thi')}
           </p>
         </React.Fragment>
       )}

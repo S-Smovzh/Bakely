@@ -116,7 +116,7 @@
 }
 @media only screen and (min-height: 620px) {
   .Modal.Error-Modal .modal-content, .Modal.Error-Modal .modal-dialog {
-    height: 495px;
+    height: 550px;
   }
   .Modal.Activation .modal-content, .Modal.Activation .modal-dialog {
     height: 600px;
