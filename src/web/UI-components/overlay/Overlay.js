@@ -89,9 +89,6 @@ export const Overlay = ({
         case 'none':
           setClassName('');
           break;
-        case 'catering':
-          setClassName('');
-          break;
         case 'main.vertical':
           setImHeight(imageClasses.main.vertical(width).height);
           setImWidth(imageClasses.main.vertical(width).width);
@@ -148,7 +145,7 @@ export const Overlay = ({
 
   return (
     // eslint-disable-next-line max-len
-    <div className={`Ov-C ${(imgClassName === 'main.vertical' || imgClassName === 'main.horizontal') ? 'F-H' : ''} ${className} ${imageType === 'catering' ? 'F-H' : ''} ${imgClassName ? imgClassName : ''} ${width < 769 ? 'N-P' : ' '}`}
+    <div className={`Ov-C ${(imgClassName === 'main.vertical' || imgClassName === 'main.horizontal') ? 'F-H' : ''} ${className} ${imgClassName ? imgClassName : ''} ${width < 769 ? 'N-P' : ' '}`}
       ref={pictureRef && pictureRef} id={id ? id : null}>
       {/* eslint-disable-next-line max-len */}
       <div className={`Ov Flex J-C-C A-I-C F-F-C-N F-W ${className} ${imgClassName ? imgClassName : ''} ${width < 769 ? 'N-P' : ' '}`}

@@ -25,6 +25,7 @@ import './Cart.css';
 export const Cart = () => {
     const [ t ] = useTranslation();
     const [total, setTotal] = useState(0);
+    const [firstRender, setFirstRender] = useState(true);
     const [removing, setRemoving] = useState('');
     const [visibility, setVisibility] = useState('');
     const [showOrderForm, setShowOrderForm] = useState(false);
@@ -36,11 +37,15 @@ export const Cart = () => {
     const authContext = useContext(AuthContext);
     const location = useLocation();
 
+    useEffect(()=> {
+      timer(400).subscribe(() => setFirstRender(false));
+    }, []);
+
     useEffect(() => cartContext.showCart(false), [ location ]);
 
     useEffect(() => {
       // eslint-disable-next-line no-unused-expressions
-      !cartContext.show ? timer(600).subscribe(() => setVisibility('Hidden None')) : setVisibility('');
+      !cartContext.show ? timer(600).subscribe(() => setVisibility('Hidden None')) : setVisibility('Grid');
     }, [ cartContext.show ]);
 
     useEffect(() => {
@@ -144,7 +149,7 @@ export const Cart = () => {
 
     return (
       <animated.div ref={elementRef}
-        className={`Cart-Page ${visibility} ${cartContext.show ? 'Show-C Grid' : 'Hide-C'}`}>
+        className={`Cart-Page ${firstRender ? 'None' : (cartContext.show ? 'Show-C' : 'Hide-C')} ${visibility}`}>
         <header className={`B-T Flex J-C-C A-I-C ${(width < 769 ? 'Small-Device' : '')}`}>
           <h1 className="h3-size">
             {t('cart.header.filled')}

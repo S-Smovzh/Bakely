@@ -68,7 +68,7 @@ export default function Catering() {
               <li key={index} className="F-H">
                 <Card type="no-animation" backType="gray" className="Grid">
                   <Overlay pictureRef={isTouchDevice() ? null : elementRef}
-                    src={item.src} alt="" imageType="catering"
+                    src={item.src} alt="" imageType="none"
                     link={item.link} linkClassName="Btn Btn-S Btn-Sm-X-W"
                     text={t(item.text)} type="link"
                   />

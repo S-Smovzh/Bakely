@@ -3,6 +3,10 @@
 .Catering-Page {
   row-gap: calc(#{$standard} * 4);
 
+  .Ov {
+    height: 100%;
+  }
+
   & > .B-T {
     grid-area: 2/2/3/3;
   }
