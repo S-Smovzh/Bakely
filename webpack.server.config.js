@@ -4,6 +4,7 @@ const webpack = require('webpack');
 global.Promise = require('bluebird');
 const nodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const DotenvPlugin = require('dotenv-webpack');
 
 module.exports = (env, argv) => {
   const SERVER_PATH = (argv.mode === 'production') ?
@@ -28,6 +29,7 @@ module.exports = (env, argv) => {
     target: 'node',
     externals: [ nodeExternals() ],
     plugins: [
+      new DotenvPlugin(),
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[id].css'
