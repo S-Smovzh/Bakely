@@ -35,15 +35,6 @@ module.exports = (env, argv) => {
       new webpack.ProvidePlugin({
         process: 'process/browser'
       }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          'CLOUDINARY_CLOUD': JSON.stringify(process.env.CLOUDINARY_CLOUD),
-          'CLOUDINARY_FOLDER': JSON.stringify(process.env.CLOUDINARY_FOLDER),
-          'PORT': JSON.stringify(process.env.PORT),
-          'PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL),
-          'REST_API': JSON.stringify(process.env.REST_API)
-        }
-      }),
       new webpack.ProgressPlugin()],
     module: {
       rules: [
