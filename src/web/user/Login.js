@@ -140,7 +140,7 @@ export default function Login() {
                 inputOnBlur={(event) => setEmail(event.target.value)}
                 inputOnChange={(event) => setEmail(event.target.value)} inputRequired="required"
                 autoComplete="email"
-                tooltipId={t('label.header.email')} tooltipText={t('tooltip.email')} value={email}
+                tooltipId={t('tooltip.header')} tooltipText={t('tooltip.email')} value={email}
               />
             </div>
             <div className="Form-R Grid">
@@ -150,7 +150,7 @@ export default function Login() {
                 inputOnBlur={(event) => setPassword(event.target.value)} minLength={8} maxLength={30}
                 inputMode="verbatim"
                 inputOnChange={(event) => setPassword(event.target.value)} inputRequired="required"
-                autoComplete="current-password" tooltipId={t('label.header.password')}
+                autoComplete="current-password" tooltipId={t('tooltip.header')}
                 tooltipText={t('tooltip.password')}
                 value={password}
               />

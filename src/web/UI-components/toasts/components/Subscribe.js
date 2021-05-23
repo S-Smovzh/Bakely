@@ -85,7 +85,7 @@ export const Subscribe = () => {
                 inputOnBlur={(event) => setEmail(event.target.value)}
                 inputOnChange={(event) => setEmail(event.target.value)} inputRequired="required"
                 autoComplete="on"
-                tooltipId={t('label.header.email')} tooltipText={t('tooltip.email')} value={email}
+                tooltipId={t('tooltip.header')} tooltipText={t('tooltip.email')} value={email}
               />
             </div>
             <div className="Form-Checkbox Flex J-C-S-B A-I-C F-W ">
