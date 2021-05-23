@@ -18,7 +18,7 @@ export default function errorHandler(errorCode) {
     errorCode === errorCodes.TEL_NUM_NOT_ALLOWED_SYMBOLS_ERROR ||
     errorCode === errorCodes.PASSWORD_NOT_ALLOWED_SYMBOLS_ERROR
   ) {
-    switch (i18n.language) {
+    switch (i18n.languages[0]) {
       case 'en':
         return 'You used invalid characters.';
       case 'ru':
@@ -32,7 +32,7 @@ export default function errorHandler(errorCode) {
 
   switch (errorCode) {
     case errorCodes.EMPTY_ERROR:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'Fill this field.';
         case 'ru':
@@ -43,7 +43,7 @@ export default function errorHandler(errorCode) {
           return 'Fill this field.';
       }
     case errorCodes.CITY_IS_NOT_SERVED:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'Delivery in this city is not served yet.';
         case 'ru':
@@ -54,7 +54,7 @@ export default function errorHandler(errorCode) {
           return 'Delivery in this city is not served yet.';
       }
     case errorCodes.NEGATIVE_NUMBER:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return "Negative numbers and '0' (zero) are not allowed.";
         case 'ru':
@@ -65,7 +65,7 @@ export default function errorHandler(errorCode) {
           return "Negative numbers and '0' (zero) are not allowed.";
       }
     case errorCodes.ACCOUNT_IS_NOT_ACTIVATED:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'You must activate your account. Check your email.';
         case 'ru':
@@ -76,7 +76,7 @@ export default function errorHandler(errorCode) {
           return 'You must activate your account. Check your email.';
       }
     case errorCodes.INVALID_EMAIL_LENGTH:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'Invalid email length.';
         case 'ru':
@@ -87,7 +87,7 @@ export default function errorHandler(errorCode) {
           return 'Invalid email length.';
       }
     case errorCodes.INVALID_TEL_NUM_LENGTH:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'Invalid telephone number length.';
         case 'ru':
@@ -98,7 +98,7 @@ export default function errorHandler(errorCode) {
           return 'Invalid telephone number length.';
       }
     case errorCodes.INVALID_PASSWORD_LENGTH:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'Invalid password length.';
         case 'ru':
@@ -109,7 +109,7 @@ export default function errorHandler(errorCode) {
           return 'Invalid password length.';
       }
     case errorCodes.PASSWORDS_ARE_NOT_EQUAL:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return "Password and verification doesn't match.";
         case 'ru':
@@ -120,7 +120,7 @@ export default function errorHandler(errorCode) {
           return "Password and verification doesn't match.";
       }
     case errorCodes.INVALID_SUBJECT:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'You must choose a subject.';
         case 'ru':
@@ -132,7 +132,7 @@ export default function errorHandler(errorCode) {
       }
 
     case errorCodes.EMAIL_DOES_NOT_EXIST:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'Incorrect email.';
         case 'ru':
@@ -143,7 +143,7 @@ export default function errorHandler(errorCode) {
           return 'Incorrect email.';
       }
     case errorCodes.PASSWORD_DOES_NOT_EXIST:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'Incorrect password.';
         case 'ru':
@@ -154,7 +154,7 @@ export default function errorHandler(errorCode) {
           return 'Incorrect password.';
       }
     case errorCodes.OLD_EMAIL_DOES_NOT_MATCH:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return "Email doesn't match with your current one.";
         case 'ru':
@@ -165,7 +165,7 @@ export default function errorHandler(errorCode) {
           return "Email doesn't match with your current one.";
       }
     case errorCodes.OLD_TEL_NUM_DOES_NOT_MATCH:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return "Telephone number doesn't match with your current one.";
         case 'ru':
@@ -176,7 +176,7 @@ export default function errorHandler(errorCode) {
           return "Telephone number doesn't match with your current one.";
       }
     case errorCodes.OLD_PASSWORD_DOES_NOT_MATCH:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return "Password doesn't match with your current one.";
         case 'ru':
@@ -188,7 +188,7 @@ export default function errorHandler(errorCode) {
       }
 
     case errorCodes.EMAIL_ALREADY_EXISTS:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'This email has been already used.';
         case 'ru':
@@ -199,7 +199,7 @@ export default function errorHandler(errorCode) {
           return 'This email matches with your current one.';
       }
     case errorCodes.TEL_NUM_ALREADY_EXISTS:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'This telephone number matches with your current one.';
         case 'ru':
@@ -210,7 +210,7 @@ export default function errorHandler(errorCode) {
           return 'This telephone number matches with your current one.';
       }
     case errorCodes.PASSWORD_ALREADY_EXISTS:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'This password matches with your current one.';
         case 'ru':
@@ -222,7 +222,7 @@ export default function errorHandler(errorCode) {
       }
 
     case errorCodes.EMAIL_OR_TEL_NUM_IS_REQUIRED:
-      switch (i18n.language) {
+      switch (i18n.languages[0]) {
         case 'en':
           return 'You must enter either email or telephone number.';
         case 'ru':
@@ -242,7 +242,7 @@ export function handleInternalServerError(code) {
     || code === errorCodes.INVALID_REFRESH_SESSION
     || code === errorCodes.TOKEN_NOT_PROVIDED
     || code === errorCodes.REFRESH_TOKEN_NOT_PROVIDED) {
-    switch (i18n.language) {
+    switch (i18n.languages[0]) {
       case 'en':
         return 'There are some issues with the server. Try again later or contact us.';
       case 'ru':
@@ -253,7 +253,7 @@ export function handleInternalServerError(code) {
         return 'There are some issues with the server. Try again later or contact us.';
     }
   } else if (code === 600) {
-    switch (i18n.language) {
+    switch (i18n.languages[0]) {
       case 'en':
         return 'Your session expired, you must login.';
       case 'ru':
@@ -264,7 +264,7 @@ export function handleInternalServerError(code) {
         return 'Your session expired, you must login.';
     }
   } else if (code === 50) {
-    switch (i18n.language) {
+    switch (i18n.languages[0]) {
       case 'en':
         return 'You ran out of login attempts. Try again after 5 minutes';
       case 'ru':

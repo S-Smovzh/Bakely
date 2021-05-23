@@ -8,7 +8,7 @@ export const AuthedRoute = ({ component: Component, prop, ...rest }) => {
     <Route {...rest} render={props => (
       prop ?
         <Component {...props} />
-        : <RedirectWithStatus status={301} to={`/${i18n.language}/user/login`}/>
+        : <RedirectWithStatus status={301} to={`/${i18n.languages[0]}/user/login`}/>
     )}
     />
   );
@@ -19,7 +19,7 @@ export const UnauthedRoute = ({ component: Component, prop, ...rest }) => {
   return (
     <Route {...rest} render={props => (
       prop ?
-        <RedirectWithStatus status={301} to={`/${i18n.language}/user/homepage`}/>
+        <RedirectWithStatus status={301} to={`/${i18n.languages[0]}/user/homepage`}/>
         : <Component {...props} />
     )}
     />

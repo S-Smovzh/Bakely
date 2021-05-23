@@ -85,12 +85,12 @@ function Bakely() {
     const lang = location.pathname.split('/')[1];
 
     if (!langs.includes(lang)) {
-      history.push({ pathname: `/${i18n.language}/` });
+      history.push({ pathname: `/${i18n.languages[0]}/` });
     }
   }, [ location.pathname ]);
 
   useEffect(() => {
-    changeLang(i18n, i18n.language);
+    changeLang(i18n, i18n.languages[0]);
     cartContext.showCart(false);
     cartContext.loadProducts();
     setLoading(false);

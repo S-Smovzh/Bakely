@@ -22,7 +22,7 @@ import { AddressForm } from './homepageForms/AddressForm';
 import './Homepage.css';
 
 export default function Homepage() {
-  let language = i18n.language;
+  let language = i18n.languages[0];
   const { width } = useWindowDimensions();
 
   const [ t ] = useTranslation();

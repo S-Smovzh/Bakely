@@ -110,9 +110,9 @@ export default function Login() {
 
             timer(500).subscribe(() => {
               authContext.login();
-              if (location.pathname === `/${i18n.language}/user/login`) {
+              if (location.pathname === `/${i18n.languages[0]}/user/login`) {
                 history.push({
-                  pathname: `/${i18n.language}/user/homepage`,
+                  pathname: `/${i18n.languages[0]}/user/homepage`,
                   isLoggedIn: true
                 });
               }
@@ -169,7 +169,7 @@ export default function Login() {
         </div>
       </section>
       <section className="B-B Flex J-C-C A-I-C">
-        <Link to={`/${i18n.language}/user/registration`} className="h6-size font-weight_300">
+        <Link to={`/${i18n.languages[0]}/user/registration`} className="h6-size font-weight_300">
           {t('login.link.signUp')}
         </Link>
       </section>

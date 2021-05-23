@@ -24,7 +24,7 @@ export default function Main() {
       imgSrc: 'https://res.cloudinary.com/gachi322/image/upload/v1620396496/Bakely/slides/cakes-slide_gusklq.jpg',
       title: 'main.slide.first.title',
       linkText: 'main.slide.first.link',
-      link: `/${i18n.language}/shop/cakes`,
+      link: `/${i18n.languages[0]}/shop/cakes`,
       description: 'main.slide.first.description'
     },
     {
@@ -32,7 +32,7 @@ export default function Main() {
       imgSrc: 'https://res.cloudinary.com/gachi322/image/upload/v1620396496/Bakely/slides/catering_vcdkvm.jpg',
       title: 'main.slide.second.title',
       linkText: 'main.slide.second.link',
-      link: `/${i18n.language}/catering`,
+      link: `/${i18n.languages[0]}/catering`,
       description: 'main.slide.second.description'
     },
     {
@@ -40,7 +40,7 @@ export default function Main() {
       imgSrc: 'https://res.cloudinary.com/gachi322/image/upload/v1620396498/Bakely/slides/gift-box_f7tkw4.jpg',
       title: 'main.slide.third.title',
       linkText: 'main.slide.third.link',
-      link: `/${i18n.language}/shop/gift-boxes`,
+      link: `/${i18n.languages[0]}/shop/gift-boxes`,
       description: 'main.slide.third.description'
     }
   ];
@@ -50,7 +50,7 @@ export default function Main() {
       id: 'join_team',
       imageName: 'team_xwd5aj.jpg',
       alt: 'main.joinTeam.alt',
-      link: `/${i18n.language}/careers`,
+      link: `/${i18n.languages[0]}/careers`,
       buttonText: 'main.joinTeam.button',
       paragraphText: 'main.joinTeam.text'
     },
@@ -58,7 +58,7 @@ export default function Main() {
       id: 'catering',
       imageName: 'catering_xuj5gp.jpg',
       alt: 'main.catering.alt',
-      link: `/${i18n.language}/catering`,
+      link: `/${i18n.languages[0]}/catering`,
       buttonText: 'main.catering.button',
       paragraphText: 'main.catering.text'
     },
@@ -66,7 +66,7 @@ export default function Main() {
       id: 'shop_all',
       imageName: 'order-online_za1r3r.jpg',
       alt: 'main.shopAll.alt',
-      link: `/${i18n.language}/shop`,
+      link: `/${i18n.languages[0]}/shop`,
       buttonText: 'main.shopAll.button',
       paragraphText: 'main.shopAll.text'
     },
@@ -74,7 +74,7 @@ export default function Main() {
       id: 'locations',
       imageName: 'cafe_ju6t7g.jpg',
       alt: 'main.locations.alt',
-      link: `/${i18n.language}/locations`,
+      link: `/${i18n.languages[0]}/locations`,
       buttonText: 'main.locations.button',
       paragraphText: 'main.locations.text'
     }
@@ -115,7 +115,7 @@ export default function Main() {
           </p>
           <div className="Flex J-C-C A-I-C F-F-C-N T-J">
             <Animation onClick onHover type="rubber">
-              <Link to={`/${i18n.language}/about`} className="Btn-S Btn-Sm-X-W h6-size">
+              <Link to={`/${i18n.languages[0]}/about`} className="Btn-S Btn-Sm-X-W h6-size">
                 {t('main.ourStory.button')}
               </Link>
             </Animation>

@@ -28,7 +28,7 @@ export const Menu = () => {
     {
       markup:
   <React.Fragment>
-    <Link to={`/${i18n.language}/`} className="Btn-P F-W h6-size"
+    <Link to={`/${i18n.languages[0]}/`} className="Btn-P F-W h6-size"
       aria-label={t('navbar.ariaLabel.main')}>
       <img src={logo} alt="" className="Icon-Logo"/> Main
     </Link>
@@ -38,7 +38,7 @@ export const Menu = () => {
     {
       markup:
   <React.Fragment>
-    <Link to={`/${i18n.language}/shop`} className="Btn-P F-W h6-size">
+    <Link to={`/${i18n.languages[0]}/shop`} className="Btn-P F-W h6-size">
       {t('navbar.order')}
     </Link>
   </React.Fragment>,
@@ -47,7 +47,7 @@ export const Menu = () => {
     {
       markup:
   <React.Fragment>
-    <Link to={`/${i18n.language}/catering`} className="Btn-P F-W h6-size">
+    <Link to={`/${i18n.languages[0]}/catering`} className="Btn-P F-W h6-size">
       {t('navbar.catering')}
     </Link>
   </React.Fragment>,
@@ -56,7 +56,7 @@ export const Menu = () => {
     {
       markup:
   <React.Fragment>
-    <Link to={`/${i18n.language}/locations`} className="Btn-P F-W h6-size">
+    <Link to={`/${i18n.languages[0]}/locations`} className="Btn-P F-W h6-size">
       {t('navbar.locations')}
     </Link>
   </React.Fragment>,

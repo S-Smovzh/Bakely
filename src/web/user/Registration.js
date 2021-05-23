@@ -289,7 +289,7 @@ export default function Registration() {
         </div>
       </section>
       <section className="B-B Flex J-C-C A-I-C">
-        <Link to={`/${i18n.language}/user/login`} className="h6-size font-weight_300">
+        <Link to={`/${i18n.languages[0]}/user/login`} className="h6-size font-weight_300">
           {t('signUp.link.login')}
         </Link>
       </section>

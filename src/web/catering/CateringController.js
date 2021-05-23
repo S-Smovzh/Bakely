@@ -20,7 +20,7 @@ export default function CateringController() {
   const location = useLocation();
 
   useEffect(() => {
-    const path = `/${i18n.language}/catering/gallery/`;
+    const path = `/${i18n.languages[0]}/catering/gallery/`;
 
     if (location.pathname === path + 'wedding') {
       getWeddings();
@@ -28,13 +28,13 @@ export default function CateringController() {
       getCelebrations();
     } else if (location.pathname === path + 'corporate') {
       getCorporates();
-    } else if (location.pathname === `/${i18n.language}/gallery`) {
+    } else if (location.pathname === `/${i18n.languages[0]}/gallery`) {
       getAll();
     }
   }, [ t ]);
 
   const getAll = async () => {
-    await axios.get(publicLinks.cateringGallery(i18n.language))
+    await axios.get(publicLinks.cateringGallery(i18n.languages[0]))
       .then(response => {
         const { success, data } = response.data;
 
@@ -51,7 +51,7 @@ export default function CateringController() {
   };
 
   const getWeddings = async () => {
-    await axios.get(publicLinks.weddings(i18n.language))
+    await axios.get(publicLinks.weddings(i18n.languages[0]))
       .then(response => {
         const { success, data } = response.data;
 
@@ -68,7 +68,7 @@ export default function CateringController() {
   };
 
   const getCelebrations = async () => {
-    await axios.get(publicLinks.celebrations(i18n.language))
+    await axios.get(publicLinks.celebrations(i18n.languages[0]))
       .then(response => {
         const { success, data } = response.data;
 
@@ -85,7 +85,7 @@ export default function CateringController() {
   };
 
   const getCorporates = async () => {
-    await axios.get(publicLinks.corporates(i18n.language))
+    await axios.get(publicLinks.corporates(i18n.languages[0]))
       .then(response => {
         const { success, data } = response.data;
 

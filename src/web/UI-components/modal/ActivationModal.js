@@ -23,7 +23,7 @@ export default function ActivationModal() {
     if (modal.activationModal) {
       timer(100).subscribe(() => {
         history.push({
-          pathname: `${i18n.language}/user/login`,
+          pathname: `${i18n.languages[0]}/user/login`,
           isLoggedIn: false
         });
       });
