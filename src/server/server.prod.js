@@ -3,7 +3,7 @@ import path from 'path';
 
 const app = express();
 
-app.set('port', process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
 
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.br';
@@ -26,6 +26,10 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(app.get('port'), () => {
-  console.log(`Server is listening on port ${process.env.PORT}`);
-});
+try {
+  app.listen(PORT, () => {
+    console.log(`Server is listening on port ${process.env.PORT}, ${PORT} `);
+  });
+} catch (e) {
+  console.log(e.stack);
+}

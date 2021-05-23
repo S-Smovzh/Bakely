@@ -45,6 +45,7 @@ module.exports = {
       filename: '[name][ext].br',
       algorithm: 'brotliCompress',
       test: /\.js$|css$/,
+      exclude: 'server.js',
       compressionOptions: {
         params: {
           [zlib.constants.BROTLI_PARAM_QUALITY]: 11
@@ -61,7 +62,8 @@ module.exports = {
         { from: './public/manifest.json', to: 'manifest.json' },
         { from: './public/locale', to: 'locale' },
         { from: './public/robots.txt', to: 'robots.txt' },
-        { from: './public/img/manifest-icons', to: 'img/manifest-icons' }
+        { from: './public/img/manifest-icons', to: 'img/manifest-icons' },
+        { from: './src/server/server.prod.js', to: 'server.js' }
       ]
     }),
     new MiniCssExtractPlugin({
