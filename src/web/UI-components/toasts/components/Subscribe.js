@@ -100,7 +100,7 @@ export const Subscribe = () => {
             <button className="Btn Btn-Su Btn-Sm-X-W" type="button" onClick={() => {
               performSubscription();
             }}>
-              Subscribe
+              {t('button.subscribe')}
             </button>
           </Animation>
         </React.Fragment>
