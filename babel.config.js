@@ -20,17 +20,17 @@ module.exports = (api) => {
         ['@babel/preset-react', { 'targets': { 'node': 'current' } } ]
     ],
     env: {
-      'development': {
-        'presets': [
-          [
-            '@babel/preset-react',
-            {
-              'development': true
-            }
-          ]
-        ]
-      },
-      'production': {
+      // 'development': {
+      //   'presets': [
+      //     [
+      //       '@babel/preset-react',
+      //       {
+      //         'development': true
+      //       }
+      //     ]
+      //   ]
+      // },
+      // 'production': {
         'plugins': [
           [
             'transform-react-remove-prop-types',
@@ -43,6 +43,6 @@ module.exports = (api) => {
           ]
         ]
       }
-    }
+    // }
   };
 };
