@@ -37,7 +37,7 @@ export const Cart = () => {
     const authContext = useContext(AuthContext);
     const location = useLocation();
 
-    useEffect(()=> {
+    useEffect(() => {
       timer(400).subscribe(() => setFirstRender(false));
     }, []);
 
@@ -45,8 +45,12 @@ export const Cart = () => {
 
     useEffect(() => {
       // eslint-disable-next-line no-unused-expressions
-      !cartContext.show ? timer(600).subscribe(() => setVisibility('Hidden None')) : setVisibility('Grid');
-    }, [ cartContext.show ]);
+      if (!firstRender && !cartContext.show) {
+        timer(600).subscribe(() => setVisibility('Hidden None'));
+      } else {
+        setVisibility('Grid');
+      }
+    }, [cartContext.show, firstRender]);
 
     useEffect(() => {
       cartContext.loadProducts();
