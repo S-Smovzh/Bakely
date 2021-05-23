@@ -1,5 +1,5 @@
 {
-  "name": "bakkely",
+"name": "bakkely",
   "version": "1.0.0",
   "description": "Front part of Bakely app.",
   "author": "Sergey Smovzh",
@@ -10,6 +10,11 @@
     "npm": "7.13.0"
   },
   "private": true,
+  "scripts": {
+    "build": "webpack --mode production --config webpack.prod.config.js &&webpack --mode production --config webpack.server.config.js",
+    "start": "node dist/server.js -p $PORT"
+  },
+  "heroku-run-build-script": true,
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^3.0.6",
     "@react-spring/web": "^9.1.2",
@@ -75,10 +80,6 @@
     "workbox-routing": "^6.1.2",
     "workbox-strategies": "^6.1.2",
     "workbox-webpack-plugin": "^6.1.5"
-  },
-  "scripts": {
-    "postinstall": "webpack --mode production --config webpack.prod.config.js &&webpack --mode production --config webpack.server.config.js",
-    "start": "node ./dist/server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
