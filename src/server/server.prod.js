@@ -2,11 +2,13 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 const app = express();
 
-const port = process.env.PORT || 443;
+const port = process.env.PORT || 4000;
+
+console.log(port);
 
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.br';
