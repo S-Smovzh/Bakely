@@ -8,8 +8,6 @@ const app = express();
 
 const port = process.env.PORT;
 
-console.log(process.env.PORT, port);
-
 app.get('*.js', (req, res, next) => {
   req.url = req.url + '.br';
   res.set('content-encoding', 'br');
