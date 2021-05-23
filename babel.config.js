@@ -13,13 +13,22 @@ module.exports = (api) => {
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-transform-template-literals',
       '@babel/plugin-transform-runtime',
-      '@babel/plugin-transform-classes'
+      '@babel/plugin-transform-classes',
+      [
+        'transform-react-remove-prop-types',
+        {
+          'mode': 'wrap',
+          'ignoreFilenames': [
+            'node_modules'
+          ]
+        }
+      ]
     ],
     presets: [
         ['@babel/preset-env', { 'targets': { 'node': 'current' } } ],
         ['@babel/preset-react', { 'targets': { 'node': 'current' } } ]
-    ],
-    env: {
+    ]
+    // env: {
       // 'development': {
       //   'presets': [
       //     [
@@ -31,18 +40,18 @@ module.exports = (api) => {
       //   ]
       // },
       // 'production': {
-        'plugins': [
-          [
-            'transform-react-remove-prop-types',
-            {
-              'mode': 'wrap',
-              'ignoreFilenames': [
-                'node_modules'
-              ]
-            }
-          ]
-        ]
-      }
+      //   'plugins': [
+      //     [
+      //       'transform-react-remove-prop-types',
+      //       {
+      //         'mode': 'wrap',
+      //         'ignoreFilenames': [
+      //           'node_modules'
+      //         ]
+      //       }
+      //     ]
+      //   ]
+      // }
     // }
   };
 };
