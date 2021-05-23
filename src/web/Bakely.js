@@ -68,7 +68,7 @@ function Bakely() {
   }, [cartContext, menuContext, toast]);
 
   useEffect(() => {
-    const language = navigator.languages && navigator.languages[0] ||
+    const language = navigator.languages && navigator.language ||
       navigator.language ||
       navigator.userLanguage;
 
@@ -85,12 +85,12 @@ function Bakely() {
     const lang = location.pathname.split('/')[1];
 
     if (!langs.includes(lang)) {
-      history.push({ pathname: `/${i18n.languages[0]}/` });
+      history.push({ pathname: `/${i18n.language}/` });
     }
   }, [ location.pathname ]);
 
   useEffect(() => {
-    changeLang(i18n, i18n.languages[0]);
+    changeLang(i18n, i18n.language);
     cartContext.showCart(false);
     cartContext.loadProducts();
     setLoading(false);

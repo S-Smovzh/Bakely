@@ -246,7 +246,7 @@ export const Cart = () => {
             : (
               <div className="Flex J-C-S-B A-I-C F-F-C-N F-H F-W">
                 <img src={emptyCart} className="Image-L" alt="Empty cart"/>
-                <Link to={`/${i18n.languages[0]}/shop`} className="h3-size font-weight_300">{t('cart.link.shop')}</Link>
+                <Link to={`/${i18n.language}/shop`} className="h3-size font-weight_300">{t('cart.link.shop')}</Link>
               </div>
             )}
         </section>

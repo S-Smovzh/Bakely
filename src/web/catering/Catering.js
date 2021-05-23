@@ -31,21 +31,21 @@ export default function Catering() {
   const cardsData = [
     {
       src: 'https://res.cloudinary.com/gachi322/image/upload/v1620396601/Bakely/catering/wedding_pxwmoz.jpg',
-      link: `/${i18n.languages[0]}/catering/gallery/wedding`,
+      link: `/${i18n.language}/catering/gallery/wedding`,
       text: 'catering.gallery.wedding',
       headerText: 'catering.wedding.header',
       description: 'catering.wedding.description'
     },
     {
       src: 'https://res.cloudinary.com/gachi322/image/upload/v1620396601/Bakely/catering/celebration_fa7mj8.jpg',
-      link: `/${i18n.languages[0]}/catering/gallery/celebration`,
+      link: `/${i18n.language}/catering/gallery/celebration`,
       text: 'catering.gallery.celebration',
       headerText: 'catering.birthday.header',
       description: 'catering.birthday.description'
     },
     {
       src: 'https://res.cloudinary.com/gachi322/image/upload/v1620396601/Bakely/catering/catering_hxbnjx.jpg',
-      link: `/${i18n.languages[0]}/catering/gallery/corporate`,
+      link: `/${i18n.language}/catering/gallery/corporate`,
       text: 'catering.gallery.corporate',
       headerText: 'catering.corporate.header',
       description: 'catering.corporate.description'
@@ -110,7 +110,7 @@ export default function Catering() {
             </Carousel>
           )}
         <Animation onHover onClick type="bounce">
-          <Link to={`/${i18n.languages[0]}/contact-us`} className={`Btn-P Btn-Sm-X-W ${width < 600 ? 'h6-size' : 'h5-size'}`}>
+          <Link to={`/${i18n.language}/contact-us`} className={`Btn-P Btn-Sm-X-W ${width < 600 ? 'h6-size' : 'h5-size'}`}>
             {t('catering.contactUs')}
           </Link>
         </Animation>

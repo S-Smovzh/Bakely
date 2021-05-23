@@ -40,23 +40,23 @@ export const Navbar = () => {
             <div className="Nav-L-R Flex J-C-C A-I-C">
               <ul className="F-W F-H Flex J-C-S-B A-I-C">
                 <li className="Btn-Sm">
-                  <Link to={`/${i18n.languages[0]}/`} className="Btn-P F-H F-W"
+                  <Link to={`/${i18n.language}/`} className="Btn-P F-H F-W"
                     aria-label={t('navbar.ariaLabel.main')}>
                     <img src={logo} alt="" className="Icon-Logo"/>
                   </Link>
                 </li>
                 <li className="Btn-Sm">
-                  <Link to={`/${i18n.languages[0]}/shop`} className="Btn-P F-H F-W h6-size">
+                  <Link to={`/${i18n.language}/shop`} className="Btn-P F-H F-W h6-size">
                     {t('navbar.order')}
                   </Link>
                 </li>
                 <li className="Btn-Sm">
-                  <Link to={`/${i18n.languages[0]}/catering`} className="Btn-P F-H F-W h6-size">
+                  <Link to={`/${i18n.language}/catering`} className="Btn-P F-H F-W h6-size">
                     {t('navbar.catering')}
                   </Link>
                 </li>
                 <li className="Btn-Sm">
-                  <Link to={`/${i18n.languages[0]}/locations`} className="Btn-P F-H F-W h6-size">
+                  <Link to={`/${i18n.language}/locations`} className="Btn-P F-H F-W h6-size">
                     {t('navbar.locations')}
                   </Link>
                 </li>
@@ -73,7 +73,7 @@ export const Navbar = () => {
                         </button>
                       )
                       : (
-                        <Link to={`/${i18n.languages[0]}/user/login`} className="Btn-P Btn-I"
+                        <Link to={`/${i18n.language}/user/login`} className="Btn-P Btn-I"
                           aria-label={t('navbar.ariaLabel.login')}>
                           <img src={user} alt="" className="Icon"/>
                         </Link>
@@ -82,7 +82,7 @@ export const Navbar = () => {
                 {authContext.logged
                     ? (
                       <li>
-                        <Link to={`/${i18n.languages[0]}/user/homepage`} className="Btn-P Btn-I"
+                        <Link to={`/${i18n.language}/user/homepage`} className="Btn-P Btn-I"
                           aria-label={t('navbar.ariaLabel.homepage')}>
                           <img src={homepage} alt="" className="Icon"/>
                         </Link>
@@ -132,7 +132,7 @@ export const Navbar = () => {
                         </button>
                       )
                       : (
-                        <Link to={`/${i18n.languages[0]}/user/login`} className="Btn-P Btn-I"
+                        <Link to={`/${i18n.language}/user/login`} className="Btn-P Btn-I"
                           aria-label={t('navbar.ariaLabel.login')}>
                           <img src={user} alt="" className="Icon"/>
                         </Link>
@@ -141,7 +141,7 @@ export const Navbar = () => {
                   {authContext.logged
                     ? (
                       <li>
-                        <Link to={`/${i18n.languages[0]}/user/homepage`} className="Btn-P Btn-I"
+                        <Link to={`/${i18n.language}/user/homepage`} className="Btn-P Btn-I"
                           aria-label={t('navbar.ariaLabel.homepage')}>
                           <img src={homepage} alt="\" className="Icon"/>
                         </Link>

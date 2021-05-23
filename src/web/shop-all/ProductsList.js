@@ -32,7 +32,7 @@ export default function ProductsList() {
   const CUPCAKES = 'cupcakes';
   const GIFT_BOXES = 'gift-boxes';
   const PIES = 'pies';
-  const path = `/${i18n.languages[0]}/shop/`;
+  const path = `/${i18n.language}/shop/`;
   const location = useLocation();
 
   const [ elementRef ] = useOnScreen({
@@ -43,7 +43,7 @@ export default function ProductsList() {
 
   const getProductsByCategory = async (type) => {
     setCategory(type);
-    products.length === 0 && await axios.get(publicLinks.productsByCategory(i18n.languages[0], type))
+    products.length === 0 && await axios.get(publicLinks.productsByCategory(i18n.language, type))
       .then(response => {
         const { success, data } = response.data;
 

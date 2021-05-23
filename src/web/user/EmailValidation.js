@@ -37,7 +37,7 @@ export default function EmailValidation() {
             verified: true
           });
           timer(100).subscribe(() => history.push({
-            pathname: `/${i18n.languages[0]}/user/login/`,
+            pathname: `/${i18n.language}/user/login/`,
             isLoggedIn: false
           }));
         } else {
@@ -46,7 +46,7 @@ export default function EmailValidation() {
             verified: false
           });
           timer(100).subscribe(() => history.push({
-            pathname: `/${i18n.languages[0]}/`,
+            pathname: `/${i18n.language}/`,
             isLoggedIn: false
           }));
         }

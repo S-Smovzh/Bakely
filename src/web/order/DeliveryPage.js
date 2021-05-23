@@ -47,7 +47,7 @@ export const DeliveryPage = ({ closeModal, next, page, prev, type }) => {
   }, [ t ]);
 
   async function _getAvailableCities() {
-    availableCities.length === 0 && await axios.get(publicLinks.availableCities(i18n.languages[0]))
+    availableCities.length === 0 && await axios.get(publicLinks.availableCities(i18n.language))
       .then((response) => {
         const { success, data, errors } = response.data;
 

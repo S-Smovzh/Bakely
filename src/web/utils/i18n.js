@@ -1,4 +1,3 @@
-import detector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import backend from 'i18next-http-backend';
 import i18n from 'i18next';
@@ -6,12 +5,11 @@ import { logError } from '../error/errorHandler';
 
 i18n
   .use(backend)
-  .use(detector)
   .use(initReactI18next)
   .init({
     ns: [ 'common' ],
     defaultNS: 'common',
-    fallbackLng: ['en', 'ru', 'ua'],
+    fallbackLng: 'en',
     keySeparator: false,
     useLocalStorage: true,
     load: 'languageOnly',

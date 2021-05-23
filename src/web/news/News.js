@@ -27,7 +27,7 @@ export default function News() {
   }, [ t ]);
 
   async function getArticles() {
-    articles.length === 0 && axios.get(publicLinks.articles(i18n.languages[0]))
+    articles.length === 0 && axios.get(publicLinks.articles(i18n.language))
       .then(async (response) => {
         const { success, data } = response.data;
 

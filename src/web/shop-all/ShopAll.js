@@ -33,7 +33,7 @@ export default function ShopAll() {
   }, [ t ]);
 
   const getCategories = async () => {
-    categories.length === 0 && axios.get(publicLinks.productsCategories(i18n.languages[0]))
+    categories.length === 0 && axios.get(publicLinks.productsCategories(i18n.language))
       .then(response => {
         const { success, data } = response.data;
 

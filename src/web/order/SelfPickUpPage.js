@@ -20,7 +20,7 @@ export const SelfPickUpPage = ({ closeModal, next, page, prev }) => {
   }, [ t ]);
 
   const getLocations = () => {
-    locations.length === 0 && axios.get(publicLinks.bakeries(i18n.languages[0]))
+    locations.length === 0 && axios.get(publicLinks.bakeries(i18n.language))
       .then((response) => {
         const { success, data } = response.data;
 

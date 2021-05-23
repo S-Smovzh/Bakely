@@ -27,21 +27,21 @@ export const Footer = () => {
       list: [
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/cookie-policy`}>
+            to={`/${i18n.language}/cookie-policy`}>
             {t('footer.links.cooPol')}
           </Link>,
           index: 1
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/privacy-policy`}>
+            to={`/${i18n.language}/privacy-policy`}>
             {t('footer.links.privPol')}
           </Link>,
           index: 2
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/terms-and-conditions`}>
+            to={`/${i18n.language}/terms-and-conditions`}>
             {t('footer.links.termsCond')}
           </Link>,
           index: 3
@@ -56,28 +56,28 @@ export const Footer = () => {
       list: [
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/faq`}>
+            to={`/${i18n.language}/faq`}>
             {t('footer.links.faq')}
           </Link>,
           index: 4
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/orders`}>
+            to={`/${i18n.language}/orders`}>
             {t('footer.links.orders')}
           </Link>,
           index: 5
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/delivery`}>
+            to={`/${i18n.language}/delivery`}>
             {t('footer.links.delivery')}
           </Link>,
           index: 6
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/attribution`}>
+            to={`/${i18n.language}/attribution`}>
             {t('footer.links.attr')}
           </Link>,
           index: 6
@@ -92,28 +92,28 @@ export const Footer = () => {
       list: [
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/news`}>
+            to={`/${i18n.language}/news`}>
             {t('footer.links.news')}
           </Link>,
           index: 7
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/about`}>
+            to={`/${i18n.language}/about`}>
             {t('footer.links.history')}
           </Link>,
           index: 8
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/gallery`}>
+            to={`/${i18n.language}/gallery`}>
             {t('footer.links.gallery')}
           </Link>,
           index: 9
         },
         {
           markup: <Link className={`Footer-Link h6-size ${width > 991 ? 'T-L' : 'T-C'} F-W`}
-            to={`/${i18n.languages[0]}/contact-us`}>
+            to={`/${i18n.language}/contact-us`}>
             {t('footer.links.contacts')}
           </Link>,
           index: 10

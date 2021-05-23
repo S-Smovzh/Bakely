@@ -63,7 +63,7 @@ export default function Head({
   const [localeArray, setLocaleArray] = useState(['ru_RU', 'ua_UA']);
 
   useEffect(() => {
-    switch (i18n.languages[0]) {
+    switch (i18n.language) {
       case 'en':
         setLocale('en_US');
         setLocaleArray([...localeArray, 'ru_RU', 'ua_UA']);
@@ -85,7 +85,7 @@ export default function Head({
 
   return (
     <Helmet>
-      <html lang={i18n.languages[0]}/>
+      <html lang={i18n.language}/>
       <title>
         {title}
       </title>

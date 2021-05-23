@@ -20,7 +20,7 @@ export const Cookie = () => {
           <p className="F-W">
             {t('cookie.sen.fir')}
           </p>
-          <Link to={`/${i18n.languages[0]}/cookie-policy`} className="F-W">
+          <Link to={`/${i18n.language}/cookie-policy`} className="F-W">
             {t('cookie.sen.sec')}
           </Link>
           <p className="F-W">

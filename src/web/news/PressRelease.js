@@ -24,7 +24,7 @@ export default function PressRelease(props) {
 
   const getArticle = async () => {
     article.length === 0 && paragraphs.length === 0 && await axios
-      .get(publicLinks.pressRelease(i18n.languages[0], id))
+      .get(publicLinks.pressRelease(i18n.language, id))
       .then(async (response) => {
         const { success, data } = response.data;
 

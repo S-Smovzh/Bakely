@@ -18,7 +18,7 @@ export default function CateringModal() {
   const [ t ] = useTranslation();
 
   function getFeedbacks() {
-    feedbacks.length === 0 && axios.get(publicLinks.cateringFeedbacks(i18n.languages[0], location.eventId))
+    feedbacks.length === 0 && axios.get(publicLinks.cateringFeedbacks(i18n.language, location.eventId))
       .then(response => {
         const { success, data } = response.data;
 

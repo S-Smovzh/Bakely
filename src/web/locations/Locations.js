@@ -37,7 +37,7 @@ export default function Locations() {
   }, [ t ]);
 
   const getLocations = async () => {
-    locations.length === 0 && axios.get(publicLinks.bakeries(i18n.languages[0]))
+    locations.length === 0 && axios.get(publicLinks.bakeries(i18n.language))
       .then(async (response) => {
         const { success, data } = response.data;
 

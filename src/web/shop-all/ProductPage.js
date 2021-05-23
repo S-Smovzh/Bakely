@@ -63,7 +63,7 @@ export default function ProductPage(props) {
   }, [ selectValue ]);
 
   async function getProduct() {
-    product.length === 0 && await axios.get(publicLinks.productsById(i18n.languages[0], id))
+    product.length === 0 && await axios.get(publicLinks.productsById(i18n.language, id))
       .then(response => {
         const { success, data } = response.data;
 
@@ -91,7 +91,7 @@ export default function ProductPage(props) {
   }
 
   async function getIngredients() {
-    ingredients.length === 0 &&  await axios.get(publicLinks.ingredientsByproductId(i18n.languages[0], id))
+    ingredients.length === 0 &&  await axios.get(publicLinks.ingredientsByproductId(i18n.language, id))
       .then(response => {
         const { success, data } = response.data;
 
@@ -108,7 +108,7 @@ export default function ProductPage(props) {
   }
 
   async function getSimilar() {
-    similarProducts.length === 0 &&  await axios.get(publicLinks.similarProducts(i18n.languages[0], type, id))
+    similarProducts.length === 0 &&  await axios.get(publicLinks.similarProducts(i18n.language, type, id))
       .then(response => {
         const { success, data } = response.data;
 
@@ -184,10 +184,10 @@ export default function ProductPage(props) {
                         {t('productPage.orders')}
                       </p>
                       <p className="T-L F-W">
-                        <Link to={`/${i18n.languages[0]}/delivery`}>{t('productPage.deliveryInfo')}</Link>
+                        <Link to={`/${i18n.language}/delivery`}>{t('productPage.deliveryInfo')}</Link>
                       </p>
                       <p className="T-L F-W">
-                        <Link to={`/${i18n.languages[0]}/contact-us`}>{t('productPage.contactUs')}</Link>
+                        <Link to={`/${i18n.language}/contact-us`}>{t('productPage.contactUs')}</Link>
                       </p>
                     </div>
                   </div>
