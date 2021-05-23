@@ -25,6 +25,5 @@ function _getWindowDimensions() {
 }
 
 export function isTouchDevice() {
-  // (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
-  return matchMedia('(hover: None), (pointer: coarse)').matches;
+  return (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)) || matchMedia('(hover: None), (pointer: coarse)').matches;
 }
