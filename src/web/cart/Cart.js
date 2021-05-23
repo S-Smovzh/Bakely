@@ -40,7 +40,7 @@ export const Cart = () => {
 
     useEffect(() => {
       // eslint-disable-next-line no-unused-expressions
-      !cartContext.show ? timer(600).subscribe(() => setVisibility('Hidden')) : setVisibility('');
+      !cartContext.show ? timer(600).subscribe(() => setVisibility('Hidden None')) : setVisibility('');
     }, [ cartContext.show ]);
 
     useEffect(() => {
@@ -144,7 +144,7 @@ export const Cart = () => {
 
     return (
       <animated.div ref={elementRef}
-        className={`Cart-Page ${visibility} ${cartContext.show ? 'Show-C Grid' : 'Hide-C None'}`}>
+        className={`Cart-Page ${visibility} ${cartContext.show ? 'Show-C Grid' : 'Hide-C'}`}>
         <header className={`B-T Flex J-C-C A-I-C ${(width < 769 ? 'Small-Device' : '')}`}>
           <h1 className="h3-size">
             {t('cart.header.filled')}

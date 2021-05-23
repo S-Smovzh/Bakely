@@ -168,7 +168,7 @@ export default function ProductPage(props) {
             <section className="B-M Grid">
               <section className="Col-F Flex F-F-C-N">
                 <header className={`Playfair ${width < 769 ? 'T-C' : 'T-L'}`}>
-                  <h1>{product.name}</h1>
+                  <h1 className="h2-size">{product.name}</h1>
                 </header>
                 <div
                   className={`F-W Flex J-C-F-S A-I-F-S ${(width < 769 && width > 481) ? 'F-F-R-N' : 'F-F-C-N'}`}>
@@ -289,7 +289,7 @@ export default function ProductPage(props) {
                   return (
                     <li key={similar.id}>
                       <Link to={location.pathname.substr(0, location.pathname.lastIndexOf('/')) + '/' + similar.id}>
-                        <Card className="Grid Image-S-P" backType="gray">
+                        <Card className="Grid Image-S-P F-H" backType="gray">
                           <Overlay cldI imageName={similar.imgSrc} alt={similar.imgDescription}
                             imageType="similarProduct" folders={`products/${product.type}`}>
                             <h3 className="h3-size">{similar.name}</h3>
