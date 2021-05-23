@@ -22,35 +22,59 @@
 @media only screen and (min-width: 1200px) {
   .Article-Page {
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
+
+    .B-M > .Image * {
+      height: 400px !important;
+    }
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .Article-Page {
     grid-template-columns: calc(#{$standard} * 7) minmax(10px, 1fr) calc(#{$standard} * 7);
+
+    .B-M > .Image * {
+      height: 400px !important;
+    }
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .Article-Page {
     grid-template-columns: calc(#{$standard} * 4) minmax(10px, 1fr) calc(#{$standard} * 4);
+
+    .B-M > .Image * {
+      height: 300px !important;
+    }
   }
 }
 
 @media only screen and (max-width: 768px) {
   .Article-Page {
     grid-template-columns: calc(#{$standard} * 3) minmax(10px, 1fr) calc(#{$standard} * 3);
+
+    .B-M > .Image * {
+      height: 250px !important;
+    }
   }
 }
 
 @media only screen and (max-width: 480px) {
   .Article-Page {
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+    .B-M > .Image * {
+      height: 200px !important;
+    }
   }
 }
 
 @media only screen and (max-width: 320px) {
   .Article-Page {
     grid-template-columns: calc(#{$standard} * 2) minmax(10px, 1fr) calc(#{$standard} * 2);
+
+    .B-M > .Image * {
+      height: 150px !important;
+    }
   }
 }

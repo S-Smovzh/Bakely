@@ -4,20 +4,21 @@ import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import axios from 'axios';
 import { LoadingOverlay } from '../UI-components/overlay/loading/LoadingOverlay';
+import { CloudinaryImage } from '../UI-components/image/CloudinaryImage';
 import useWindowDimensions from '../utils/useWindowDimensions';
+import { imageClasses } from '../utils/imagesTypes';
 import { Card } from '../UI-components/card/Card';
 import { publicLinks } from '../utils/restLinks';
 import { logError } from '../error/errorHandler';
 import Head from '../head/Head';
 import './News.css';
-import { CloudinaryImage } from '../UI-components/image/CloudinaryImage';
 
 import (/* webpackChunkName: "pressRelease", webpackPrefetch: true */ './PressRelease');
 
 export default function News() {
+  const [ t ] = useTranslation();
   const [articles, setArticles] = useState([]);
   const [paragraphs, setParagraphs] = useState(new Map());
-  const [ t ] = useTranslation();
   const { width } = useWindowDimensions();
   const location = useLocation();
 
@@ -66,7 +67,8 @@ export default function News() {
                   {article.img ? (
                     <div className="Image SVG-Pop-Up Flex J-C-C A-I-C">
                       <CloudinaryImage imageName={article.img} alt={article.imgDescription}
-                        imageHeight={300} folders="press" imageWidth="auto:100:500"
+                        imageHeight={imageClasses.news(width).height} folders="press"
+                        imageWidth={imageClasses.news(width).width}
                       />
                     </div>
                     )

@@ -80,5 +80,33 @@ export const imageClasses = {
       default:
         return { width: 135, height: 135 };
     }
+  },
+  news: (screenWidth) => {
+    switch (true) {
+      case screenWidth > 680:
+        return { width: 260, height: 400 };
+      case screenWidth <= 680:
+        return { width: 270, height: 140 };
+      default:
+        return { width: 'auto', height: 140 };
+    }
+  },
+  pressRelease: (screenWidth) => {
+    switch (true) {
+      case screenWidth >= 1200:
+        return { width: 'auto', height: 400 };
+      case screenWidth > 991 && screenWidth <= 1199:
+        return { width: 'auto', height: 400 };
+      case screenWidth > 768 && screenWidth <= 991 :
+        return { width: 'auto', height: 300 };
+      case screenWidth > 480 && screenWidth <= 768:
+        return { width: 'auto', height: 250 };
+      case screenWidth > 320 && screenWidth <= 480:
+        return { width: 'auto', height: 200 };
+      case screenWidth <= 320:
+        return { width: 'auto', height: 150 };
+      default:
+        return { width: 'auto', height: 150 };
+    }
   }
 };

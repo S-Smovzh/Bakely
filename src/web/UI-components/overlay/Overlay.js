@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { CloudinaryImage } from '../image/CloudinaryImage';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-import { imageClasses } from '../../utils/imagesClasses';
+import { imageClasses } from '../../utils/imagesTypes';
 import { Animation } from '../animation/Animation';
 import './Overlay.css';
 

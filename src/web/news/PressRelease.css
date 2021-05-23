@@ -18,30 +18,48 @@
   .Article-Page {
     grid-template-columns: calc(7px * 10) minmax(10px, 1fr) calc(7px * 10);
   }
+  .Article-Page .B-M > .Image * {
+    height: 400px !important;
+  }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .Article-Page {
     grid-template-columns: calc(7px * 7) minmax(10px, 1fr) calc(7px * 7);
+  }
+  .Article-Page .B-M > .Image * {
+    height: 400px !important;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .Article-Page {
     grid-template-columns: calc(7px * 4) minmax(10px, 1fr) calc(7px * 4);
   }
+  .Article-Page .B-M > .Image * {
+    height: 300px !important;
+  }
 }
 @media only screen and (max-width: 768px) {
   .Article-Page {
     grid-template-columns: calc(7px * 3) minmax(10px, 1fr) calc(7px * 3);
+  }
+  .Article-Page .B-M > .Image * {
+    height: 250px !important;
   }
 }
 @media only screen and (max-width: 480px) {
   .Article-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
   }
+  .Article-Page .B-M > .Image * {
+    height: 200px !important;
+  }
 }
 @media only screen and (max-width: 320px) {
   .Article-Page {
     grid-template-columns: calc(7px * 2) minmax(10px, 1fr) calc(7px * 2);
+  }
+  .Article-Page .B-M > .Image * {
+    height: 150px !important;
   }
 }
 

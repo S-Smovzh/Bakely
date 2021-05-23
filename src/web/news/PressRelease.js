@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import axios from 'axios';
 import { LoadingOverlay } from '../UI-components/overlay/loading/LoadingOverlay';
-import { structuredDataList } from '../utils/structuredData';
 import { CloudinaryImage } from '../UI-components/image/CloudinaryImage';
+import useWindowDimensions from '../utils/useWindowDimensions';
+import { structuredDataList } from '../utils/structuredData';
+import { imageClasses } from '../utils/imagesTypes';
 import { publicLinks } from '../utils/restLinks';
 import { logError } from '../error/errorHandler';
 import Head from '../head/Head';
@@ -13,14 +15,15 @@ import './PressRelease.css';
 import (/* webpackChunkName: "news", webpackPrefetch: true */ './News');
 
 export default function PressRelease(props) {
+  const [ t ] = useTranslation();
   const [article, setArticle] = useState([]);
   const [paragraphs, setParagraphs] = useState([]);
-  const [ t ] = useTranslation();
+  const { width } = useWindowDimensions();
   // eslint-disable-next-line react/prop-types
   const id = props.match.params.id;
 
   const getArticle = async () => {
-    article.length === 0 && paragraphs.length === 0 &&  await axios
+    article.length === 0 && paragraphs.length === 0 && await axios
       .get(publicLinks.pressRelease(i18n.language, id))
       .then(async (response) => {
         const { success, data } = response.data;
@@ -54,10 +57,10 @@ export default function PressRelease(props) {
         </header>
         <section className="B-M Flex J-C-F-S A-I-C F-F-C-N Nunito">
           {article.img !== '' ? (
-            <CloudinaryImage imageName={article.img} folders="press" imageHeight={null}
-              imageWidth={null} alt={article.imgDescription} fillImage
+            <CloudinaryImage imageName={article.img} folders="press" imageHeight={imageClasses.pressRelease(width).height}
+              imageWidth={imageClasses.pressRelease(width).width} alt={article.imgDescription}
             />
-          )
+            )
             : null}
           {paragraphs.map((paragraph, index) => {
             return <p key={index} className="F-W h5-size T-J">{paragraph}</p>;
