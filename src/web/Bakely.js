@@ -68,9 +68,7 @@ function Bakely() {
   }, [cartContext, menuContext, toast]);
 
   useEffect(() => {
-    const language = navigator.languages && navigator.language ||
-      navigator.language ||
-      navigator.userLanguage;
+    const language = navigator.language ? navigator.language : 'en';
 
     if (typeof window !== 'undefined') {
       if (!localStorage.getItem(btoa('f-r'))) {

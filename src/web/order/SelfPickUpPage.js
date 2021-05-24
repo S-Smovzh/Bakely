@@ -57,7 +57,7 @@ export const SelfPickUpPage = ({ closeModal, next, page, prev }) => {
           })}
             className="F-W">
             <Dropdown.Toggle variant={null} id="city-dropdown" className="F-W Btn-S Form-Sel">
-              {t('select.bakery')}
+              {orderForm.bakery ? orderForm.bakery : t('select.bakery')}
             </Dropdown.Toggle>
             <Dropdown.Menu className="F-W C-M" flip={false}>
               {locations && locations.map((bakery) => {

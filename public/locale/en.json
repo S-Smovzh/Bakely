@@ -363,6 +363,7 @@
   "button.tooltip": "Tooltip",
   "button.subscribe": "Subscribe",
   "button.notification": "Notifications",
+  "button.signUp": "Sign up",
   "button.orderForm.delivery": "Delivery",
   "button.orderForm.selfPickUp": "Self-pick-up",
   "button.orderForm.selectAddress": "Select address",

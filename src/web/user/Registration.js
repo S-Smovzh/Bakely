@@ -135,22 +135,6 @@ export default function Registration() {
       .catch((error) => logError(error));
   }
 
-  const PreviousButton = () => {
-    if (currentPage !== 1) {
-      return (
-        <Animation onClick onHover type="bounce">
-          <button
-            type="button"
-            className="Btn Btn-Sm Btn-S"
-            onClick={() => setCurrentPage(currentPage <= 1 ? 1 : currentPage - 1)}>
-            {t('button.prev')}
-          </button>
-        </Animation>
-      );
-    }
-    return null;
-  };
-
   const NextButton = () => {
     if (currentPage < 3) {
       return (
@@ -167,11 +151,11 @@ export default function Registration() {
       return (
         <ConfirmButton onClick={() => handleRegistration()} className={width < 481 ? 'Btn-Sm' : 'Btn-Sm-X-W'}
           disabled={!user.firstName
-          || !user.lastName
-          || !user.email
-          || !user.telNum
-          || !user.password
-          || !user.passwordVerification}
+                       || !user.lastName
+                       || !user.email
+                       || !user.telNum
+                       || !user.password
+                       || !user.passwordVerification}
           error={animate} text={t('signUp.button.signUp')}
         />
       );
@@ -181,118 +165,155 @@ export default function Registration() {
 
   return (
     <div className="Registration-Page Nunito Grid">
-      <Head title={t('signUp.seo.title')} description={t('signUp.seo.description')}/>
-      <section className="B-M Grid">
-        {
-          width > 768 && (
-            <div className="F-C Flex J-C-C A-I-C">
-              <img src={login} alt="" className="SVG"/>
-            </div>
-          )}
-        <div className="S-C Grid">
-          <header className="Header T-C Playfair F-W">
-            <h1>{t('signUp.header')}</h1>
-          </header>
-          <Form success={success}>
-            {currentPage === 1 && (
-              <React.Fragment>
-                <div className="Form-R Grid">
-                  <Input errorIdentifier={firstNameError} labelText={t('label.firstName')}
-                    errorLabelText={firstNameError}
-                    inputId="firstName" inputType="text" inputName="firstName"
-                    inputOnBlur={(event) => setUser({ ...user, firstName: event.target.value })}
-                    inputOnChange={(event) => setUser({ ...user, firstName: event.target.value })}
-                    inputRequired="required"
-                    autoComplete="given-name" minLength={1} maxLength={40}
-                    inputMode="latin-name"
-                    tooltipId={t('tooltip.header')} tooltipText={t('tooltip.name')}
-                    value={user.firstName}
-                  />
-                </div>
-                <div className="Form-R Grid">
-                  <Input errorIdentifier={lastNameError} labelText={t('label.lastName')}
-                    errorLabelText={lastNameError}
-                    inputId="lastName" inputType="text" inputName="lastName"
-                    inputOnBlur={(event) => setUser({ ...user, lastName: event.target.value })}
-                    inputOnChange={(event) => setUser({ ...user, lastName: event.target.value })}
-                    inputRequired="required"
-                    autoComplete="additional-name" minLength={1} maxLength={40}
-                    inputMode="verbatim"
-                    tooltipId={t('tooltip.header')} tooltipText={t('tooltip.name')} value={user.lastName}
-                  />
-                </div>
-              </React.Fragment>
+      <>
+        <Head title={t('signUp.seo.title')} description={t('signUp.seo.description')}/>
+        <section className="B-M Grid">
+          {
+            width > 768 && (
+              <div className="F-C Flex J-C-C A-I-C">
+                <img src={login} alt="" className="SVG"/>
+              </div>
             )}
-            {currentPage === 2 && (
-              <React.Fragment>
-                <div className="Form-R Grid">
-                  <Input errorIdentifier={emailError} labelText={t('label.email')}
-                    errorLabelText={emailError}
-                    inputId="email" inputType="email" inputName="email"
-                    inputOnBlur={(event) => setUser({ ...user, email: event.target.value })}
-                    inputOnChange={(event) => setUser({ ...user, email: event.target.value })} inputRequired="required"
-                    autoComplete="email" minLength={6} maxLength={254}
-                    inputMode="email"
-                    tooltipId={t('tooltip.header')} tooltipText={t('tooltip.email')} value={user.email}
+          <div className="S-C Grid">
+            <header className="Header T-C Playfair F-W">
+              <h1>{t('signUp.header')}</h1>
+            </header>
+            <Form success={success}>
+              {currentPage === 1 && (
+                <React.Fragment>
+                  <div className="Form-R Grid">
+                    <Input errorIdentifier={firstNameError} labelText={t('label.firstName')}
+                      errorLabelText={firstNameError}
+                      inputId="firstName" inputType="text" inputName="firstName"
+                      inputOnBlur={(event) => setUser({ ...user, firstName: event.target.value })}
+                      inputOnChange={(event) => setUser({ ...user, firstName: event.target.value })}
+                      inputRequired="required"
+                      autoComplete="given-name" minLength={1} maxLength={40}
+                      inputMode="latin-name"
+                      tooltipId={t('tooltip.header')} tooltipText={t('tooltip.name')}
+                      value={user.firstName}
+                    />
+                  </div>
+                  <div className="Form-R Grid">
+                    <Input errorIdentifier={lastNameError} labelText={t('label.lastName')}
+                      errorLabelText={lastNameError}
+                      inputId="lastName" inputType="text" inputName="lastName"
+                      inputOnBlur={(event) => setUser({ ...user, lastName: event.target.value })}
+                      inputOnChange={(event) => setUser({ ...user, lastName: event.target.value })}
+                      inputRequired="required"
+                      autoComplete="additional-name" minLength={1} maxLength={40}
+                      inputMode="verbatim"
+                      tooltipId={t('tooltip.header')} tooltipText={t('tooltip.name')} value={user.lastName}
+                    />
+                  </div>
+                </React.Fragment>
+              )}
+              {currentPage === 2 && (
+                <React.Fragment>
+                  <div className="Form-R Grid">
+                    <Input errorIdentifier={emailError} labelText={t('label.email')}
+                      errorLabelText={emailError}
+                      inputId="email" inputType="email" inputName="email"
+                      inputOnBlur={(event) => setUser({ ...user, email: event.target.value })}
+                      inputOnChange={(event) => setUser({ ...user, email: event.target.value })} inputRequired="required"
+                      autoComplete="email" minLength={6} maxLength={254}
+                      inputMode="email"
+                      tooltipId={t('tooltip.header')} tooltipText={t('tooltip.email')} value={user.email}
+                    />
+                  </div>
+                  <div className="Form-R Grid">
+                    <Input errorIdentifier={telNumError} labelText={t('label.tel')}
+                      errorLabelText={telNumError}
+                      inputId="telNum" inputType="tel" inputName="telNum"
+                      selectOnChange={(event) => setTelNumPrefix(event.target.value)} selectValue={telNumPrefix}
+                      inputOnBlur={(event) => setUser({ ...user, telNum: event.target.value })}
+                      inputOnChange={(event) => setUser({ ...user, telNum: event.target.value })}
+                      inputRequired="required"
+                      autoComplete="tel-national" inputMode="tel" mask={masks.tel}
+                      tooltipId={t('tooltip.header')} tooltipText={t('tooltip.telNumOrHouseOrFlatNum')}
+                      value={user.telNum} telNumPrefix={telNumPrefix}
+                    />
+                  </div>
+                </React.Fragment>
+              )}
+              {currentPage === 3 && (
+                <React.Fragment>
+                  <div className="Form-R Grid">
+                    <Input errorIdentifier={passwordError} labelText={t('label.password')}
+                      errorLabelText={passwordError}
+                      inputId="password" inputType="password" inputName="password"
+                      inputOnBlur={(event) => setUser({ ...user, password: event.target.value })}
+                      inputOnChange={(event) => setUser({ ...user, password: event.target.value })}
+                      inputRequired="required"
+                      autoComplete="new-password" minLength={8} maxLength={30}
+                      inputMode="text"
+                      tooltipId={t('tooltip.header')} tooltipText={t('tooltip.password')}
+                      value={user.password}
+                    />
+                  </div>
+                  <div className="Form-R Grid">
+                    <Input errorIdentifier={passwordVerificationError} labelText={t('label.passwordVerification')}
+                      errorLabelText={passwordVerificationError}
+                      inputId="passwordVerification" inputType="password" inputName="passwordVerification"
+                      inputOnBlur={(event) => setUser({ ...user, passwordVerification: event.target.value })}
+                      inputOnChange={(event) => setUser({ ...user, passwordVerification: event.target.value })}
+                      inputRequired="required"
+                      autoComplete="new-password" minLength={8} maxLength={30}
+                      inputMode="text"
+                      tooltipId={t('tooltip.header')}
+                      tooltipText={t('tooltip.passwordVerification')} value={user.passwordVerification}
+                    />
+                  </div>
+                </React.Fragment>
+              )}
+              <div className={'Nav-Btns Flex A-I-C ' + (currentPage === 1 ? 'J-C-C' : 'J-C-S-B')}>
+                {(currentPage !== 1) ? (
+                  <Animation onClick onHover type="bounce">
+                    <button
+                      type="button"
+                      className="Btn Btn-Sm Btn-S"
+                      onClick={() => setCurrentPage(currentPage <= 1 ? 1 : currentPage - 1)}>
+                      {t('button.prev')}
+                    </button>
+                  </Animation>
+                )
+                : null
+                }
+                {
+                  (currentPage < 3) ? (
+                    <Animation onClick onHover type="bounce">
+                      <button
+                        className="Btn Btn-Sm Btn-S"
+                        onClick={() => setCurrentPage(currentPage >= 2 ? 3 : currentPage + 1)}>
+                        {t('button.next')}
+                      </button>
+                    </Animation>
+                )
+                   : null
+                }
+                {(currentPage === 3) ? (
+                  <ConfirmButton onClick={() => handleRegistration()} className={width < 481 ? 'Btn-Sm' : 'Btn-Sm-X-W'}
+                    disabled={!user.firstName
+                  || !user.lastName
+                  || !user.email
+                  || !user.telNum
+                  || !user.password
+                  || !user.passwordVerification}
+                    error={animate} text={t('button.signUp')}
                   />
-                </div>
-                <div className="Form-R Grid">
-                  <Input errorIdentifier={telNumError} labelText={t('label.tel')}
-                    errorLabelText={telNumError}
-                    inputId="telNum" inputType="tel" inputName="telNum"
-                    selectOnChange={(event) => setTelNumPrefix(event.target.value)} selectValue={telNumPrefix}
-                    inputOnBlur={(event) => setUser({ ...user, telNum: event.target.value })}
-                    inputOnChange={(event) => setUser({ ...user, telNum: event.target.value })}
-                    inputRequired="required"
-                    autoComplete="tel-national" inputMode="tel" mask={masks.tel}
-                    tooltipId={t('tooltip.header')} tooltipText={t('tooltip.telNumOrHouseOrFlatNum')}
-                    value={user.telNum} telNumPrefix={telNumPrefix}
-                  />
-                </div>
-              </React.Fragment>
-            )}
-            {currentPage === 3 && (
-              <React.Fragment>
-                <div className="Form-R Grid">
-                  <Input errorIdentifier={passwordError} labelText={t('label.password')}
-                    errorLabelText={passwordError}
-                    inputId="password" inputType="password" inputName="password"
-                    inputOnBlur={(event) => setUser({ ...user, password: event.target.value })}
-                    inputOnChange={(event) => setUser({ ...user, password: event.target.value })}
-                    inputRequired="required"
-                    autoComplete="new-password" minLength={8} maxLength={30}
-                    inputMode="text"
-                    tooltipId={t('tooltip.header')} tooltipText={t('tooltip.password')}
-                    value={user.password}
-                  />
-                </div>
-                <div className="Form-R Grid">
-                  <Input errorIdentifier={passwordVerificationError} labelText={t('label.passwordVerification')}
-                    errorLabelText={passwordVerificationError}
-                    inputId="passwordVerification" inputType="password" inputName="passwordVerification"
-                    inputOnBlur={(event) => setUser({ ...user, passwordVerification: event.target.value })}
-                    inputOnChange={(event) => setUser({ ...user, passwordVerification: event.target.value })}
-                    inputRequired="required"
-                    autoComplete="new-password" minLength={8} maxLength={30}
-                    inputMode="text"
-                    tooltipId={t('tooltip.header')}
-                    tooltipText={t('tooltip.passwordVerification')} value={user.passwordVerification}
-                  />
-                </div>
-              </React.Fragment>
-            )}
-            <div className={'Nav-Btns Flex A-I-C ' + (currentPage === 1 ? 'J-C-C' : 'J-C-S-B')}>
-              <PreviousButton/>
-              <NextButton/>
-            </div>
-          </Form>
-        </div>
-      </section>
-      <section className="B-B Flex J-C-C A-I-C">
-        <Link to={`/${i18n.language}/user/login`} className="h6-size font-weight_300">
-          {t('signUp.link.login')}
-        </Link>
-      </section>
+                )
+                  : null}
+
+              </div>
+            </Form>
+          </div>
+        </section>
+        <section className="B-B Flex J-C-C A-I-C">
+          <Link to={`/${i18n.language}/user/login`} className="h6-size font-weight_300">
+            {t('signUp.link.login')}
+          </Link>
+        </section>
+      </>
     </div>
   );
 }

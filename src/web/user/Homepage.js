@@ -54,7 +54,7 @@ export default function Homepage() {
   }, []);
 
   function getOrders() {
-    orders.length === 0 && axios.get(userLinks.orders(language),
+    orders.size === 0 && axios.get(userLinks.orders(language),
       {
         headers: {
           Token: typeof window !== 'undefined' &&

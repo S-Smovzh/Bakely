@@ -19,7 +19,7 @@ export const addProductToCart = (product, state) => {
       name: product.name,
       price: product.price,
       discount: product.discount,
-      quantity: product.quantity,
+      quantity: product.quantity !== undefined ? product.quantity : 1,
       selectedOption: product.selectedOption,
       maxPerOrder: Array.from(tempMap),
       total: product.total,

@@ -5,7 +5,8 @@ import {
   REMOVE_PRODUCT,
   DECREASE_QUANTITY,
   INCREASE_QUANTITY,
-  CLEAR_CART, SHOW_CART
+  CLEAR_CART,
+  SHOW_CART
 } from './actionTypes';
 import {
   addProductToCart,
@@ -13,12 +14,12 @@ import {
   decreaseQuantity,
   increaseQuantity,
   loadProducts,
-  removeProductFromCart, showCart
+  removeProductFromCart,
+  showCart
 } from './dispatcher';
 
 const initialState = {
   show: false,
-  cartButtonClick: false,
   products: typeof window !== 'undefined' ? (localStorage.getItem(btoa('cartItems')) ?
     JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems')))) : [])
     : []

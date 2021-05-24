@@ -6,7 +6,6 @@ export default React.createContext({
     JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems')))) : [])
     : [],
   show: false,
-  cartButtonClick: false,
   showCart: () => {
   },
   loadProducts: () => {

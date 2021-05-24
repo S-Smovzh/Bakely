@@ -3,7 +3,7 @@
 .Product_Page {
   row-gap: $mainPadding;
 
-  .dropdown-toggle{
+  .dropdown-toggle {
     background: #F0F0F0FF !important;
   }
 
@@ -142,13 +142,20 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .Product_Page .B-M {
+    grid-template-rows: minmax(10px, 1fr);
+    grid-template-columns: 400px minmax(10px, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   .Product_Page {
     grid-template-rows: 760px minmax(10px, 1fr);
     grid-template-columns: $mainPadding minmax(10px, 1fr) $mainPadding;
 
     .B-M {
       grid-template-rows: minmax(10px, 1fr);
-      grid-template-columns: 400px minmax(10px, 1fr);
+      grid-template-columns: 360px minmax(10px, 1fr);
 
       .Col-F {
         grid-area: 1/1/2/2;

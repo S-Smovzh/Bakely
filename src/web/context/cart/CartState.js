@@ -19,7 +19,7 @@ export default function CartState({ children }) {
       JSON.parse(fromBinary(localStorage.getItem(btoa('cartItems')))) : [])
     : [];
 
-  const [cartState, dispatch] = useReducer(cartReducer, { cart: cart, show: false, cartButtonClick: false });
+  const [cartState, dispatch] = useReducer(cartReducer, { cart: cart, show: false });
 
   const showCart = (show) => {
     dispatch({ type: SHOW_CART, show: show });
@@ -54,7 +54,6 @@ export default function CartState({ children }) {
       value={{
         cart: cartState.cart,
         show: cartState.show,
-        cartButtonClick: cartState.cartButtonClick,
         showCart,
         loadProducts,
         decreaseQuantity,

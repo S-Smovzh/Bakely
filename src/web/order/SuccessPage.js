@@ -60,7 +60,7 @@ export const SuccessPage = ({ next, page }) => {
           </p>
         </div>
         <div className="S-C Flex A-I-F-S J-C-F-S F-F-C-N T-C">
-          <Textarea labelText={('label.comment')}
+          <Textarea labelText={t('label.comment')}
             id="comment" name="comment"
             onBlur={(event) => {
                       setOrderForm({ ...orderForm, comment: event.target.value });
