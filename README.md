@@ -33,7 +33,7 @@ Before you begin, ensure you have met the following requirements:
 ## Installing React Sample App
 
 1. Clone this repository `git clone https://github.com/S-Sergio-A/Bakely.git`
-2. Navigate to the root directory and add `.env` file with your `PORT` and `REST_API` link.
+2. Navigate to the root directory and add the `.env` file with your `PORT` and `REST_API` link.
 3. Install dependencies
 
 ```javascript
